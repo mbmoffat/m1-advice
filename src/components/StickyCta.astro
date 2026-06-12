@@ -1,0 +1,31 @@
+---
+// Mobile-only fixed bottom bar.
+---
+
+<div class="sticky-cta">
+  <a class="btn" href="/check">Check your eligibility - 60 seconds</a>
+</div>
+
+<style>
+  .sticky-cta {
+    display: none;
+  }
+  @media (max-width: 760px) {
+    .sticky-cta {
+      display: block;
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 60;
+      padding: 0.75rem 1rem;
+      background: var(--bg);
+      border-top: 1px solid var(--line);
+    }
+    .sticky-cta .btn {
+      display: block;
+      text-align: center;
+      width: 100%;
+    }
+  }
+</style>

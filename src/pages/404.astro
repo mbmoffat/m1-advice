@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Page Not Found | Mortgage One"
+  description="The page you were looking for could not be found."
+  noindex={true}
+>
+  <section class="section">
+    <div class="container notfound">
+      <h1>Page not found</h1>
+      <p>The page you were looking for could not be found. Try one of these instead:</p>
+      <ul>
+        <li><a href="/">Go to the home page</a></li>
+        <li><a href="/check">Check your eligibility</a></li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .notfound {
+    max-width: 680px;
+  }
+  .notfound ul {
+    padding-left: 1.2rem;
+    display: grid;
+    gap: 0.5rem;
+  }
+</style>

@@ -1,0 +1,51 @@
+---
+interface Props {
+  heading: string;
+  line: string;
+  label?: string;
+  scenario?: string;
+  src?: string;
+}
+const { heading, line, label = 'Check Your Eligibility', scenario = '', src = '' } = Astro.props;
+
+const query = new URLSearchParams();
+if (scenario) query.set('scenario', scenario);
+if (src) query.set('src', src);
+const href = query.toString() ? `/check?${query.toString()}` : '/check';
+---
+
+<div class="cta-block section--dark">
+  <div class="cta-block__inner">
+    <h2>{heading}</h2>
+    <p>{line}</p>
+    <a class="btn" href={href}>{label}</a>
+  </div>
+</div>
+
+<style>
+  .cta-block {
+    border-radius: var(--radius);
+    padding: clamp(2rem, 5vw, 3rem);
+    margin-block: 3rem;
+    text-align: center;
+  }
+  .cta-block__inner {
+    max-width: 640px;
+    margin-inline: auto;
+  }
+  .cta-block h2 {
+    margin-top: 0;
+  }
+  .cta-block p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+  .cta-block .btn {
+    background: var(--dark-ink);
+    color: var(--ink);
+  }
+  .cta-block .btn:hover {
+    background: var(--line);
+    color: var(--ink);
+  }
+</style>

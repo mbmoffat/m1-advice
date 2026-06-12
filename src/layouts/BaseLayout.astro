@@ -1,0 +1,84 @@
+---
+import site from '../config/site';
+import Header from '../components/locked/Header.astro';
+import Footer from '../components/locked/Footer.astro';
+import StickyCta from '../components/StickyCta.astro';
+import '../styles/global.css';
+
+interface Crumb {
+  name: string;
+  href: string;
+}
+interface Props {
+  title: string;
+  description: string;
+  breadcrumbs?: Crumb[];
+  scenario?: string;
+  noindex?: boolean;
+}
+const { title, description, breadcrumbs = [], noindex = false } = Astro.props;
+
+const path = Astro.url.pathname.replace(/\/$/, '');
+const canonical = site.host + path;
+
+const organization = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Mortgage One',
+  url: site.www,
+  telephone: '+441202155992',
+  email: site.email,
+  sameAs: [site.trustpilot],
+};
+
+const website = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Mortgage One',
+  url: site.host,
+};
+
+const breadcrumbList =
+  breadcrumbs.length > 0
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: breadcrumbs.map((crumb, i) => ({
+          '@type': 'ListItem',
+          position: i + 1,
+          name: crumb.name,
+          item: site.host + crumb.href.replace(/\/$/, ''),
+        })),
+      }
+    : null;
+---
+
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    {site.gscVerification && <meta name="google-site-verification" content={site.gscVerification} />}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Bitter:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    />
+    <script type="application/ld+json" set:html={JSON.stringify(organization)} is:inline />
+    <script type="application/ld+json" set:html={JSON.stringify(website)} is:inline />
+    {breadcrumbList && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbList)} is:inline />}
+  </head>
+  <body>
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <StickyCta />
+    <Footer />
+  </body>
+</html>

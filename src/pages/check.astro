@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Quiz from '../components/locked/Quiz.astro';
+---
+
+<BaseLayout
+  title="Check Your Mortgage Eligibility in 60 Seconds | Mortgage One"
+  description="Five quick questions, no credit check and no obligation. A Mortgage One adviser will review your answers and tell you where you stand."
+  breadcrumbs={[{ name: 'Home', href: '/' }, { name: 'Check your eligibility', href: '/check' }]}
+  noindex={false}
+>
+  <section class="section">
+    <div class="container check">
+      <h1>Check your eligibility</h1>
+      <Quiz />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .check {
+    max-width: 760px;
+  }
+</style>

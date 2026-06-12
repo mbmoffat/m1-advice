@@ -1,0 +1,46 @@
+---
+import site from '../config/site';
+---
+
+<ul class="trust-strip">
+  <li>An appointed representative of Quilter Financial Services Limited</li>
+  <li>Free initial consultation</li>
+  <li><a href={site.trustpilot}>Rated on Trustpilot</a></li>
+</ul>
+
+<style>
+  .trust-strip {
+    list-style: none;
+    margin: 1.5rem 0 0;
+    padding: 1rem 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    font-size: 0.9rem;
+  }
+  .trust-strip li {
+    position: relative;
+    padding-right: 1.5rem;
+  }
+  .trust-strip li:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 1px;
+    height: 1em;
+    background: var(--line);
+    transform: translateY(-50%);
+  }
+  @media (max-width: 640px) {
+    .trust-strip {
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .trust-strip li:not(:last-child)::after {
+      display: none;
+    }
+  }
+</style>

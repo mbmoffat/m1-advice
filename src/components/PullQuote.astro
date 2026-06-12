@@ -1,0 +1,24 @@
+---
+interface Props {
+  quote: string;
+}
+const { quote } = Astro.props;
+---
+
+<blockquote class="pull-quote">
+  <p>{quote}</p>
+</blockquote>
+
+<style>
+  .pull-quote {
+    margin: 2.5rem 0;
+    padding: 1.5rem 0 1.5rem 1.75rem;
+    border-left: 3px solid var(--ink);
+  }
+  .pull-quote p {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+    line-height: 1.35;
+  }
+</style>

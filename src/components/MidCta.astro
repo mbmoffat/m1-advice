@@ -1,0 +1,40 @@
+---
+interface Props {
+  text: string;
+  label?: string;
+  scenario?: string;
+  src?: string;
+}
+const { text, label = 'Start the 60-Second Check', scenario = '', src = '' } = Astro.props;
+
+const query = new URLSearchParams();
+if (scenario) query.set('scenario', scenario);
+if (src) query.set('src', src);
+const href = query.toString() ? `/check?${query.toString()}` : '/check';
+---
+
+<div class="mid-cta">
+  <p>{text}</p>
+  <a class="btn" href={href}>{label}</a>
+</div>
+
+<style>
+  .mid-cta {
+    margin-block: 2.5rem;
+    padding: 1.5rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--surface);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .mid-cta p {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-family: var(--font-heading);
+  }
+</style>

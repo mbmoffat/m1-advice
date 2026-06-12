@@ -1,0 +1,207 @@
+---
+// LOCKED — human-only edits, followed by `npm run lock`.
+import site from '../../config/site';
+
+const www = site.www;
+const nav = [
+  { label: 'News', href: `${www}/news` },
+  { label: 'Guides', href: `${www}/mortgage-guides` },
+  { label: 'Expats', href: `${www}/expats` },
+  { label: 'Seafarers', href: `${www}/seafarers` },
+  { label: 'Calculators', href: `${www}/calculators` },
+  { label: 'Rate Forecast', href: `${www}/interest-rate-projection` },
+  { label: 'Credit Report', href: `${www}/download-your-credit-report` },
+];
+const about = [
+  { label: 'News Archive', href: `${www}/mortgage-news` },
+  { label: 'About', href: `${www}/about-mortgage-one` },
+  { label: 'Services', href: `${www}/mortgage-services` },
+  { label: 'Testimonials', href: `${www}/client-testimonials` },
+  { label: 'Contact', href: `${www}/contact` },
+];
+---
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="wordmark" href="/">Mortgage One</a>
+
+    <nav class="nav-desktop" aria-label="Primary">
+      <ul>
+        {nav.map((item) => (
+          <li><a href={item.href}>{item.label}</a></li>
+        ))}
+        <li class="has-dropdown">
+          <button type="button" class="dropdown-toggle" aria-expanded="false" aria-haspopup="true">About</button>
+          <ul class="dropdown">
+            {about.map((item) => (
+              <li><a href={item.href}>{item.label}</a></li>
+            ))}
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <a class="btn nav-cta" href="/check">Check Eligibility</a>
+
+    <button type="button" class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <nav id="mobile-nav" class="nav-mobile" aria-label="Mobile" hidden>
+    <ul>
+      {nav.map((item) => (
+        <li><a href={item.href}>{item.label}</a></li>
+      ))}
+      {about.map((item) => (
+        <li><a href={item.href}>{item.label}</a></li>
+      ))}
+      <li><a class="btn" href="/check">Check Eligibility</a></li>
+    </ul>
+  </nav>
+</header>
+
+<style>
+  .site-header {
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+  .site-header__inner {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    min-height: 72px;
+  }
+  .wordmark {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.4rem;
+    text-decoration: none;
+    color: var(--ink);
+    margin-right: auto;
+  }
+  .nav-desktop ul {
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .nav-desktop a,
+  .dropdown-toggle {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: var(--ink-soft);
+    background: none;
+    border: 0;
+    cursor: pointer;
+    padding: 0;
+  }
+  .nav-desktop a:hover,
+  .dropdown-toggle:hover {
+    color: var(--ink);
+  }
+  .has-dropdown {
+    position: relative;
+  }
+  .dropdown {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    margin-top: 0.5rem;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 0.5rem 0;
+    min-width: 180px;
+    display: none;
+    flex-direction: column;
+    gap: 0;
+  }
+  .has-dropdown:hover .dropdown,
+  .has-dropdown:focus-within .dropdown {
+    display: flex;
+  }
+  .dropdown li {
+    padding: 0;
+  }
+  .dropdown a {
+    display: block;
+    padding: 0.45rem 1rem;
+  }
+  .nav-cta {
+    white-space: nowrap;
+  }
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block;
+    height: 2px;
+    width: 20px;
+    margin-inline: auto;
+    background: var(--ink);
+  }
+  .nav-mobile {
+    border-top: 1px solid var(--line);
+    background: var(--bg);
+  }
+  .nav-mobile ul {
+    list-style: none;
+    margin: 0;
+    padding: 1rem 1.25rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+  .nav-mobile a {
+    text-decoration: none;
+    color: var(--ink-soft);
+    font-size: 1rem;
+  }
+  .nav-mobile a.btn {
+    color: var(--dark-ink);
+    align-self: flex-start;
+  }
+
+  @media (max-width: 960px) {
+    .nav-desktop,
+    .nav-cta {
+      display: none;
+    }
+    .hamburger {
+      display: flex;
+    }
+  }
+</style>
+
+<script>
+  const toggle = document.querySelector('.hamburger');
+  const menu = document.getElementById('mobile-nav');
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      const open = menu.hasAttribute('hidden');
+      if (open) {
+        menu.removeAttribute('hidden');
+        toggle.setAttribute('aria-expanded', 'true');
+      } else {
+        menu.setAttribute('hidden', '');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+</script>

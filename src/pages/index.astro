@@ -1,0 +1,165 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TrustStrip from '../components/TrustStrip.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+import EnquiryForm from '../components/locked/EnquiryForm.astro';
+
+const routeCards = [
+  {
+    title: 'Living or working abroad',
+    line: 'Seafarers, expats and anyone paid outside the UK',
+    href: '/mortgage-as-a-seafarer',
+  },
+  {
+    title: 'Large loans and complex income',
+    line: 'Bonus, retained profits, day rates and seven-figure lending',
+    href: '/check?scenario=complex-income&src=/',
+  },
+  {
+    title: 'Buying, moving or remortgaging',
+    line: 'First home, next home or a better deal on the one you have',
+    href: '/check?scenario=residential&src=/',
+  },
+];
+
+const steps = [
+  'Answer five quick questions.',
+  'A Mortgage One adviser reviews your situation.',
+  'We come back to you with your options.',
+];
+---
+
+<BaseLayout
+  title="Mortgage Advice & Eligibility Check | Mortgage One"
+  description="Answer five quick questions and a Mortgage One adviser will tell you where you stand. Free initial consultation and no effect on your credit score."
+  breadcrumbs={[{ name: 'Home', href: '/' }]}
+>
+  <section class="section">
+    <div class="container hero">
+      <p class="eyebrow">Mortgage One Advice</p>
+      <h1>Get a clear answer on your mortgage options</h1>
+      <p class="lead">
+        Tell us your situation in 60 seconds and a Mortgage One adviser will tell you where you stand. Free initial
+        consultation, no obligation, and checking won't affect your credit score.
+      </p>
+      <a class="btn" href="/check">Check Your Eligibility</a>
+      <TrustStrip />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid grid--3">
+        {routeCards.map((card) => (
+          <a class="card route-card" href={card.href}>
+            <span class="route-card__title">{card.title}</span>
+            <span class="route-card__line">{card.line}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>How it works</h2>
+      <ol class="how">
+        {steps.map((step, i) => (
+          <li><span class="how__num">{i + 1}</span>{step}</li>
+        ))}
+      </ol>
+      <p class="how-note">
+        Mortgage One can search across multiple lenders in the market, including lenders that take a common-sense view
+        of foreign currency pay, retained profits, bonus income and day rates.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <CtaBlock
+        heading="See where you stand in about a minute"
+        line="Five quick questions, no credit check and no obligation."
+        label="Check Your Eligibility"
+        src="/"
+      />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Send us an enquiry</h2>
+      <EnquiryForm />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <p class="risk-warning">
+        Think carefully before securing your debts against your home. Your home may be repossessed if you do not keep up
+        repayments on your mortgage.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    max-width: 760px;
+  }
+  .route-card {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .route-card:hover {
+    border-color: var(--ink-soft);
+  }
+  .route-card__title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.2rem;
+  }
+  .route-card__line {
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+  }
+  .how {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 1rem;
+    max-width: 640px;
+  }
+  .how li {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    font-size: 1.1rem;
+  }
+  .how__num {
+    flex: 0 0 auto;
+    width: 2rem;
+    height: 2rem;
+    display: grid;
+    place-items: center;
+    background: var(--ink);
+    color: var(--dark-ink);
+    border-radius: 50%;
+    font-family: var(--font-heading);
+    font-weight: 700;
+  }
+  .how-note {
+    margin-top: 1.75rem;
+    max-width: 700px;
+  }
+  .risk-warning {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--line);
+    padding-top: 1.5rem;
+    margin: 0;
+  }
+</style>

@@ -1,0 +1,118 @@
+---
+// LOCKED — human-only edits, followed by `npm run lock`.
+import site from '../../config/site';
+
+const www = site.www;
+const cols = [
+  { label: 'About', href: `${www}/about-mortgage-one` },
+  { label: 'News', href: `${www}/news` },
+  { label: 'Guides', href: `${www}/mortgage-guides` },
+  { label: 'Testimonials', href: `${www}/client-testimonials` },
+  { label: 'Complaints Procedure', href: `${www}/complaints-procedure-and-risk-warnings` },
+  { label: 'Islamic Finance', href: `${www}/shariah-compliant-mortgage-advice-by-referral` },
+  { label: 'Contact', href: `${www}/contact` },
+  { label: 'Services', href: `${www}/mortgage-services` },
+  { label: 'Calculators', href: `${www}/calculators` },
+  { label: 'Risk Warning', href: `${www}/complaints-procedure-and-risk-warnings` },
+  { label: 'BoE Base Rate', href: `${www}/interest-rate-projection` },
+];
+---
+
+<footer class="site-footer section--dark">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <p class="footer-h">Mortgage One: Expert Mortgage Brokers</p>
+        <p>
+          For a Free Initial Consultation, call
+          <a href={site.phoneHref}>01202 155992</a> or
+          <a href={`${www}/contact`}>contact us here.</a>
+        </p>
+        <p class="footer-contact">
+          <span>Mortgage One</span><br />
+          <a href={`mailto:${site.email}`}>{site.email}</a><br />
+          <a href={site.phoneHref}>+44 (0) 1202 155992</a><br />
+          <a href={site.trustpilot}>Trustpilot</a><br />
+          <a href={`${www}/download-your-credit-report`}>Get your Credit Report</a>
+        </p>
+      </div>
+
+      <nav class="footer-links" aria-label="Footer">
+        <ul>
+          {cols.map((item) => (
+            <li><a href={item.href}>{item.label}</a></li>
+          ))}
+          <li>
+            <a href="https://www.mortgageonefinance.co.uk/s/Guide-to-Our-Mortgage-and-Protection-Services.pdf">
+              Download our Guide to Mortgage and Protection Services
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <p class="footer-copy">©2026 Mortgage One. All rights reserved.</p>
+
+    <div class="footer-legal">
+      <p>Mortgage One is a trading style of Sandsea Capital Ltd, an appointed representative of Quilter Financial Services Limited, which is authorised and regulated by the Financial Conduct Authority Register No. 440703.</p>
+      <p>Sandsea Capital Ltd is registered in England and Wales CRN No. 11374947. Registered Office: 555-557 Cranbrook Road, Gants Hill, Ilford, Essex, England IG2 6HE. Approver: Quilter Financial Services Limited – 29 May 2026.</p>
+      <p>Some Buy-to-Let, Holiday-Let Mortgages, House in Multiple Occupation, Bridging Loans, Mezzanine Finance, Inheritance Tax Planning & Tax Planning are not regulated by the Financial Conduct Authority.</p>
+    </div>
+
+    <p class="footer-meta">
+      <a href={site.privacyNotice}>Privacy Notice</a>
+      <a href={`${www}/terms-and-conditions`}>Terms and Conditions</a>
+    </p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    padding-block: clamp(2.5rem, 6vw, 4rem);
+    font-size: 0.92rem;
+  }
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+  .footer-h {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+  }
+  .footer-contact span {
+    font-weight: 700;
+  }
+  .footer-links ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    columns: 2;
+    gap: 2rem;
+  }
+  .footer-links li {
+    margin-bottom: 0.6rem;
+    break-inside: avoid;
+  }
+  .footer-copy {
+    border-top: 1px solid rgba(250, 250, 250, 0.2);
+    padding-top: 1.5rem;
+    margin-top: 2rem;
+    font-weight: 700;
+  }
+  .footer-legal p {
+    font-size: 0.8rem;
+    opacity: 0.85;
+    line-height: 1.5;
+  }
+  .footer-meta {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+  @media (max-width: 700px) {
+    .footer-top {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

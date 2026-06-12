@@ -1,0 +1,238 @@
+---
+// LOCKED — human-only edits, followed by `npm run lock`.
+import site from '../../config/site';
+import { FORM_ENDPOINT } from '../../config/form';
+
+const radio = (name: string, value: string) => ({ name, value, id: `${name}-${value}` });
+
+const step1 = [
+  radio('goal', 'buy-a-home'),
+  radio('goal', 'remortgage'),
+  radio('goal', 'buy-to-let'),
+  radio('goal', 'abroad'),
+  radio('goal', 'something-else'),
+];
+const step1Labels = ['Buy a home', 'Remortgage', 'Buy to let', 'I live or work abroad', 'Something else'];
+
+const step3 = [
+  radio('paid', 'employed'),
+  radio('paid', 'self-employed'),
+  radio('paid', 'contractor'),
+  radio('paid', 'foreign-currency'),
+  radio('paid', 'mixed'),
+];
+const step3Labels = ['Employed', 'Self-employed', 'Contractor or day rate', 'Paid in a foreign currency', 'Mixed or other'];
+
+const step4 = [
+  radio('timing', 'asap'),
+  radio('timing', '1-3-months'),
+  radio('timing', '3-6-months'),
+  radio('timing', 'researching'),
+];
+const step4Labels = ['As soon as possible', '1-3 months', '3-6 months', 'Just researching'];
+---
+
+<form class="quiz" id="quiz" action={FORM_ENDPOINT} method="POST" data-quiz>
+  <input type="hidden" name="scenario" id="quiz-scenario" value="" />
+  <input type="hidden" name="source_page" id="quiz-source" value="" />
+  <input type="hidden" name="_subject" value="New eligibility check - advice.mortgageonefinance.co.uk" />
+  <input type="hidden" name="_template" value="table" />
+  <input type="hidden" name="_captcha" value="false" />
+  <input type="hidden" name="_next" value="https://advice.mortgageonefinance.co.uk/thank-you" />
+  <input type="text" name="_honey" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+  <p class="quiz-progress" data-progress hidden>Step 1 of 5</p>
+
+  <fieldset class="quiz-step" data-step="1">
+    <legend>What do you want to do?</legend>
+    <div class="options">
+      {step1.map((r, i) => (
+        <label class="option" for={r.id}>
+          <input type="radio" id={r.id} name={r.name} value={r.value} required />
+          <span>{step1Labels[i]}</span>
+        </label>
+      ))}
+    </div>
+    <div class="quiz-nav"><button type="button" class="btn" data-next>Continue</button></div>
+  </fieldset>
+
+  <fieldset class="quiz-step" data-step="2">
+    <legend>Your property and deposit</legend>
+    <div class="field">
+      <label for="q-value">Property value (£)</label>
+      <input id="q-value" type="number" inputmode="numeric" min="0" name="property_value" />
+    </div>
+    <div class="field">
+      <label for="q-deposit">Deposit or equity (£)</label>
+      <input id="q-deposit" type="number" inputmode="numeric" min="0" name="deposit_or_equity" />
+    </div>
+    <div class="quiz-nav">
+      <button type="button" class="link-back" data-back>Back</button>
+      <button type="button" class="btn" data-next>Continue</button>
+    </div>
+  </fieldset>
+
+  <fieldset class="quiz-step" data-step="3">
+    <legend>How are you paid?</legend>
+    <div class="options">
+      {step3.map((r, i) => (
+        <label class="option" for={r.id}>
+          <input type="radio" id={r.id} name={r.name} value={r.value} required />
+          <span>{step3Labels[i]}</span>
+        </label>
+      ))}
+    </div>
+    <div class="quiz-nav">
+      <button type="button" class="link-back" data-back>Back</button>
+      <button type="button" class="btn" data-next>Continue</button>
+    </div>
+  </fieldset>
+
+  <fieldset class="quiz-step" data-step="4">
+    <legend>When do you need this?</legend>
+    <div class="options">
+      {step4.map((r, i) => (
+        <label class="option" for={r.id}>
+          <input type="radio" id={r.id} name={r.name} value={r.value} required />
+          <span>{step4Labels[i]}</span>
+        </label>
+      ))}
+    </div>
+    <div class="quiz-nav">
+      <button type="button" class="link-back" data-back>Back</button>
+      <button type="button" class="btn" data-next>Continue</button>
+    </div>
+  </fieldset>
+
+  <fieldset class="quiz-step" data-step="5">
+    <legend>Where shall we send your answer?</legend>
+    <div class="field">
+      <label for="q-name">Name</label>
+      <input id="q-name" type="text" name="name" required autocomplete="name" />
+    </div>
+    <div class="field">
+      <label for="q-email">Email</label>
+      <input id="q-email" type="email" name="email" required autocomplete="email" />
+    </div>
+    <div class="field">
+      <label for="q-phone">Phone</label>
+      <input id="q-phone" type="tel" name="phone" required autocomplete="tel" />
+    </div>
+    <label class="consent">
+      <input type="checkbox" name="privacy_consent" required />
+      <span>I have read and understood the <a href={site.privacyNotice}>Privacy Notice</a></span>
+    </label>
+    <div class="quiz-nav">
+      <button type="button" class="link-back" data-back>Back</button>
+      <button type="submit" class="btn">Get My Answer</button>
+    </div>
+  </fieldset>
+
+  <p class="microcopy">Takes about 60 seconds. Checking won't affect your credit score.</p>
+</form>
+
+<style>
+  .quiz {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    max-width: 640px;
+  }
+  .quiz-progress {
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-soft);
+    margin: 0 0 1.25rem;
+  }
+  .quiz-step {
+    border: 0;
+    margin: 0 0 1rem;
+    padding: 0;
+  }
+  .quiz-step legend {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    padding: 0;
+  }
+  .options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-bottom: 1.25rem;
+  }
+  .option {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 0.8rem 1rem;
+    cursor: pointer;
+  }
+  .option:hover {
+    border-color: var(--ink-soft);
+  }
+  .field {
+    margin-bottom: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+  .field label {
+    font-weight: 700;
+    font-size: 0.92rem;
+  }
+  .field input {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    padding: 0.7rem 0.8rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--bg);
+    width: 100%;
+  }
+  .honeypot {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+  .consent {
+    display: flex;
+    gap: 0.6rem;
+    align-items: flex-start;
+    margin-block: 1.25rem;
+    font-size: 0.92rem;
+  }
+  .consent input {
+    margin-top: 0.25rem;
+  }
+  .quiz-nav {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+  .link-back {
+    background: none;
+    border: 0;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    text-decoration: underline;
+    cursor: pointer;
+    color: var(--ink-soft);
+    padding: 0;
+  }
+  .microcopy {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    margin: 1rem 0 0;
+  }
+</style>
+
+<script src="../../scripts/quiz.js"></script>

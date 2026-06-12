@@ -1,0 +1,62 @@
+---
+interface FaqItem {
+  q: string;
+  a: string;
+}
+interface Props {
+  items: FaqItem[];
+  title?: string;
+}
+const { items, title = 'Frequently asked questions' } = Astro.props;
+
+// FAQPage JSON-LD is generated from the same array the visible list renders,
+// so question/answer parity is guaranteed by construction.
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: items.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.a,
+    },
+  })),
+};
+---
+
+<section class="faq">
+  <h2>{title}</h2>
+  <dl>
+    {items.map((item) => (
+      <div class="faq-item">
+        <dt>{item.q}</dt>
+        <dd>{item.a}</dd>
+      </div>
+    ))}
+  </dl>
+</section>
+
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} is:inline />
+
+<style>
+  .faq {
+    margin-block: 2.5rem;
+  }
+  .faq-item {
+    border-top: 1px solid var(--line);
+    padding-block: 1.25rem;
+  }
+  .faq-item:last-child {
+    border-bottom: 1px solid var(--line);
+  }
+  .faq dt {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
+  }
+  .faq dd {
+    margin: 0;
+  }
+</style>

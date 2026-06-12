@@ -1,0 +1,65 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import site from '../config/site';
+
+interface Crumb {
+  name: string;
+  href: string;
+}
+interface Props {
+  title: string;
+  description: string;
+  eyebrow: string;
+  heading: string;
+  breadcrumbs?: Crumb[];
+  scenario?: string;
+  noindex?: boolean;
+}
+const { title, description, eyebrow, heading, breadcrumbs = [], scenario = '', noindex = false } = Astro.props;
+
+const dateModified = new Date().toISOString().split('T')[0];
+const canonical = site.host + Astro.url.pathname.replace(/\/$/, '');
+
+const article = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: heading,
+  author: {
+    '@type': 'Person',
+    name: 'Matt Moffat',
+    jobTitle: 'Director',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Mortgage One',
+    url: site.www,
+  },
+  dateModified,
+  mainEntityOfPage: canonical,
+};
+---
+
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs} scenario={scenario} noindex={noindex}>
+  <article class="section">
+    <div class="container article">
+      <p class="eyebrow">{eyebrow}</p>
+      <h1>{heading}</h1>
+      <p class="byline">By Matt Moffat, Director, Mortgage One</p>
+      <div class="article-body">
+        <slot />
+      </div>
+    </div>
+  </article>
+  <script type="application/ld+json" set:html={JSON.stringify(article)} is:inline />
+</BaseLayout>
+
+<style>
+  .article {
+    max-width: 760px;
+  }
+  .byline {
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    margin-bottom: 2rem;
+  }
+</style>

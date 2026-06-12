@@ -1,0 +1,98 @@
+---
+// LOCKED — human-only edits, followed by `npm run lock`.
+import site from '../../config/site';
+import { FORM_ENDPOINT } from '../../config/form';
+
+interface Props {
+  scenario?: string;
+}
+const { scenario = '' } = Astro.props;
+const sourcePage = Astro.url.pathname;
+---
+
+<form class="enquiry-form" action={FORM_ENDPOINT} method="POST">
+  <input type="hidden" name="source_page" value={sourcePage} />
+  <input type="hidden" name="scenario" value={scenario} />
+  <input type="hidden" name="_subject" value="New enquiry - advice.mortgageonefinance.co.uk" />
+  <input type="hidden" name="_template" value="table" />
+  <input type="hidden" name="_captcha" value="false" />
+  <input type="hidden" name="_next" value="https://advice.mortgageonefinance.co.uk/thank-you" />
+  <input type="text" name="_honey" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+  <div class="field">
+    <label for="ef-name">Name</label>
+    <input id="ef-name" type="text" name="name" required autocomplete="name" />
+  </div>
+  <div class="field">
+    <label for="ef-email">Email</label>
+    <input id="ef-email" type="email" name="email" required autocomplete="email" />
+  </div>
+  <div class="field">
+    <label for="ef-phone">Phone</label>
+    <input id="ef-phone" type="tel" name="phone" required autocomplete="tel" />
+  </div>
+  <div class="field">
+    <label for="ef-message">Message</label>
+    <textarea id="ef-message" name="message" rows="4"></textarea>
+  </div>
+
+  <label class="consent">
+    <input type="checkbox" name="privacy_consent" required />
+    <span>I have read and understood the <a href={site.privacyNotice}>Privacy Notice</a></span>
+  </label>
+
+  <button class="btn" type="submit">Send Enquiry</button>
+  <p class="microcopy">Checking your options won't affect your credit score.</p>
+</form>
+
+<style>
+  .enquiry-form {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    max-width: 620px;
+  }
+  .field {
+    margin-bottom: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+  .field label {
+    font-weight: 700;
+    font-size: 0.92rem;
+  }
+  .field input,
+  .field textarea {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    padding: 0.7rem 0.8rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--bg);
+    width: 100%;
+  }
+  .honeypot {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+  .consent {
+    display: flex;
+    gap: 0.6rem;
+    align-items: flex-start;
+    margin-block: 1.25rem;
+    font-size: 0.92rem;
+  }
+  .consent input {
+    margin-top: 0.25rem;
+  }
+  .microcopy {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    margin: 0.75rem 0 0;
+  }
+</style>

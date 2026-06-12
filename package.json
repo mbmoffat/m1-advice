@@ -1,0 +1,17 @@
+{
+  "name": "m1-advice",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "prebuild": "node scripts/guards/prebuild.mjs",
+    "build": "astro build",
+    "postbuild": "node scripts/guards/postbuild.mjs",
+    "lock": "node scripts/guards/lock.mjs",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "^5",
+    "@astrojs/sitemap": "^3"
+  }
+}

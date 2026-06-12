@@ -1,0 +1,48 @@
+---
+interface Card {
+  title: string;
+  href: string;
+  line: string;
+}
+interface Props {
+  cards: Card[];
+  title?: string;
+}
+const { cards, title = 'Related' } = Astro.props;
+---
+
+<section class="related">
+  <h2>{title}</h2>
+  <div class="grid grid--3">
+    {cards.map((card) => (
+      <a class="card related-card" href={card.href}>
+        <span class="related-card__title">{card.title}</span>
+        <span class="related-card__line">{card.line}</span>
+      </a>
+    ))}
+  </div>
+</section>
+
+<style>
+  .related {
+    margin-block: 3rem;
+  }
+  .related-card {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .related-card:hover {
+    border-color: var(--ink-soft);
+  }
+  .related-card__title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.15rem;
+  }
+  .related-card__line {
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+  }
+</style>

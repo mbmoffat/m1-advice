@@ -1,0 +1,13 @@
+:root {
+  --bg: #FAFAFA;
+  --surface: #FFFFFF;
+  --ink: #000000;
+  --ink-soft: #1C1C1C;
+  --line: #DCDCDC;
+  --dark: #1C1C1C;
+  --dark-ink: #FAFAFA;
+  --font-heading: 'Young Serif', serif;
+  --font-body: 'Bitter', serif;
+  --max: 1100px;
+  --radius: 6px;
+}
