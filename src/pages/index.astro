@@ -1,4 +1,6 @@
 ---
+import { Picture } from 'astro:assets';
+import heroImage from '../assets/heroes/home.png';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import TrustStrip from '../components/TrustStrip.astro';
 import CtaBlock from '../components/CtaBlock.astro';
@@ -34,15 +36,35 @@ const steps = [
   description="Answer five quick questions and a Mortgage One adviser will tell you where you stand. Free initial consultation and no effect on your credit score."
   breadcrumbs={[{ name: 'Home', href: '/' }]}
 >
+  <section class="hero">
+    <Picture
+      src={heroImage}
+      formats={['avif', 'webp']}
+      fallbackFormat="png"
+      widths={[768, 1280, 1920, 2560]}
+      sizes="100vw"
+      loading="eager"
+      fetchpriority="high"
+      alt="Corfe Castle ruins on a hilltop in Dorset"
+      class="hero__img"
+      pictureAttributes={{ class: 'hero__picture' }}
+    />
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <div class="container hero__inner">
+        <p class="eyebrow">Mortgage One Advice</p>
+        <h1>Get a clear answer on your mortgage options</h1>
+        <p class="lead">
+          Tell us your situation in 60 seconds and a Mortgage One adviser will tell you where you stand. Free initial
+          consultation, no obligation, and checking won't affect your credit score.
+        </p>
+        <a class="btn" href="/check">Check Your Eligibility</a>
+      </div>
+    </div>
+  </section>
+
   <section class="section">
-    <div class="container hero">
-      <p class="eyebrow">Mortgage One Advice</p>
-      <h1>Get a clear answer on your mortgage options</h1>
-      <p class="lead">
-        Tell us your situation in 60 seconds and a Mortgage One adviser will tell you where you stand. Free initial
-        consultation, no obligation, and checking won't affect your credit score.
-      </p>
-      <a class="btn" href="/check">Check Your Eligibility</a>
+    <div class="container">
       <TrustStrip />
     </div>
   </section>
@@ -105,7 +127,42 @@ const steps = [
 
 <style>
   .hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: clamp(440px, 62vh, 720px);
+    overflow: hidden;
+  }
+  .hero :global(.hero__picture) {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .hero :global(.hero__img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .hero__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.25));
+  }
+  .hero__content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    color: var(--dark-ink);
+  }
+  .hero__inner {
     max-width: 760px;
+  }
+  .hero__content .eyebrow,
+  .hero__content h1,
+  .hero__content .lead {
+    color: var(--dark-ink);
   }
   .route-card {
     text-decoration: none;

@@ -16,6 +16,7 @@ Anchors inside <main> may point only to this subdomain, www.mortgageonefinance.c
 Eyebrow + H1, yes-first opening paragraph, reassurance block, mid CTA into /check, body H2s, pull quote, second CTA, FAQ with schema, CTA block, enquiry form, related panel.
 ## House style
 British English. No em dashes, en dashes only where a dash is needed. £1,250 format. Spell out abbreviations on first use per page, including Financial Conduct Authority (FCA). Sentence case H1/H2. SEO titles title case, 60 char ceiling. Meta descriptions sentence case, 160 ceiling.
+Mortgage One is a countrywide UK mortgage broker. Never describe it as a Poole, Dorset, local or regional firm.
 ## Agents
 Improver: existing pages only, max one PR per run, never adds, removes or renames pages, never touches locked files, 7-day anti-churn per page. Page builder: new pages by PR only, never self-merges, must check this blocklist first. All PRs must pass the build, guards included.
 ## Schema set

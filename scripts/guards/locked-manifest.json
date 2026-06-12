@@ -1,5 +1,5 @@
 {
-  "CLAUDE.md": "6ca691da2f192c77953acbf0ca740f9faaef0596df1645086e04b8e702ed1c4e",
+  "CLAUDE.md": "44271bd223bea2c6387797ae39c76aba3f75c7b8dd72cee377dee4bf681f61de",
   "astro.config.mjs": "9c9b9c7cb039f2a26b2d3a84e5a72dfbd74e775e55b52ddd23f7f0007f875cbd",
   "scripts/guards/lock.mjs": "eef456c63994b5aebbd11e45792a7550d3d9c9fe7d32c6e7ce46b28461372eb0",
   "scripts/guards/postbuild.mjs": "9d65d5c0a97db1ed910a9b0bdebc267291e2747309b3be49c964a66a264c5033",
