@@ -123,8 +123,7 @@ const about = [
     flex-direction: column;
     gap: 0;
   }
-  .has-dropdown:hover .dropdown,
-  .has-dropdown:focus-within .dropdown {
+  .has-dropdown.open .dropdown {
     display: flex;
   }
   .dropdown li {
@@ -201,6 +200,40 @@ const about = [
       } else {
         menu.setAttribute('hidden', '');
         toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  // About dropdown: hover for mouse, click/tap toggle, close on leave / outside / Escape.
+  const dropdown = document.querySelector('.nav-desktop .has-dropdown');
+  const dropdownBtn = dropdown && dropdown.querySelector('.dropdown-toggle');
+  if (dropdown && dropdownBtn) {
+    const isOpen = () => dropdown.classList.contains('open');
+    const openDropdown = () => {
+      dropdown.classList.add('open');
+      dropdownBtn.setAttribute('aria-expanded', 'true');
+    };
+    const closeDropdown = () => {
+      dropdown.classList.remove('open');
+      dropdownBtn.setAttribute('aria-expanded', 'false');
+    };
+
+    dropdownBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      isOpen() ? closeDropdown() : openDropdown();
+    });
+    dropdown.addEventListener('mouseenter', openDropdown);
+    dropdown.addEventListener('mouseleave', closeDropdown);
+    dropdown.addEventListener('focusout', (e) => {
+      if (!dropdown.contains(e.relatedTarget)) closeDropdown();
+    });
+    document.addEventListener('click', (e) => {
+      if (!dropdown.contains(e.target)) closeDropdown();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isOpen()) {
+        closeDropdown();
+        dropdownBtn.focus();
       }
     });
   }
