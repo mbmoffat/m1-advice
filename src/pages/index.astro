@@ -143,30 +143,23 @@ const steps = [
     object-fit: cover;
     display: block;
   }
-  /* Left-to-right white wash: lightens the photo where the text sits on the
-     left, fading to transparent so the image stays vivid on the right. */
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    background: linear-gradient(to right, rgba(255, 255, 255, 0.55), transparent);
-  }
   .hero__content {
     position: relative;
     z-index: 2;
     width: 100%;
-    color: var(--ink-soft);
+    color: var(--dark-ink);
   }
   .hero__inner {
     max-width: 760px;
   }
   .hero__content .eyebrow,
   .hero__content .lead {
-    color: var(--ink-soft);
+    color: var(--dark-ink);
   }
   .hero__content h1 {
-    color: var(--ink);
+    color: var(--dark-ink);
+    /* ~15% larger than the global h1 clamp(2rem, 4vw, 3rem), hero only. */
+    font-size: clamp(2.3rem, 4.6vw, 3.45rem);
   }
   .route-card {
     text-decoration: none;
