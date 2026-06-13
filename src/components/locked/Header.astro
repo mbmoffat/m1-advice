@@ -30,9 +30,9 @@ const about = [
         {nav.map((item) => (
           <li><a href={item.href}>{item.label}</a></li>
         ))}
-        <li class="has-dropdown">
-          <button type="button" class="dropdown-toggle" aria-expanded="false" aria-haspopup="true">About</button>
-          <ul class="dropdown">
+        <li class="dd">
+          <button type="button" class="dd-btn" aria-expanded="false">About</button>
+          <ul class="dd-menu">
             {about.map((item) => (
               <li><a href={item.href}>{item.label}</a></li>
             ))}
@@ -92,7 +92,7 @@ const about = [
     padding: 0;
   }
   .nav-desktop a,
-  .dropdown-toggle {
+  .dd-btn {
     font-family: var(--font-body);
     font-size: 0.9rem;
     text-decoration: none;
@@ -103,13 +103,17 @@ const about = [
     padding: 0;
   }
   .nav-desktop a:hover,
-  .dropdown-toggle:hover {
+  .dd-btn:hover {
     color: var(--ink);
   }
-  .has-dropdown {
+  /* About dropdown — click-only. Visibility is controlled ONLY by these three
+     rules: hidden by default, shown when the script adds .open. No :hover,
+     no :focus-within. */
+  .dd {
     position: relative;
   }
-  .dropdown {
+  .dd-menu {
+    display: none;
     position: absolute;
     right: 0;
     top: 100%;
@@ -118,20 +122,14 @@ const about = [
     border-radius: var(--radius);
     padding: 0.5rem 0;
     min-width: 180px;
-    display: none;
-    flex-direction: column;
-    gap: 0;
   }
-  /* Click-only. Closed (display:none above) by default; shown ONLY when the
-     header script adds the .open class on click. Deliberately NO :hover-open
-     and NO :focus-within rule, either of which would keep the menu open. */
-  .has-dropdown.open .dropdown {
-    display: flex;
+  .dd.open .dd-menu {
+    display: block;
   }
-  .dropdown li {
+  .dd-menu li {
     padding: 0;
   }
-  .dropdown a {
+  .dd-menu a {
     display: block;
     padding: 0.45rem 1rem;
   }
@@ -206,37 +204,26 @@ const about = [
     });
   }
 
-  // About dropdown: CLICK-ONLY. No hover, no focus paths. Opens on click of the
-  // About button, closes on a second click, on any click outside, and on Escape.
-  const dropdown = document.querySelector('.nav-desktop .has-dropdown');
-  const dropdownBtn = dropdown && dropdown.querySelector('.dropdown-toggle');
-  if (dropdown && dropdownBtn) {
-    const isOpen = () => dropdown.classList.contains('open');
-    const closeDropdown = () => {
-      dropdown.classList.remove('open');
-      dropdownBtn.setAttribute('aria-expanded', 'false');
+  // About dropdown: click-only.
+  const dd = document.querySelector('.nav-desktop .dd');
+  const ddBtn = dd && dd.querySelector('.dd-btn');
+  if (dd && ddBtn) {
+    const setOpen = (open) => {
+      dd.classList.toggle('open', open);
+      ddBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
     };
-    const openDropdown = () => {
-      dropdown.classList.add('open');
-      dropdownBtn.setAttribute('aria-expanded', 'true');
-    };
-
-    // Toggle on click of the About button (stop the bubble so the document
-    // outside-click handler below does not immediately re-close it).
-    dropdownBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      isOpen() ? closeDropdown() : openDropdown();
+    // Toggle on button click. The click bubbles to the document handler below,
+    // but the .dd.contains() guard there ignores clicks on the button itself.
+    ddBtn.addEventListener('click', () => {
+      setOpen(!dd.classList.contains('open'));
     });
-    // Any click outside the dropdown closes it.
+    // Click outside .dd closes it.
     document.addEventListener('click', (e) => {
-      if (!dropdown.contains(e.target)) closeDropdown();
+      if (!dd.contains(e.target)) setOpen(false);
     });
+    // Escape closes it.
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && isOpen()) {
-        closeDropdown();
-        dropdownBtn.focus();
-      }
+      if (e.key === 'Escape') setOpen(false);
     });
   }
 </script>
