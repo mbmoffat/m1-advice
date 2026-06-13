@@ -2,3 +2,7 @@ node_modules
 dist
 .astro
 .DS_Store
+
+# Strategic docs kept local only, never in the public repo
+docs/page-roadmap.md
+docs/agents.md
