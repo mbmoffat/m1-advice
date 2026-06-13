@@ -122,8 +122,11 @@ const about = [
     flex-direction: column;
     gap: 0;
   }
-  /* Closed by default (display:none above); opened only via the .open class
-     set by the header script. No :hover / :focus-within latch. */
+  /* Closed by default (display:none above). Mouse: opens on :hover.
+     Touch/click: opens via the .open class set by the header script.
+     Deliberately NO :focus-within rule, which would latch the menu open
+     after a click keeps focus on the toggle. */
+  .has-dropdown:hover .dropdown,
   .has-dropdown.open .dropdown {
     display: flex;
   }
@@ -205,25 +208,28 @@ const about = [
     });
   }
 
-  // About dropdown: hover for mouse, click/tap toggle, close on leave / outside / Escape.
+  // About dropdown. Mouse hover is handled purely in CSS (:hover). This script
+  // only adds the touch/click path and the close paths. The .open class is the
+  // click-state; mouseleave clears it so a click never latches the menu open
+  // once the pointer leaves.
   const dropdown = document.querySelector('.nav-desktop .has-dropdown');
   const dropdownBtn = dropdown && dropdown.querySelector('.dropdown-toggle');
   if (dropdown && dropdownBtn) {
     const isOpen = () => dropdown.classList.contains('open');
-    const openDropdown = () => {
-      dropdown.classList.add('open');
-      dropdownBtn.setAttribute('aria-expanded', 'true');
-    };
     const closeDropdown = () => {
       dropdown.classList.remove('open');
       dropdownBtn.setAttribute('aria-expanded', 'false');
+    };
+    const openDropdown = () => {
+      dropdown.classList.add('open');
+      dropdownBtn.setAttribute('aria-expanded', 'true');
     };
 
     dropdownBtn.addEventListener('click', (e) => {
       e.preventDefault();
       isOpen() ? closeDropdown() : openDropdown();
     });
-    dropdown.addEventListener('mouseenter', openDropdown);
+    // Clear the click-state when the pointer leaves, so .open never latches.
     dropdown.addEventListener('mouseleave', closeDropdown);
     dropdown.addEventListener('focusout', (e) => {
       if (!dropdown.contains(e.relatedTarget)) closeDropdown();
