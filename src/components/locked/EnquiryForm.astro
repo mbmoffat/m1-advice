@@ -5,12 +5,15 @@ import { FORM_ENDPOINT } from '../../config/form';
 
 interface Props {
   scenario?: string;
+  heading?: string;
 }
-const { scenario = '' } = Astro.props;
+const { scenario = '', heading = 'Send us an enquiry' } = Astro.props;
 const sourcePage = Astro.url.pathname;
 ---
 
-<form class="enquiry-form" action={FORM_ENDPOINT} method="POST">
+<section class="enquiry">
+  <h2 class="enquiry__heading">{heading}</h2>
+  <form class="enquiry-form" action={FORM_ENDPOINT} method="POST">
   <input type="hidden" name="source_page" value={sourcePage} />
   <input type="hidden" name="scenario" value={scenario} />
   <input type="hidden" name="_subject" value="New enquiry - advice.mortgageonefinance.co.uk" />
@@ -43,15 +46,24 @@ const sourcePage = Astro.url.pathname;
 
   <button class="btn" type="submit">Send Enquiry</button>
   <p class="microcopy">Checking your options won't affect your credit score.</p>
-</form>
+  </form>
+</section>
 
 <style>
+  .enquiry {
+    text-align: center;
+  }
+  .enquiry__heading {
+    margin-bottom: 1.25rem;
+  }
   .enquiry-form {
     background: var(--surface);
     border: 1px solid var(--line);
     border-radius: var(--radius);
     padding: 1.75rem;
     max-width: 620px;
+    margin-inline: auto;
+    text-align: left;
   }
   .field {
     margin-bottom: 1.1rem;
@@ -94,5 +106,6 @@ const sourcePage = Astro.url.pathname;
     font-size: 0.85rem;
     color: var(--ink-soft);
     margin: 0.75rem 0 0;
+    text-align: center;
   }
 </style>
