@@ -17,12 +17,16 @@ import site from '../config/site';
     border-bottom: 1px solid var(--line);
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 1.5rem;
     font-size: 0.9rem;
   }
   .trust-strip li {
     position: relative;
     padding-right: 1.5rem;
+  }
+  .trust-strip li:last-child {
+    padding-right: 0;
   }
   .trust-strip li:not(:last-child)::after {
     content: '';
@@ -37,6 +41,7 @@ import site from '../config/site';
   @media (max-width: 640px) {
     .trust-strip {
       flex-direction: column;
+      align-items: center;
       gap: 0.6rem;
     }
     .trust-strip li:not(:last-child)::after {
