@@ -21,7 +21,8 @@ function walk(dir) {
 
 const explicit = [
   'CLAUDE.md',
-  'vercel.json',
+  // vercel.json intentionally NOT hashed: Vercel rewrites it during the build,
+  // so its on-disk bytes are unstable and would trip the guard. Owner-authorised.
   'astro.config.mjs',
   'src/config/site.ts',
   'src/config/form.ts',

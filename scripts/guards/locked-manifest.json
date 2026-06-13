@@ -1,7 +1,7 @@
 {
   "CLAUDE.md": "44271bd223bea2c6387797ae39c76aba3f75c7b8dd72cee377dee4bf681f61de",
   "astro.config.mjs": "9c9b9c7cb039f2a26b2d3a84e5a72dfbd74e775e55b52ddd23f7f0007f875cbd",
-  "scripts/guards/lock.mjs": "eef456c63994b5aebbd11e45792a7550d3d9c9fe7d32c6e7ce46b28461372eb0",
+  "scripts/guards/lock.mjs": "aa7573a1307107e7ee471807cd0d12d693b307986b239707e40ba6d31f2c5d53",
   "scripts/guards/postbuild.mjs": "9d65d5c0a97db1ed910a9b0bdebc267291e2747309b3be49c964a66a264c5033",
   "scripts/guards/prebuild.mjs": "eb4a166cea8cd9386e1d0546cb44f94f614b572778569a1b1423b1068a741ab7",
   "src/components/locked/EnquiryForm.astro": "7ff907d64ed7e18790a0cae666ca8a2d65f964b376175f45499890fa6cd7ff19",
@@ -9,6 +9,5 @@
   "src/components/locked/Header.astro": "6226458bfb941ee5042f2e3bbf746cf001776c1ecade0cf484815cc9072234bc",
   "src/components/locked/Quiz.astro": "0176c16fb2bea032f770f306cd95948dfb3461883d2e8bebc4d3dfad5b60fcb6",
   "src/config/form.ts": "ce2b2ef2247b10d720b1d99a1fbcce4e73b4a9ecfebedae36afc8db420475747",
-  "src/config/site.ts": "ffe8e3355544cc5d2e2eefcc51f676be68c64ac3b2c857687f6b567b98640efc",
-  "vercel.json": "f91c66a44fb4186c4d6be9ae89d68c058f5c7abe811b20f60159302b96029c09"
+  "src/config/site.ts": "ffe8e3355544cc5d2e2eefcc51f676be68c64ac3b2c857687f6b567b98640efc"
 }
