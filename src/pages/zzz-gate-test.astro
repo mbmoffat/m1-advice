@@ -1,0 +1,6 @@
+---
+// Deliberately broken page to verify the required Vercel build gate.
+// Imports a module that does not exist, so `astro build` fails on Vercel.
+import Missing from '../components/__DoesNotExist__.astro';
+---
+<Missing />
