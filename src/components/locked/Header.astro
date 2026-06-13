@@ -12,11 +12,10 @@ const nav = [
   { label: 'Rate Forecast', href: `${www}/interest-rate-projection` },
   { label: 'Credit Report', href: `${www}/download-your-credit-report` },
 ];
+// Plain top-nav links shown after the primary nav. News Archive, Services and
+// Testimonials live in the footer, so they are intentionally not here.
 const about = [
-  { label: 'News Archive', href: `${www}/mortgage-news` },
   { label: 'About', href: `${www}/about-mortgage-one` },
-  { label: 'Services', href: `${www}/mortgage-services` },
-  { label: 'Testimonials', href: `${www}/client-testimonials` },
   { label: 'Contact', href: `${www}/contact` },
 ];
 ---
@@ -30,14 +29,9 @@ const about = [
         {nav.map((item) => (
           <li><a href={item.href}>{item.label}</a></li>
         ))}
-        <li class="dd">
-          <button type="button" class="dd-btn" aria-expanded="false">About</button>
-          <ul class="dd-menu">
-            {about.map((item) => (
-              <li><a href={item.href}>{item.label}</a></li>
-            ))}
-          </ul>
-        </li>
+        {about.map((item) => (
+          <li><a href={item.href}>{item.label}</a></li>
+        ))}
       </ul>
     </nav>
 
@@ -91,8 +85,7 @@ const about = [
     margin: 0;
     padding: 0;
   }
-  .nav-desktop a,
-  .dd-btn {
+  .nav-desktop a {
     font-family: var(--font-body);
     font-size: 0.9rem;
     text-decoration: none;
@@ -102,36 +95,8 @@ const about = [
     cursor: pointer;
     padding: 0;
   }
-  .nav-desktop a:hover,
-  .dd-btn:hover {
+  .nav-desktop a:hover {
     color: var(--ink);
-  }
-  /* About dropdown — click-only. Visibility is controlled ONLY by these three
-     rules: hidden by default, shown when the script adds .open. No :hover,
-     no :focus-within. */
-  .dd {
-    position: relative;
-  }
-  .dd-menu {
-    display: none;
-    position: absolute;
-    right: 0;
-    top: 100%;
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    padding: 0.5rem 0;
-    min-width: 180px;
-  }
-  .dd.open .dd-menu {
-    display: block;
-  }
-  .dd-menu li {
-    padding: 0;
-  }
-  .dd-menu a {
-    display: block;
-    padding: 0.45rem 1rem;
   }
   .nav-cta {
     white-space: nowrap;
@@ -201,29 +166,6 @@ const about = [
         menu.setAttribute('hidden', '');
         toggle.setAttribute('aria-expanded', 'false');
       }
-    });
-  }
-
-  // About dropdown: click-only.
-  const dd = document.querySelector('.nav-desktop .dd');
-  const ddBtn = dd && dd.querySelector('.dd-btn');
-  if (dd && ddBtn) {
-    const setOpen = (open) => {
-      dd.classList.toggle('open', open);
-      ddBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    };
-    // Toggle on button click. The click bubbles to the document handler below,
-    // but the .dd.contains() guard there ignores clicks on the button itself.
-    ddBtn.addEventListener('click', () => {
-      setOpen(!dd.classList.contains('open'));
-    });
-    // Click outside .dd closes it.
-    document.addEventListener('click', (e) => {
-      if (!dd.contains(e.target)) setOpen(false);
-    });
-    // Escape closes it.
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') setOpen(false);
     });
   }
 </script>
