@@ -122,11 +122,9 @@ const about = [
     flex-direction: column;
     gap: 0;
   }
-  /* Closed by default (display:none above). Mouse: opens on :hover.
-     Touch/click: opens via the .open class set by the header script.
-     Deliberately NO :focus-within rule, which would latch the menu open
-     after a click keeps focus on the toggle. */
-  .has-dropdown:hover .dropdown,
+  /* Click-only. Closed (display:none above) by default; shown ONLY when the
+     header script adds the .open class on click. Deliberately NO :hover-open
+     and NO :focus-within rule, either of which would keep the menu open. */
   .has-dropdown.open .dropdown {
     display: flex;
   }
@@ -208,10 +206,8 @@ const about = [
     });
   }
 
-  // About dropdown. Mouse hover is handled purely in CSS (:hover). This script
-  // only adds the touch/click path and the close paths. The .open class is the
-  // click-state; mouseleave clears it so a click never latches the menu open
-  // once the pointer leaves.
+  // About dropdown: CLICK-ONLY. No hover, no focus paths. Opens on click of the
+  // About button, closes on a second click, on any click outside, and on Escape.
   const dropdown = document.querySelector('.nav-desktop .has-dropdown');
   const dropdownBtn = dropdown && dropdown.querySelector('.dropdown-toggle');
   if (dropdown && dropdownBtn) {
@@ -225,15 +221,14 @@ const about = [
       dropdownBtn.setAttribute('aria-expanded', 'true');
     };
 
+    // Toggle on click of the About button (stop the bubble so the document
+    // outside-click handler below does not immediately re-close it).
     dropdownBtn.addEventListener('click', (e) => {
       e.preventDefault();
+      e.stopPropagation();
       isOpen() ? closeDropdown() : openDropdown();
     });
-    // Clear the click-state when the pointer leaves, so .open never latches.
-    dropdown.addEventListener('mouseleave', closeDropdown);
-    dropdown.addEventListener('focusout', (e) => {
-      if (!dropdown.contains(e.relatedTarget)) closeDropdown();
-    });
+    // Any click outside the dropdown closes it.
     document.addEventListener('click', (e) => {
       if (!dropdown.contains(e.target)) closeDropdown();
     });
