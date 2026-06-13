@@ -41,7 +41,8 @@ const step4Labels = ['As soon as possible', '1-3 months', '3-6 months', 'Just re
   <input type="hidden" name="_next" value="https://advice.mortgageonefinance.co.uk/thank-you" />
   <input type="text" name="_honey" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
-  <p class="quiz-progress" data-progress hidden>Step 1 of 5</p>
+  <p class="quiz-headline">See where you stand in 60 seconds</p>
+  <p class="quiz-progress" data-progress hidden>Step 1 of 6</p>
 
   <fieldset class="quiz-step" data-step="1">
     <legend>What do you want to do?</legend>
@@ -104,8 +105,18 @@ const step4Labels = ['As soon as possible', '1-3 months', '3-6 months', 'Just re
     </div>
   </fieldset>
 
-  <fieldset class="quiz-step" data-step="5">
+  <fieldset class="quiz-step" data-step="5" data-interstitial>
+    <legend>You're almost there</legend>
+    <p class="quiz-interstitial">Most people <span data-goal-phrase>in your situation</span> have options worth exploring. Add your details and a Mortgage One adviser will confirm what is realistic for you.</p>
+    <div class="quiz-nav">
+      <button type="button" class="link-back" data-back>Back</button>
+      <button type="button" class="btn" data-next>Continue</button>
+    </div>
+  </fieldset>
+
+  <fieldset class="quiz-step" data-step="6">
     <legend>Where shall we send your answer?</legend>
+    <p class="quiz-step-note">An adviser will reply the same working day.</p>
     <div class="field">
       <label for="q-name">Name</label>
       <input id="q-name" type="text" name="name" required autocomplete="name" />
@@ -115,9 +126,10 @@ const step4Labels = ['As soon as possible', '1-3 months', '3-6 months', 'Just re
       <input id="q-email" type="email" name="email" required autocomplete="email" />
     </div>
     <div class="field">
-      <label for="q-phone">Phone</label>
-      <input id="q-phone" type="tel" name="phone" required autocomplete="tel" />
+      <label for="q-phone">Phone (optional)</label>
+      <input id="q-phone" type="tel" name="phone" autocomplete="tel" />
     </div>
+    <p class="quiz-paid-note" data-paid-note>However you are paid, a clear answer is still possible.</p>
     <label class="consent">
       <input type="checkbox" name="privacy_consent" required />
       <span>I have read and understood the <a href={site.privacyNotice}>Privacy Notice</a></span>
@@ -126,8 +138,14 @@ const step4Labels = ['As soon as possible', '1-3 months', '3-6 months', 'Just re
       <button type="button" class="link-back" data-back>Back</button>
       <button type="submit" class="btn">Get My Answer</button>
     </div>
+    <p class="quiz-disclaimer">Completing this check is not a mortgage offer or advice and does not guarantee acceptance. Results depend on a full assessment.</p>
   </fieldset>
 
+  <div class="quiz-trust">
+    <a class="quiz-trust__link" href={site.trustpilot} target="_blank" rel="noopener">Trustpilot reviews</a>
+    <span class="quiz-trust__item">Mortgage One arranges these cases every week</span>
+    <span class="quiz-trust__item">Advice from Matt Moffat, Director</span>
+  </div>
   <p class="microcopy">Takes about 60 seconds. Checking won't affect your credit score.</p>
 </form>
 
@@ -232,6 +250,49 @@ const step4Labels = ['As soon as possible', '1-3 months', '3-6 months', 'Just re
     font-size: 0.85rem;
     color: var(--ink-soft);
     margin: 1rem 0 0;
+  }
+  .quiz-headline {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    margin: 0 0 1rem;
+  }
+  .quiz-interstitial {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0 0 1.25rem;
+  }
+  .quiz-step-note {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    margin: 0 0 1.1rem;
+  }
+  .quiz-paid-note {
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    margin: 0 0 0.5rem;
+  }
+  .quiz-disclaimer {
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+    line-height: 1.45;
+    margin: 1rem 0 0;
+  }
+  .quiz-trust {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1rem;
+    align-items: center;
+    border-top: 1px solid var(--line);
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+  }
+  .quiz-trust__link {
+    font-weight: 700;
+    color: var(--ink);
   }
 </style>
 

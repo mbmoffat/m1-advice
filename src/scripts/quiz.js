@@ -20,12 +20,44 @@
   const total = steps.length;
   let current = 0;
 
+  // Personalisation: carry the goal and income-type answers into later copy.
+  const goalPhrases = {
+    'buy-a-home': 'buying a home',
+    'remortgage': 'remortgaging',
+    'buy-to-let': 'buying to let',
+    'abroad': 'living or working abroad',
+    'something-else': 'in your situation',
+  };
+  const paidNotes = {
+    'employed': 'Being employed is no barrier to a clear answer.',
+    'self-employed': 'Being self-employed is no barrier to a clear answer.',
+    'contractor': 'Contract and day rate income is no barrier to a clear answer.',
+    'foreign-currency': 'Foreign currency income is no barrier to a clear answer.',
+    'mixed': 'However your income is made up, a clear answer is still possible.',
+  };
+
+  function personalise() {
+    const goal = form.querySelector('input[name="goal"]:checked');
+    if (goal && goalPhrases[goal.value]) {
+      form.querySelectorAll('[data-goal-phrase]').forEach(function (el) {
+        el.textContent = goalPhrases[goal.value];
+      });
+    }
+    const paid = form.querySelector('input[name="paid"]:checked');
+    if (paid && paidNotes[paid.value]) {
+      form.querySelectorAll('[data-paid-note]').forEach(function (el) {
+        el.textContent = paidNotes[paid.value];
+      });
+    }
+  }
+
   function render() {
     steps.forEach((step, i) => {
       step.hidden = i !== current;
     });
     progress.hidden = false;
     progress.textContent = 'Step ' + (current + 1) + ' of ' + total;
+    personalise();
   }
 
   function validateStep(step) {
