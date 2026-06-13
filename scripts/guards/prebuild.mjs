@@ -1,8 +1,9 @@
 // prebuild.mjs — runs before `astro build`.
 //  (a) FORM_ENDPOINT must be the approved FormSubmit email endpoint or a hashed token.
 //  (b) every file in locked-manifest.json must exist and its sha256 must match.
+//  (c) no working-tree file may contain a high-signal secret, and no .env file may be committed.
 import { createHash } from 'node:crypto';
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -43,4 +44,53 @@ for (const [rel, expected] of Object.entries(manifest)) {
   }
 }
 
-console.log('prebuild guard passed: FORM_ENDPOINT valid and all locked files match manifest.');
+// (c) secret-leak scan over working-tree files. High-signal patterns only, to
+// stay false-positive free on normal code. Secret values are never printed.
+const SECRET_PATTERNS = [
+  { name: 'OpenAI-style secret key', re: /\bsk-[A-Za-z0-9_-]{20,}\b/ },
+  { name: 'GitHub token', re: /\bgh[posru]_[A-Za-z0-9]{30,}\b/ },
+  { name: 'AWS access key id', re: /\b(?:AKIA|ASIA)[0-9A-Z]{16}\b/ },
+  { name: 'private key block', re: /-----BEGIN (?:[A-Z0-9]+ )*PRIVATE KEY-----/ },
+];
+const SECRET_SKIP_DIRS = new Set(['node_modules', 'dist', '.astro', '.git']);
+const SECRET_SKIP_EXT = new Set([
+  '.png', '.jpg', '.jpeg', '.webp', '.avif', '.ico', '.gif',
+  '.woff', '.woff2', '.ttf', '.otf', '.eot', '.pdf', '.zip',
+]);
+
+function secretWalk(dir, out) {
+  for (const name of readdirSync(dir)) {
+    if (SECRET_SKIP_DIRS.has(name)) continue;
+    const full = join(dir, name);
+    if (statSync(full).isDirectory()) secretWalk(full, out);
+    else out.push(full);
+  }
+  return out;
+}
+
+const secretFindings = [];
+for (const full of secretWalk(ROOT, [])) {
+  const base = full.slice(full.lastIndexOf('/') + 1);
+  const rel = full.slice(ROOT.length);
+  if (base === '.env' || base.startsWith('.env.')) {
+    secretFindings.push(`environment file committed: ${rel}`);
+    continue;
+  }
+  const dot = base.lastIndexOf('.');
+  const ext = dot === -1 ? '' : base.slice(dot).toLowerCase();
+  if (SECRET_SKIP_EXT.has(ext)) continue;
+  let content;
+  try {
+    content = readFileSync(full, 'utf8');
+  } catch {
+    continue;
+  }
+  for (const { name, re } of SECRET_PATTERNS) {
+    if (re.test(content)) secretFindings.push(`possible ${name} in ${rel}`);
+  }
+}
+if (secretFindings.length) {
+  fail('secret scan tripped (remove secrets, never commit them):\n  - ' + secretFindings.join('\n  - '));
+}
+
+console.log('prebuild guard passed: FORM_ENDPOINT valid, locked files match manifest, no secrets detected.');

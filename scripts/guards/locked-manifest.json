@@ -1,9 +1,9 @@
 {
-  "CLAUDE.md": "870860349092f5ad48303a3cfbf683ff7cbf46b4b118e42392bdf3cf406d6b94",
+  "CLAUDE.md": "ef541bd87992d1ffecc4b791964aa925b56c8f2d93228bcacbeefc94887c74fe",
   "astro.config.mjs": "9c9b9c7cb039f2a26b2d3a84e5a72dfbd74e775e55b52ddd23f7f0007f875cbd",
   "scripts/guards/lock.mjs": "aa7573a1307107e7ee471807cd0d12d693b307986b239707e40ba6d31f2c5d53",
   "scripts/guards/postbuild.mjs": "9d65d5c0a97db1ed910a9b0bdebc267291e2747309b3be49c964a66a264c5033",
-  "scripts/guards/prebuild.mjs": "eb4a166cea8cd9386e1d0546cb44f94f614b572778569a1b1423b1068a741ab7",
+  "scripts/guards/prebuild.mjs": "6c4a6733cfb9dff36f24a30d1a17c3a15fb96c06dca51429dd5b5530b08e502b",
   "src/components/locked/EnquiryForm.astro": "7ff907d64ed7e18790a0cae666ca8a2d65f964b376175f45499890fa6cd7ff19",
   "src/components/locked/Footer.astro": "108741133ba5e3ad5580973983a9beac5e7c4e934257bbe84104f54bd12badce",
   "src/components/locked/Header.astro": "9a44de469e1af98bb5de72e396fb40756cbb2d3e5aa178f8bc2e8e8e765b92c2",
