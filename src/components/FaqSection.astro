@@ -27,14 +27,14 @@ const faqSchema = {
 
 <section class="faq">
   <h2>{title}</h2>
-  <dl>
+  <div class="faq-list">
     {items.map((item) => (
-      <div class="faq-item">
-        <dt>{item.q}</dt>
-        <dd>{item.a}</dd>
-      </div>
+      <details class="faq-item">
+        <summary>{item.q}</summary>
+        <div class="faq-answer"><p>{item.a}</p></div>
+      </details>
     ))}
-  </dl>
+  </div>
 </section>
 
 <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} is:inline />
@@ -45,18 +45,38 @@ const faqSchema = {
   }
   .faq-item {
     border-top: 1px solid var(--line);
-    padding-block: 1.25rem;
   }
   .faq-item:last-child {
     border-bottom: 1px solid var(--line);
   }
-  .faq dt {
+  .faq-item summary {
     font-family: var(--font-heading);
     font-weight: 700;
     font-size: 1.15rem;
-    margin-bottom: 0.5rem;
+    padding: 1.25rem 2rem 1.25rem 0;
+    cursor: pointer;
+    list-style: none;
+    position: relative;
   }
-  .faq dd {
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+  .faq-item summary::after {
+    content: '+';
+    position: absolute;
+    right: 0;
+    top: 1.1rem;
+    font-size: 1.3rem;
+    line-height: 1;
+    color: var(--ink-soft);
+  }
+  .faq-item[open] summary::after {
+    content: '\2212';
+  }
+  .faq-answer {
+    padding: 0 0 1.25rem;
+  }
+  .faq-answer p {
     margin: 0;
   }
 </style>

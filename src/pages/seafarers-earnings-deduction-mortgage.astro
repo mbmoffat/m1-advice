@@ -1,0 +1,148 @@
+---
+import ArticleLayout from '../layouts/ArticleLayout.astro';
+import Reassurance from '../components/Reassurance.astro';
+import MidCta from '../components/MidCta.astro';
+import PullQuote from '../components/PullQuote.astro';
+import FaqSection from '../components/FaqSection.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+import EnquiryForm from '../components/locked/EnquiryForm.astro';
+import RelatedPanel from '../components/RelatedPanel.astro';
+
+const slug = '/seafarers-earnings-deduction-mortgage';
+
+const reassuranceLines = [
+  'You claim the Seafarers Earnings Deduction each year.',
+  'Your tax return shows little or no UK tax.',
+  'You are paid under a seafaring contract.',
+  'Months at sea and time spent outside the UK.',
+];
+
+const faqs = [
+  {
+    q: 'Does claiming the Seafarers Earnings Deduction stop me getting a mortgage?',
+    a: 'No. The deduction lowers your UK tax, not your income. Lenders who understand seafarers assess your gross contracted earnings rather than your tax return, so the relief itself is not the obstacle. Lender choice is.',
+  },
+  {
+    q: 'Will I have to give up the deduction to get a mortgage?',
+    a: 'No. You keep claiming the Seafarers Earnings Deduction as normal. The right lender simply looks at what you earn under contract instead of the tax figure, so there is no need to change how you file.',
+  },
+  {
+    q: 'Why do some banks misread my income?',
+    a: 'An automated check often reads the low or nil tax figure on your return as a low income. The earnings are real and regular, but the tick-box process cannot see that. A lender that assesses seafarers by hand can.',
+  },
+  {
+    q: 'How do I start?',
+    a: 'Use the 60-second check and a Mortgage One adviser will review your answers and tell you where you stand. You can also call us on 01202 155992. You must be on UK soil to receive advice.',
+  },
+];
+
+const relatedCards = [
+  { title: 'Mortgages for seafarers', href: '/mortgage-as-a-seafarer', line: 'The full picture for seafarer mortgages.' },
+  { title: 'Foreign currency income', href: '/seafarer-mortgage-foreign-currency-income', line: 'How lenders convert and discount non-sterling pay.' },
+  { title: 'Merchant navy mortgages', href: '/merchant-navy-mortgage', line: 'Specialist help for merchant navy pay.' },
+  { title: 'Check your eligibility', href: '/check', line: 'Five quick questions, about 60 seconds.' },
+];
+---
+
+<ArticleLayout
+  title="Seafarers Earnings Deduction Mortgages | Mortgage One"
+  description="Yes, you can get a UK mortgage while claiming the Seafarers Earnings Deduction. Why automated checks misread it and how specialist lenders read your income."
+  eyebrow="Seafarer mortgage questions"
+  heading="Can you get a mortgage if you claim the Seafarers' Earnings Deduction?"
+  breadcrumbs={[
+    { name: 'Home', href: '/' },
+    { name: 'Can you get a mortgage if you claim the Seafarers Earnings Deduction?', href: slug },
+  ]}
+  scenario="seafarer"
+>
+  <p>
+    Yes. You can get a UK mortgage while you claim the Seafarers' Earnings Deduction (SED). The deduction lowers your tax
+    bill, not your earnings, and lenders who understand seafarers know the difference. The problem is never the relief
+    itself. It is that an automated check can misread a low tax figure as a low income, so the answer is choosing a
+    lender that looks at what you actually earn.
+  </p>
+
+  <Reassurance title="Situations we see regularly" lines={reassuranceLines} />
+
+  <h2>What is the Seafarers' Earnings Deduction?</h2>
+  <p>
+    The SED is a relief from HM Revenue and Customs (HMRC) that removes UK income tax on qualifying earnings for work
+    carried out outside the UK over an eligible period. It is a legitimate, well-established relief for seafarers. The
+    practical effect is that your taxable income, the figure many checks rely on, can look far lower than the money you
+    actually earn.
+  </p>
+
+  <h2>Why does the deduction make a mortgage harder?</h2>
+  <p>
+    Most high street affordability checks are automated and lean on your tax position. When SED has reduced your UK tax
+    to little or nothing, a tick-box system can read that as a small income, even though your contracted pay is strong
+    and steady. The earnings are there. The automated process simply cannot interpret them.
+  </p>
+
+  <MidCta
+    text="Claiming SED and want a straight answer? Tell us how you are paid."
+    scenario="seafarer"
+    src={slug}
+  />
+
+  <h2>How do the right lenders assess SED income?</h2>
+  <p>
+    Lenders who work with seafarers assess your gross contractual earnings, supported by your contract and bank
+    statements, rather than reading the tax return at face value. These cases are underwritten by hand, by people who
+    have seen the deduction many times before. Mortgage One places this work across multiple lenders in the market and
+    gives professional advice on which one fits your circumstances. If part of your pay also arrives in a foreign
+    currency, how a lender converts it matters too, which we cover on our
+    <a href="/seafarer-mortgage-foreign-currency-income">foreign currency income</a> page.
+  </p>
+
+  <PullQuote quote="The Seafarers' Earnings Deduction lowers your tax, not your income, and the right lender reads it that way." />
+
+  <h2>Do I have to stop claiming the deduction?</h2>
+  <p>
+    No. You carry on claiming SED exactly as you do now. There is no need to change how you file or to give up the
+    relief to satisfy a lender. The right lender works with your real earnings and your genuine tax position side by
+    side, because both are true at once.
+  </p>
+
+  <h2>What evidence will a lender want, and does residency matter?</h2>
+  <p>
+    Expect to provide your current contract, recent payslips, bank statements showing the pay arriving, and records that
+    support your SED claim, such as your tax return and a record of days worked outside the UK. Residency also shapes
+    the lender list and the deposit, so UK-resident seafarers often reach standard deposit levels while non-resident
+    cases tend to need more. You must be on UK soil to receive advice, so we confirm your position properly first.
+  </p>
+
+  <MidCta
+    text="Let us match your contracted income to a lender that reads it correctly."
+    label="Check Your Options"
+    scenario="seafarer"
+    src={slug}
+  />
+
+  <FaqSection items={faqs} />
+
+  <CtaBlock
+    heading="Find out where you stand"
+    line="Tell us how you are paid and a Mortgage One adviser will review your answers."
+    scenario="seafarer"
+    src={slug}
+  />
+
+  <h2>Send us an enquiry</h2>
+  <EnquiryForm scenario="seafarer" />
+
+  <RelatedPanel cards={relatedCards} />
+
+  <p class="risk-warning">
+    Think carefully before securing your debts against your home. Your home may be repossessed if you do not keep up
+    repayments on your mortgage.
+  </p>
+</ArticleLayout>
+
+<style>
+  .risk-warning {
+    border-top: 1px solid var(--line);
+    padding-top: 1.5rem;
+    margin-top: 2.5rem;
+  }
+</style>
