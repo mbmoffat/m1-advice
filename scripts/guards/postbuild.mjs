@@ -25,6 +25,7 @@ const TRUSTPILOT = siteSrc.match(/trustpilot:\s*'([^']+)'/)?.[1];
 
 const HOST = 'https://advice.mortgageonefinance.co.uk';
 const WWW = 'https://www.mortgageonefinance.co.uk';
+const LINKEDIN = 'https://www.linkedin.com'; // author byline link only
 const TEL = 'tel:+441202155992';
 const MAILTO = 'mailto:enquiry@mortgageonefinance.co.uk';
 const APPROVED_EMAIL = 'enquiry@mortgageonefinance.co.uk';
@@ -165,6 +166,7 @@ for (const file of files) {
       href === QUILTER ||
       href === TEL ||
       href === MAILTO ||
+      href.startsWith(LINKEDIN) ||
       (TRUSTPILOT && href === TRUSTPILOT);
     if (!ok) fail(rel, `G5 disallowed anchor in <main>: "${href}"`);
   }

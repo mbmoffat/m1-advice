@@ -16,7 +16,8 @@ Two to four new pages per day maximum. Never batch-dump. One pull request per pa
 ## Build order
 seafarer, expat, complex income, later-life (55 to 70), HNW amount pages, first-time buyer, buy-to-let, equity release and lifetime mortgages.
 ## Page anatomy (content pages)
-Eyebrow + H1, yes-first opening paragraph, reassurance block, mid CTA into /check, body H2s, pull quote, second CTA, FAQ with schema, CTA block, enquiry form, related panel.
+Eyebrow + H1, author byline, yes-first opening paragraph, reassurance block, mid CTA into /check, body H2s, pull quote, second CTA, FAQ with schema, CTA block, enquiry form, related panel.
+The author byline is rendered by ArticleLayout, never hardcoded per page, and reads exactly: Author - Matt Moffat MLIBF CeMAP CeRER | Managing Director | Mortgage One, as a single link to https://www.linkedin.com/in/mattmoffat/ opening in a new tab with rel="noopener me".
 ## Disclaimers
 Every calculator and result screen must carry this disclaimer: figures illustrative only, not a quote, offer or advice, actual borrowing subject to full lender assessment and status.
 ## Schema set

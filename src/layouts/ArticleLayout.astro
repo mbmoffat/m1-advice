@@ -27,7 +27,8 @@ const article = {
   author: {
     '@type': 'Person',
     name: 'Matt Moffat',
-    jobTitle: 'Director',
+    jobTitle: 'Managing Director',
+    sameAs: ['https://www.linkedin.com/in/mattmoffat/'],
   },
   publisher: {
     '@type': 'Organization',
@@ -44,7 +45,7 @@ const article = {
     <div class="container article">
       <p class="eyebrow">{eyebrow}</p>
       <h1>{heading}</h1>
-      <p class="byline">By Matt Moffat, Director, Mortgage One</p>
+      <p class="byline"><a href="https://www.linkedin.com/in/mattmoffat/" target="_blank" rel="noopener me">Author - Matt Moffat MLIBF CeMAP CeRER | Managing Director | Mortgage One</a></p>
       <div class="article-body">
         <slot />
       </div>
