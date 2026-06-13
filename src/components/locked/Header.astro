@@ -113,7 +113,6 @@ const about = [
     position: absolute;
     right: 0;
     top: 100%;
-    margin-top: 0.5rem;
     background: var(--surface);
     border: 1px solid var(--line);
     border-radius: var(--radius);
@@ -123,6 +122,8 @@ const about = [
     flex-direction: column;
     gap: 0;
   }
+  /* Closed by default (display:none above); opened only via the .open class
+     set by the header script. No :hover / :focus-within latch. */
   .has-dropdown.open .dropdown {
     display: flex;
   }
