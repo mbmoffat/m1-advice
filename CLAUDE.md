@@ -12,7 +12,7 @@ enquiry@mortgageonefinance.co.uk and 01202 155992 only. No other email or phone 
 ## Links
 Anchors inside <main> may point only to this subdomain, www.mortgageonefinance.co.uk, the Quilter Privacy Notice URL, tel/mailto for the approved contact details. Sources are cited as plain text, never linked in body copy.
 ## Cadence and pull requests
-Two to four new pages per day maximum. Never batch-dump. One pull request per page, never combined into a single pull request. No agent self-merges. Every pull request awaits human approval before merge, and must pass the build, guards included.
+Two to four new pages per day maximum. Never batch-dump. One pull request per page, never combined into a single pull request. After opening a pull request for a new or changed page, enable GitHub auto-merge with: gh pr merge <number> --auto --squash. Do not merge directly and do not bypass checks. The required Vercel status check gates every merge, so a failing build never reaches main.
 ## Build order
 seafarer, expat, complex income, later-life (55 to 70), HNW amount pages, first-time buyer, buy-to-let, equity release and lifetime mortgages.
 ## Page anatomy (content pages)
