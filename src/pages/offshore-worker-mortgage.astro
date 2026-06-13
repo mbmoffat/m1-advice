@@ -1,0 +1,151 @@
+---
+import ArticleLayout from '../layouts/ArticleLayout.astro';
+import Reassurance from '../components/Reassurance.astro';
+import MidCta from '../components/MidCta.astro';
+import PullQuote from '../components/PullQuote.astro';
+import FaqSection from '../components/FaqSection.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+import EnquiryForm from '../components/locked/EnquiryForm.astro';
+import RelatedPanel from '../components/RelatedPanel.astro';
+
+const slug = '/offshore-worker-mortgage';
+
+const reassuranceLines = [
+  'Energy, oil and gas or rig work on rotation.',
+  'Paid a day rate rather than an annual salary.',
+  'Income arriving in US dollars or euros.',
+  'Long tours offshore and time spent outside the UK.',
+];
+
+const faqs = [
+  {
+    q: 'Can an offshore worker get a UK mortgage?',
+    a: 'Yes. Offshore energy, oil and gas and rig workers are agreed for UK mortgages. The pattern of rotational work and day rates is well understood by lenders who know the sector. They assess your contracted or day-rate income rather than treating rotation as a problem, so the right lender is what makes the difference.',
+  },
+  {
+    q: 'Will a day rate count as income?',
+    a: 'Yes. A lender that understands the sector annualises your day rate from your contract and recent pay history, then lends on that figure. It wants to see the rate is real and regularly worked. A clear record of days worked across the year supports a stronger annualised figure.',
+  },
+  {
+    q: 'Does being paid in a foreign currency cause a problem?',
+    a: 'No, though it is read more cautiously. A lender converts your pay to sterling and reduces it to allow for the exchange rate moving. US dollars and euros are widely accepted. Our foreign currency income page covers how that conversion and reduction work in detail.',
+  },
+  {
+    q: 'How do I start?',
+    a: 'Use the 60-second check and a Mortgage One adviser will review your answers and tell you where you stand. You can also call us on 01202 155992. You must be on UK soil to receive advice.',
+  },
+];
+
+const relatedCards = [
+  { title: 'Mortgages for seafarers', href: '/mortgage-as-a-seafarer', line: 'The full picture for seafarer mortgages.' },
+  { title: 'Foreign currency income', href: '/seafarer-mortgage-foreign-currency-income', line: 'How lenders convert and discount non-sterling pay.' },
+  { title: 'Seafarers Earnings Deduction mortgages', href: '/seafarers-earnings-deduction-mortgage', line: 'Getting a mortgage while you claim the Seafarers Earnings Deduction.' },
+  { title: 'Check your eligibility', href: '/check', line: 'Five quick questions, about 60 seconds.' },
+];
+---
+
+<ArticleLayout
+  title="Offshore Worker Mortgage | Mortgage One"
+  description="Yes, offshore energy, oil and gas and rig workers can get a UK mortgage. How lenders treat day rates, rotational contracts and foreign currency income."
+  eyebrow="Offshore worker mortgages"
+  heading="Can an offshore worker get a UK mortgage?"
+  breadcrumbs={[
+    { name: 'Home', href: '/' },
+    { name: 'Can an offshore worker get a UK mortgage?', href: slug },
+  ]}
+  scenario="seafarer"
+>
+  <p>
+    Yes. Offshore energy, oil and gas and rig workers are agreed for UK mortgages across multiple lenders in the market.
+    Rotational contracts, day rates and pay in a foreign currency are familiar to lenders who understand the sector. They
+    assess your contracted or day-rate earnings rather than penalising the way you work. The obstacle is rarely the job.
+    It is reaching a lender that reads offshore income properly.
+  </p>
+
+  <Reassurance title="Income we place regularly" lines={reassuranceLines} />
+
+  <h2>Why do offshore workers get turned away by automated checks?</h2>
+  <p>
+    Much of the high street runs on automated affordability checks built around a steady monthly salary. Offshore pay
+    does not always look that way on paper. A day rate, weeks on and weeks off, and earnings that arrive in dollars or
+    euros can confuse a tick-box system, even when the income is strong and consistent. The earnings are real. The
+    automated process simply cannot interpret the pattern.
+  </p>
+
+  <h2>How does a lender treat a day rate?</h2>
+  <p>
+    A lender that understands the sector annualises your day rate. It takes the rate from your contract, looks at the
+    days you realistically work across a year from your pay history, and arrives at a yearly figure to lend against.
+    Rotation is expected, not held against you. What helps most is a clear record of days worked and a contract that
+    states the rate plainly, so the underwriter can build a firm figure rather than estimate a cautious one.
+  </p>
+
+  <MidCta
+    text="Tell us how you are paid offshore and we will tell you where you stand."
+    scenario="seafarer"
+    src={slug}
+  />
+
+  <h2>How is foreign currency income handled?</h2>
+  <p>
+    Many offshore workers are paid in US dollars or euros. A lender converts that pay to sterling and applies a reduction
+    to allow for the exchange rate moving against you, then lends on a percentage of the reduced figure. The income still
+    counts. The size of the reduction varies between lenders, and that gap moves your borrowing more than the interest
+    rate does, so the lender you choose matters. We cover the detail on our
+    <a href="/seafarer-mortgage-foreign-currency-income">foreign currency income</a> page.
+  </p>
+
+  <PullQuote quote="Lenders who know the offshore sector assess your contracted income, not the shape of your rotation." />
+
+  <h2>What evidence will a lender want?</h2>
+  <p>
+    Expect to show your current contract, recent payslips or day-rate invoices, and bank statements that show the pay
+    arriving and converting where a foreign currency is involved. A lender wants to see that the work is regular and
+    likely to continue. Where you work through your own company or on rolling contracts, a short note alongside the
+    paperwork helps an underwriter follow the pattern rather than guess at it.
+  </p>
+
+  <h2>How do residency and deposit affect things?</h2>
+  <p>
+    Where you are tax resident, and how much recent UK address history you have, both shape which lenders will help and
+    how much deposit they ask for. UK-resident offshore workers can often reach standard deposit levels, subject to
+    criteria. Non-resident cases tend to need a larger deposit, and a shorter list of lenders will consider them. If your
+    work outside the UK affects your tax position, our
+    <a href="/seafarers-earnings-deduction-mortgage">Seafarers Earnings Deduction</a> page may also apply. You must be on
+    UK soil to receive advice, so we confirm your circumstances properly before recommending anything.
+  </p>
+
+  <MidCta
+    text="Not sure how a lender would read your day rate? Let us check it for you."
+    label="Check Your Options"
+    scenario="seafarer"
+    src={slug}
+  />
+
+  <FaqSection items={faqs} />
+
+  <CtaBlock
+    heading="See what your offshore income supports"
+    line="Tell us how you are paid and a Mortgage One adviser will review your answers."
+    scenario="seafarer"
+    src={slug}
+  />
+
+  <h2>Send us an enquiry</h2>
+  <EnquiryForm scenario="seafarer" />
+
+  <RelatedPanel cards={relatedCards} />
+
+  <p class="risk-warning">
+    Think carefully before securing your debts against your home. Your home may be repossessed if you do not keep up
+    repayments on your mortgage.
+  </p>
+</ArticleLayout>
+
+<style>
+  .risk-warning {
+    border-top: 1px solid var(--line);
+    padding-top: 1.5rem;
+    margin-top: 2.5rem;
+  }
+</style>
