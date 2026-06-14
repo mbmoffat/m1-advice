@@ -12,6 +12,7 @@ import Quiz from '../components/locked/Quiz.astro';
   <section class="section">
     <div class="container check">
       <h1>Check your eligibility</h1>
+      <p class="check-intro">Yes, you can check what's possible in about a minute. No credit check, no obligation.</p>
       <Quiz />
     </div>
   </section>
@@ -20,5 +21,9 @@ import Quiz from '../components/locked/Quiz.astro';
 <style>
   .check {
     max-width: 760px;
+  }
+  .check-intro {
+    font-size: 1.2rem;
+    margin: 0 0 1.5rem;
   }
 </style>

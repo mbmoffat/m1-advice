@@ -1,4 +1,4 @@
-# Can you get a mortgage if you claim the Seafarers' Earnings Deduction? — copy record
+# Can you get a mortgage if you claim the Seafarers Earnings Deduction? — copy record
 
 - **Route:** `/seafarers-earnings-deduction-mortgage`
 - **Layout:** ArticleLayout (byline: By Matt Moffat, Director, Mortgage One)
@@ -8,11 +8,11 @@
 
 **Eyebrow:** Seafarer mortgage questions
 
-**H1:** Can you get a mortgage if you claim the Seafarers' Earnings Deduction?
+**H1:** Can you get a mortgage if you claim the Seafarers Earnings Deduction?
 
 ## Opening
 
-Yes. You can get a UK mortgage while you claim the Seafarers' Earnings Deduction (SED). The deduction lowers your tax bill, not your earnings, and lenders who understand seafarers know the difference. The problem is never the relief itself. It is that an automated check can misread a low tax figure as a low income, so the answer is choosing a lender that looks at what you actually earn.
+Yes. You can get a UK mortgage while you claim the Seafarers Earnings Deduction (SED). The deduction lowers your tax bill, not your earnings, and lenders who understand seafarers know the difference. The problem is never the relief itself. It is that an automated check can misread a low tax figure as a low income, so the answer is choosing a lender that looks at what you actually earn.
 
 ## Reassurance — Situations we see regularly
 
@@ -21,7 +21,7 @@ Yes. You can get a UK mortgage while you claim the Seafarers' Earnings Deduction
 - You are paid under a seafaring contract.
 - Months at sea and time spent outside the UK.
 
-## What is the Seafarers' Earnings Deduction?
+## What is the Seafarers Earnings Deduction?
 
 The SED is a relief from HM Revenue and Customs (HMRC) that removes UK income tax on qualifying earnings for work carried out outside the UK over an eligible period. It is a legitimate, well-established relief for seafarers. The practical effect is that your taxable income, the figure many checks rely on, can look far lower than the money you actually earn.
 
@@ -39,7 +39,7 @@ Lenders who work with seafarers assess your gross contractual earnings, supporte
 
 ## Pull quote
 
-The Seafarers' Earnings Deduction lowers your tax, not your income, and the right lender reads it that way.
+The Seafarers Earnings Deduction lowers your tax, not your income, and the right lender reads it that way.
 
 ## Do I have to stop claiming the deduction?
 
