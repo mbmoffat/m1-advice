@@ -92,7 +92,7 @@ img {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   font-size: 0.78rem;
-  color: var(--ink-soft);
+  color: var(--accent);
   margin: 0 0 0.6rem;
 }
 
@@ -119,6 +119,50 @@ img {
 .btn:hover {
   background: var(--ink-soft);
   color: var(--dark-ink);
+}
+
+/* Accent (favicon pink). Applied through --accent / --accent-strong only.
+   Primary conversion buttons (nav Check Eligibility CTA and Send Enquiry) use
+   the darker shade so white text clears AA contrast. Hero and other CTAs are
+   left untouched. */
+.nav-cta,
+.enquiry-form button[type='submit'] {
+  background: var(--accent-strong);
+  color: var(--dark-ink);
+}
+.nav-cta:hover,
+.enquiry-form button[type='submit']:hover {
+  background: var(--accent-strong);
+  color: var(--dark-ink);
+  filter: brightness(0.92);
+}
+
+/* Centre the Send Enquiry button under the form. */
+.enquiry-form button[type='submit'] {
+  display: block;
+  width: fit-content;
+  margin-inline: auto;
+}
+
+/* Content text links take the accent (cards and buttons excluded). */
+.article-body a:not(.card):not(.btn) {
+  color: var(--accent);
+}
+.article-body a:not(.card):not(.btn):hover {
+  color: var(--accent-strong);
+}
+
+/* Form inputs: accent border and focus ring on focus. */
+.field input:focus,
+.field textarea:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+  border-color: var(--accent);
+}
+
+/* Consent checkbox tint. */
+input[type='checkbox'] {
+  accent-color: var(--accent);
 }
 
 .card {
