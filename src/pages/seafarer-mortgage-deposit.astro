@@ -1,0 +1,153 @@
+---
+import ArticleLayout from '../layouts/ArticleLayout.astro';
+import Reassurance from '../components/Reassurance.astro';
+import MidCta from '../components/MidCta.astro';
+import PullQuote from '../components/PullQuote.astro';
+import FaqSection from '../components/FaqSection.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+import EnquiryForm from '../components/locked/EnquiryForm.astro';
+import RelatedPanel from '../components/RelatedPanel.astro';
+
+const slug = '/seafarer-mortgage-deposit';
+
+const reassuranceLines = [
+  'A deposit built up from US dollar or euro pay.',
+  'Savings held in an overseas account.',
+  'A gifted deposit from close family.',
+  'UK resident, or living abroad between contracts.',
+];
+
+const faqs = [
+  {
+    q: 'How much deposit does a seafarer need for a mortgage?',
+    a: 'There is no single figure. A UK-resident seafarer can often be considered for the same deposit levels as any UK employee, while a non-resident applicant tends to be asked for a larger deposit and has a shorter list of lenders. The deposit you need depends on your residency, how you are paid and the property, all subject to lender criteria.',
+  },
+  {
+    q: 'Can I use savings held in a foreign currency as my deposit?',
+    a: 'Yes. Foreign currency savings are widely accepted once converted to sterling. A lender will want to see where the money came from and a clear trail through your bank statements, so keep evidence of how the deposit was built up. The currency itself is rarely the obstacle.',
+  },
+  {
+    q: 'Can a seafarer use a gifted deposit?',
+    a: 'Yes. Many lenders accept a gifted deposit, usually from a close family member, supported by a short letter confirming the money is a gift, is not repayable and gives the giver no stake in the property. A gift from abroad is workable too, though expect extra checks on the source of the funds.',
+  },
+  {
+    q: 'How do I start?',
+    a: 'Use the 60-second check and a Mortgage One adviser will review your answers and tell you where you stand. You can also call us on 01202 155992. You must be on UK soil to receive advice.',
+  },
+];
+
+const relatedCards = [
+  { title: 'Mortgages for seafarers', href: '/mortgage-as-a-seafarer', line: 'The full picture for seafarer mortgages.' },
+  { title: 'Foreign currency income', href: '/seafarer-mortgage-foreign-currency-income', line: 'How lenders convert and discount non-sterling pay.' },
+  { title: 'Seafarers Earnings Deduction mortgages', href: '/seafarers-earnings-deduction-mortgage', line: 'Getting a mortgage while you claim the Seafarers Earnings Deduction.' },
+  { title: 'Merchant navy mortgages', href: '/merchant-navy-mortgage', line: 'Specialist help for merchant navy pay.' },
+  { title: 'Check your eligibility', href: '/check', line: 'Five quick questions, about 60 seconds.' },
+];
+---
+
+<ArticleLayout
+  title="Seafarer Mortgage Deposit: How Much You Need | Mortgage One"
+  description="Yes, seafarers can often use standard deposits. How residency, foreign currency savings and gifted deposits affect the loan to value a lender will offer."
+  eyebrow="Seafarer mortgage questions"
+  heading="How much deposit does a seafarer need for a mortgage?"
+  breadcrumbs={[
+    { name: 'Home', href: '/' },
+    { name: 'How much deposit does a seafarer need for a mortgage?', href: slug },
+  ]}
+  scenario="seafarer"
+>
+  <p>
+    Often no more than any other buyer. A seafarer is not asked for a bigger deposit simply for being a seafarer. The
+    figure depends on where you are tax resident, how you are paid and the property itself, not on the job. Get those
+    points in front of a lender that understands seafarers and the deposit you need usually sits in the same range as
+    anyone else's.
+  </p>
+
+  <Reassurance title="Deposits we see regularly" lines={reassuranceLines} />
+
+  <h2>Is there a standard deposit for seafarers?</h2>
+  <p>
+    There is no single number. A UK-resident seafarer can often be considered for the same deposit levels as any UK
+    employee, with a range of residential mortgages available from around a 5% to 10% deposit, which is a loan to value
+    (LTV) of 90% to 95%, subject to criteria. Loan to value is simply the size of the mortgage measured against the
+    price of the property, so a smaller deposit means a higher LTV. A larger deposit lowers the LTV and tends to widen
+    the choice of lenders and rates, but it is not a requirement of being a seafarer.
+  </p>
+
+  <h2>How does where you live affect your deposit?</h2>
+  <p>
+    Residency does more to shape your deposit than your line of work does. A UK-resident seafarer with recent UK address
+    history can frequently reach standard deposit levels, in the 90% to 95% LTV band described above and subject to
+    criteria. A non-resident applicant, or someone with limited recent UK address history, tends to be asked for a
+    larger deposit, often in the region of 25% or more, which is an LTV of 75% or below, and a shorter list of lenders
+    will consider the case. The deposit moves with your circumstances, which is why we confirm them before pointing you
+    at a lender. The wider picture sits on our <a href="/mortgage-as-a-seafarer">mortgages for seafarers</a> page.
+  </p>
+
+  <MidCta
+    text="Tell us where you live and how you are paid, and we will tell you where you stand."
+    scenario="seafarer"
+    src={slug}
+  />
+
+  <h2>Can you fund the deposit from foreign currency savings?</h2>
+  <p>
+    Yes. Many seafarers build a deposit from pay held in US dollars, euros or another currency, and that is widely
+    accepted once it is converted to sterling. What a lender looks at is not the currency but the source of the funds.
+    It wants to see that the money is yours, where it came from and a clear trail through your bank statements. Savings
+    accumulated from contracted pay are straightforward to evidence. How that same income is assessed for affordability
+    is covered on our <a href="/seafarer-mortgage-foreign-currency-income">foreign currency income</a> page.
+  </p>
+
+  <h2>Can a seafarer use a gifted deposit?</h2>
+  <p>
+    Yes. A gifted deposit, usually from a close family member, is accepted by a large part of the market. The lender
+    will ask for a short letter from the person making the gift, confirming the money is a gift rather than a loan, is
+    not repayable, and leaves them with no stake in the property. A gift from family living abroad is workable too,
+    though expect more thorough checks on the source of the funds, which is normal rather than a sign of a problem.
+  </p>
+
+  <PullQuote quote="Where your deposit comes from matters to a lender as much as how big it is." />
+
+  <h2>What a lender wants to see about your deposit</h2>
+  <p>
+    Behind every deposit is a source-of-funds check, and for seafarers it is worth preparing for early. Have evidence of
+    how the money was built up, whether that is saved contracted pay, the sale of an asset or a documented gift, and
+    keep a clean trail through your statements so an underwriter can follow it rather than guess at it. Deposit and how
+    much you can borrow are two sides of the same case, so we look at both together. You must be on UK soil to receive
+    advice, so we confirm your circumstances properly before recommending anything.
+  </p>
+
+  <MidCta
+    text="Not sure your deposit and its source will satisfy a lender? Let us check it for you."
+    label="Check Your Options"
+    scenario="seafarer"
+    src={slug}
+  />
+
+  <FaqSection items={faqs} />
+
+  <CtaBlock
+    heading="See what your deposit supports"
+    line="Tell us how your deposit is made up and a Mortgage One adviser will review your answers."
+    scenario="seafarer"
+    src={slug}
+  />
+
+  <EnquiryForm scenario="seafarer" />
+
+  <RelatedPanel cards={relatedCards} />
+
+  <p class="risk-warning">
+    Think carefully before securing your debts against your home. Your home may be repossessed if you do not keep up
+    repayments on your mortgage.
+  </p>
+</ArticleLayout>
+
+<style>
+  .risk-warning {
+    border-top: 1px solid var(--line);
+    padding-top: 1.5rem;
+    margin-top: 2.5rem;
+  }
+</style>
