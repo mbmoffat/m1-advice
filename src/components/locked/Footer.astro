@@ -16,6 +16,47 @@ const cols = [
   { label: 'Risk Warning', href: `${www}/complaints-procedure-and-risk-warnings` },
   { label: 'BoE Base Rate', href: `${www}/interest-rate-projection` },
 ];
+
+// Auto-generated footer sitemap. Same page set as sitemap.xml: every page under
+// src/pages except 404 and thank-you (the @astrojs/sitemap exclusions), so it
+// updates itself whenever a page is added or removed. Grouped by cluster, pillar first.
+const pageModules = import.meta.glob('../../pages/**/*.astro');
+const sitemapExclude = new Set(['/404', '/thank-you']);
+const routes = Object.keys(pageModules)
+  .map((p) => {
+    const r = p.slice(p.indexOf('/pages/') + '/pages'.length).replace(/\.astro$/, '').replace(/\/index$/, '');
+    return r === '' ? '/' : r;
+  })
+  .filter((r) => !sitemapExclude.has(r));
+
+const sitemapLabel = (r) => {
+  if (r === '/') return 'Home';
+  if (r === '/check') return 'Check your eligibility';
+  if (r === '/mortgage-as-a-seafarer') return 'Mortgages for seafarers';
+  const s = r.replace(/^\//, '').replace(/-/g, ' ');
+  return s.charAt(0).toUpperCase() + s.slice(1);
+};
+const sitemapCluster = (r) => {
+  if (r === '/' || r === '/check') return 'Mortgage One';
+  if (/seafarer|merchant-navy|offshore-worker/.test(r)) return 'Seafarer mortgages';
+  return 'More pages';
+};
+const sitemapPillar = { 'Seafarer mortgages': '/mortgage-as-a-seafarer' };
+const sitemapOrder = ['Mortgage One', 'Seafarer mortgages', 'More pages'];
+
+const sitemapGroups = sitemapOrder
+  .map((cluster) => {
+    const pillar = sitemapPillar[cluster];
+    const pages = routes
+      .filter((r) => sitemapCluster(r) === cluster)
+      .sort((a, b) => {
+        if (a === pillar) return -1;
+        if (b === pillar) return 1;
+        return sitemapLabel(a).localeCompare(sitemapLabel(b));
+      });
+    return { cluster, pages };
+  })
+  .filter((g) => g.pages.length);
 ---
 
 <footer class="site-footer section--dark">
@@ -50,6 +91,19 @@ const cols = [
         </ul>
       </nav>
     </div>
+
+    <nav class="footer-sitemap" aria-label="Site map">
+      {sitemapGroups.map((group) => (
+        <div class="footer-sitemap-col">
+          <p class="footer-sitemap-h">{group.cluster}</p>
+          <ul>
+            {group.pages.map((route) => (
+              <li><a href={route}>{sitemapLabel(route)}</a></li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </nav>
 
     <p class="footer-copy">©2026 Mortgage One. All rights reserved.</p>
 
@@ -93,6 +147,27 @@ const cols = [
   .footer-links li {
     margin-bottom: 0.6rem;
     break-inside: avoid;
+  }
+  .footer-sitemap {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem 2.5rem;
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(250, 250, 250, 0.2);
+  }
+  .footer-sitemap-h {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    margin: 0 0 0.6rem;
+  }
+  .footer-sitemap ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .footer-sitemap li {
+    margin-bottom: 0.5rem;
   }
   .footer-copy {
     border-top: 1px solid rgba(250, 250, 250, 0.2);
