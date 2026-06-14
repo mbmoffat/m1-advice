@@ -4,6 +4,10 @@
   --ink: #000000;
   --ink-soft: #1C1C1C;
   --line: #DCDCDC;
+  /* Accent sampled from the M1 favicon (magenta square). --accent-strong is a
+     darker shade of the same hue so white button text clears AA contrast. */
+  --accent: #E82888;
+  --accent-strong: #C1156B;
   --dark: #1C1C1C;
   --dark-ink: #FAFAFA;
   --font-heading: 'Young Serif', serif;
