@@ -12,7 +12,7 @@
 
 ## Opening
 
-Yes. Merchant navy seafarers get UK mortgages across multiple lenders in the market. Merchant navy pay can combine several things a high street system struggles with at once, foreign currency, rotational contracts, long spells at sea and the Seafarers' Earnings Deduction (SED). None of that is unusual to a lender that knows seafarers. The case is assessed by hand, by someone who has seen it before, rather than by a tick box.
+Yes. Merchant navy seafarers get UK mortgages across multiple lenders in the market. Merchant navy pay can combine several things a high street system struggles with at once, foreign currency, rotational contracts, long spells at sea and the Seafarers Earnings Deduction (SED). None of that is unusual to a lender that knows seafarers. The case is assessed by hand, by someone who has seen it before, rather than by a tick box.
 
 ## Reassurance — Situations we see regularly
 
@@ -33,7 +33,7 @@ Often part of merchant navy pay arrives in US dollars or euros. A lender convert
 
 Tell us how your pay is made up and we will tell you where you stand. → Start the 60-Second Check → `/check?scenario=seafarer&src=/merchant-navy-mortgage`
 
-## What about the Seafarers' Earnings Deduction?
+## What about the Seafarers Earnings Deduction?
 
 Many merchant navy seafarers claim SED, which removes UK income tax on qualifying earnings worked outside the UK. That can make your taxable income look low to an automated check, even though your contracted pay is steady. The right lender assesses your gross contractual earnings instead. There is more on this on our Seafarers Earnings Deduction page (`/seafarers-earnings-deduction-mortgage`).
 
