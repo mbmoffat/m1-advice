@@ -12,7 +12,7 @@ enquiry@mortgageonefinance.co.uk and 01202 155992 only. No other email or phone 
 ## Links
 Anchors inside <main> may point only to this subdomain, www.mortgageonefinance.co.uk, the Quilter Privacy Notice URL, tel/mailto for the approved contact details. Sources are cited as plain text, never linked in body copy.
 ## Cadence and pull requests
-Two to four new pages per day maximum. Never batch-dump. One pull request per page, never combined into a single pull request. After opening a pull request for a new or changed page, enable GitHub auto-merge with: gh pr merge <number> --auto --squash. Do not merge directly and do not bypass checks. The required Vercel status check gates every merge, so a failing build never reaches main.
+Two to four new pages per day maximum. Never batch-dump. One pull request per page, never combined into a single pull request. After opening a pull request for a new or changed page, enable GitHub auto-merge with: gh pr merge <number> --auto --squash. Pull requests auto-merge when the build, the guards and the required Vercel status check pass. No human approval is required: the guard layer is the gate, and a failing build never reaches main. Do not merge directly and do not bypass checks.
 ## Quality review
 Before opening the pull request for any new or rewritten page, review the rendered page against this rubric and score each item 1 to 5:
 1. Intent match: does the page directly and fully answer its target search query, yes-first?
@@ -23,7 +23,8 @@ Before opening the pull request for any new or rewritten page, review the render
 6. Links and standards: do internal links resolve, is the related panel correct, and is every page standard met (byline, residential risk warning, UK-soil line, approved market wording, no superlatives, schema)?
 Revise and re-review until every item scores 4 or 5. Put the final scores at the top of the pull request description. If after two revision rounds any item is still 3 or below, open the pull request as a draft so it cannot auto-merge, and list what failed, for Matt to look at.
 ## Build order
-seafarer, expat, complex income, later-life (55 to 70), HNW amount pages, first-time buyer, buy-to-let, equity release and lifetime mortgages.
+seafarer, expat, complex income, later-life (55 to 70), HNW amount pages, first-time buyer, buy-to-let, Halal Mortgages, then equity release and lifetime mortgages last.
+Halal Mortgages is a deliberately broad cluster: a larger page count and wider keyword footprint, broad explainer pages, an intentional exception to the high-intent default, not drift.
 ## Page anatomy (content pages)
 Eyebrow + H1, author byline, yes-first opening paragraph, reassurance block, mid CTA into /check, body H2s, pull quote, second CTA, FAQ with schema, CTA block, enquiry form, related panel.
 The author byline is rendered by ArticleLayout, never hardcoded per page, and reads exactly: Author - Matt Moffat MLIBF CeMAP CeRER | Managing Director | Mortgage One, as a single link to https://www.linkedin.com/in/mattmoffat/ opening in a new tab with rel="noopener me".
