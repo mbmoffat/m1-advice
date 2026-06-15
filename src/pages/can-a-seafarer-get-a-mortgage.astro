@@ -1,0 +1,156 @@
+---
+import ArticleLayout from '../layouts/ArticleLayout.astro';
+import Reassurance from '../components/Reassurance.astro';
+import MidCta from '../components/MidCta.astro';
+import PullQuote from '../components/PullQuote.astro';
+import FaqSection from '../components/FaqSection.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+import EnquiryForm from '../components/locked/EnquiryForm.astro';
+import RelatedPanel from '../components/RelatedPanel.astro';
+
+const slug = '/can-a-seafarer-get-a-mortgage';
+
+const reassuranceLines = [
+  'Steady contracted income, paid on rotation.',
+  'Pay arriving in US dollars or euros.',
+  'A low tax bill from the Seafarers Earnings Deduction.',
+  'Long, regular spells working away at sea.',
+];
+
+const faqs = [
+  {
+    q: 'Can a seafarer get a mortgage in the UK?',
+    a: 'Yes. A seafarer with a steady contract and a reasonable deposit can get a UK mortgage. Seafarers are strong borrowers, so eligibility is rarely the problem. The real task is choosing a lender whose assessment reads your income, residency and time at sea correctly rather than penalising them.',
+  },
+  {
+    q: 'Why do some lenders turn a seafarer down?',
+    a: 'Usually because an automated check has misread the case rather than because the borrower fails the rules. Foreign currency pay, a low tax figure from the Seafarers Earnings Deduction, or gaps that look like time out of work can all trip a system that was not built for seafarers. A lender that understands the role assesses the same facts and reaches a different answer.',
+  },
+  {
+    q: 'Does living abroad stop a seafarer getting a mortgage?',
+    a: 'Not on its own, but it narrows the list. UK-resident seafarers usually have the widest choice and standard deposit levels, subject to criteria. Non-resident cases tend to need a larger deposit and a shorter list of lenders will consider them. Your residency and UK ties shape which lenders help, not whether help exists.',
+  },
+  {
+    q: 'How do I start?',
+    a: 'Use the 60-second check and a Mortgage One adviser will review your answers and tell you where you stand. You can also call us on 01202 155992. You must be on UK soil to receive advice.',
+  },
+];
+
+const relatedCards = [
+  { title: 'Mortgages for seafarers', href: '/mortgage-as-a-seafarer', line: 'The full picture for seafarer mortgages.' },
+  { title: 'Foreign currency income', href: '/seafarer-mortgage-foreign-currency-income', line: 'How lenders convert and discount non-sterling pay.' },
+  { title: 'Seafarers Earnings Deduction mortgages', href: '/seafarers-earnings-deduction-mortgage', line: 'Getting a mortgage while you claim the Seafarers Earnings Deduction.' },
+  { title: 'Check your eligibility', href: '/check', line: 'Five quick questions, about 60 seconds.' },
+];
+---
+
+<ArticleLayout
+  title="Can a Seafarer Get a Mortgage? | Mortgage One"
+  description="Yes, seafarers can get a UK mortgage. What a lender actually checks on income, residency and deposit, and why a specialist beats an automated decision."
+  eyebrow="Seafarer mortgage questions"
+  heading="Can a seafarer get a mortgage?"
+  breadcrumbs={[
+    { name: 'Home', href: '/' },
+    { name: 'Can a seafarer get a mortgage?', href: slug },
+  ]}
+  scenario="seafarer"
+>
+  <p>
+    Yes. Seafarers get UK mortgages across multiple lenders in the market. A steady contract and a reasonable deposit
+    make a seafarer a strong borrower, so eligibility is rarely the obstacle. The obstacle, when there is one, is lender
+    choice: pick a lender whose assessment reads seafarer income properly and a yes is well within reach.
+  </p>
+
+  <Reassurance title="Situations we see regularly" lines={reassuranceLines} />
+
+  <h2>What does a lender actually assess?</h2>
+  <p>
+    A lender looks at three things in particular: your income and the evidence behind it, your residency and UK ties, and
+    your deposit. On income, it wants to see pay that is real, regular and likely to continue, backed by your contract,
+    payslips and bank statements. On residency, it weighs where you are tax resident and how much recent UK address
+    history you have. On deposit, the size of it sets your loan to value and the rates you can reach. None of these
+    counts against a seafarer by default. They are simply the facts a lender measures, and a seafarer usually measures
+    up well.
+  </p>
+
+  <h2>Why does an automated check say no when a specialist says yes?</h2>
+  <p>
+    Because a high-street system is built around a UK-based, sterling-paid, nine-to-five borrower, and a seafarer does
+    not fit that template at a glance. Three features trip the machine without troubling a specialist underwriter. Pay in
+    a foreign currency can look like instability rather than a normal contract. A low tax bill from the Seafarers
+    Earnings Deduction (SED) can read as a low income when your gross pay is healthy. Long spells at sea can look like
+    gaps in employment rather than the rotation they are. A lender that understands seafarers sees the same facts and
+    reads them correctly.
+  </p>
+
+  <MidCta
+    text="Had a no that did not add up? Tell us how you are paid and we will tell you where you stand."
+    scenario="seafarer"
+    src={slug}
+  />
+
+  <h2>How do foreign currency pay and the SED change the decision?</h2>
+  <p>
+    They change which lender suits you, not whether you qualify. With foreign currency pay, a lender converts your income
+    to sterling and applies a reduction to allow for the rate moving, then lends on that figure. The size of the
+    reduction varies between lenders, which is why the lender matters more than the rate. We cover this on our
+    <a href="/seafarer-mortgage-foreign-currency-income">foreign currency income</a> page. With the SED, the deduction
+    lowers your tax, not your earnings, and the right lender works from your gross contractual pay rather than the low tax
+    figure on your return. Our <a href="/seafarers-earnings-deduction-mortgage">Seafarers Earnings Deduction</a> page
+    sets out the evidence a lender will want.
+  </p>
+
+  <PullQuote quote="For a seafarer, the question is rarely whether a mortgage is possible. It is which lender reads your income the way it really works." />
+
+  <h2>Does residency and UK ties affect eligibility?</h2>
+  <p>
+    They shape the list of lenders and the deposit, rather than closing the door. A UK-resident seafarer with a recent
+    address history usually has the widest choice and can often reach standard deposit levels, subject to criteria. A
+    non-resident seafarer tends to need a larger deposit, and a shorter list of lenders will consider the case. Either
+    way there is a route. You must be on UK soil to receive advice, so we confirm your circumstances properly before
+    pointing you anywhere.
+  </p>
+
+  <h2>What makes a seafarer easy to say yes to?</h2>
+  <p>
+    A clear contract that states your role, rate and rotation. Payslips and bank statements that show the pay arriving
+    and, where relevant, converting to sterling. A short written note where your income has moved between currencies or
+    employers, so an underwriter sees the pattern rather than guesses at it. Put the right paperwork in front of the
+    right lender and a seafarer case becomes a straightforward one. Mortgage One has access to plans from the whole of
+    market and gives professional advice on where your case fits.
+  </p>
+
+  <MidCta
+    text="Find out where you stand before you apply, not after a needless decline."
+    label="Check Your Options"
+    scenario="seafarer"
+    src={slug}
+  />
+
+  <FaqSection items={faqs} />
+
+  <CtaBlock
+    heading="See whether you qualify"
+    line="Tell us how you are paid and a Mortgage One adviser will review your answers."
+    scenario="seafarer"
+    src={slug}
+  />
+
+  <h2>Send us an enquiry</h2>
+  <EnquiryForm scenario="seafarer" />
+
+  <RelatedPanel cards={relatedCards} />
+
+  <p class="risk-warning">
+    Think carefully before securing your debts against your home. Your home may be repossessed if you do not keep up
+    repayments on your mortgage.
+  </p>
+</ArticleLayout>
+
+<style>
+  .risk-warning {
+    border-top: 1px solid var(--line);
+    padding-top: 1.5rem;
+    margin-top: 2.5rem;
+  }
+</style>

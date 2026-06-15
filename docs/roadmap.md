@@ -32,7 +32,7 @@ high-intent default, not drift.
 | Seafarer | /seafarer-mortgage-help | seafarer mortgage help | live |
 | Seafarer | /seafarer-mortgage-deposit | seafarer mortgage deposit | PR open (#12) |
 | Seafarer | /offshore-worker-mortgage | offshore worker mortgage | PR open (#6) |
-| Seafarer | /can-a-seafarer-get-a-mortgage | can a seafarer get a mortgage | planned |
+| Seafarer | /can-a-seafarer-get-a-mortgage | can a seafarer get a mortgage | PR open |
 
 ## Expat
 
