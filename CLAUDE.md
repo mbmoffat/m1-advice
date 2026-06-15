@@ -25,6 +25,12 @@ Revise and re-review until every item scores 4 or 5. Put the final scores at the
 ## Build order
 seafarer, expat, complex income, later-life (55 to 70), HNW amount pages, first-time buyer, buy-to-let, Halal Mortgages, then equity release and lifetime mortgages last.
 Halal Mortgages is a deliberately broad cluster: a larger page count and wider keyword footprint, broad explainer pages, an intentional exception to the high-intent default, not drift.
+## Cluster map
+Each cluster has one hub or pillar page. Every other page in the cluster links to it from the body and lists it in the related panel.
+- Expat cluster: hub is can-an-expat-get-a-uk-mortgage. Every other expat page links to it. Do not create a pillar on the head term "expat mortgages", which is reserved for the main site.
+- Limited company buy-to-let cluster: pillar is limited-company-buy-to-let-mortgage. Every other page links to it and stays specific to limited company or special purpose vehicle (SPV) structures, not generic buy-to-let.
+- Complex income cluster: pillar is self-employed-mortgage. Every other page links to it.
+When the build queue item carries an angle field, honour it as a binding scope instruction for that page.
 ## Page anatomy (content pages)
 Eyebrow + H1, author byline, yes-first opening paragraph, reassurance block, mid CTA into /check, body H2s, pull quote, second CTA, FAQ with schema, CTA block, enquiry form, related panel.
 The author byline is rendered by ArticleLayout, never hardcoded per page, and reads exactly: Author - Matt Moffat MLIBF CeMAP CeRER | Managing Director | Mortgage One, as a single link to https://www.linkedin.com/in/mattmoffat/ opening in a new tab with rel="noopener me".
