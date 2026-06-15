@@ -26,9 +26,7 @@ const href = query.toString() ? `/check?${query.toString()}` : '/check';
     border-radius: var(--radius);
     background: var(--surface);
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
     gap: 1rem;
   }
   .mid-cta p {
@@ -36,5 +34,10 @@ const href = query.toString() ? `/check?${query.toString()}` : '/check';
     font-size: 1.1rem;
     font-weight: 700;
     font-family: var(--font-heading);
+  }
+  /* Lead-in text stays left-aligned; centre the primary button in the card,
+     matching the centred nav and quiz buttons. */
+  .mid-cta .btn {
+    align-self: center;
   }
 </style>
