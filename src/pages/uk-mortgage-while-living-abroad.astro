@@ -1,0 +1,185 @@
+---
+import ArticleLayout from '../layouts/ArticleLayout.astro';
+import Reassurance from '../components/Reassurance.astro';
+import MidCta from '../components/MidCta.astro';
+import PullQuote from '../components/PullQuote.astro';
+import FaqSection from '../components/FaqSection.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+import EnquiryForm from '../components/locked/EnquiryForm.astro';
+import RelatedPanel from '../components/RelatedPanel.astro';
+
+const slug = '/uk-mortgage-while-living-abroad';
+
+const reassuranceLines = [
+  'British nationals settled overseas, arranging a UK mortgage from where they live.',
+  'Working in a different time zone with limited UK office hours to spare.',
+  'Paid in dollars, euros or another currency by an overseas employer.',
+  'Needing to apply, sign and verify identity without flying back.',
+  'Planning a move home and wanting the timing to line up.',
+];
+
+const faqs = [
+  {
+    q: 'Can I arrange a UK mortgage while living abroad?',
+    a: 'Yes. A number of lenders write mortgages for borrowers who are living overseas, and the application can be run from where you are. What shapes the case is your country of residence, how you are paid and your deposit, rather than your distance from the UK. The work is placing your case with a lender that handles overseas applicants as routine and knowing what each one will ask for before you start.',
+  },
+  {
+    q: 'How do I apply for a UK mortgage from overseas?',
+    a: 'The application runs much as it would in the UK, but the gathering of evidence is the part that takes planning. You provide proof of income, bank statements, proof of your overseas address and identity documents, and a broker assembles these into a case for a lender that accepts overseas applicants. Most of it is done by email and secure upload, so you rarely need to be in the UK to make progress on the application itself.',
+  },
+  {
+    q: 'What documents do I need to provide from abroad?',
+    a: 'Expect to show proof of income such as payslips and an employment contract, several months of bank statements, proof of your overseas address, and photographic identity such as a passport. Self-employed and contractor income usually needs more history behind it. Documents in another language can sometimes need a certified translation, and a broker will tell you which lender wants what so you gather it once rather than twice.',
+  },
+  {
+    q: 'Can I complete the whole process without flying back to the UK?',
+    a: 'Often much of it, yes. The application, the evidence and the identity checks are usually handled remotely by post, email and secure upload, and many lenders are set up for overseas applicants. Some steps, such as certain identity verification or signing, may need a notary or a particular method depending on the lender. The one fixed point is advice itself, which you must be on UK soil to receive.',
+  },
+  {
+    q: 'Can you advise me while I am still overseas?',
+    a: 'We can talk through where you broadly stand and tell you what to prepare, but you must be on UK soil to receive advice. We confirm your residency and circumstances properly before recommending anything, so the advice fits where you genuinely are.',
+  },
+];
+
+const relatedCards = [
+  {
+    title: 'Can an expat get a UK mortgage?',
+    href: '/can-an-expat-get-a-uk-mortgage',
+    line: 'The expat mortgage hub: residency, currency and deposits.',
+  },
+  {
+    title: 'Residential mortgages for expats',
+    href: '/expat-residential-mortgage',
+    line: 'A UK home to live in or return to, sized on your income.',
+  },
+  {
+    title: 'Buy-to-let mortgages for expats',
+    href: '/expat-buy-to-let-mortgage',
+    line: 'Letting a UK property while you live abroad.',
+  },
+  { title: 'Check your eligibility', href: '/check', line: 'Five quick questions, about 60 seconds.' },
+];
+---
+
+<ArticleLayout
+  title="UK Mortgage When Living Abroad | Mortgage One"
+  description="Yes, you can get a UK mortgage while living abroad. How the application, paperwork and identity checks work from overseas, and how a broker places your case."
+  eyebrow="Expat mortgage questions"
+  heading="Getting a UK mortgage while living abroad"
+  breadcrumbs={[
+    { name: 'Home', href: '/' },
+    { name: 'Getting a UK mortgage while living abroad', href: slug },
+  ]}
+  scenario="expat"
+>
+  <p>
+    Yes, you can get a UK mortgage while living abroad. Being overseas does not shut the door, it changes which lenders
+    will look at you and how the application is run. This page is about the practical side of arranging one from where you
+    live: how you apply, the paperwork lenders ask of overseas applicants, how identity is checked from another country
+    and how to time it around a move home. For the wider question of whether
+    <a href="/can-an-expat-get-a-uk-mortgage">an expat can get a UK mortgage</a> at all, start with our hub, then come
+    back here for how to actually do it from abroad.
+  </p>
+
+  <Reassurance title="People we help apply from abroad" lines={reassuranceLines} />
+
+  <h2>Where living abroad actually changes things</h2>
+  <p>
+    The case itself is judged on familiar things: your country of residence, the currency you are paid in, the size of
+    your deposit and how much recent UK history you have. What living abroad really changes is the running of the
+    application, not the maths. You are gathering overseas paperwork, working across a time difference and proving who and
+    where you are from another country. None of that makes you a weaker borrower, but it does mean the process rewards
+    preparation, because chasing a missing document across time zones is what slows these cases down.
+  </p>
+
+  <h2>How the application works from overseas</h2>
+  <p>
+    From abroad the application runs in much the same order as it would in the UK. You settle what you are buying and how
+    much you need, a broker works out which lenders are comfortable with your country of residence and how you are paid,
+    you gather the evidence, and the case goes to the right lender for a decision. The difference is that almost all of it
+    happens at a distance, by email and secure upload rather than across a desk, so the steps are the same but the rhythm
+    is set by post and time zones. A broker who places overseas cases keeps that moving so you are not left guessing what
+    happens next.
+  </p>
+
+  <h2>The paperwork lenders ask of overseas applicants</h2>
+  <p>
+    Evidence is where an overseas application stands or falls. Expect to provide proof of income such as payslips and an
+    employment contract, several months of bank statements, proof of your overseas address and photographic identity such
+    as a passport. Self-employed and contractor income is read differently and usually needs more history behind it.
+    Documents in another language can need a certified translation, and an overseas address can be harder to evidence than
+    a UK one. The point of using a broker is that you are told exactly what a given lender wants up front, so you gather it
+    once instead of going back and forth.
+  </p>
+
+  <MidCta
+    text="Not sure which documents a UK lender will accept from where you live? Tell us where you are and how you are paid, and we will tell you what to prepare."
+    scenario="expat"
+    src={slug}
+  />
+
+  <h2>Verifying your identity from another country</h2>
+  <p>
+    Proving who you are and where you live is the step that catches people out when they apply from abroad. A lender still
+    has to confirm your identity and address, and the usual UK checks assume a UK address trail. From overseas this is
+    often handled by certified copies of your documents, sometimes through a notary or a solicitor, and the exact method
+    depends on the lender. It can usually be done without flying back, but it needs to be set up correctly, because a
+    rejected identity check can stall an otherwise strong case. Knowing which lender accepts which method is part of
+    placing the case well.
+  </p>
+
+  <h2>Timing your application around a move home</h2>
+  <p>
+    Timing matters more when you live abroad. If you are buying a home to let while you stay overseas, that is a
+    buy-to-let case and our guide to <a href="/expat-buy-to-let-mortgage">buy-to-let mortgages for expats</a> covers how
+    the rent drives the lending. If you are buying somewhere to live in when you return, that is a residential case sized
+    on your income, covered in our guide to <a href="/expat-residential-mortgage">residential mortgages for expats</a>.
+    Either way, the moment you become UK resident again can change which lenders fit and how your income is read, so it is
+    worth flagging your plans early rather than at the end, so the mortgage and your move line up.
+  </p>
+
+  <PullQuote quote="Applying from abroad is rarely about whether you qualify. It is about running the paperwork and the identity checks cleanly from a distance, with a lender that expects an overseas applicant." />
+
+  <h2>How does Mortgage One help?</h2>
+  <p>
+    Mortgage One is a countrywide UK mortgage broker with access to plans from the whole of market, and we arrange cases
+    for people living abroad as a regular part of the business, not an exception to it. We work out which lenders are
+    comfortable with your country of residence and how you are paid, tell you precisely what evidence to gather and how
+    your identity will be checked, and put your case in front of the right desk with the documents it needs. You must be
+    on UK soil to receive advice, so we confirm your circumstances properly before recommending anything.
+  </p>
+
+  <MidCta
+    text="Ready to know where you stand rather than guess from abroad? Let an adviser review your case and tell you what to prepare."
+    label="Check Your Options"
+    scenario="expat"
+    src={slug}
+  />
+
+  <FaqSection items={faqs} />
+
+  <CtaBlock
+    heading="See if a UK mortgage from abroad fits"
+    line="Tell us where you live, how you are paid and the property you have in mind, and a Mortgage One adviser will review your answers."
+    scenario="expat"
+    src={slug}
+  />
+
+  <h2>Send us an enquiry</h2>
+  <EnquiryForm scenario="expat" />
+
+  <RelatedPanel cards={relatedCards} />
+
+  <p class="risk-warning">
+    Think carefully before securing your debts against your home. Your home may be repossessed if you do not keep up
+    repayments on your mortgage.
+  </p>
+</ArticleLayout>
+
+<style>
+  .risk-warning {
+    border-top: 1px solid var(--line);
+    padding-top: 1.5rem;
+    margin-top: 2.5rem;
+  }
+</style>
