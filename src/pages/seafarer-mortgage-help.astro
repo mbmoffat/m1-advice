@@ -1,6 +1,5 @@
 ---
 import ArticleLayout from '../layouts/ArticleLayout.astro';
-import Reassurance from '../components/Reassurance.astro';
 import MidCta from '../components/MidCta.astro';
 import PullQuote from '../components/PullQuote.astro';
 import FaqSection from '../components/FaqSection.astro';
@@ -9,13 +8,6 @@ import EnquiryForm from '../components/locked/EnquiryForm.astro';
 import RelatedPanel from '../components/RelatedPanel.astro';
 
 const slug = '/seafarer-mortgage-help';
-
-const reassuranceLines = [
-  'Paid in a foreign currency.',
-  'Claiming the Seafarers Earnings Deduction.',
-  'Rotational contracts with long spells at sea.',
-  'Limited recent UK address history.',
-];
 
 const faqs = [
   {
@@ -63,7 +55,13 @@ const relatedCards = [
     specialist help gets you.
   </p>
 
-  <Reassurance title="Situations we help with" lines={reassuranceLines} />
+  <h2>Whole-of-market access for seafarers</h2>
+  <p>
+    Most high street lenders have no policy for seafarers. We search across multiple lenders in the market who do,
+    lenders experienced in contract pay, sea service documents and foreign currency income. You get access to products
+    and rates that are not visible if you approach lenders directly.
+  </p>
+  <p>Tell us about your contract and we will confirm which lenders are open to your case.</p>
 
   <h2>What makes a seafarer mortgage different?</h2>
   <p>
