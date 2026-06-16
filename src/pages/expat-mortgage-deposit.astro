@@ -1,0 +1,200 @@
+---
+import ArticleLayout from '../layouts/ArticleLayout.astro';
+import Reassurance from '../components/Reassurance.astro';
+import MidCta from '../components/MidCta.astro';
+import PullQuote from '../components/PullQuote.astro';
+import FaqSection from '../components/FaqSection.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+import EnquiryForm from '../components/locked/EnquiryForm.astro';
+import RelatedPanel from '../components/RelatedPanel.astro';
+
+const slug = '/expat-mortgage-deposit';
+
+const reassuranceLines = [
+  'British nationals abroad saving towards a UK purchase.',
+  'Working out how much deposit a UK lender will want from overseas.',
+  'Holding deposit savings in dollars, euros or another currency.',
+  'Buying a home to live in, or letting a UK property while abroad.',
+  'Deposit coming from savings, the sale of a property or a gift.',
+];
+
+const faqs = [
+  {
+    q: 'How much deposit does an expat need for a UK mortgage?',
+    a: 'Plan for more than a UK resident would put down, often in the region of a quarter of the property value. The exact figure depends on the lender, the country you live in and whether the property is to live in or to let. Some lenders are happy at around 25%, others want a third or more for certain countries or property types, so the deposit is worth confirming against a specific lender rather than guessing.',
+  },
+  {
+    q: 'Why do expats need a bigger deposit than UK residents?',
+    a: 'It is less about you and more about how the lender prices the risk it cannot see as easily. An overseas address, non-sterling income and a thinner recent UK credit trail all sit outside a standard high street model, and a larger deposit gives the lender more margin if anything moves against the loan. It is the lever that opens up the lenders who write expat cases as routine.',
+  },
+  {
+    q: 'Does my country of residence affect the deposit?',
+    a: 'Yes, often more than anything else. Lenders group countries by how comfortable they are lending to residents there, and a country a lender knows well may attract a lower deposit than one it rarely sees. Two expats with identical incomes can be quoted different deposits purely because of where they live, which is why matching your country to the right lender matters.',
+  },
+  {
+    q: 'Can I use savings held in a foreign currency as my deposit?',
+    a: 'Usually, yes. A deposit held in dollars, euros or another currency is generally fine, though the lender will want to see where the money came from and it will be converted to sterling when you transfer it. The exchange rate on the day can nudge the cash figure up or down, so it is worth leaving a little headroom rather than planning to the last pound.',
+  },
+  {
+    q: 'Is the deposit different for an expat buy-to-let?',
+    a: 'It can be. An expat buy-to-let is sized mainly on the rent the property earns, and many lenders look for a deposit of around a quarter to a third of the value, with the rent also needing to cover the mortgage by a margin. A home to live in is sized on your income instead. Our guides to expat buy-to-let and expat residential mortgages cover each route.',
+  },
+  {
+    q: 'Can you advise me while I am still overseas?',
+    a: 'We can talk through roughly how much deposit your situation is likely to need, but you must be on UK soil to receive advice. We confirm your residency and circumstances properly before recommending anything, so the advice fits where you genuinely are.',
+  },
+];
+
+const relatedCards = [
+  {
+    title: 'Can an expat get a UK mortgage?',
+    href: '/can-an-expat-get-a-uk-mortgage',
+    line: 'The expat mortgage hub: residency, currency and deposits.',
+  },
+  {
+    title: 'Residential mortgages for expats',
+    href: '/expat-residential-mortgage',
+    line: 'A UK home to live in or return to, sized on your income.',
+  },
+  {
+    title: 'Buy-to-let mortgages for expats',
+    href: '/expat-buy-to-let-mortgage',
+    line: 'Letting a UK property while you live abroad.',
+  },
+  { title: 'Check your eligibility', href: '/check', line: 'Five quick questions, about 60 seconds.' },
+];
+---
+
+<ArticleLayout
+  title="Expat Mortgage Deposit: How Much Do You Need? | Mortgage One"
+  description="Yes, expats can buy in the UK, but expect a larger deposit. How much deposit you need, why it is higher and how your country and currency affect it."
+  eyebrow="Expat mortgage deposit"
+  heading="How much deposit do expats need for a UK mortgage?"
+  breadcrumbs={[
+    { name: 'Home', href: '/' },
+    { name: 'How much deposit do expats need for a UK mortgage?', href: slug },
+  ]}
+  scenario="expat"
+>
+  <p>
+    Most expats should plan for a deposit of around a quarter of the property value, more than a UK resident would
+    typically need. That is a guide rather than a fixed rule: some lenders are comfortable at about 25%, while others want
+    a third or more depending on the country you live in and the type of property. The deposit is the single biggest lever
+    on an expat case, because it is what opens up the lenders who treat overseas borrowers as routine. If you want the
+    wider picture first, start with our hub on whether
+    <a href="/can-an-expat-get-a-uk-mortgage">an expat can get a UK mortgage</a>, then come back here for the deposit in
+    detail.
+  </p>
+
+  <Reassurance title="Expat buyers we help with deposits" lines={reassuranceLines} />
+
+  <h2>How much deposit do expats usually need?</h2>
+  <p>
+    As a working figure, expect to put down in the region of a quarter of the property value. Plenty of expat lenders
+    start at around 25%, some will look at a little less for a country they know well, and others want a third or more
+    where the country, the currency or the property type sits outside their comfort. A UK resident might buy with 10% or
+    even 5% in the right case, but for an expat the floor is higher and the deposit usually does more of the work. The
+    honest answer is that it varies by lender, so the useful number is the one tied to a lender that will actually take
+    your case.
+  </p>
+
+  <h2>Why expats are asked for a larger deposit</h2>
+  <p>
+    The larger deposit is not a judgement on you as a borrower. It is how a lender prices the parts of an overseas case it
+    cannot read as easily. An overseas address, income paid in another currency and a thinner recent UK credit trail all
+    sit outside the model a high street lender uses for a settled UK applicant. A bigger deposit lowers the loan against
+    the property and gives the lender more margin, which is what makes it willing to lend at all. Seen that way, the
+    deposit is less a hurdle and more the key that unlocks the lenders who handle expat cases every day.
+  </p>
+
+  <MidCta
+    text="Not sure how much deposit your country and currency will call for? Tell us where you live and how you are paid, and we will tell you where you stand."
+    scenario="expat"
+    src={slug}
+  />
+
+  <h2>How your country of residence changes the deposit</h2>
+  <p>
+    Where you live often shapes the deposit more than your income does. Lenders group countries by how comfortable they
+    are lending to residents there, shaped by sanctions rules, how easy it is to verify documents and how well they know
+    the market. A country a lender sees often may attract a deposit near the lower end of the range, while one it rarely
+    touches can push the figure up or close the door entirely. This is why two expats on the same salary can be quoted
+    very different deposits, and why matching your country to a lender that is at ease with it is the real task.
+  </p>
+
+  <h2>Residential and buy-to-let deposits are judged differently</h2>
+  <p>
+    What you are buying changes how the deposit is read. On a home you will live in or return to, the loan is sized on
+    your income, so the deposit works alongside an affordability test, and our guide to
+    <a href="/expat-residential-mortgage">residential mortgages for expats</a> covers that side. On a property you let
+    out, covered in our guide to <a href="/expat-buy-to-let-mortgage">buy-to-let mortgages for expats</a>, the deposit
+    sits alongside a rent test instead, where the rent has to cover the mortgage interest by a margin. The headline
+    deposit can look similar, often a quarter to a third, but the reason behind it differs, so it is worth being clear
+    which case is yours before you fix on a figure.
+  </p>
+
+  <h2>Where your deposit can come from</h2>
+  <p>
+    Lenders care as much about where the deposit came from as how big it is. Savings built from your income, the proceeds
+    of a property sale, an investment or a gift from a close family member are all usually acceptable, but each needs a
+    clear paper trail. Money held abroad is generally fine, and a deposit in dollars, euros or another currency is
+    converted to sterling when you transfer it, so the cash figure can shift a little with the exchange rate on the day.
+    The point to plan for is evidence: an overseas account and a foreign-currency balance take a little more documenting,
+    so gathering proof of source early keeps the case moving.
+  </p>
+
+  <PullQuote quote="For an expat the deposit is rarely just a number. It is the lever that decides which lenders will look at you at all, and how comfortably they lend." />
+
+  <h2>What a larger deposit does for your case</h2>
+  <p>
+    Putting down more than the minimum is worth considering even when you do not strictly have to. The size of your
+    deposit sets your loan-to-value (LTV), the share of the property value you are borrowing, and lenders price in bands,
+    so crossing below a threshold such as 75% or 60% can widen the choice of lender and ease the terms. A stronger deposit
+    also borrows less against the same income or rent, which can help the affordability or rent test pass. For an expat,
+    where the lender pool is narrower to begin with, a few extra percent of deposit often buys noticeably more room than
+    it would for a UK resident.
+  </p>
+
+  <h2>How does Mortgage One help?</h2>
+  <p>
+    Mortgage One is a countrywide UK mortgage broker with access to plans from the whole of market, and we arrange expat
+    cases as a regular part of the business, not an exception to it. We tell you what deposit a given lender will want for
+    your country and your type of purchase, work out how your savings or foreign-currency funds will be read, and place
+    your case with a lender that treats overseas borrowers as routine. You must be on UK soil to receive advice, so we
+    confirm your circumstances properly before recommending anything.
+  </p>
+
+  <MidCta
+    text="Ready to know the deposit your case actually needs rather than guess from abroad? Let an adviser review where you stand."
+    label="Check Your Options"
+    scenario="expat"
+    src={slug}
+  />
+
+  <FaqSection items={faqs} />
+
+  <CtaBlock
+    heading="See what deposit your expat case needs"
+    line="Tell us where you live, how you are paid and the property you have in mind, and a Mortgage One adviser will review your answers."
+    scenario="expat"
+    src={slug}
+  />
+
+  <h2>Send us an enquiry</h2>
+  <EnquiryForm scenario="expat" />
+
+  <RelatedPanel cards={relatedCards} />
+
+  <p class="risk-warning">
+    Think carefully before securing your debts against your home. Your home may be repossessed if you do not keep up
+    repayments on your mortgage.
+  </p>
+</ArticleLayout>
+
+<style>
+  .risk-warning {
+    border-top: 1px solid var(--line);
+    padding-top: 1.5rem;
+    margin-top: 2.5rem;
+  }
+</style>

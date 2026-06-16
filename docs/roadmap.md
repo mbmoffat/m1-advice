@@ -36,10 +36,11 @@ high-intent default, not drift.
 
 ## Expat
 
-Headers only. Rows planned after the seafarer cluster is complete. Never target the head term "expat mortgages".
+Never target the head term "expat mortgages". Hub is can-an-expat-get-a-uk-mortgage.
 
 | Cluster | Slug | Target keyword | Status |
 | --- | --- | --- | --- |
+| Expat | /expat-mortgage-deposit | expat mortgage deposit | PR open |
 
 ## Complex income
 
