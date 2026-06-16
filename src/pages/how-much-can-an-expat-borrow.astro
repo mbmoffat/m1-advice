@@ -1,0 +1,195 @@
+---
+import ArticleLayout from '../layouts/ArticleLayout.astro';
+import Reassurance from '../components/Reassurance.astro';
+import MidCta from '../components/MidCta.astro';
+import PullQuote from '../components/PullQuote.astro';
+import FaqSection from '../components/FaqSection.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+import EnquiryForm from '../components/locked/EnquiryForm.astro';
+import RelatedPanel from '../components/RelatedPanel.astro';
+
+const slug = '/how-much-can-an-expat-borrow';
+
+const reassuranceLines = [
+  'British nationals abroad buying or remortgaging in the UK.',
+  'Income paid in dollars, euros or another currency.',
+  'High earners wanting more than a standard income multiple.',
+  'Bonus, commission or self-employed earnings to be counted.',
+  'A home to live in, or a property let out while abroad.',
+];
+
+const faqs = [
+  {
+    q: 'How much can an expat borrow on a UK mortgage?',
+    a: 'As a working guide, expect a lender to start from around four to four and a half times your assessed annual income, then test that figure against your outgoings. There is no fixed cap that applies to everyone. A strong earner with light commitments may reach a higher multiple, while heavy outgoings or a discounted foreign currency income can pull the figure down, so the useful number is the one tied to a lender that will assess your pay fairly.',
+  },
+  {
+    q: 'Do expats borrow less than UK residents?',
+    a: 'Often a little, but not always. The income multiple a lender uses is broadly similar, so the gap usually comes from how your income is assessed rather than the multiple itself. A foreign currency reduction or a thinner view of overseas earnings can trim the assessed income, and the assessed income is what the multiple is applied to. Place the case with a lender that reads expat pay properly and the figure tends to reflect what you genuinely earn.',
+  },
+  {
+    q: 'How does foreign currency income affect what I can borrow?',
+    a: 'A lender converts non-sterling pay to sterling and applies a reduction, often in the region of a fifth to a quarter, to allow for the exchange rate moving against the loan, then works from that lower figure. The size of that haircut varies between lenders, so the lender you choose changes your borrowing more than the rate on the day does. Choosing one that is comfortable with your currency is the single biggest lever on the amount.',
+  },
+  {
+    q: 'Will bonus, commission or self-employed income count?',
+    a: 'Usually, yes, with the right evidence. Many lenders count a share of regular bonus or commission, and self-employed expats are assessed on profits or salary and dividends over a recent period. The detail varies by lender, and an overseas pay structure takes a little more documenting, so it is worth confirming how a specific lender will treat each part of your income before fixing on a figure.',
+  },
+  {
+    q: 'Does my deposit change how much I can borrow?',
+    a: 'It can. The amount is driven by your income and the affordability test, but a larger deposit lowers the loan against the property and can ease that test, and expats are asked for a bigger deposit to begin with. Our guide to the expat mortgage deposit covers how much to plan for and why it is higher.',
+  },
+  {
+    q: 'Can you tell me my figure while I am still abroad?',
+    a: 'We can talk through roughly what a lender would assess and where your case is likely to fit, but you must be on UK soil to receive advice. We confirm your residency and circumstances properly before recommending anything, so the figure fits where you genuinely are.',
+  },
+];
+
+const relatedCards = [
+  {
+    title: 'Can an expat get a UK mortgage?',
+    href: '/can-an-expat-get-a-uk-mortgage',
+    line: 'The expat mortgage hub: residency, currency and deposits.',
+  },
+  {
+    title: 'Expat mortgage deposit',
+    href: '/expat-mortgage-deposit',
+    line: 'How much deposit you need and why it is higher.',
+  },
+  {
+    title: 'Residential mortgages for expats',
+    href: '/expat-residential-mortgage',
+    line: 'A UK home to live in or return to, sized on your income.',
+  },
+  { title: 'Check your eligibility', href: '/check', line: 'Five quick questions, about 60 seconds.' },
+];
+---
+
+<ArticleLayout
+  title="How Much Can Expats Borrow on a UK Mortgage? | Mortgage One"
+  description="Yes, expats borrow for UK mortgages. How lenders set the figure from your income, how a foreign currency reduction changes it, and what lifts the amount."
+  eyebrow="Expat mortgage questions"
+  heading="How much can an expat borrow on a UK mortgage?"
+  breadcrumbs={[
+    { name: 'Home', href: '/' },
+    { name: 'How much can an expat borrow on a UK mortgage?', href: slug },
+  ]}
+  scenario="expat"
+>
+  <p>
+    Yes, expats borrow for UK mortgages, and as a working guide a lender starts from around four to four and a half times
+    your assessed annual income, then tests that figure against your outgoings. There is no single number and no fixed
+    multiple that applies to everyone. For an expat the amount turns less on the multiple and more on the income a lender
+    will actually assess, because a foreign currency reduction or an unfamiliar pay structure can trim it. If you want the
+    wider picture first, start with our hub on whether
+    <a href="/can-an-expat-get-a-uk-mortgage">an expat can get a UK mortgage</a>, then come back here for the figure in
+    detail.
+  </p>
+
+  <Reassurance title="Expat borrowers we help size a mortgage" lines={reassuranceLines} />
+
+  <h2>What decides how much an expat can borrow?</h2>
+  <p>
+    Two things set the amount: the income a lender is willing to assess, and how that income fares against the lender's
+    affordability test. The multiple, often around four to four and a half times income, is applied to the assessed
+    figure, not the headline on your contract. The affordability test then weighs your committed outgoings, dependants
+    and existing credit against that income. No lender fixes an amount in advance, but for an expat the assessed income
+    is the lever that moves the figure most, and it is also the part most often read conservatively.
+  </p>
+
+  <h2>How foreign currency income changes the figure</h2>
+  <p>
+    If you are paid in US dollars, euros or another currency, a lender converts the income to sterling and applies a
+    reduction, often in the region of a fifth to a quarter, to allow for the exchange rate moving against the loan. It
+    then works from that lower figure. The size of that haircut varies between lenders, so the lender you choose changes
+    your borrowing more than the rate on the day does. Matching your currency to a lender comfortable with it is the
+    single biggest thing you can do for the amount.
+  </p>
+
+  <MidCta
+    text="Want to know the figure a lender would actually assess from your pay? Tell us how and where you are paid."
+    scenario="expat"
+    src={slug}
+  />
+
+  <h2>How bonus, commission and self-employed income are counted</h2>
+  <p>
+    Your basic pay is rarely the whole story. Many lenders count a share of regular bonus or commission on top of salary,
+    and self-employed expats are assessed on profits, or salary and dividends, over a recent period rather than on a
+    single payslip. Each part needs a clear paper trail, and an overseas pay structure takes a little more documenting
+    than a settled UK one. Getting every strand of income properly counted, rather than just the basic, is often what
+    moves an expat's figure from cautious to fair.
+  </p>
+
+  <h2>How your country of residence affects the amount</h2>
+  <p>
+    Where you live shapes which lenders will look at you, and that in turn shapes the figure. Lenders group countries by
+    how comfortable they are lending to residents there, and a country a lender knows well opens up its full range, while
+    one it rarely sees can shorten the list or close the door. A narrower lender pool can mean fewer options for counting
+    bonus income or a steeper currency reduction, both of which feed into the amount. This is why two expats on the same
+    salary in different countries can be quoted different figures.
+  </p>
+
+  <PullQuote quote="For an expat, what you can borrow is set by the income a lender will assess, not the headline on your contract. Get that read fairly and the figure follows." />
+
+  <h2>How your deposit and loan to value feed in</h2>
+  <p>
+    The amount is driven by your income, but your deposit plays a supporting part. A larger deposit lowers the loan
+    against the property, sets a better loan-to-value (LTV) band and can ease the affordability test, and expats are
+    asked for a bigger deposit to start with, often around a quarter of the value. Borrowing less against the same income
+    also leaves more headroom in the test. Our guide to the <a href="/expat-mortgage-deposit">expat mortgage deposit</a>
+    covers how much to plan for and why it sits higher than for a UK resident.
+  </p>
+
+  <h2>Residential and let property are sized differently</h2>
+  <p>
+    What you are buying changes how the figure is built. On a home you will live in or return to, covered in our guide to
+    <a href="/expat-residential-mortgage">residential mortgages for expats</a>, the loan is sized on your income and the
+    affordability test described above. On a property you let out, the borrowing is sized mainly on the rent it earns and
+    a rent test rather than your salary, so the income multiple matters far less. Be clear which case is yours before you
+    settle on a figure, because the two are worked out in entirely different ways.
+  </p>
+
+  <h2>How does Mortgage One help?</h2>
+  <p>
+    Mortgage One is a countrywide UK mortgage broker with access to plans from the whole of market, and we arrange expat
+    cases as a regular part of the business, not an exception to it. We work out the income a given lender will assess
+    for your currency and pay structure, count bonus or self-employed earnings properly, and place your case with a
+    lender that treats overseas borrowers as routine, so the figure you are quoted reflects how you genuinely earn. You
+    must be on UK soil to receive advice, so we confirm your circumstances properly before recommending anything.
+  </p>
+
+  <MidCta
+    text="Stop guessing at the figure from abroad. Let an adviser work out what a lender would actually assess."
+    label="Check Your Options"
+    scenario="expat"
+    src={slug}
+  />
+
+  <FaqSection items={faqs} />
+
+  <CtaBlock
+    heading="Find out what you could borrow"
+    line="Tell us how you are paid, where you live and the property you have in mind, and a Mortgage One adviser will review your answers."
+    scenario="expat"
+    src={slug}
+  />
+
+  <h2>Send us an enquiry</h2>
+  <EnquiryForm scenario="expat" />
+
+  <RelatedPanel cards={relatedCards} />
+
+  <p class="risk-warning">
+    Think carefully before securing your debts against your home. Your home may be repossessed if you do not keep up
+    repayments on your mortgage.
+  </p>
+</ArticleLayout>
+
+<style>
+  .risk-warning {
+    border-top: 1px solid var(--line);
+    padding-top: 1.5rem;
+    margin-top: 2.5rem;
+  }
+</style>
