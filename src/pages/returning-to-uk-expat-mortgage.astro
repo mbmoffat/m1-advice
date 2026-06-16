@@ -1,0 +1,196 @@
+---
+import ArticleLayout from '../layouts/ArticleLayout.astro';
+import Reassurance from '../components/Reassurance.astro';
+import MidCta from '../components/MidCta.astro';
+import PullQuote from '../components/PullQuote.astro';
+import FaqSection from '../components/FaqSection.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+import EnquiryForm from '../components/locked/EnquiryForm.astro';
+import RelatedPanel from '../components/RelatedPanel.astro';
+
+const slug = '/returning-to-uk-expat-mortgage';
+
+const reassuranceLines = [
+  'British nationals coming home after years working overseas.',
+  'Still paid in a foreign currency until your move completes.',
+  'A UK job offer or start date lined up, but no recent UK payslips.',
+  'A thin recent UK address or credit trail after time abroad.',
+  'Buying the home you will move straight into when you land.',
+];
+
+const faqs = [
+  {
+    q: 'Can I get a UK mortgage if I am moving back from abroad?',
+    a: 'Yes. Returning expats are a well-understood case, and several lenders are comfortable with a borrower who is still overseas but coming home. The two things they look at most are when you will be UK resident again and where your income comes from at the point you apply. A lender used to returning borrowers reads a planned move as normal rather than as a gap, so the task is placing your case with one of them.',
+  },
+  {
+    q: 'Should I apply before or after I return to the UK?',
+    a: 'It depends on your timing and your income. Applying before you land can secure a home to move straight into, and some lenders will lend to you while you are still abroad on the strength of a UK job offer or your existing overseas income. Others prefer you to have arrived and started UK employment. Neither is automatically better, so the right answer is the one that matches your move date and how you are paid, which is what an adviser settles first.',
+  },
+  {
+    q: 'Will my years abroad have left my credit file too thin?',
+    a: 'Often it is thinner rather than truly empty, and a thin recent UK file is a familiar feature of a returning expat, not a barrier. Lenders that handle these cases look beyond an automated score to your wider picture, including your deposit, your income and your history before you left. Registering on the electoral roll once you are back and keeping any UK accounts active both help, and a broker knows which lenders weigh the rest of the case rather than the score alone.',
+  },
+  {
+    q: 'Can I use my overseas income, or do I need a UK job first?',
+    a: 'Frequently you can use your overseas income. Many lenders will assess your current foreign earnings, converted to sterling with a reduction applied, where the application is made before you start a UK role. Where you have a UK job lined up, a lender may work from the offer letter and start date instead. Which approach fits depends on the lender and your move, so it is worth confirming before you fix on a figure.',
+  },
+  {
+    q: 'Do I still need the larger expat deposit if I am about to move home?',
+    a: 'Sometimes, and it depends on when you apply. While you are still resident overseas a lender usually treats the case on expat terms, which can mean a larger deposit, often around a quarter of the value. Once you are back, UK resident and in UK employment, more of the standard resident range can open up. Timing the application around your return can therefore change the deposit you need, which is one reason to plan it.',
+  },
+  {
+    q: 'Can you advise me before I have landed in the UK?',
+    a: 'We can talk through where you broadly stand and how to time your move, but you must be on UK soil to receive advice. We confirm your residency and circumstances properly before recommending anything, so the advice fits where you genuinely are.',
+  },
+];
+
+const relatedCards = [
+  {
+    title: 'Can an expat get a UK mortgage?',
+    href: '/can-an-expat-get-a-uk-mortgage',
+    line: 'The expat mortgage hub: residency, currency and deposits.',
+  },
+  {
+    title: 'Residential mortgages for expats',
+    href: '/expat-residential-mortgage',
+    line: 'A UK home to live in or return to, sized on your income.',
+  },
+  {
+    title: 'Expat mortgage deposit',
+    href: '/expat-mortgage-deposit',
+    line: 'How much deposit you need and why it is higher.',
+  },
+  { title: 'Check your eligibility', href: '/check', line: 'Five quick questions, about 60 seconds.' },
+];
+---
+
+<ArticleLayout
+  title="Mortgages for Expats Returning to the UK | Mortgage One"
+  description="Yes, returning expats can get a UK mortgage. How to time the application around your move, use overseas income, and handle a thin recent UK credit trail."
+  eyebrow="Expat mortgage questions"
+  heading="Mortgages for expats returning to the UK"
+  breadcrumbs={[
+    { name: 'Home', href: '/' },
+    { name: 'Mortgages for expats returning to the UK', href: slug },
+  ]}
+  scenario="expat"
+>
+  <p>
+    Yes, an expat returning to the UK can get a mortgage, and coming home after years abroad is a case lenders understand
+    well. The work is not whether you qualify but how you time it: when you will be UK resident again, whether you apply
+    on your current overseas income or a UK job offer, and how a thinner recent UK footprint is read. Handle those three
+    and a planned return looks like exactly what it is, a strong borrower coming home. If you want the wider picture
+    first, start with our hub on whether <a href="/can-an-expat-get-a-uk-mortgage">an expat can get a UK mortgage</a>,
+    then come back here for the return in detail.
+  </p>
+
+  <Reassurance title="Returning expats we help" lines={reassuranceLines} />
+
+  <h2>Timing the application around your move home</h2>
+  <p>
+    The single biggest decision is when to apply. Apply while you are still abroad and you can line up a home to move
+    straight into, with some lenders happy to lend on the strength of your existing overseas income or a UK job offer.
+    Apply once you have landed, become UK resident again and started UK employment, and more of the standard resident
+    range tends to open up. Neither is automatically better. The right point depends on your move date, your deposit and
+    how you are paid through the change, which is the first thing an adviser settles with you.
+  </p>
+
+  <h2>Using overseas income before your UK job starts</h2>
+  <p>
+    Many returning expats apply before their UK salary has begun, and that need not hold you up. A lender can assess your
+    current foreign income, converted to sterling with a reduction applied for the exchange rate moving, where you apply
+    before starting a UK role. Where you already have a UK job lined up, a lender may instead work from the offer letter
+    and your start date. The reduction on foreign pay and the willingness to lend on a job offer both vary between
+    lenders, so matching your situation to the right one is what protects the figure you can borrow.
+  </p>
+
+  <MidCta
+    text="Coming home soon and not sure when to apply? Tell us your move date and how you are paid, and we will tell you where you stand."
+    scenario="expat"
+    src={slug}
+  />
+
+  <h2>A thin recent UK credit and address trail</h2>
+  <p>
+    Years abroad usually leave your recent UK file thin rather than truly empty, and lenders that handle returning expats
+    expect that. An automated high street check is built around a settled applicant with an unbroken UK address trail, so
+    a gap can trip it even though it says nothing about how you handle money. The lenders that suit you look at the wider
+    picture: your deposit, your income and your record before you left. Getting back on the electoral roll once you
+    return and keeping any UK accounts active both help rebuild the trail.
+  </p>
+
+  <h2>How residency at completion changes your options</h2>
+  <p>
+    Lenders care less about your nationality than about where you are resident on the day the mortgage completes. Apply
+    while you are still living overseas and the case is usually treated on expat terms, which can mean a larger deposit,
+    often around a quarter of the value, and a shorter list of lenders. Complete once you are back, UK resident and in UK
+    work, and more of the standard resident market can come into reach. Because the return is the very thing that shifts
+    you between the two, planning the application around it is what makes the difference.
+  </p>
+
+  <PullQuote quote="A return home is not a gap in your story. To the right lender it is a strong borrower coming back, and the task is timing the application so they see it that way." />
+
+  <h2>The deposit you will need on the way back</h2>
+  <p>
+    Your deposit follows the same logic as your residency. While you remain overseas at the point of application, expect
+    the larger expat deposit, often in the region of a quarter of the property value, though it varies by lender and by
+    the country you are leaving. Once you are home and in UK employment, a more standard deposit can be enough. Many
+    returning expats have built solid savings abroad, so the deposit is rarely the obstacle; the timing of when it is
+    assessed is what matters. Our guide to the <a href="/expat-mortgage-deposit">expat mortgage deposit</a> covers how
+    much to plan for and why it sits higher while you are still away.
+  </p>
+
+  <h2>Buying the home you will move straight into</h2>
+  <p>
+    A return is usually a residential case: a home you and your family will live in the moment you land, sized on your
+    income rather than on rent. That is the same footing as our guide to
+    <a href="/expat-residential-mortgage">residential mortgages for expats</a>, with the added piece of timing it to your
+    move. If instead you plan to let a property out for a while before you occupy it, that is a different type of lending
+    and needs the right permission rather than a quiet arrangement. Being clear which one your return is saves a wasted
+    application.
+  </p>
+
+  <h2>How does Mortgage One help?</h2>
+  <p>
+    Mortgage One is a countrywide UK mortgage broker with access to plans from the whole of market, and we arrange
+    returning expat cases as a regular part of the business, not an exception to it. We work out whether to apply before
+    or after you land, which lenders will assess your overseas income or your UK job offer, how your deposit and
+    residency line up at completion, and how to present a thin recent UK file fairly. You must be on UK soil to receive
+    advice, so we confirm your circumstances properly before recommending anything.
+  </p>
+
+  <MidCta
+    text="Ready to plan the mortgage around your move rather than guess from abroad? Let an adviser review your return."
+    label="Check Your Options"
+    scenario="expat"
+    src={slug}
+  />
+
+  <FaqSection items={faqs} />
+
+  <CtaBlock
+    heading="Plan your mortgage around your move home"
+    line="Tell us when you are returning, how you are paid and the home you have in mind, and a Mortgage One adviser will review your answers."
+    scenario="expat"
+    src={slug}
+  />
+
+  <h2>Send us an enquiry</h2>
+  <EnquiryForm scenario="expat" />
+
+  <RelatedPanel cards={relatedCards} />
+
+  <p class="risk-warning">
+    Think carefully before securing your debts against your home. Your home may be repossessed if you do not keep up
+    repayments on your mortgage.
+  </p>
+</ArticleLayout>
+
+<style>
+  .risk-warning {
+    border-top: 1px solid var(--line);
+    padding-top: 1.5rem;
+    margin-top: 2.5rem;
+  }
+</style>
