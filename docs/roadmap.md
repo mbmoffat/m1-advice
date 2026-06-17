@@ -41,6 +41,7 @@ Never target the head term "expat mortgages". Hub is can-an-expat-get-a-uk-mortg
 | Cluster | Slug | Target keyword | Status |
 | --- | --- | --- | --- |
 | Expat | /expat-mortgage-deposit | expat mortgage deposit | PR open |
+| Expat | /uk-mortgage-for-expats-in-australia | expat mortgage australia | PR open |
 
 ## Complex income
 
