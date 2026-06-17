@@ -1,0 +1,203 @@
+---
+import ArticleLayout from '../layouts/ArticleLayout.astro';
+import Reassurance from '../components/Reassurance.astro';
+import MidCta from '../components/MidCta.astro';
+import PullQuote from '../components/PullQuote.astro';
+import FaqSection from '../components/FaqSection.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+import EnquiryForm from '../components/locked/EnquiryForm.astro';
+import RelatedPanel from '../components/RelatedPanel.astro';
+
+const slug = '/uk-mortgage-for-expats-in-portugal';
+
+const reassuranceLines = [
+  'British nationals living in Portugal, buying or remortgaging in the UK.',
+  'Paid in euros, whether employed, self-employed or running a business.',
+  'Residents on a D7 or other visa settling under the post-Brexit rules.',
+  'Keeping a UK home to return to, or letting it out while abroad.',
+  'Retirees and part-year residents splitting life between Portugal and the UK.',
+];
+
+const faqs = [
+  {
+    q: 'Can a British expat in Portugal get a UK mortgage?',
+    a: 'Yes. British nationals living in Portugal arrange UK mortgages regularly, both to buy and to remortgage. Living in the Algarve, Lisbon, Cascais or on the Silver Coast does not stop you owning property here, it narrows which lenders will look at you and changes how they read your income. Portugal has a long-settled British community and the euro is a currency expat lenders handle without difficulty, so the lender list tends to be wider than for a country they rarely fund. The work is matching your euro pay, your Portuguese residency and your deposit to a lender that treats overseas borrowers as routine.',
+  },
+  {
+    q: 'How does euro income affect what I can borrow?',
+    a: 'A lender converts your euro pay to sterling and applies a reduction, often in the region of a fifth to a quarter, to allow for the exchange rate moving against the loan, then works from that lower figure. The size of that reduction varies between lenders, so the lender you choose changes your borrowing more than the rate on the day does. The euro is a mainstream currency that almost every expat lender accepts, so the task is rarely whether a lender will take it, but finding the one that applies the smallest haircut to it.',
+  },
+  {
+    q: 'Does my Portuguese residency or visa change my UK mortgage options?',
+    a: 'It shapes which lenders fit rather than whether you can borrow at all. Since freedom of movement ended, many British residents in Portugal hold a residence permit or arrived on a route such as the D7 visa, and a lender will want that residency documented clearly. For the UK mortgage itself, an underwriter is mainly concerned with how you are paid and your ties to the UK rather than the precise visa stamp. We help you set out where you stand so the case reads without difficulty.',
+  },
+  {
+    q: 'Can I get a UK mortgage from Portugal to let the property out?',
+    a: 'Yes. Many expats in Portugal buy or keep a UK property to let, and that is sized mainly on the rent the property earns and a rent cover test rather than on your salary. A property you will live in or return to is sized on your income instead. The two are worked out in entirely different ways, so be clear which case is yours before you settle on a figure, and expect a buy-to-let from overseas to ask for a larger deposit than a UK-resident landlord would.',
+  },
+  {
+    q: 'How big a deposit will I need as an expat in Portugal?',
+    a: 'Plan for more than a UK resident would put down. Expat lenders commonly look for a deposit in the region of a quarter of the property value, sometimes more, and a larger deposit widens the lender choice open to you and can ease the affordability test. Our guide to the expat mortgage deposit covers how much to plan for and why it sits higher.',
+  },
+  {
+    q: 'Do I have to fly back to the UK to arrange the mortgage?',
+    a: 'You can do most of the groundwork from Portugal, and because mainland Portugal keeps the same clock as the UK there is no time gap to work around at all. You must be on UK soil to receive advice, so we confirm your residency and circumstances properly before recommending anything. Much of the paperwork is handled remotely, so a trip back is usually about timing rather than a barrier to getting started.',
+  },
+];
+
+const relatedCards = [
+  {
+    title: 'Can an expat get a UK mortgage?',
+    href: '/can-an-expat-get-a-uk-mortgage',
+    line: 'The expat mortgage hub: residency, currency and deposits.',
+  },
+  {
+    title: 'How much can an expat borrow?',
+    href: '/how-much-can-an-expat-borrow',
+    line: 'How lenders size the loan and what lifts the figure.',
+  },
+  {
+    title: 'Expat mortgage deposit',
+    href: '/expat-mortgage-deposit',
+    line: 'How much deposit you need and why it is higher.',
+  },
+  { title: 'Check your eligibility', href: '/check', line: 'Five quick questions, about 60 seconds.' },
+];
+---
+
+<ArticleLayout
+  title="UK Mortgages for British Expats in Portugal | Mortgage One"
+  description="Yes, British expats in Portugal can get a UK mortgage. How lenders read euro income, residency and deposit, and how a broker places your case from overseas."
+  eyebrow="Expat mortgages in Portugal"
+  heading="UK mortgages for expats in Portugal"
+  breadcrumbs={[
+    { name: 'Home', href: '/' },
+    { name: 'UK mortgages for expats in Portugal', href: slug },
+  ]}
+  scenario="expat"
+>
+  <p>
+    Yes, a British expat living in Portugal can get a UK mortgage. Building a life in the Algarve, around Lisbon, in
+    Cascais or on the Silver Coast does not stop you buying, keeping or remortgaging property back in the UK, it narrows
+    which lenders will look at you and changes how they read your income. Portugal has a long-settled British community
+    and the euro is a currency expat lenders handle without difficulty, so the lender list tends to be wider than for a
+    country they rarely fund. If you want the full picture first, start with our hub on whether
+    <a href="/can-an-expat-get-a-uk-mortgage">an expat can get a UK mortgage</a>, then come back here for the Portugal
+    detail.
+  </p>
+
+  <Reassurance title="Expats in Portugal we help" lines={reassuranceLines} />
+
+  <h2>Why Portugal is a familiar country for lenders</h2>
+  <p>
+    Lenders group countries by how comfortable they are lending to residents there, and Portugal is a place most expat
+    lenders see regularly. A long-established British community across the Algarve and around Lisbon, clear
+    documentation and the euro, a mainstream currency an underwriter can read without difficulty, all count in your
+    favour. That does not make a case automatic, your income, deposit and residency still have to stack up, but it does
+    mean more lenders are willing to start the conversation than for a country they rarely fund. The result is a wider
+    lender list and, often, more competitive terms than expats in less familiar places are offered.
+  </p>
+
+  <h2>How euro income is assessed</h2>
+  <p>
+    If you are paid in euros, a lender converts your pay to sterling and applies a reduction, often in the region of a
+    fifth to a quarter, to allow for the exchange rate moving against the loan, then works from that lower figure. The
+    euro is a mainstream currency that almost every expat lender accepts, so the question is rarely whether a lender will
+    take it, but how large a reduction it applies. That haircut varies from lender to lender, which is why the lender you
+    choose changes your borrowing more than the exchange rate on the day does. Matching your currency to a lender that
+    reads it generously is the single biggest lever on the amount.
+  </p>
+
+  <MidCta
+    text="Want to know the figure a lender would actually assess from your euro pay? Tell us how and where you are paid."
+    scenario="expat"
+    src={slug}
+  />
+
+  <h2>Buying a UK home, or letting one out from Portugal</h2>
+  <p>
+    What you are buying changes how the loan is built. A home you will live in or return to is sized on your income and
+    an affordability test, and our guide to <a href="/expat-residential-mortgage">residential mortgages for expats</a>
+    covers how that works from overseas. A property you let out is sized mainly on the rent it earns and a rent cover
+    test, so your salary matters far less. Many expats in Portugal do one of three things: keep the home they left and
+    remortgage it, buy a place to return to one day, or buy to let while they are away. Be clear which case is yours
+    before you settle on a figure, because the two are worked out in entirely different ways.
+  </p>
+
+  <h2>Deposit and what to plan for</h2>
+  <p>
+    Expect to put down more than a UK resident would. Expat lenders commonly look for a deposit in the region of a
+    quarter of the property value, sometimes more, with the firmer end common on buy-to-let and on larger loans. A
+    stronger deposit widens the lender choice open to you, sets a better loan-to-value band and can ease the
+    affordability test, so it is worth knowing where you stand before you commit. Our guide to the
+    <a href="/expat-mortgage-deposit">expat mortgage deposit</a> covers how much to plan for and why it sits higher than
+    for a borrower based in the UK.
+  </p>
+
+  <h2>Residency, your visa and your UK ties</h2>
+  <p>
+    Lenders want to understand your situation as a whole, not just your payslip. Whether you hold a Portuguese residence
+    permit, settled under the earlier freedom-of-movement rules or arrived on a route such as the D7 visa shapes which
+    lenders fit, and a clear set of ties back to the UK, a credit footprint, a previous address or an existing property,
+    helps your case read well. The end of freedom of movement changed your status in Portugal more than it changed the
+    UK mortgage, but a lender will still want your current residency documented plainly. None of this is a barrier on its
+    own, though an overseas pay structure takes a little more documenting than a settled UK one. Knowing how a given
+    lender will treat your residency before you apply saves a false start later.
+  </p>
+
+  <PullQuote quote="From Portugal, your UK mortgage rarely turns on whether you qualify. It turns on matching your euro pay, your residency and your deposit to a lender that funds expat cases as routine." />
+
+  <h2>Arranging it from Portugal</h2>
+  <p>
+    Mainland Portugal keeps the same clock as the UK for most of the year, so there is no time gap to work around and we
+    can talk through where you broadly stand in normal working hours. Most of the groundwork, the fact-find, gathering
+    payslips and bank statements, and submitting the case, is handled remotely, so distance is rarely the obstacle. You
+    must be on UK soil to receive advice, so we confirm your residency and circumstances properly before recommending
+    anything. In practice a trip back is about timing rather than a hurdle, and a great deal is settled before you ever
+    board a plane.
+  </p>
+
+  <h2>How does Mortgage One help?</h2>
+  <p>
+    Mortgage One is a countrywide UK mortgage broker with access to plans from the whole of market, and we arrange expat
+    cases as a regular part of the business, not an exception to it. We work out which lenders are comfortable with a
+    Portuguese residence and how you are paid, count bonus or self-employed earnings properly, settle whether your case
+    is residential or buy-to-let, and put it in front of a lender that treats overseas borrowers as routine, with the
+    evidence an underwriter needs. You must be on UK soil to receive advice, so we confirm your circumstances properly
+    before recommending anything.
+  </p>
+
+  <MidCta
+    text="Ready to know where you stand on a UK mortgage from Portugal rather than guess from abroad? Let an adviser review your case."
+    label="Check Your Options"
+    scenario="expat"
+    src={slug}
+  />
+
+  <FaqSection items={faqs} />
+
+  <CtaBlock
+    heading="See if a UK mortgage from Portugal fits"
+    line="Tell us how you are paid, where in Portugal you live and the property you have in mind, and a Mortgage One adviser will review your answers."
+    scenario="expat"
+    src={slug}
+  />
+
+  <h2>Send us an enquiry</h2>
+  <EnquiryForm scenario="expat" />
+
+  <RelatedPanel cards={relatedCards} />
+
+  <p class="risk-warning">
+    Think carefully before securing your debts against your home. Your home may be repossessed if you do not keep up
+    repayments on your mortgage.
+  </p>
+</ArticleLayout>
+
+<style>
+  .risk-warning {
+    border-top: 1px solid var(--line);
+    padding-top: 1.5rem;
+    margin-top: 2.5rem;
+  }
+</style>

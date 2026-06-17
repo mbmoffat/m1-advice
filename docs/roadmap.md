@@ -43,6 +43,7 @@ Never target the head term "expat mortgages". Hub is can-an-expat-get-a-uk-mortg
 | Expat | /expat-mortgage-deposit | expat mortgage deposit | PR open |
 | Expat | /uk-mortgage-for-expats-in-australia | expat mortgage australia | PR open |
 | Expat | /uk-mortgage-for-expats-in-spain | expat mortgage spain | PR open |
+| Expat | /uk-mortgage-for-expats-in-portugal | expat mortgage portugal | PR open |
 
 ## Complex income
 
