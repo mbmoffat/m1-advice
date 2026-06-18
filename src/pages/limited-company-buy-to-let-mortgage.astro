@@ -1,0 +1,217 @@
+---
+import ArticleLayout from '../layouts/ArticleLayout.astro';
+import Reassurance from '../components/Reassurance.astro';
+import MidCta from '../components/MidCta.astro';
+import PullQuote from '../components/PullQuote.astro';
+import FaqSection from '../components/FaqSection.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+import EnquiryForm from '../components/locked/EnquiryForm.astro';
+import RelatedPanel from '../components/RelatedPanel.astro';
+
+const slug = '/limited-company-buy-to-let-mortgage';
+
+const reassuranceLines = [
+  'First-time landlords buying their first property inside a company.',
+  'Higher-rate taxpayers moving a portfolio into a limited company.',
+  'Investors setting up a special purpose vehicle before they buy.',
+  'Established landlords adding company-held properties to a personal portfolio.',
+  'Directors and partners buying together through a shared company.',
+];
+
+const faqs = [
+  {
+    q: 'Can I get a buy-to-let mortgage through a limited company?',
+    a: 'Yes. A wide range of lenders write limited company buy-to-let as routine business, lending to a company that holds and lets the property rather than to you personally. The case rests mainly on the rent the property earns and your deposit, with the directors and shareholders standing behind the company through a personal guarantee.',
+  },
+  {
+    q: 'Do I need a special purpose vehicle or can I use a trading company?',
+    a: 'Most buy-to-let lenders want a special purpose vehicle (SPV), a company set up only to hold and let property, with the right property activity recorded against it at Companies House. Lenders that accept an existing trading company are far fewer and price the case more cautiously, so if you already trade through a company it is usually cleaner to set up a separate vehicle for the property.',
+  },
+  {
+    q: 'Is a limited company buy-to-let mortgage cheaper than a personal one?',
+    a: 'Not on the headline rate. Company buy-to-let pricing usually carries a slightly higher rate and a heavier arrangement fee than the equivalent personal deal, because the lender panel is smaller and the structure is more involved. The reason landlords still choose a company is how rental profit and mortgage interest are taxed inside one, which is a decision for your accountant rather than a mortgage saving.',
+  },
+  {
+    q: 'Will I have to give a personal guarantee?',
+    a: 'Almost always. A company has a short or non-existent track record of its own, so the lender looks to the directors and shareholders behind it and takes a personal guarantee from them. Your own income and credit footprint still matter even though the mortgage sits in the company name, and the guarantee is a normal part of company buy-to-let rather than a sign the case is weak.',
+  },
+  {
+    q: 'How much deposit does a limited company buy-to-let need?',
+    a: 'Plan for at least a quarter of the property value, and more on some property types or with a newer company. A larger deposit widens the lender choice open to a company structure and eases the rent cover test, so the size of your deposit often shapes which lenders will look at the case as much as the rate they offer.',
+  },
+  {
+    q: 'How do lenders work out how much my company can borrow?',
+    a: 'The rent does most of the work. A lender tests the monthly rent against the mortgage interest at a stress rate set above the pay rate, using an interest cover ratio (ICR). Company cases are often tested at a lower cover ratio than higher-rate personal borrowing, frequently in the region of 125%, and where the rent falls a little short some lenders allow surplus personal income to bridge the gap, known as top-slicing.',
+  },
+];
+
+const relatedCards = [
+  {
+    title: 'Buy-to-let mortgages for expats',
+    href: '/expat-buy-to-let-mortgage',
+    line: 'The expat let picture, in a company or your own name.',
+  },
+  {
+    title: 'Expat company buy-to-let',
+    href: '/expat-limited-company-buy-to-let',
+    line: 'Holding a UK company let while you live abroad.',
+  },
+  {
+    title: 'Expat HMO mortgages',
+    href: '/expat-hmo-mortgage',
+    line: 'Houses in multiple occupation, often held in a company.',
+  },
+  { title: 'Check your eligibility', href: '/check', line: 'Five quick questions, about 60 seconds.' },
+];
+---
+
+<ArticleLayout
+  title="Limited Company Buy-to-Let Mortgages | Mortgage One"
+  description="Yes, you can hold a UK buy-to-let through a limited company. How lenders read the special purpose vehicle, deposit, rent cover, personal guarantees and rates."
+  eyebrow="Limited company buy-to-let"
+  heading="Limited company buy-to-let mortgages"
+  breadcrumbs={[
+    { name: 'Home', href: '/' },
+    { name: 'Limited company buy-to-let mortgages', href: slug },
+  ]}
+  scenario="btl"
+>
+  <p>
+    Yes, you can take out a buy-to-let mortgage through a limited company. The mortgage sits in the company name rather
+    than yours, and the lender judges it mainly on the rent the property earns and the deposit you put down, with the
+    directors and shareholders standing behind the company through a personal guarantee. Buying through a company has
+    become a mainstream route for landlords rather than a niche one, and a wide range of lenders treat it as ordinary
+    business. This page explains how lenders read a limited company case, what they want from the company itself, and
+    where the structure helps and where it costs more.
+  </p>
+
+  <Reassurance title="Limited company landlords we help" lines={reassuranceLines} />
+
+  <h2>Why landlords buy through a limited company</h2>
+  <p>
+    The pull towards a company is almost always about tax rather than the mortgage. Individual landlords can no longer
+    deduct mortgage interest from their rental income in full before tax, and instead receive a basic-rate tax credit,
+    which leaves higher-rate taxpayers paying more on the same rent. Inside a company the mortgage interest is treated as
+    a business cost and set against rental profit, with the profit taxed under corporation tax rather than income tax.
+    Whether that works in your favour depends on your wider income, how long you plan to hold the property and what you
+    intend to do with the rent, so the structure is a decision to settle with an accountant first and a mortgage decision
+    second. Our job is the borrowing: making sure the company you choose is one a lender will actually fund.
+  </p>
+
+  <h2>What lenders want from the company</h2>
+  <p>
+    Most buy-to-let lenders want a special purpose vehicle (SPV), a company set up only to hold and let property rather
+    than to trade in anything else. The company should carry the right property activity recorded against it at Companies
+    House, and lenders prefer a clean, simple shareholding rather than a long list of directors. A brand new company with
+    no history is normal for these cases and does not count against you, because the lender looks through the company to
+    the people behind it. If you already run a trading company and want to borrow through that, the pool of willing
+    lenders is much smaller, so a separate vehicle for the property is usually the cleaner path.
+  </p>
+
+  <h2>Personal guarantees and the directors</h2>
+  <p>
+    A company has little or no track record of its own, so the lender looks to the directors and shareholders and takes a
+    personal guarantee from them. That means your own income, your credit footprint and your circumstances still matter,
+    even though the mortgage is in the company name. The guarantee is a routine feature of company buy-to-let rather than
+    a sign the case is weak, and most lenders expect every director with a meaningful shareholding to stand behind the
+    loan. We make sure everyone who needs to give a guarantee understands what it involves before you apply, so there are
+    no surprises at the offer stage.
+  </p>
+
+  <MidCta
+    text="Want to know whether your company structure fits a lender before you set anything up? Tell us the shape of the deal and we will tell you where you stand."
+    scenario="btl"
+    src={slug}
+  />
+
+  <h2>How lenders size the loan on the rent</h2>
+  <p>
+    The rent does most of the heavy lifting. A lender tests the monthly rent against the mortgage interest at a stress
+    rate set above the pay rate, using an interest cover ratio (ICR) to decide the largest loan the rent will support.
+    Company cases are often tested at a lower cover ratio than higher-rate personal borrowing, frequently in the region
+    of 125% rather than the firmer figures applied to individual higher-rate taxpayers, which can let a company borrow a
+    little more on the same rent. The exact cover and stress rate vary by lender and by how long the deal is fixed, so
+    two lenders can offer very different loan sizes on the same property. Where the rent falls a little short of the loan
+    you want, some lenders allow surplus personal income to bridge the gap, known as top-slicing.
+  </p>
+
+  <h2>Deposit, rates and fees through a company</h2>
+  <p>
+    Expect to put down at least a quarter of the property value, and more on some property types or with a newer company.
+    Company buy-to-let pricing usually carries a slightly higher rate and a heavier arrangement fee than the equivalent
+    personal deal, because the lender panel is smaller and the case takes more underwriting. That means the headline rate
+    matters less than finding a lender comfortable with your company and the property, and a stronger deposit widens that
+    panel and eases the rent cover test. When you weigh up the cost, look at the rate and the fee together over the fixed
+    period rather than the rate on its own, since a low rate with a large percentage fee can work out dearer on a smaller
+    loan.
+  </p>
+
+  <PullQuote quote="A limited company buy-to-let is rarely about whether you qualify. It is about matching the special purpose vehicle, the rent and the deposit to a lender that funds company landlords as routine." />
+
+  <h2>Setting up the structure in the right order</h2>
+  <p>
+    The order matters. Settle the tax and ownership question with an accountant, set up the special purpose vehicle with
+    the right property activity recorded against it, agree the shareholding, and only then line up the mortgage, so the
+    company you fund is one a lender will accept rather than one you have to unpick later. We are happy to look at the
+    borrowing side before the company is formed, so you can set it up once, correctly, instead of discovering after the
+    fact that a lender wants the shareholding or the recorded activity arranged differently. If you are buying from
+    overseas, the company route has its own quirks, which we cover on our page about an
+    <a href="/expat-limited-company-buy-to-let">expat company buy-to-let</a>.
+  </p>
+
+  <h2>Moving an existing property into a company</h2>
+  <p>
+    Some landlords already own property personally and want to hold it in a company instead. This is a sale from you to
+    the company rather than a simple transfer, so it can bring a fresh round of stamp duty and a capital gains
+    calculation, and the company will need its own mortgage to complete the purchase. The numbers can still stack up,
+    particularly across a larger portfolio, but they need working through carefully with an accountant before you commit.
+    On the lending side we treat it like any other company purchase, sizing the loan on the rent and the company's
+    deposit. If you let to more than one household, our page on
+    <a href="/expat-hmo-mortgage">houses in multiple occupation</a> explains how those cases differ.
+  </p>
+
+  <h2>How does Mortgage One help?</h2>
+  <p>
+    Mortgage One is a countrywide UK mortgage broker with access to plans from the whole of market, and we arrange limited
+    company buy-to-let cases as a regular part of the business. We work out which lenders are comfortable with your
+    company and the property, test the rent against the loan you want, brief you and your fellow directors on the personal
+    guarantee, and put your case in front of the right desk with the evidence an underwriter needs. We are authorised and
+    regulated by the Financial Conduct Authority (FCA) for the mortgage advice, and we work alongside your accountant
+    rather than across them, so the borrowing fits the structure they recommend. You must be on UK soil to receive
+    advice, so we confirm your circumstances properly before recommending anything.
+  </p>
+
+  <MidCta
+    text="Ready to know where you stand rather than guess? Let an adviser review your limited company buy-to-let case."
+    label="Check Your Options"
+    scenario="btl"
+    src={slug}
+  />
+
+  <FaqSection items={faqs} />
+
+  <CtaBlock
+    heading="See if a limited company buy-to-let fits"
+    line="Tell us about the property, the rent, the company and your deposit, and a Mortgage One adviser will review your answers."
+    scenario="btl"
+    src={slug}
+  />
+
+  <h2>Send us an enquiry</h2>
+  <EnquiryForm scenario="btl" />
+
+  <RelatedPanel cards={relatedCards} />
+
+  <p class="risk-warning">
+    Think carefully before securing your debts against your home. Your home may be repossessed if you do not keep up
+    repayments on your mortgage.
+  </p>
+</ArticleLayout>
+
+<style>
+  .risk-warning {
+    border-top: 1px solid var(--line);
+    padding-top: 1.5rem;
+    margin-top: 2.5rem;
+  }
+</style>
