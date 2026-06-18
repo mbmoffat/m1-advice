@@ -1,0 +1,220 @@
+---
+import ArticleLayout from '../layouts/ArticleLayout.astro';
+import Reassurance from '../components/Reassurance.astro';
+import MidCta from '../components/MidCta.astro';
+import PullQuote from '../components/PullQuote.astro';
+import FaqSection from '../components/FaqSection.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+import EnquiryForm from '../components/locked/EnquiryForm.astro';
+import RelatedPanel from '../components/RelatedPanel.astro';
+
+const slug = '/self-employed-first-time-buyer';
+
+const reassuranceLines = [
+  'Being self-employed and buying your first home are not in conflict.',
+  'One full year of trading is often enough to apply.',
+  'First-time buyer rates and schemes are open to you on the same terms.',
+  'A clean deposit and tidy accounts matter more than how long you have traded.',
+  'The right lender reads your income and your first purchase as one straightforward case.',
+];
+
+const faqs = [
+  {
+    q: 'Can I buy my first home if I am self-employed?',
+    a: 'Yes, and far more easily than most first-time buyers expect. There is no separate, harder mortgage for someone who is both self-employed and buying for the first time; you apply for an ordinary residential mortgage, and the lender simply reads your income from your accounts and tax figures rather than from payslips. The two facts about you, that you work for yourself and that this is your first purchase, sit side by side without clashing. What decides the outcome is whether your trading figures show a stable income and whether you reach a lender comfortable with your length of record, not the fact that you have never owned a home before.',
+  },
+  {
+    q: 'How many years of accounts do I need as a self-employed first-time buyer?',
+    a: 'The common threshold is one full year of trading, finalised and filed, though two years widens the choice of lenders. The belief that you must show three years before anyone will look at you is out of date. A growing group of lenders will work from a single complete year where the income looks stable and likely to continue, and a smaller number will consider you earlier still where there is a strong, continuous story, such as doing the same work you did as an employee. As a first-time buyer the question is the same as for any self-employed applicant: does your record evidence a sustainable income, rather than how many tax years have passed.',
+  },
+  {
+    q: 'Can I use a first-time buyer scheme if I am self-employed?',
+    a: 'Yes. Schemes aimed at first-time buyers, such as shared ownership or a Lifetime ISA used toward a deposit, judge you on being a first-time buyer and on affordability, not on whether you are employed or self-employed. A self-employed applicant can use them on the same terms as anyone else, provided the income evidence stacks up for the lender behind the scheme. The work is the same as on any self-employed case: present your accounts and tax figures clearly so the lender can see the income is real and continuing. Get advice before committing to a particular scheme, because the lender choice and the income assessment still drive whether the case works.',
+  },
+  {
+    q: 'How much can I borrow as a self-employed first-time buyer?',
+    a: 'Affordability works exactly as it does for any borrower once your income is accepted. Most lenders work to an income multiple of around four and a half to five times your assessed income, then test that the repayments stay affordable at a stress rate above the pay rate, with your other commitments taken into account. The figure that drives the loan is the income the lender reads from your accounts, which for a sole trader is usually net profit and for a company director is often salary plus dividends, or in some cases salary plus retained profit. Being a first-time buyer does not change the sum; choosing a lender that reads your income generously is what moves it.',
+  },
+  {
+    q: 'How big a deposit do I need as a self-employed first-time buyer?',
+    a: 'The deposit rules are the same as for any first-time buyer, so a deposit of around a tenth of the price opens much of the mainstream market, and a smaller deposit is possible with the right lender. What a short trading record can do is narrow the panel of lenders willing to consider you, and a larger deposit widens that panel again and can improve the rate on offer. So while you are not asked for a bigger deposit purely for being self-employed, building one where you can gives you more lenders to choose from. Keep the deposit in a clear, traceable place and be ready to evidence where it came from, since every lender checks that.',
+  },
+  {
+    q: 'What should I do now to prepare as a self-employed first-time buyer?',
+    a: 'Quite a lot, and early moves pay off. Keep your business and personal banking clean and separate so your income is easy to follow, and use an accountant to finalise and file your accounts promptly rather than leaving figures in draft. Make sure your accounts agree with your tax calculations, since a gap between them slows every case. Save your deposit somewhere traceable, register on the electoral roll at your current address, and avoid taking on new credit in the months before you apply. Keep evidence that your work will continue, such as signed contracts or repeat clients. Above all, get advice early, so you build the record the right lenders want to see rather than finding the gaps at application.',
+  },
+];
+
+const relatedCards = [
+  {
+    title: 'Self-employed mortgages',
+    href: '/self-employed-mortgage',
+    line: 'The pillar guide to how lenders read self-employed income.',
+  },
+  {
+    title: 'Mortgage with one year of accounts',
+    href: '/self-employed-1-year-accounts',
+    line: 'Who lends on a single filed year and what they need.',
+  },
+  {
+    title: 'How much can I borrow when self-employed?',
+    href: '/how-much-can-i-borrow-self-employed',
+    line: 'How lenders turn your accounts into a borrowing figure.',
+  },
+  { title: 'Check your eligibility', href: '/check', line: 'Five quick questions, about 60 seconds.' },
+];
+---
+
+<ArticleLayout
+  title="Self-Employed First-Time Buyer Mortgages | Mortgage One"
+  description="Yes, you can buy your first home when self-employed. How many years of accounts you need, deposit and scheme rules, and how lenders read your income."
+  eyebrow="Complex income"
+  heading="Self-employed first-time buyer mortgages"
+  breadcrumbs={[
+    { name: 'Home', href: '/' },
+    { name: 'Self-employed first-time buyer mortgages', href: slug },
+  ]}
+  scenario="self-employed"
+>
+  <p>
+    Yes, you can buy your first home when you are self-employed, and the two things people worry about, working for
+    yourself and never having owned before, do not clash in the way they fear. There is no separate, harder product for a
+    self-employed first-time buyer; you apply for an ordinary residential mortgage, and the lender reads your income from
+    your accounts and tax figures rather than from payslips. This page answers the question directly: how many years of
+    accounts you need, how deposit and first-time buyer schemes work for you, how much you can borrow, and what to put in
+    place now. Because your first purchase sits inside the wider self-employed picture, our pillar guide to
+    <a href="/self-employed-mortgage">self-employed mortgages</a> sets out the ground this page builds on.
+  </p>
+
+  <Reassurance title="Why this is more straightforward than it looks" lines={reassuranceLines} />
+
+  <h2>The short answer for self-employed first-time buyers</h2>
+  <p>
+    Being self-employed does not stop you buying your first home, and being a first-time buyer does not make your
+    self-employed income harder to prove. The case is won or lost on two things: whether your figures show a stable income
+    that is likely to continue, and whether you reach a lender comfortable with the length of your trading record. Neither
+    of those is about having owned a home before. Sole traders, partners and company directors all buy their first homes,
+    and the job is to line your evidence up so the income is obvious, then put it in front of a lender whose rules fit your
+    record, rather than applying widely and collecting refusals from lenders who were always going to want longer.
+  </p>
+
+  <h2>How lenders read your income</h2>
+  <p>
+    A lender works out your income from how you trade. A sole trader is assessed on the net profit of a business run in
+    their own name, evidenced by a tax calculation, often called an SA302, and the matching tax year overview from
+    HM Revenue and Customs. A partner is assessed on their agreed share of a partnership's profit. A company director who
+    runs a limited company is usually assessed on salary plus dividends, and with the right lender on salary plus the
+    profit retained in the company. In every case the lender is reading a real income from documents, so the cleaner and
+    more finished that picture is, the easier the case becomes. None of this changes because it is your first purchase; it
+    is simply how self-employed income is measured.
+  </p>
+
+  <MidCta
+    text="Self-employed and buying your first home? Tell us how you trade and how long you have been going, and we will tell you where you stand."
+    scenario="self-employed"
+    src={slug}
+  />
+
+  <h2>How many years of accounts you need</h2>
+  <p>
+    For most self-employed first-time buyers the door opens once you have one full year of trading behind you, finalised
+    and filed, and two years widens the choice of lenders further. The old belief that you must show three years before
+    anyone will look at you no longer holds. A growing group of lenders will work from a single complete year where the
+    income looks stable, and a smaller number will consider you earlier where the story is strong and continuous, for
+    example doing the same work you did as an employee. The figure that matters is the point at which your evidence shows a
+    sustainable income, not a fixed number of tax years. Our guide to
+    <a href="/self-employed-1-year-accounts">a mortgage with one year of accounts</a> sets out who lends on a single year
+    and what they ask for.
+  </p>
+
+  <h2>Deposit and your first home</h2>
+  <p>
+    The deposit rules are the same for you as for any first-time buyer. A deposit of around a tenth of the price opens much
+    of the mainstream market, and a smaller deposit is possible with the right lender, while a larger one widens the panel
+    and can improve the rate. You are not asked for a bigger deposit purely for being self-employed; what a short trading
+    record can do is narrow which lenders will consider you, and more deposit widens that choice again. Keep your deposit
+    somewhere clear and traceable, and be ready to evidence where it came from, whether that is your own savings, a
+    Lifetime ISA or a gift from family, because every lender checks the source of a deposit before it completes.
+  </p>
+
+  <PullQuote quote="A self-employed first-time buyer is not two problems stacked on top of each other. It is one ordinary case, read by a lender that knows how to value your income." />
+
+  <h2>First-time buyer schemes when you are self-employed</h2>
+  <p>
+    Schemes aimed at first-time buyers are open to you. Shared ownership, where you buy a share of a property and pay rent
+    on the rest, judges you on being a first-time buyer and on affordability, not on whether you work for yourself. A
+    Lifetime ISA, which adds a government bonus to savings put toward a first home, works the same way for self-employed
+    savers as for employed ones. In each case the lender behind the scheme still assesses your income from your accounts,
+    so the self-employed part of the case is handled exactly as it would be on any purchase. Take advice before you commit
+    to a particular scheme, because the lender choice and the income assessment, not the scheme name, decide whether the
+    case actually works.
+  </p>
+
+  <h2>How much you can borrow</h2>
+  <p>
+    Once a lender has accepted your income, affordability works exactly as it does for any borrower. Most lenders work to an
+    income multiple of around four and a half to five times your assessed income, then test that the repayments stay
+    affordable at a stress rate above the pay rate, with your other commitments taken into account. Being a first-time buyer
+    does not change the sum, and neither does being self-employed in itself; what moves the figure is which lender you use
+    and how generously it reads your accounts. Two lenders can assess the same director's income differently, one counting
+    only salary and dividends and another adding retained profit, which is exactly why the choice of lender has such a large
+    effect. Our guide to <a href="/how-much-can-i-borrow-self-employed">how much you can borrow when self-employed</a> walks
+    through how the figure is built.
+  </p>
+
+  <h2>What to put in place now</h2>
+  <p>
+    A few early steps make a self-employed first-time buyer application markedly easier when the time comes. Keep your
+    business and personal banking clean and separate so your income is easy to follow, and use an accountant to finalise and
+    file your accounts promptly rather than leaving figures in draft, checking that your accounts agree with your tax
+    calculations. Save your deposit somewhere traceable, register on the electoral roll at your current address, and avoid
+    taking on new credit in the months before you apply. Keep evidence that your work will continue, such as signed
+    contracts or a list of ongoing clients. Above all, get advice early, so you build the record the right lenders want to
+    see rather than discovering the gaps at application.
+  </p>
+
+  <h2>How does Mortgage One help?</h2>
+  <p>
+    Mortgage One is a countrywide UK mortgage broker with access to plans from the whole of market, and arranging first
+    purchases for self-employed buyers is a regular part of the work. We tell you whether you are ready to apply yet or what
+    to put in place first, which lenders accept your length of record for the way you trade, and which read a director's
+    income most generously. We then match your figures to a lender comfortable with a self-employed first-time buyer and
+    present your case so an underwriter can see the income is sustainable and say yes first time. We are authorised and
+    regulated by the Financial Conduct Authority (FCA) for the mortgage advice, and you must be on UK soil to receive
+    advice, so we confirm your circumstances properly before recommending anything.
+  </p>
+
+  <MidCta
+    text="Ready to know how much you can borrow on your first home, rather than guess? Let an adviser review your figures."
+    label="Check Your Options"
+    scenario="self-employed"
+    src={slug}
+  />
+
+  <FaqSection items={faqs} />
+
+  <CtaBlock
+    heading="Find out where you stand on your first home"
+    line="Tell us how you trade, how long you have been going and your deposit, and a Mortgage One adviser will review your answers and tell you where you stand."
+    scenario="self-employed"
+    src={slug}
+  />
+
+  <h2>Send us an enquiry</h2>
+  <EnquiryForm scenario="self-employed" />
+
+  <RelatedPanel cards={relatedCards} />
+
+  <p class="risk-warning">
+    Think carefully before securing your debts against your home. Your home may be repossessed if you do not keep up
+    repayments on your mortgage.
+  </p>
+</ArticleLayout>
+
+<style>
+  .risk-warning {
+    border-top: 1px solid var(--line);
+    padding-top: 1.5rem;
+    margin-top: 2.5rem;
+  }
+</style>
