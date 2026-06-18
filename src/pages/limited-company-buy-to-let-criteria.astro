@@ -1,0 +1,228 @@
+---
+import ArticleLayout from '../layouts/ArticleLayout.astro';
+import Reassurance from '../components/Reassurance.astro';
+import MidCta from '../components/MidCta.astro';
+import PullQuote from '../components/PullQuote.astro';
+import FaqSection from '../components/FaqSection.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+import EnquiryForm from '../components/locked/EnquiryForm.astro';
+import RelatedPanel from '../components/RelatedPanel.astro';
+
+const slug = '/limited-company-buy-to-let-criteria';
+
+const reassuranceLines = [
+  'New companies with no trading history, formed only to hold the property.',
+  'First-time landlords who have never held a buy-to-let before.',
+  'Directors drawing modest salaries or living mainly on dividends.',
+  'Lower-rent properties where the cover test looks tight on paper.',
+  'Portfolio landlords adding another company-held property to the mix.',
+];
+
+const faqs = [
+  {
+    q: 'What are the main criteria for a limited company buy-to-let mortgage?',
+    a: 'A lender looks at five things: the company, usually a special purpose vehicle (SPV) set up only to hold and let property; the deposit, typically at least a quarter of the value; the rent, which must cover the mortgage interest at a stress rate; the directors, who give a personal guarantee and pass a credit and income check; and the property itself. The rent and the deposit do most of the work, with the directors standing behind the company rather than qualifying on their salary alone.',
+  },
+  {
+    q: 'Is there a minimum income to get a limited company buy-to-let mortgage?',
+    a: 'Many lenders set no fixed minimum income for a company buy-to-let, because the rent carries the affordability rather than your salary. Some do ask for a minimum, often around £25,000 across the directors, and a handful want none at all. Where your own income matters most is top-slicing, where surplus earnings can bridge a rent shortfall, and the personal guarantee, where the lender wants to see the directors are sound. A low salary or dividend-only income does not rule you out.',
+  },
+  {
+    q: 'Does the company need a trading history or accounts?',
+    a: 'No. A brand new company formed only to hold the property is normal for these cases and does not count against you, because the lender looks through the company to the directors and shareholders behind it. What the lender wants is the right setup: a special purpose vehicle with the correct property activity recorded at Companies House and a clean, simple shareholding, not years of filed accounts.',
+  },
+  {
+    q: 'How do lenders work out affordability on a company buy-to-let?',
+    a: 'They test the monthly rent against the mortgage interest at a stress rate set above the pay rate, using an interest cover ratio (ICR). Company cases are often tested at a lower ratio than higher-rate personal borrowing, frequently in the region of 125%, which can let a company borrow a little more on the same rent. The stress rate and ratio vary by lender and by how long the deal is fixed, so a five-year fix is usually assessed more gently than a two-year one.',
+  },
+  {
+    q: 'What deposit do the criteria call for?',
+    a: 'Plan for at least a quarter of the property value, and more on some property types or with a newer company. A larger deposit widens the lender choice open to a company structure and eases the rent cover test, because a smaller loan needs less rent to cover it. On a tight cover test, finding a little more deposit often does more to make the case work than searching for a lower rate.',
+  },
+  {
+    q: 'Can I still qualify if the rent does not quite cover the loan?',
+    a: 'Sometimes, through top-slicing, where a lender allows surplus personal income to bridge the gap between the rent and the loan you want. Not every lender offers it, and those that do test your wider income and outgoings to be sure the cushion is real. Where top-slicing is not available, the usual fixes are a larger deposit, a longer fix that is stressed more gently, or trimming the loan to what the rent will carry on its own.',
+  },
+];
+
+const relatedCards = [
+  {
+    title: 'Limited company buy-to-let mortgages',
+    href: '/limited-company-buy-to-let-mortgage',
+    line: 'The pillar guide to holding a let through a company.',
+  },
+  {
+    title: 'SPV mortgages for buy-to-let',
+    href: '/spv-mortgage',
+    line: 'Setting up the company so a lender will fund it.',
+  },
+  {
+    title: 'Company or personal name?',
+    href: '/limited-company-vs-personal-name-buy-to-let',
+    line: 'Weighing the two routes before you commit.',
+  },
+  { title: 'Check your eligibility', href: '/check', line: 'Five quick questions, about 60 seconds.' },
+];
+---
+
+<ArticleLayout
+  title="Limited Company Buy-to-Let Criteria | Mortgage One"
+  description="Yes, a new SPV can meet limited company buy-to-let criteria. How lenders read the deposit, rent cover, stress rate, director income and personal guarantee."
+  eyebrow="Limited company buy-to-let"
+  heading="Limited company buy-to-let criteria and affordability"
+  breadcrumbs={[
+    { name: 'Home', href: '/' },
+    { name: 'Limited company buy-to-let criteria', href: slug },
+  ]}
+  scenario="btl"
+>
+  <p>
+    Yes, most landlords can meet limited company buy-to-let criteria, even with a brand new company and no trading history,
+    because lenders judge these cases on the rent, the deposit and the directors rather than on company accounts. The loan
+    sits in the company name, the rent has to cover the mortgage interest at a stress rate, and the directors stand behind
+    the company through a personal guarantee. This page sets out the criteria a lender actually checks and, just as
+    important, how affordability is worked out, so you can see where your case is strong and where it might need a larger
+    deposit or a longer fix. For the wider picture, see our pillar guide to
+    <a href="/limited-company-buy-to-let-mortgage">limited company buy-to-let mortgages</a>.
+  </p>
+
+  <Reassurance title="Company landlords who still qualify" lines={reassuranceLines} />
+
+  <h2>The criteria a lender checks</h2>
+  <p>
+    A limited company buy-to-let case rests on five things, and it helps to picture them as a short checklist. The company
+    itself, usually a special purpose vehicle set up only to hold and let property. The deposit, normally at least a
+    quarter of the value. The rent, which must cover the mortgage interest at a stress rate. The directors, who give a
+    personal guarantee and pass a credit and basic income check. And the property, which has to be one the lender will
+    lend on. None of these stands alone: a strong deposit eases the rent test, and sound directors make a newer company
+    easier to place. The sections below take each in turn, then show how the rent sets the loan.
+  </p>
+
+  <h2>Company and special purpose vehicle criteria</h2>
+  <p>
+    Most buy-to-let lenders want a special purpose vehicle (SPV), a company set up only to hold and let property rather
+    than to trade in anything else. They look for the right property activity recorded against the company at Companies
+    House, captured in its standard industrial classification (SIC) code, and they prefer a clean, simple shareholding
+    over a long list of directors. A new company with no history is fine and expected, because the lender looks through it
+    to the people behind it. If you want to borrow through an existing trading company instead, the pool of willing
+    lenders is much smaller and the case is priced more cautiously, so a separate vehicle for the property is usually the
+    cleaner route. We cover the setup in detail on our page about <a href="/spv-mortgage">SPV mortgages for buy-to-let</a>.
+  </p>
+
+  <h2>Deposit and loan-to-value criteria</h2>
+  <p>
+    Expect to put down at least a quarter of the property value, so most company lending caps out around 75% of the price,
+    with some property types and newer companies needing more. The deposit is not just an entry ticket: it shapes the
+    whole case. A larger deposit means a smaller loan, which needs less rent to cover it, and it widens the lender panel
+    willing to look at a company structure. Where the rent cover test looks tight, adding to the deposit often does more
+    to make the case work than chasing a lower rate. The deposit also has to be from an acceptable source the lender can
+    evidence, such as savings, the sale of another property or a director's loan into the company.
+  </p>
+
+  <MidCta
+    text="Want to know whether your deposit and rent meet the criteria before you commit? Tell us the shape of the deal and we will tell you where you stand."
+    scenario="btl"
+    src={slug}
+  />
+
+  <h2>Director and personal criteria</h2>
+  <p>
+    Because a company has little track record of its own, the lender turns to the directors and shareholders. They take a
+    personal guarantee, usually from every director with a meaningful stake, so your own income, credit footprint and
+    circumstances still matter even though the mortgage is in the company name. Many lenders set no fixed minimum income,
+    since the rent carries affordability, though some ask for a figure around £25,000 across the directors, and a few want
+    none at all. A modest salary, dividend-only income or living mainly on retained profit does not rule you out. What a
+    lender does want is directors who are UK based for most cases, of an acceptable age over the term, and free of the
+    serious credit problems that would unsettle any mortgage.
+  </p>
+
+  <h2>How affordability is worked out: rent cover and the ICR</h2>
+  <p>
+    This is where most company cases are won or lost. A lender tests the monthly rent against the mortgage interest at a
+    stress rate set above the pay rate, using an interest cover ratio (ICR) to decide the largest loan the rent will
+    support. The ratio is the share by which the rent must exceed the stressed interest: at 125% the rent has to be a
+    quarter more than the interest bill. Company cases are often tested at a lower cover ratio than higher-rate personal
+    borrowing, frequently in the region of 125% rather than the firmer figures applied to individual higher-rate
+    taxpayers, which can let a company borrow a little more on the same rent. So the rent, not your salary, sets the
+    ceiling on what the company can borrow.
+  </p>
+
+  <PullQuote quote="On a company buy-to-let the rent sets the loan, not your payslip. The criteria are about the property paying its own way, with the directors standing behind it." />
+
+  <h2>Stress rates and why the fix length changes the sum</h2>
+  <p>
+    The stress rate is the rate the lender pretends you are paying when it tests the rent, and it is deliberately set
+    above the pay rate to leave headroom if rates rise. How high it goes depends partly on how long you fix. A five-year
+    fixed deal is usually stressed more gently, sometimes close to the pay rate, because the payment is locked for longer,
+    while a two-year fix is tested at a higher notional rate. That single difference can change the maximum loan
+    noticeably on the same rent, which is why two lenders, or even two products from one lender, can offer very different
+    sums on the same property. When the rent looks tight against the loan you want, a longer fix is often the lever that
+    makes the criteria add up.
+  </p>
+
+  <h2>When the rent falls short: top-slicing</h2>
+  <p>
+    If the rent does not quite cover the loan you want, some lenders allow surplus personal income to bridge the gap, a
+    practice known as top-slicing. The lender looks at your wider earnings and outgoings and lets a genuine surplus make
+    up the shortfall, so a director with strong income outside the property can sometimes borrow more than the rent alone
+    would allow. Not every lender offers it, and those that do underwrite it carefully rather than waving it through.
+    Where top-slicing is off the table, the usual fixes are a larger deposit, a longer fix that is stressed more gently,
+    or simply trimming the loan to what the rent will carry on its own.
+  </p>
+
+  <h2>Property and portfolio criteria</h2>
+  <p>
+    The property has to be one the lender is comfortable with. Standard houses and flats let to a single household are the
+    easiest to place; more involved property raises the bar and narrows the panel. A house in multiple occupation has its
+    own rules, which we cover on our page about <a href="/limited-company-hmo-mortgage">limited company HMO mortgages</a>,
+    and a short-let or holiday property is assessed differently again. If you already hold several mortgaged properties,
+    some lenders apply portfolio criteria, looking at the background rental cover and the total borrowing across the
+    company and your name, not just the property in front of them. A clean, well-evidenced portfolio passes this far more
+    smoothly than a stretched one.
+  </p>
+
+  <h2>How does Mortgage One help?</h2>
+  <p>
+    Mortgage One is a countrywide UK mortgage broker with access to plans from the whole of market, and we place limited
+    company buy-to-let cases as routine business. We match your company, deposit and property to lenders whose criteria
+    fit, test the rent against the loan you want under each lender's stress rate and cover ratio, and tell you early
+    whether a longer fix or top-slicing would lift the figure. We brief you and your fellow directors on the personal
+    guarantee, and we are authorised and regulated by the Financial Conduct Authority (FCA) for the mortgage advice. We
+    work alongside your accountant rather than across them, so the borrowing fits the structure they recommend. You must
+    be on UK soil to receive advice, so we confirm your circumstances properly before recommending anything.
+  </p>
+
+  <MidCta
+    text="Ready to know whether your case meets the criteria rather than guess? Let an adviser review your limited company buy-to-let."
+    label="Check Your Options"
+    scenario="btl"
+    src={slug}
+  />
+
+  <FaqSection items={faqs} />
+
+  <CtaBlock
+    heading="See if your case meets the criteria"
+    line="Tell us about the property, the rent, the company and your deposit, and a Mortgage One adviser will review your answers."
+    scenario="btl"
+    src={slug}
+  />
+
+  <h2>Send us an enquiry</h2>
+  <EnquiryForm scenario="btl" />
+
+  <RelatedPanel cards={relatedCards} />
+
+  <p class="risk-warning">
+    Think carefully before securing your debts against your home. Your home may be repossessed if you do not keep up
+    repayments on your mortgage.
+  </p>
+</ArticleLayout>
+
+<style>
+  .risk-warning {
+    border-top: 1px solid var(--line);
+    padding-top: 1.5rem;
+    margin-top: 2.5rem;
+  }
+</style>
