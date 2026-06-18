@@ -1,0 +1,223 @@
+---
+import ArticleLayout from '../layouts/ArticleLayout.astro';
+import Reassurance from '../components/Reassurance.astro';
+import MidCta from '../components/MidCta.astro';
+import PullQuote from '../components/PullQuote.astro';
+import FaqSection from '../components/FaqSection.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+import EnquiryForm from '../components/locked/EnquiryForm.astro';
+import RelatedPanel from '../components/RelatedPanel.astro';
+
+const slug = '/how-much-can-a-limited-company-borrow-btl';
+
+const reassuranceLines = [
+  'Working out the maximum loan from the rent, not just the property value.',
+  'Checking whether a five-year fix lets the company borrow more.',
+  'Testing if top-slicing can lift a loan the rent will not quite cover.',
+  'Sizing the next purchase across an existing portfolio.',
+  'First-time landlords seeing what a single property will support.',
+];
+
+const faqs = [
+  {
+    q: 'How much can a limited company borrow for buy-to-let?',
+    a: 'There is no fixed figure, because the loan is sized on the rent before it is capped by the deposit. A lender works backwards from the monthly rent, divides it by an interest cover ratio and a stress rate, and that gives the maximum loan the rent will support. That figure is then capped at the loan-to-value ceiling, usually around 75% of the property value. The company can borrow the lower of the two. So a strong rent on a modest property can be limited by the deposit, while a high-value property with thin rent is limited by the cover test instead.',
+  },
+  {
+    q: 'How do I work out the maximum loan from the rent?',
+    a: 'Take the annual rent, divide it by the interest cover ratio, then divide that by the stress rate. If the rent is £1,200 a month, that is £14,400 a year. At a 125% ratio that leaves £11,520 to cover interest, and at a 5.5% stress rate that supports a loan of about £209,000. The exact ratio and stress rate vary by lender and by how long you fix, so treat the sum as a guide and let an adviser run it against real products.',
+  },
+  {
+    q: 'Why can a company sometimes borrow more than I can personally?',
+    a: 'Higher-rate taxpayers borrowing in their own name are often tested at a stricter interest cover ratio, frequently 145%, because of how rental profit is taxed personally. Limited company lending is commonly tested at around 125%, because the company can offset its full mortgage interest against rental income. A lower ratio on the same rent supports a larger loan, which is one reason landlords with other income look at the company route. It is not guaranteed, and it should be weighed against the running costs of a company.',
+  },
+  {
+    q: 'Does a five-year fix let the company borrow more?',
+    a: 'Often, yes. Many lenders stress a five-year fixed rate more gently than a two-year deal, sometimes at or close to the pay rate rather than a higher stressed figure. A lower stress rate in the sum supports a larger loan on the same rent. The trade-off is that you are locked in for longer, so the extra borrowing has to be worth committing to the rate for five years. We model both so you can see what the longer fix actually buys you.',
+  },
+  {
+    q: 'What if the rent will not cover the loan I need?',
+    a: 'Some lenders allow top-slicing, where provable surplus income from elsewhere is used to bridge a small shortfall in the rent cover. It does not turn a weak case into a strong one, but it can lift a loan that falls just short of the figure you need. Not every lender offers it and the rules differ, so it is worth knowing in advance which lenders will consider it. We cover the mechanics on our page about limited company buy-to-let criteria.',
+  },
+  {
+    q: 'Does borrowing through a company across a portfolio change the figure?',
+    a: 'It can. Once you hold four or more mortgaged buy-to-lets you are treated as a portfolio landlord, and many lenders then assess the whole portfolio, not just the new property. They look at the overall loan-to-value and the rent cover across every property, so a weak property elsewhere can pull down what you can borrow on the next one. A clean, well-covered portfolio usually keeps your options open, while a stretched one narrows them.',
+  },
+];
+
+const relatedCards = [
+  {
+    title: 'Limited company buy-to-let mortgages',
+    href: '/limited-company-buy-to-let-mortgage',
+    line: 'The pillar guide to holding a let through a company.',
+  },
+  {
+    title: 'Limited company buy-to-let criteria',
+    href: '/limited-company-buy-to-let-criteria',
+    line: 'How the rent cover, ICR and stress rates are worked out.',
+  },
+  {
+    title: 'SPV mortgages for buy-to-let',
+    href: '/spv-mortgage',
+    line: 'Setting up the company so a lender will fund it.',
+  },
+  { title: 'Check your eligibility', href: '/check', line: 'Five quick questions, about 60 seconds.' },
+];
+---
+
+<ArticleLayout
+  title="How Much Can a Limited Company Borrow? | Mortgage One"
+  description="How much a limited company can borrow for buy-to-let is set by the rent, then capped by the deposit. The borrowing sum, a worked example and what lifts it."
+  eyebrow="Limited company buy-to-let"
+  heading="How much can a limited company borrow for buy-to-let"
+  breadcrumbs={[
+    { name: 'Home', href: '/' },
+    { name: 'How much can a limited company borrow for buy-to-let', href: slug },
+  ]}
+  scenario="btl"
+>
+  <p>
+    There is no single figure, because a limited company buy-to-let loan is sized on the rent first and then capped by the
+    deposit. A lender works backwards from the monthly rent to find the largest loan the rent will support at its stress
+    rate, then limits that to a share of the property value, usually around 75%. The company can borrow the lower of those
+    two numbers. So the answer depends on the rent, the property value and the deposit together, not on the company's own
+    profit. This page shows how the borrowing sum is built, walks through a worked example, and sets out what lifts the
+    figure and what holds it back. For the wider picture, see our pillar guide to
+    <a href="/limited-company-buy-to-let-mortgage">limited company buy-to-let mortgages</a>.
+  </p>
+
+  <Reassurance title="What we work out for you" lines={reassuranceLines} />
+
+  <h2>What sets the maximum loan</h2>
+  <p>
+    Two ceilings decide how much a company can borrow, and you get the lower of the two. The first is the rent: the
+    monthly rent has to cover the mortgage interest at a stress rate by a set margin, so the rent puts a hard limit on the
+    loan. The second is loan-to-value: most company lending tops out at around 75% of the property value, so the deposit
+    caps the loan as well. On a high-value property with modest rent, the rent is usually what bites. On a strong-yielding
+    property, the deposit is more likely to be the limit. Knowing which ceiling applies to your case tells you what to fix
+    if you need to borrow more.
+  </p>
+
+  <h2>The rent is the main limit</h2>
+  <p>
+    The rent cover test is where most of the borrowing is decided. A lender takes the monthly rent and checks that it
+    exceeds the mortgage interest, calculated at a stress rate above the pay rate, by a margin called the interest cover
+    ratio. Limited company cases are commonly tested at around a 125% ratio, meaning the rent must be at least 125% of the
+    stressed interest. Rearrange that and it tells you the largest loan the rent can carry. The stress rate and the ratio
+    are set by the lender and change with the type of deal, so the same rent can support different loans at different
+    lenders. We explain the test in full on our page about
+    <a href="/limited-company-buy-to-let-criteria">limited company buy-to-let criteria</a>.
+  </p>
+
+  <h2>A worked example of the borrowing sum</h2>
+  <p>
+    Take a property let for £1,200 a month, which is £14,400 a year. Divide the annual rent by a 125% interest cover ratio
+    and you have £11,520 left to cover interest. Divide that by a 5.5% stress rate and the rent supports a loan of roughly
+    £209,000. That is the rent-driven ceiling. Now apply the deposit: if the property is worth £260,000, a 75%
+    loan-to-value cap allows £195,000. The company can borrow the lower figure, £195,000, so here the deposit is the
+    limit, not the rent. Change the property to one worth £300,000 on the same rent and the rent ceiling of £209,000 bites
+    first instead. The numbers above are illustrative only, not a quote, offer or advice, and actual borrowing is subject
+    to full lender assessment and status.
+  </p>
+
+  <MidCta
+    text="Want the real maximum for your property? Tell us the value, the rent and the deposit, and we will work out what a company can borrow."
+    scenario="btl"
+    src={slug}
+  />
+
+  <h2>The loan-to-value ceiling</h2>
+  <p>
+    Even where the rent would support a large loan, the deposit sets the second ceiling. Most limited company buy-to-let
+    lending caps at around 75% of the property value, so a quarter of the price has to come from the company as deposit. A
+    few lenders stretch to 80% on standard houses and flats, while less straightforward cases, such as a new company or a
+    house in multiple occupation, can be held to 70% or lower. Because the loan is the lower of the rent ceiling and the
+    loan-to-value cap, a bigger deposit only increases borrowing up to the point where the rent becomes the limit. Past
+    that, more deposit lowers the loan rather than raising what you can borrow.
+  </p>
+
+  <PullQuote quote="The company borrows the lower of two numbers: what the rent will carry, and what the deposit allows. Work out which one is biting, and you know what to change." />
+
+  <h2>How a five-year fix can lift the figure</h2>
+  <p>
+    The length of the fixed rate changes the sum, because many lenders stress a five-year fix more gently than a shorter
+    deal. A two-year fix is often tested at a stress rate well above the pay rate, while a five-year fix may be assessed at
+    or near the pay rate itself. A lower stress rate in the calculation means the same rent supports a larger loan, so the
+    longer commitment can be the difference between the borrowing you want and a shortfall. The trade-off is being tied to
+    the rate for five years, so the extra borrowing has to be worth that. We routinely model both lengths side by side.
+  </p>
+
+  <h2>Top-slicing when the rent falls short</h2>
+  <p>
+    If the rent lands just below the loan you need, some lenders allow top-slicing, where provable surplus personal income
+    is used to bridge a small gap in the rent cover. It will not rescue a weak case, but it can lift a loan that misses
+    the figure by a margin. Not every lender offers it, and those that do set their own rules on the income they will
+    count, so it pays to know in advance which lenders will look at it. Where top-slicing is on the table, it widens what a
+    company can borrow without you having to find more deposit or a higher-yielding property.
+  </p>
+
+  <h2>How a portfolio changes what you can borrow</h2>
+  <p>
+    Once a company holds four or more mortgaged buy-to-lets, you are treated as a portfolio landlord, and many lenders
+    then assess the whole portfolio rather than the single new property. They look at the overall loan-to-value and the
+    rent cover across every property you hold, so a weakly covered or highly geared property elsewhere can pull down what
+    you can borrow on the next one. A clean portfolio with rent comfortably above the cover test keeps your borrowing
+    options open, while a stretched one narrows them. Planning each purchase with the portfolio in mind protects the
+    figure on the next deal.
+  </p>
+
+  <h2>Why a company can often borrow more than an individual</h2>
+  <p>
+    On the same rent, a company can sometimes borrow more than a higher-rate taxpayer buying in their own name. Personal
+    higher-rate borrowing is frequently tested at a 145% interest cover ratio, because of how rental profit is taxed
+    personally, while company lending is commonly tested at around 125%, since the company offsets its full mortgage
+    interest against rental income. A lower ratio on the same rent supports a larger loan. This is one reason landlords
+    with other income consider the company route, though it has to be weighed against the cost of running a company and is
+    a decision for you and your accountant.
+  </p>
+
+  <h2>How does Mortgage One help?</h2>
+  <p>
+    Mortgage One is a countrywide UK mortgage broker with access to plans from the whole of market, and we place limited
+    company buy-to-let cases as routine business. We work out the real maximum for your case from the rent, the value and
+    the deposit, tell you which ceiling is actually limiting the loan, and model a two-year and a five-year fix so you can
+    see what the longer commitment buys in extra borrowing. Where the rent falls a little short, we know which lenders
+    will consider top-slicing, and across a portfolio we size the next purchase so it does not pull down the rest. We are
+    authorised and regulated by the Financial Conduct Authority (FCA) for the mortgage advice. You must be on UK soil to
+    receive advice, so we confirm your circumstances properly before recommending anything.
+  </p>
+
+  <MidCta
+    text="Ready to know the real borrowing figure rather than a rough rule of thumb? Let an adviser size the loan on your limited company buy-to-let."
+    label="Check Your Options"
+    scenario="btl"
+    src={slug}
+  />
+
+  <FaqSection items={faqs} />
+
+  <CtaBlock
+    heading="See how much your company can borrow"
+    line="Tell us the property value, the rent, the deposit and the company, and a Mortgage One adviser will work out the maximum loan."
+    scenario="btl"
+    src={slug}
+  />
+
+  <h2>Send us an enquiry</h2>
+  <EnquiryForm scenario="btl" />
+
+  <RelatedPanel cards={relatedCards} />
+
+  <p class="risk-warning">
+    Think carefully before securing your debts against your home. Your home may be repossessed if you do not keep up
+    repayments on your mortgage.
+  </p>
+</ArticleLayout>
+
+<style>
+  .risk-warning {
+    border-top: 1px solid var(--line);
+    padding-top: 1.5rem;
+    margin-top: 2.5rem;
+  }
+</style>
