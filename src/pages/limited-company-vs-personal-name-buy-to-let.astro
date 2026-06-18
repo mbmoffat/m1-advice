@@ -1,0 +1,206 @@
+---
+import ArticleLayout from '../layouts/ArticleLayout.astro';
+import Reassurance from '../components/Reassurance.astro';
+import MidCta from '../components/MidCta.astro';
+import PullQuote from '../components/PullQuote.astro';
+import FaqSection from '../components/FaqSection.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+import EnquiryForm from '../components/locked/EnquiryForm.astro';
+import RelatedPanel from '../components/RelatedPanel.astro';
+
+const slug = '/limited-company-vs-personal-name-buy-to-let';
+
+const reassuranceLines = [
+  'First-time landlords deciding how to hold their very first rental.',
+  'Higher-rate taxpayers weighing a company against buying in their own name.',
+  'Basic-rate taxpayers checking whether a company is worth the extra cost.',
+  'Couples splitting ownership and unsure which structure suits them.',
+  'Landlords with one or two personal lets thinking about the next purchase.',
+];
+
+const faqs = [
+  {
+    q: 'Is it better to buy a buy-to-let in a limited company or personal name?',
+    a: 'It depends on your tax position and how long you plan to hold the property. A limited company often suits higher-rate taxpayers building a portfolio they will keep, because mortgage interest is set against rental profit before corporation tax. Buying in your personal name is usually simpler and cheaper for a basic-rate taxpayer, or where you only want one or two properties. The mortgage works either way, so the structure is a tax and ownership decision to settle with an accountant first.',
+  },
+  {
+    q: 'Do limited company buy-to-let mortgages cost more than personal ones?',
+    a: 'Usually yes on the headline figures. Company buy-to-let pricing tends to carry a slightly higher rate and a heavier arrangement fee than the equivalent personal deal, because the lender panel is smaller and the case takes more underwriting. Landlords still choose a company for how rental profit and mortgage interest are taxed inside one, not for the mortgage cost, so the saving sits in the tax rather than the rate.',
+  },
+  {
+    q: 'Can a basic-rate taxpayer still benefit from a limited company?',
+    a: 'Often less than a higher-rate taxpayer would. The main pull towards a company is that individual landlords now receive only a basic-rate tax credit for mortgage interest rather than full deduction, which bites hardest on higher-rate taxpayers. A basic-rate taxpayer feels that pinch less, so the extra cost and admin of a company can outweigh the gain. It is worth modelling both routes with an accountant before you decide.',
+  },
+  {
+    q: 'Can I move a property from my personal name into a company later?',
+    a: 'Yes, but it is a sale from you to the company rather than a simple transfer, so it can bring a fresh round of stamp duty and a capital gains calculation, and the company needs its own mortgage to complete the purchase. The numbers can still stack up across a larger portfolio, but they need working through carefully before you commit, which is why many landlords settle the structure before the first purchase.',
+  },
+  {
+    q: 'Does the deposit differ between a company and a personal buy-to-let?',
+    a: 'Both routes generally want at least a quarter of the property value, and more on some property types. A company case can sit on a slightly smaller lender panel, so a larger deposit helps more there by widening the lenders willing to look and easing the rent cover test. The deposit you can raise often shapes which route is realistic as much as the tax does.',
+  },
+  {
+    q: 'Will I need a personal guarantee if I buy through a company?',
+    a: 'Almost always. A company has little or no track record of its own, so the lender looks to the directors and shareholders and takes a personal guarantee from them. Your own income and credit footprint still matter even though the mortgage sits in the company name. Buying in your personal name carries no separate guarantee because the borrowing is already yours, which is one reason the personal route feels simpler.',
+  },
+];
+
+const relatedCards = [
+  {
+    title: 'Limited company buy-to-let mortgages',
+    href: '/limited-company-buy-to-let-mortgage',
+    line: 'The pillar guide to holding a let through a company.',
+  },
+  {
+    title: 'SPV mortgages for buy-to-let',
+    href: '/spv-mortgage',
+    line: 'Setting up the company so a lender will fund it.',
+  },
+  {
+    title: 'Expat company buy-to-let',
+    href: '/expat-limited-company-buy-to-let',
+    line: 'Holding a UK company let while you live abroad.',
+  },
+  { title: 'Check your eligibility', href: '/check', line: 'Five quick questions, about 60 seconds.' },
+];
+---
+
+<ArticleLayout
+  title="Buy-to-Let: Limited Company or Personal Name | Mortgage One"
+  description="Limited company or personal name for your buy-to-let? How the tax, mortgage rates, deposit and rent cover differ, and how to choose the route that fits."
+  eyebrow="Limited company buy-to-let"
+  heading="Buy-to-let in a limited company or your personal name"
+  breadcrumbs={[
+    { name: 'Home', href: '/' },
+    { name: 'Limited company or personal name buy-to-let', href: slug },
+  ]}
+  scenario="btl"
+>
+  <p>
+    Both routes work, and the mortgage is available either way, so the choice between a limited company and your personal
+    name is really a tax and ownership decision rather than a borrowing one. As a rough guide, a limited company tends to
+    suit higher-rate taxpayers building a portfolio they intend to keep, while buying in your own name is usually simpler
+    and cheaper for a basic-rate taxpayer or anyone who only wants one or two properties. This page sets the two routes
+    side by side: how each is taxed, what changes on the mortgage, and when each one fits. For the full company picture,
+    see our pillar guide to <a href="/limited-company-buy-to-let-mortgage">limited company buy-to-let mortgages</a>.
+  </p>
+
+  <Reassurance title="Landlords we help decide" lines={reassuranceLines} />
+
+  <h2>The short answer: which route fits</h2>
+  <p>
+    The deciding factor is almost always your income tax position and how long you plan to hold the property. If you pay
+    higher-rate tax and want to grow and keep a portfolio, a company often works out better over time because of how
+    rental profit and mortgage interest are taxed inside one. If you pay basic-rate tax, want only a property or two, or
+    expect to sell before long, the simplicity and lower cost of your personal name usually win. Neither answer is
+    universal, which is why it pays to model both with an accountant against your own numbers rather than follow a rule of
+    thumb. Our part is making sure the route you choose is one a lender will fund cleanly.
+  </p>
+
+  <h2>How the two routes are taxed</h2>
+  <p>
+    This is where the two paths genuinely diverge. An individual landlord can no longer deduct mortgage interest from
+    rental income in full before tax, and instead receives a basic-rate tax credit, which leaves higher-rate taxpayers
+    paying more on the same rent. Inside a company the mortgage interest is treated as a business cost and set against
+    rental profit, with the profit taxed under corporation tax rather than income tax. Against that, taking the money out
+    of a company as dividends is taxed again in your hands, so a company suits landlords who want to retain and reinvest
+    the rent rather than draw it straight away. The maths turns on your wider income, your plans for the rent and how long
+    you will hold, so it is a question for your accountant first and a mortgage question second.
+  </p>
+
+  <MidCta
+    text="Not sure whether a company or your own name leaves you better off? Tell us the shape of the deal and we will tell you which route a lender will back."
+    scenario="btl"
+    src={slug}
+  />
+
+  <h2>What changes on the mortgage itself</h2>
+  <p>
+    The borrowing is similar in shape but priced differently. Company buy-to-let usually carries a slightly higher rate
+    and a heavier arrangement fee than the equivalent personal deal, because the lender panel is smaller and the case
+    takes more underwriting. The way the loan is sized also differs: lenders test the rent against the mortgage interest
+    at a stress rate using an interest cover ratio (ICR), and company cases are often tested at a lower cover ratio than
+    higher-rate personal borrowing, frequently in the region of 125%, which can let a company borrow a little more on the
+    same rent. A company case wants a special purpose vehicle (SPV), a company set up only to hold and let property, which
+    we cover on our page about <a href="/spv-mortgage">SPV mortgages for buy-to-let</a>. So the company route can cost
+    more on the rate yet stretch further on the loan, and the two effects need weighing together.
+  </p>
+
+  <h2>When buying in your personal name still wins</h2>
+  <p>
+    Plenty of landlords are better off in their own name. If you pay basic-rate tax, the interest tax credit costs you
+    far less, so the main reason to incorporate falls away. A personal purchase is quicker to arrange, sits on a larger
+    lender panel, carries no separate company accounts to file, and needs no personal guarantee because the borrowing is
+    already yours. For a first rental, a single property, or a holding you may sell within a few years, the lower cost and
+    lighter admin often outweigh any tax saving a company might offer. Simplicity has a real value, and it is easy to lose
+    sight of it when a company sounds more sophisticated.
+  </p>
+
+  <PullQuote quote="A company is not automatically the smart choice. The right structure is the one that fits your tax position and how long you will hold, not the one that sounds most professional." />
+
+  <h2>When a limited company makes sense</h2>
+  <p>
+    A company tends to come into its own for higher-rate taxpayers who are building a portfolio rather than dabbling. If
+    you plan to hold several properties for the long term, reinvest the rent into more purchases, and you would otherwise
+    lose a chunk of higher-rate income tax to the interest credit restriction, the corporation tax treatment inside a
+    company can leave more profit working for you. A company can also make passing property to family more orderly, since
+    shares can be gifted over time. These gains grow with the size and lifespan of the portfolio, so the more serious and
+    long-term your plans, the more a company is worth costing out properly.
+  </p>
+
+  <h2>The cost of switching later</h2>
+  <p>
+    It is tempting to start in your own name and move to a company once the portfolio grows, but that switch is rarely
+    cheap. Moving a property you own personally into a company is a sale from you to the company rather than a simple
+    transfer, so it can bring a fresh round of stamp duty and a capital gains calculation, and the company needs its own
+    mortgage to complete the purchase. Across a larger portfolio the numbers can still stack up, but the friction is real,
+    which is why many landlords settle the structure before the first purchase rather than unpick it later. If you are
+    weighing the company route from overseas, the picture has its own quirks, which we cover on our page about an
+    <a href="/expat-limited-company-buy-to-let">expat company buy-to-let</a>.
+  </p>
+
+  <h2>How does Mortgage One help?</h2>
+  <p>
+    Mortgage One is a countrywide UK mortgage broker with access to plans from the whole of market, and we arrange both
+    personal and limited company buy-to-let cases as routine business. We will not give you tax advice, that is your
+    accountant's job, but we will tell you what each route means for the borrowing: which lenders are comfortable with
+    your plan, how the rent sizes the loan under each structure, and what a personal guarantee involves if you go the
+    company way. We are authorised and regulated by the Financial Conduct Authority (FCA) for the mortgage advice, and we
+    work alongside your accountant so the borrowing fits the structure they recommend. You must be on UK soil to receive
+    advice, so we confirm your circumstances properly before recommending anything.
+  </p>
+
+  <MidCta
+    text="Ready to compare the two routes on your own numbers rather than guess? Let an adviser review your buy-to-let plan."
+    label="Check Your Options"
+    scenario="btl"
+    src={slug}
+  />
+
+  <FaqSection items={faqs} />
+
+  <CtaBlock
+    heading="See which route fits your buy-to-let"
+    line="Tell us about the property, the rent, your tax position and your deposit, and a Mortgage One adviser will review your answers."
+    scenario="btl"
+    src={slug}
+  />
+
+  <h2>Send us an enquiry</h2>
+  <EnquiryForm scenario="btl" />
+
+  <RelatedPanel cards={relatedCards} />
+
+  <p class="risk-warning">
+    Think carefully before securing your debts against your home. Your home may be repossessed if you do not keep up
+    repayments on your mortgage.
+  </p>
+</ArticleLayout>
+
+<style>
+  .risk-warning {
+    border-top: 1px solid var(--line);
+    padding-top: 1.5rem;
+    margin-top: 2.5rem;
+  }
+</style>
