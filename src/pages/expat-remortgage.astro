@@ -1,0 +1,205 @@
+---
+import ArticleLayout from '../layouts/ArticleLayout.astro';
+import Reassurance from '../components/Reassurance.astro';
+import MidCta from '../components/MidCta.astro';
+import PullQuote from '../components/PullQuote.astro';
+import FaqSection from '../components/FaqSection.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+import EnquiryForm from '../components/locked/EnquiryForm.astro';
+import RelatedPanel from '../components/RelatedPanel.astro';
+
+const slug = '/expat-remortgage';
+
+const reassuranceLines = [
+  'British nationals living abroad with a fixed or tracker rate coming to an end on a UK property.',
+  'Expats on a lender standard variable rate who want to switch to a better deal.',
+  'Owners wanting to raise capital against a UK home or rental property from overseas.',
+  'Borrowers moving a former home onto a let basis, or a let property back onto a residential one.',
+  'Anyone whose current lender will not offer a new rate now they live abroad.',
+];
+
+const faqs = [
+  {
+    q: 'Can an expat remortgage a UK property?',
+    a: 'Yes. A British expat can remortgage a UK property while living abroad, both to move onto a new rate and to raise capital. The hurdle is rarely whether it can be done, it is that fewer lenders write expat business than write resident business, so the choice of deal is narrower and the paperwork is read more carefully. A lender weighs where you live, how you are paid and the equity in the property, then sets the rate and the maximum loan from that. With the right lender matched to your situation, remortgaging from overseas is a routine piece of work.',
+  },
+  {
+    q: 'Should I do a product transfer or a full remortgage as an expat?',
+    a: 'It depends on whether your current lender will offer you a new rate now you live abroad. A product transfer stays with your existing lender on the same loan, needs little fresh underwriting and is quick, but only some lenders offer one to a borrower who has moved overseas. A full remortgage moves the loan to a new lender, opens up the wider expat market and lets you raise capital or change the basis of the loan, at the cost of a full application. We compare the transfer your lender will offer against the open market before you commit to either.',
+  },
+  {
+    q: 'Can I raise capital when I remortgage from abroad?',
+    a: 'Often, yes. Releasing equity from a UK property is a common reason expats remortgage, whether for home improvements, a deposit on another property or to consolidate other borrowing. A lender will want to understand why you are raising the money and will size the new loan against the property value and your income, with the expat affordability test applied. The amount you can release is usually tighter than it would be for a UK resident, because the loan-to-value bands open to expats tend to be more conservative. We work out what is realistic before you apply.',
+  },
+  {
+    q: 'Does living abroad mean a worse remortgage rate?',
+    a: 'Expat rates generally sit a little above the sharpest resident deals, because a smaller pool of lenders competes for the business and they price the extra checks in. That gap is real but modest, and it is usually far smaller than the cost of sitting on a lender standard variable rate after your current deal ends. The bigger lever on your rate is the equity in the property: a lower loan-to-value opens better pricing. Matching your country of residence and your loan-to-value to the right lender is what keeps the rate competitive.',
+  },
+  {
+    q: 'Will I need a new valuation and can it happen while I am overseas?',
+    a: 'A full remortgage to a new lender normally needs a fresh valuation of the property, and that is arranged in the UK, so your being abroad is not an obstacle. The valuer visits the property, not you, and where a tenant or family member is in the home they provide access. Much of the rest of the work, the fact-find, gathering payslips and statements, and submitting the case, is handled remotely across the time difference. You must be on UK soil to receive advice, so we confirm your residency and circumstances properly before recommending anything.',
+  },
+  {
+    q: 'How do I start an expat remortgage?',
+    a: 'Use the 60-second check and a Mortgage One adviser will review your answers, look at when your current deal ends and tell you where you stand. Starting two to three months before your rate expires gives time to line a new deal up cleanly and avoid slipping onto a standard variable rate in the gap.',
+  },
+];
+
+const relatedCards = [
+  {
+    title: 'Can an expat get a UK mortgage?',
+    href: '/can-an-expat-get-a-uk-mortgage',
+    line: 'The expat mortgage hub: residency, currency and deposits.',
+  },
+  {
+    title: 'How much can an expat borrow?',
+    href: '/how-much-can-an-expat-borrow',
+    line: 'How lenders size the loan and what lifts the figure.',
+  },
+  {
+    title: 'Expat buy-to-let mortgage',
+    href: '/expat-buy-to-let-mortgage',
+    line: 'Letting a UK property out while living abroad.',
+  },
+  { title: 'Check your eligibility', href: '/check', line: 'Five quick questions, about 60 seconds.' },
+];
+---
+
+<ArticleLayout
+  title="Expat Remortgage on a UK Property | Mortgage One"
+  description="Yes, an expat can remortgage a UK property from abroad. How lenders read an existing mortgage, why the lender list is shorter, and what keeps your rate sharp."
+  eyebrow="Expat mortgages and remortgaging"
+  heading="Remortgaging a UK property as an expat"
+  breadcrumbs={[
+    { name: 'Home', href: '/' },
+    { name: 'Remortgaging a UK property as an expat', href: slug },
+  ]}
+  scenario="expat"
+>
+  <p>
+    Yes, a British expat can remortgage a UK property while living abroad. A rate coming to an end, a plan to release
+    some equity, or a current lender that will no longer offer you a new deal now you live overseas does not strand you on
+    a standard variable rate. It narrows which lenders will look at you and means the case is read more carefully than a
+    resident remortgage would be. A lender weighs where you live, how you are paid and the equity in the property, then
+    sets the rate and the maximum loan from that. Choose the right lender and remortgaging from abroad is rarely the
+    obstacle it first appears. If you want the wider picture first, start with our hub on whether
+    <a href="/can-an-expat-get-a-uk-mortgage">an expat can get a UK mortgage</a>, then come back here for the remortgage
+    in detail.
+  </p>
+
+  <Reassurance title="Expats remortgaging we help" lines={reassuranceLines} />
+
+  <h2>Why remortgage a UK property from abroad?</h2>
+  <p>
+    Most expat remortgages come down to one of a few reasons, and they shape the case from the start. The common one is a
+    fixed or tracker rate ending, where doing nothing drops you onto the lender standard variable rate and a higher
+    monthly cost. Others want to release equity for improvements, another deposit or to tidy up other borrowing, or to
+    change the basis of the loan because a former home is now let out. A few simply find their current lender will not
+    offer a new rate once they have moved overseas. Knowing which of these is yours is the first thing an adviser settles,
+    because each points at a different set of lenders.
+  </p>
+
+  <h2>Product transfer or a full remortgage</h2>
+  <p>
+    There are two routes, and the right one turns on what your existing lender will do. A product transfer keeps the loan
+    where it is, on the same terms and balance, with little fresh underwriting, so it is quick and light on paperwork.
+    The catch is that not every lender offers one to a borrower who now lives abroad. A full remortgage moves the loan to
+    a new lender, which opens the wider expat market, lets you raise capital and lets you change the loan basis, at the
+    cost of a full application and a fresh valuation. Neither is automatically better. We compare the transfer your
+    current lender will actually offer against the open market before you commit either way.
+  </p>
+
+  <h2>Why the expat lender list is shorter on a remortgage</h2>
+  <p>
+    Fewer lenders write expat business than write resident business, and that smaller pool is what shapes an expat
+    remortgage more than anything else. A lender that funds overseas borrowers reads your country of residence, how you
+    are paid and your recent UK footprint alongside the equity in the property, and each lender draws those lines in a
+    different place. The result is a narrower choice of deal and slightly higher pricing than the sharpest resident rates,
+    rather than a closed door. Matching your residency and your loan-to-value to a lender that treats expat cases as
+    routine is what keeps the rate competitive and the application moving.
+  </p>
+
+  <MidCta
+    text="Want to know which lenders would offer you a new rate from where you live now? Tell us about your property and your current deal."
+    scenario="expat"
+    src={slug}
+  />
+
+  <h2>Raising capital against your UK property from overseas</h2>
+  <p>
+    Releasing equity is a common reason expats remortgage, and it works much as it would at home, with the expat checks
+    layered on top. A lender will want to understand why you are raising the money, then size the new loan against the
+    property value and your income, with the expat affordability test applied and your overseas pay converted to sterling
+    where it applies. Our guide to <a href="/how-much-can-an-expat-borrow">how much an expat can borrow</a> covers how
+    that figure is built. The amount you can release tends to be tighter than for a UK resident, because the
+    loan-to-value bands open to expats are more conservative, so it is worth knowing what is realistic before you set
+    plans around the money.
+  </p>
+
+  <h2>Remortgaging a let property versus a home you keep</h2>
+  <p>
+    What the property is used for changes how the remortgage is sized. A home you keep for your own use or return to is
+    assessed on your income and an affordability test, so your overseas pay drives the figure, and our guide to
+    <a href="/expat-residential-mortgage">residential mortgages for expats</a> covers how that works from abroad. A
+    property you let out is sized mainly on the rent it earns and a rent cover test, so your salary matters far less, and
+    our guide to the <a href="/expat-buy-to-let-mortgage">expat buy-to-let mortgage</a> sets out that route. Many expats
+    move a former home onto a let basis when they go abroad, and remortgaging is the natural point to put the loan on the
+    right footing rather than rely on a temporary consent to let from the existing lender.
+  </p>
+
+  <PullQuote quote="An expat remortgage rarely turns on whether you qualify. It turns on matching your residency, your loan-to-value and the use of the property to a lender that writes overseas business as routine." />
+
+  <h2>Timing, early repayment charges and the valuation</h2>
+  <p>
+    Timing protects the figure. Start two to three months before your current rate ends and a new deal can be lined up to
+    take over cleanly, which avoids slipping onto a standard variable rate in the gap. Check whether your existing deal
+    still carries an early repayment charge, because leaving before it lapses can cost more than waiting a little, and a
+    product transfer that starts when the charge ends is sometimes the tidier answer. A full remortgage to a new lender
+    needs a fresh valuation, arranged in the UK, so your being overseas is no obstacle: the valuer visits the property,
+    and a tenant or family member provides access. The rest of the work is handled remotely across the time difference.
+  </p>
+
+  <h2>How does Mortgage One help?</h2>
+  <p>
+    Mortgage One is a countrywide UK mortgage broker with access to plans from the whole of market, and we arrange expat
+    cases as a regular part of the business, not an exception to it. We weigh the product transfer your current lender
+    will offer against the open market, work out which lenders are comfortable with your country of residence, settle
+    whether the case is residential or buy-to-let, size any capital you want to release, and put the application in front
+    of a lender that prices your profile well, with the evidence an underwriter needs. You must be on UK soil to receive
+    advice, so we confirm your circumstances properly before recommending anything.
+  </p>
+
+  <MidCta
+    text="Ready to know where you stand on a UK remortgage rather than guess from abroad? Let an adviser review your case."
+    label="Check Your Options"
+    scenario="expat"
+    src={slug}
+  />
+
+  <FaqSection items={faqs} />
+
+  <CtaBlock
+    heading="See what your UK property could remortgage to"
+    line="Tell us about your property, your current deal and where you live, and a Mortgage One adviser will review your answers."
+    scenario="expat"
+    src={slug}
+  />
+
+  <h2>Send us an enquiry</h2>
+  <EnquiryForm scenario="expat" />
+
+  <RelatedPanel cards={relatedCards} />
+
+  <p class="risk-warning">
+    Think carefully before securing your debts against your home. Your home may be repossessed if you do not keep up
+    repayments on your mortgage.
+  </p>
+</ArticleLayout>
+
+<style>
+  .risk-warning {
+    border-top: 1px solid var(--line);
+    padding-top: 1.5rem;
+    margin-top: 2.5rem;
+  }
+</style>
