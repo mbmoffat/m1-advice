@@ -1,0 +1,234 @@
+---
+import ArticleLayout from '../layouts/ArticleLayout.astro';
+import Reassurance from '../components/Reassurance.astro';
+import MidCta from '../components/MidCta.astro';
+import PullQuote from '../components/PullQuote.astro';
+import FaqSection from '../components/FaqSection.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+import EnquiryForm from '../components/locked/EnquiryForm.astro';
+import RelatedPanel from '../components/RelatedPanel.astro';
+
+const slug = '/limited-company-holiday-let-mortgage';
+
+const reassuranceLines = [
+  'First-time holiday-let owners buying a coastal or country property inside a new company.',
+  'Higher-rate taxpayers holding a short-term let through a special purpose vehicle.',
+  'Investors switching a property from an assured shorthold tenancy to seasonal letting.',
+  'Portfolio landlords adding a company-held holiday let to existing buy-to-lets.',
+  'Couples and directors buying a holiday let together through one company.',
+];
+
+const faqs = [
+  {
+    q: 'Can I get a holiday-let mortgage through a limited company?',
+    a: 'Yes. A focused group of lenders, mostly specialist building societies, write holiday-let cases held inside a limited company, lending to the company that owns and lets the property rather than to you personally. The case rests on the rent the property earns across the season, your deposit and how the property will be let, with the directors and shareholders standing behind the company through a personal guarantee. Both the holiday-let side and the company side narrow the lender list, so the work is placing the case with a desk that funds company short-term lets as routine.',
+  },
+  {
+    q: 'Do I need a special purpose vehicle for a company holiday let?',
+    a: 'Most holiday-let lenders want a special purpose vehicle (SPV), a company set up only to hold and let property, with the right property activity recorded against it at Companies House. Lenders that accept an existing trading company are far fewer and price the case more cautiously, so if you already trade through a company it is usually cleaner to set up a separate vehicle for the holiday let.',
+  },
+  {
+    q: 'How do lenders work out how much my company can borrow on a holiday let?',
+    a: 'Holiday-let lenders size the loan on the seasonal income rather than a single monthly rent. Many take an average of the low, mid and high season weekly rates, assume a realistic number of let weeks across the year, and test that figure against the mortgage interest at a stress rate using an interest cover ratio (ICR). A property that earns well in peak weeks but sits empty for much of the winter is read on the blended figure, so a credible letting projection, often backed by a holiday-letting agent, does a lot of the heavy lifting.',
+  },
+  {
+    q: 'How much deposit does a limited company holiday let need?',
+    a: 'Plan for at least a quarter of the property value, and often nearer a third on a newer company or an unusual property. A holiday let is a more specialist asset than an ordinary buy-to-let, so the lender panel is smaller and a stronger deposit widens the choice open to a company structure and eases the rent cover test. The size of your deposit often shapes which lenders will look at the case as much as the rate they offer.',
+  },
+  {
+    q: 'Did the furnished holiday lettings tax rules change?',
+    a: 'Yes. The furnished holiday lettings (FHL) tax regime, which once gave qualifying short-term lets their own set of allowances, was abolished from April 2025, so holiday lets are now taxed broadly like other rental property. That change is one reason some owners look again at holding a holiday let through a company, where mortgage interest is treated as a business cost and profit is taxed under corporation tax. Whether a company works in your favour is a question for your accountant, because it turns on your wider income and how long you plan to hold the property.',
+  },
+  {
+    q: 'Will I have to give a personal guarantee on a company holiday let?',
+    a: 'Almost always. A company has a short or non-existent track record of its own, so the lender looks to the directors and shareholders behind it and takes a personal guarantee from them. Your own income and credit footprint still matter even though the mortgage sits in the company name, and the guarantee is a normal feature of company holiday-let lending rather than a sign the case is weak.',
+  },
+];
+
+const relatedCards = [
+  {
+    title: 'Limited company buy-to-let mortgages',
+    href: '/limited-company-buy-to-let-mortgage',
+    line: 'The pillar guide to company landlord lending.',
+  },
+  {
+    title: 'SPV mortgages',
+    href: '/spv-mortgage',
+    line: 'Funding a special purpose vehicle set up to hold property.',
+  },
+  {
+    title: 'Company or personal name',
+    href: '/limited-company-vs-personal-name-buy-to-let',
+    line: 'Weighing a company structure against your own name.',
+  },
+  { title: 'Check your eligibility', href: '/check', line: 'Five quick questions, about 60 seconds.' },
+];
+---
+
+<ArticleLayout
+  title="Limited Company Holiday-Let Mortgages | Mortgage One"
+  description="Yes, you can hold a holiday let through a limited company. How lenders read the special purpose vehicle, seasonal income, deposit and letting rules."
+  eyebrow="Limited company holiday-let mortgages"
+  heading="Holiday-let mortgages through a limited company"
+  breadcrumbs={[
+    { name: 'Home', href: '/' },
+    { name: 'Holiday-let mortgages through a limited company', href: slug },
+  ]}
+  scenario="btl"
+>
+  <p>
+    Yes, you can hold a holiday let through a limited company. The mortgage sits in the company name rather than yours,
+    and the lender judges it mainly on the seasonal rent the property earns, your deposit and how it will be let, with the
+    directors and shareholders standing behind the company through a personal guarantee. A company holiday let sits where
+    two specialist areas meet, company buy-to-let and short-term holiday letting, so the list of willing lenders is
+    shorter than for an ordinary let and the right match matters more. This page is part of our
+    <a href="/limited-company-buy-to-let-mortgage">limited company buy-to-let</a> cluster and explains how lenders read a
+    holiday let held inside a company, what they want from the company itself, and where the structure helps.
+  </p>
+
+  <Reassurance title="Company holiday-let owners we help" lines={reassuranceLines} />
+
+  <h2>Why holiday-let owners buy through a limited company</h2>
+  <p>
+    The pull towards a company is almost always about tax rather than the mortgage. The furnished holiday lettings (FHL)
+    tax regime, which once gave qualifying short-term lets their own allowances, was abolished from April 2025, so a
+    holiday let is now taxed broadly like other rental property. Individual landlords can no longer deduct mortgage
+    interest from rental income in full before tax and instead receive a basic-rate tax credit, which leaves higher-rate
+    taxpayers paying more on the same rent. Inside a company the mortgage interest is treated as a business cost set
+    against rental profit, with the profit taxed under corporation tax rather than income tax. Whether that works in your
+    favour depends on your wider income and how long you plan to hold the property, so the structure is a decision to
+    settle with an accountant first and a mortgage decision second. Our job is the borrowing: making sure the company you
+    choose is one a lender will actually fund.
+  </p>
+
+  <h2>What lenders want from the company</h2>
+  <p>
+    Most holiday-let lenders want a special purpose vehicle (SPV), a company set up only to hold and let property rather
+    than to trade in anything else. The company should carry the right property activity recorded against it at Companies
+    House, and lenders prefer a clean, simple shareholding rather than a long list of directors. A brand new company with
+    no history is normal for these cases and does not count against you, because the lender looks through the company to
+    the people behind it. If you already run a trading company and want to borrow through that, the pool of willing
+    lenders is much smaller, so a separate vehicle for the holiday let is usually the cleaner path. We cover the vehicle
+    itself in more depth on our page about <a href="/spv-mortgage">SPV mortgages</a>.
+  </p>
+
+  <h2>How lenders size the loan on seasonal income</h2>
+  <p>
+    A holiday let does not earn one steady monthly rent, so lenders size the loan differently from a standard buy-to-let.
+    Many take an average of the low, mid and high season weekly rates, assume a realistic number of let weeks across the
+    year, and test that blended figure against the mortgage interest at a stress rate set above the pay rate, using an
+    interest cover ratio (ICR). A property that earns strongly in peak summer weeks but sits quiet through the winter is
+    read on the year-round average rather than its best month, so a credible letting projection matters. A forecast from a
+    holiday-letting agent who knows the area carries real weight, and where the seasonal rent falls a little short some
+    lenders allow surplus personal income to bridge the gap, known as top-slicing. Company cases are often tested at a
+    lower cover ratio than higher-rate personal borrowing, frequently in the region of 125%.
+  </p>
+
+  <MidCta
+    text="Not sure how a lender will read the seasonal income on the property you have in mind? Tell us the location and the weekly rates and we will help you see where the numbers land."
+    scenario="btl"
+    src={slug}
+  />
+
+  <h2>Letting rules, planning and registration</h2>
+  <p>
+    A holiday let is judged on more than its income. Lenders care that the property can be let short-term lawfully, so
+    local rules matter. Some areas now run registration or licensing schemes for short-term and holiday lets, a few
+    require planning permission to use a property as a short-term let at all, and in Wales a property must usually be
+    available and actually let for a set number of days each year to be treated as a self-catering business for rating
+    purposes. Lenders also tend to set conditions on the letting itself, such as a cap on how many days a year you can use
+    the property yourself, and many will not lend where the let runs through a single holiday park operator on a fixed
+    agreement. Confirm the local position before the company commits to a property, because a let that cannot run as
+    planned is harder to fund and harder to value.
+  </p>
+
+  <h2>Deposit, valuation and property type</h2>
+  <p>
+    Expect to put down more than a standard buy-to-let, often in the region of a quarter to a third of the property
+    value, with the firmer end common on a newer company or a less ordinary property. A stronger deposit widens the
+    lender panel open to a company holiday let and eases the rent cover test. Property type matters too: a conventional
+    cottage or flat that would sell to an ordinary buyer is the most straightforward, while a timber lodge, a converted
+    barn, an annexe or a property on a holiday park with restricted occupancy narrows the lender list sharply and can
+    change both the loan and the valuation basis. It is worth knowing which lenders fit your deposit, your property and
+    your letting plan before you commit.
+  </p>
+
+  <h2>Personal guarantees and the directors</h2>
+  <p>
+    A company has little or no track record of its own, so the lender looks to the directors and shareholders and takes a
+    personal guarantee from them. That means your own income, your credit footprint and your circumstances still matter,
+    even though the mortgage is in the company name, and most lenders expect every director with a meaningful
+    shareholding to stand behind the loan. The guarantee is a routine feature of company holiday-let lending rather than a
+    sign the case is weak. We make sure everyone who needs to give a guarantee understands what it involves before you
+    apply, so there are no surprises at the offer stage.
+  </p>
+
+  <PullQuote quote="A company holiday let is rarely about whether you qualify. It is about matching the special purpose vehicle, the seasonal income, the letting rules and the deposit to a lender that funds company holiday lets as routine." />
+
+  <h2>Setting up the structure in the right order</h2>
+  <p>
+    The order matters. Settle the tax and ownership question with an accountant, set up the special purpose vehicle with
+    the right property activity recorded against it, agree the shareholding, and only then line up the mortgage, so the
+    company you fund is one a lender will accept rather than one you have to unpick later. We are happy to look at the
+    borrowing side before the company is formed, so you can set it up once, correctly, instead of discovering after the
+    fact that a lender wants the shareholding or the recorded activity arranged differently. If you are still weighing a
+    company against your own name, our page on
+    <a href="/limited-company-vs-personal-name-buy-to-let">a company versus a personal name</a> sets out the trade-off.
+  </p>
+
+  <h2>Moving an existing holiday let into a company</h2>
+  <p>
+    Some owners already hold a holiday let personally and want to move it into a company instead. This is a sale from you
+    to the company rather than a simple transfer, so it can bring a fresh round of stamp duty and a capital gains
+    calculation, and the company will need its own mortgage to complete the purchase. The numbers can still stack up,
+    particularly on a higher-yielding property, but they need working through carefully with an accountant before you
+    commit. On the lending side we treat it like any other company purchase, sizing the loan on the seasonal income and
+    the company's deposit, and checking the letting permissions carry across cleanly.
+  </p>
+
+  <h2>How does Mortgage One help?</h2>
+  <p>
+    Mortgage One is a countrywide UK mortgage broker with access to plans from the whole of market, and we arrange company
+    holiday-let cases as a regular part of the business. We work out which lenders are comfortable with your company and
+    the property, check the letting permissions and valuation basis, test the seasonal rent against the loan you want,
+    brief you and your fellow directors on the personal guarantee, and put your case in front of the right desk with the
+    evidence an underwriter needs. We are authorised and regulated by the Financial Conduct Authority (FCA) for the
+    mortgage advice, and we work alongside your accountant rather than across them, so the borrowing fits the structure
+    they recommend. You must be on UK soil to receive advice, so we confirm your circumstances properly before
+    recommending anything.
+  </p>
+
+  <MidCta
+    text="Ready to know where you stand rather than guess? Let an adviser review your limited company holiday-let case."
+    label="Check Your Options"
+    scenario="btl"
+    src={slug}
+  />
+
+  <FaqSection items={faqs} />
+
+  <CtaBlock
+    heading="See if a limited company holiday-let mortgage fits"
+    line="Tell us about the property, the seasonal letting income, the company and your deposit, and a Mortgage One adviser will review your answers."
+    scenario="btl"
+    src={slug}
+  />
+
+  <h2>Send us an enquiry</h2>
+  <EnquiryForm scenario="btl" />
+
+  <RelatedPanel cards={relatedCards} />
+
+  <p class="risk-warning">
+    Think carefully before securing your debts against your home. Your home may be repossessed if you do not keep up
+    repayments on your mortgage.
+  </p>
+</ArticleLayout>
+
+<style>
+  .risk-warning {
+    border-top: 1px solid var(--line);
+    padding-top: 1.5rem;
+    margin-top: 2.5rem;
+  }
+</style>
