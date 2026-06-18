@@ -1,0 +1,226 @@
+---
+import ArticleLayout from '../layouts/ArticleLayout.astro';
+import Reassurance from '../components/Reassurance.astro';
+import MidCta from '../components/MidCta.astro';
+import PullQuote from '../components/PullQuote.astro';
+import FaqSection from '../components/FaqSection.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+import EnquiryForm from '../components/locked/EnquiryForm.astro';
+import RelatedPanel from '../components/RelatedPanel.astro';
+
+const slug = '/self-employed-1-year-accounts';
+
+const reassuranceLines = [
+  'One full year of accounts can be enough with the right lender.',
+  'This applies to sole traders, partnerships and limited company directors.',
+  'High-street lenders, not only specialists, lend on a single year.',
+  'The same deposit and rates as a buyer with a longer record.',
+  'Earlier employed experience in the same line of work can count too.',
+];
+
+const faqs = [
+  {
+    q: 'Can I get a mortgage with only one year of accounts?',
+    a: 'Yes. Two full years is the common starting point and some lenders ask for three, but a single year is far from a dead end. A useful and growing group of lenders will consider one full year of accounts, or a single set of tax figures, where the business is established and the income looks sustainable. They are testing whether your earnings are stable and likely to continue, not counting years for their own sake. So a clean first year with a clear pipeline of work can be enough, and a short trading record narrows the choice of lender rather than ruling you out.',
+  },
+  {
+    q: 'Which lenders accept one year of self-employed accounts?',
+    a: 'A mix of high-street and specialist lenders will, and the list is not fixed. Some mainstream lenders accept one year as standard for sole traders and directors where the figures are strong; others will look at a single year case by case, often when you previously did the same work as an employee. A smaller number hold firm on two or three years. Because each lender reads a one-year case its own way, and changes its rules from time to time, the practical task is to match your figures to a lender comfortable lending against a single year before you apply, rather than after a knock-back.',
+  },
+  {
+    q: 'How much can I borrow with one year of self-employed accounts?',
+    a: 'Once a lender accepts your one year of income, affordability works as it does for any borrower. Most lenders work to an income multiple of around four and a half to five times your assessed income, then test that the repayments stay affordable at a stress rate above the pay rate, with your other commitments taken into account. The figure that matters is the income the lender reads from your single year, so a strong, clearly evidenced year supports a fuller loan. A one-year record does not automatically reduce what you can borrow; it mainly narrows which lenders will consider you.',
+  },
+  {
+    q: 'Do I need a bigger deposit with one year of accounts?',
+    a: 'Not always, but more deposit helps. A deposit of around a tenth of the price opens much of the mainstream market on a single year, and more than that widens your choice of lender and can improve the rate on offer. A larger deposit reassures a lender that is being asked to lend on a shorter record, so it can be the difference between a yes and a wait. It is not a rule that one year means a large deposit, though, and the right lender may accept a modest one where the income is strong and the rest of the case is clean.',
+  },
+  {
+    q: 'Should I wait for a second year of accounts before applying?',
+    a: 'Often you do not need to. Waiting another tax year delays your purchase and assumes the second year will read better, which is not guaranteed. If your first year is established, profitable and supported by a clear pipeline, a lender comfortable with one year may approve you now on the same rates as anyone else. Waiting makes sense only where a single year looks thin or unusual and a second year would clearly settle it. The way to decide is to test the market against your actual figures, rather than assuming you have to wait.',
+  },
+  {
+    q: 'Can a broker help with a one-year self-employed mortgage?',
+    a: 'That is where most of the difference is made. The same single year of accounts can produce a yes from one lender and a no from another, because each treats a short trading record its own way. A broker knows which lenders accept one year for your structure, which give weight to earlier employed experience, and how to present a single year so an underwriter can see the income is sustainable. Matching your figures to the right lender before you apply is the biggest lever on both approval and the amount you can borrow.',
+  },
+];
+
+const relatedCards = [
+  {
+    title: 'Self-employed mortgages',
+    href: '/self-employed-mortgage',
+    line: 'The pillar guide to how lenders read self-employed income.',
+  },
+  {
+    title: 'Self-employed mortgage requirements',
+    href: '/self-employed-mortgage-requirements',
+    line: 'The trading history, accounts and documents lenders ask for.',
+  },
+  {
+    title: 'Can you get a mortgage when self-employed?',
+    href: '/can-you-get-a-mortgage-when-self-employed',
+    line: 'The direct answer on trading history and approval.',
+  },
+  { title: 'Check your eligibility', href: '/check', line: 'Five quick questions, about 60 seconds.' },
+];
+---
+
+<ArticleLayout
+  title="One Year Self-Employed Mortgage | Mortgage One"
+  description="Yes, you can get a mortgage with one year of accounts. Which lenders accept a single year of self-employed income, what they need, and how much you can borrow."
+  eyebrow="Complex income"
+  heading="Getting a mortgage with one year of accounts"
+  breadcrumbs={[
+    { name: 'Home', href: '/' },
+    { name: 'Self-employed: one year of accounts', href: slug },
+  ]}
+  scenario="self-employed"
+>
+  <p>
+    Yes, you can get a mortgage with just one year of accounts. Two full years is the figure most people have heard, and
+    some lenders do ask for three, but a single year is far from a dead end. A useful and growing group of lenders will
+    consider one full year where the business is established and the income looks sustainable, and that includes
+    high-street names, not only specialists. What every lender is really testing is whether your income is stable and
+    likely to continue, rather than counting years for their own sake. This page answers the question directly: who lends
+    on one year, what they need to see, how much you can borrow, and whether it is worth waiting for a second year. Because
+    a single year sits inside the wider self-employed picture, our pillar guide to
+    <a href="/self-employed-mortgage">self-employed mortgages</a> sets out the ground this page builds on.
+  </p>
+
+  <Reassurance title="Why one year can be enough" lines={reassuranceLines} />
+
+  <h2>The short answer for one year of accounts</h2>
+  <p>
+    Having only one year of figures does not stop you getting a mortgage. What decides the outcome is whether you reach a
+    lender comfortable lending against a single year, and whether that year clearly shows a stable, continuing income.
+    Those two things, not the length of your record on its own, are where a one-year case is won or lost. Sole traders,
+    partners and limited company directors all get approved on a single year every day. The job is to line your evidence
+    up so the income is obvious, and to put it in front of a lender whose rules fit, rather than applying widely and
+    collecting refusals from lenders who were always going to want two or three years.
+  </p>
+
+  <h2>What one year of accounts actually means</h2>
+  <p>
+    The exact paperwork depends on how you trade. If you are a sole trader or in a partnership, one year usually means a
+    single completed tax year, evidenced by your tax calculation, often called an SA302, and the matching tax year
+    overview from HM Revenue and Customs. If you run a limited company, one year means your first set of finalised company
+    accounts prepared by an accountant, alongside your personal tax figures. In both cases the year has to be complete and
+    filed; a few months of trading or a set of draft figures is not the same thing. Lenders that accept one year are
+    reading a full twelve-month picture, so the cleaner and more finished that picture is, the easier the case becomes.
+  </p>
+
+  <MidCta
+    text="Not sure your single year counts yet? Tell us your structure and your figures and we will tell you where you stand."
+    scenario="self-employed"
+    src={slug}
+  />
+
+  <h2>Which lenders accept one year, and which want more</h2>
+  <p>
+    The market splits into three rough groups, and knowing which one you are dealing with matters more than anything else.
+    Some lenders accept one year as standard for sole traders and directors where the figures are strong, and these
+    include mainstream names. A second group will look at a single year case by case, often where you previously did the
+    same work as an employee before going self-employed, because that earlier experience supports the income. A third
+    group holds firm on two or three years whatever the figures show. Each lender also changes its stance from time to
+    time, so the live question is always which lenders accept one year today for your structure, not which did last year.
+  </p>
+
+  <h2>What a one-year lender needs to see</h2>
+  <p>
+    Underneath the rule, a lender accepting a single year is looking for reassurance that the income is real and will last.
+    A clean, profitable year reads far better than a single uneven one, so a clear trend matters even over twelve months.
+    Evidence that the work will continue helps a great deal: a pipeline of contracts, repeat clients, or a book of work
+    already in hand. Where you did the same job as an employee before incorporating or registering, say so and show it,
+    because it turns a one-year record into a longer story. Expect to provide your tax calculation and tax year overview,
+    your finalised accounts where you are a director, and personal and business bank statements covering the last three
+    months. Where those documents tell the same story, an underwriter can move quickly.
+  </p>
+
+  <PullQuote quote="The question is rarely whether one year of accounts is enough. It is which lender will read your single year the way your business is actually performing." />
+
+  <h2>How much you can borrow on one year</h2>
+  <p>
+    Once a lender has accepted your single year of income, affordability works exactly as it does for any borrower. Most
+    lenders work to an income multiple of around four and a half to five times your assessed income, then test that the
+    repayments stay affordable at a stress rate above the pay rate, with your other commitments taken into account. A
+    one-year record does not automatically shrink what you can borrow; the figure that drives the loan is the income the
+    lender reads from that year. So a strong, clearly evidenced first year can support the same borrowing as a longer
+    record would. What a single year mainly does is narrow which lenders will consider you, which is why the lender you
+    choose has such a large effect on the outcome.
+  </p>
+
+  <h2>Will you pay a higher rate or need a bigger deposit?</h2>
+  <p>
+    No higher rate for the length of your record on its own. At the same deposit, property type and credit history you
+    qualify for the same rates as a buyer with two or three years behind them, because the rate is driven by those things
+    rather than by how long you have traded. What a single year can do is narrow the panel of lenders willing to consider
+    you, and a larger deposit widens that panel again. A deposit of around a tenth of the price opens much of the
+    mainstream market on one year, and more than that opens it further and can improve the rate on offer. The work is in
+    reaching a lender comfortable with a single year, not in accepting a worse deal for having one.
+  </p>
+
+  <h2>Should you wait for a second year?</h2>
+  <p>
+    Often you do not need to, and waiting carries its own cost. Delaying another tax year pushes back your purchase and
+    assumes the second year will read better, which is not a given. If your first year is established, profitable and
+    backed by a clear pipeline, a lender comfortable with one year may approve you now on ordinary terms. Waiting earns its
+    keep only where a single year looks thin or unusual, for example a part-year start dressed up as a full one, and a
+    second year would plainly settle the doubt. The sound way to decide is to test the market against your real figures
+    first, then wait only if the figures themselves say you should.
+  </p>
+
+  <h2>How to present a single year at its best</h2>
+  <p>
+    A few steps make a one-year application markedly easier. Finalise and file your accounts and tax figures so nothing is
+    in draft, and check that they agree with each other, since a gap between them slows every case. Gather evidence that
+    your income will continue, such as signed contracts or a list of ongoing clients, and set out any employed experience
+    in the same field before you went self-employed. Keep your business and personal banking tidy so the income is easy to
+    follow, and avoid taking on new credit in the months before you apply. Most of all, match your single year to a lender
+    whose rules accept it before you apply, rather than testing your luck across lenders who were always going to want more.
+  </p>
+
+  <h2>How does Mortgage One help?</h2>
+  <p>
+    Mortgage One is a countrywide UK mortgage broker with access to plans from the whole of market, and arranging
+    mortgages on one year of accounts is a regular part of the work. We confirm whether your single year is ready to use,
+    tell you which lenders accept one year for your structure, and weigh whether earlier employed experience strengthens
+    the case. We then match your figures to a lender comfortable with a single year and present your case so an underwriter
+    can see the income is sustainable and say yes first time. We are authorised and regulated by the Financial Conduct
+    Authority (FCA) for the mortgage advice, and you must be on UK soil to receive advice, so we confirm your circumstances
+    properly before recommending anything.
+  </p>
+
+  <MidCta
+    text="Ready to know whether your one year is enough, and how much you can borrow, rather than guess? Let an adviser review your figures."
+    label="Check Your Options"
+    scenario="self-employed"
+    src={slug}
+  />
+
+  <FaqSection items={faqs} />
+
+  <CtaBlock
+    heading="Find out if your single year is enough"
+    line="Tell us your structure, your one year of figures and your deposit, and a Mortgage One adviser will review your answers and tell you where you stand."
+    scenario="self-employed"
+    src={slug}
+  />
+
+  <h2>Send us an enquiry</h2>
+  <EnquiryForm scenario="self-employed" />
+
+  <RelatedPanel cards={relatedCards} />
+
+  <p class="risk-warning">
+    Think carefully before securing your debts against your home. Your home may be repossessed if you do not keep up
+    repayments on your mortgage.
+  </p>
+</ArticleLayout>
+
+<style>
+  .risk-warning {
+    border-top: 1px solid var(--line);
+    padding-top: 1.5rem;
+    margin-top: 2.5rem;
+  }
+</style>
