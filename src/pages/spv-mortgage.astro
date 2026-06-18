@@ -1,0 +1,216 @@
+---
+import ArticleLayout from '../layouts/ArticleLayout.astro';
+import Reassurance from '../components/Reassurance.astro';
+import MidCta from '../components/MidCta.astro';
+import PullQuote from '../components/PullQuote.astro';
+import FaqSection from '../components/FaqSection.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+import EnquiryForm from '../components/locked/EnquiryForm.astro';
+import RelatedPanel from '../components/RelatedPanel.astro';
+
+const slug = '/spv-mortgage';
+
+const reassuranceLines = [
+  'Landlords forming a special purpose vehicle before their first company purchase.',
+  'Investors who already have an SPV registered but no mortgage on it yet.',
+  'Higher-rate taxpayers moving from personal lets into a company structure.',
+  'Directors checking their SIC codes and shareholding before they apply.',
+  'Portfolio landlords adding a new SPV-held property alongside personal ones.',
+];
+
+const faqs = [
+  {
+    q: 'What is an SPV mortgage?',
+    a: 'An SPV mortgage is a buy-to-let mortgage taken out by a special purpose vehicle (SPV), a limited company set up only to hold and let property. The loan sits in the company name rather than yours, and the lender judges it on the rent the property earns, the deposit the company puts down and the directors who stand behind it through a personal guarantee.',
+  },
+  {
+    q: 'What SIC code does an SPV need for a buy-to-let mortgage?',
+    a: 'Lenders want the company registered against a property-only standard industrial classification (SIC) code, most commonly 68100, 68209, 68320 or 68201, which describe buying, letting and managing property. The point is that the company does nothing but hold and let property, so a vehicle carrying trading codes alongside the property ones tends to narrow the lender choice.',
+  },
+  {
+    q: 'Can I get a mortgage on a newly formed SPV?',
+    a: 'Yes. A brand new SPV with no trading history is completely normal for these cases and does not count against you, because the lender looks through the company to the people behind it. Your own income, deposit and credit footprint carry the case, so a same-week incorporation can still secure a mortgage offer.',
+  },
+  {
+    q: 'Do I need an SPV or can I use my existing trading company?',
+    a: 'Most buy-to-let lenders prefer a clean SPV that only holds property. You can sometimes borrow through an existing trading company, but the pool of willing lenders is much smaller and the case is priced more cautiously, so if you already trade through a company it is usually cleaner to set up a separate SPV for the property.',
+  },
+  {
+    q: 'How much deposit does an SPV mortgage need?',
+    a: 'Plan for at least a quarter of the property value, and more on some property types or with a newer vehicle. A larger deposit widens the lenders open to a company structure and eases the rent cover test, so the size of your deposit often shapes which lenders will look at the case as much as the rate they offer.',
+  },
+  {
+    q: 'Will I have to give a personal guarantee on an SPV mortgage?',
+    a: 'Almost always. An SPV has little or no track record of its own, so the lender takes a personal guarantee from the directors and shareholders behind it. The guarantee is a routine part of SPV lending rather than a sign the case is weak, and most lenders expect every director with a meaningful shareholding to stand behind the loan.',
+  },
+];
+
+const relatedCards = [
+  {
+    title: 'Limited company buy-to-let mortgages',
+    href: '/limited-company-buy-to-let-mortgage',
+    line: 'The pillar guide to holding a let through a company.',
+  },
+  {
+    title: 'Expat company buy-to-let',
+    href: '/expat-limited-company-buy-to-let',
+    line: 'Running a UK SPV let while you live abroad.',
+  },
+  {
+    title: 'Expat HMO mortgages',
+    href: '/expat-hmo-mortgage',
+    line: 'Houses in multiple occupation, often held in an SPV.',
+  },
+  { title: 'Check your eligibility', href: '/check', line: 'Five quick questions, about 60 seconds.' },
+];
+---
+
+<ArticleLayout
+  title="SPV Mortgages for Buy-to-Let | Mortgage One"
+  description="Yes, you can mortgage a buy-to-let through a special purpose vehicle. How lenders read an SPV, the SIC codes, deposit, rent cover and personal guarantees."
+  eyebrow="SPV buy-to-let"
+  heading="SPV mortgages for buy-to-let"
+  breadcrumbs={[
+    { name: 'Home', href: '/' },
+    { name: 'SPV mortgages for buy-to-let', href: slug },
+  ]}
+  scenario="btl"
+>
+  <p>
+    Yes, you can take out a buy-to-let mortgage through a special purpose vehicle (SPV), a limited company set up only to
+    hold and let property. The mortgage sits in the company name rather than yours, and the lender judges it on the rent
+    the property earns, the deposit the company puts down and the directors who stand behind it through a personal
+    guarantee. The SPV is now the standard route for company landlords, and a wide range of lenders fund these cases as
+    ordinary business. This page is about the vehicle itself: what an SPV is, how to set one up so a lender will fund it,
+    and how an SPV mortgage is read. For the wider company picture, see our pillar guide to
+    <a href="/limited-company-buy-to-let-mortgage">limited company buy-to-let mortgages</a>.
+  </p>
+
+  <Reassurance title="SPV landlords we help" lines={reassuranceLines} />
+
+  <h2>What a special purpose vehicle is, and why lenders prefer one</h2>
+  <p>
+    A special purpose vehicle is a limited company that exists for one job only: to buy, hold and let property. It does
+    not trade in anything else, which is exactly why buy-to-let lenders like it. A company that only holds property is
+    simple to underwrite, its accounts are predictable, and there is no separate trading business whose ups and downs
+    could put the rent or the property at risk. That clean, single purpose is what most lenders mean when they ask for an
+    SPV rather than just any limited company, and it is the single biggest reason the SPV has become the default vehicle
+    for company landlords.
+  </p>
+
+  <h2>Setting up an SPV: SIC codes and shareholding</h2>
+  <p>
+    When you incorporate the company at Companies House you choose one or more standard industrial classification (SIC)
+    codes, which record what the company does. Lenders want a property-only set, most commonly 68100, 68209, 68320 or
+    68201, covering buying, letting and managing property. Keep the codes to property alone, because a vehicle that also
+    lists a trading activity reads as a mixed company and narrows your lender choice. Keep the shareholding simple too: a
+    short, clean list of directors and shareholders is far easier to fund than a long one, and lenders look closely at
+    anyone holding a meaningful stake. Getting the codes and the shareholding right at formation saves unpicking the
+    company later, which is why it is worth checking the lending angle before you register.
+  </p>
+
+  <h2>Can I use a brand new SPV?</h2>
+  <p>
+    Yes, and most SPV mortgages are written on companies formed days or weeks before the application. A vehicle with no
+    history does not count against you, because the lender looks straight through the company to the people behind it.
+    Your own income, your deposit and your credit footprint carry the case, so a same-week incorporation can still reach a
+    mortgage offer. What matters is not the age of the company but that it is set up correctly, with the right property
+    codes and a shareholding the lender is comfortable with, so the vehicle you fund is one that fits a lender rather than
+    one you have to re-paper.
+  </p>
+
+  <MidCta
+    text="Forming an SPV and want to know it will fit a lender before you register it? Tell us the shape of the deal and we will tell you where you stand."
+    scenario="btl"
+    src={slug}
+  />
+
+  <h2>How lenders size an SPV buy-to-let loan</h2>
+  <p>
+    The rent does most of the work. A lender tests the monthly rent against the mortgage interest at a stress rate set
+    above the pay rate, using an interest cover ratio (ICR) to decide the largest loan the rent will support. SPV cases
+    are often tested at a lower cover ratio than higher-rate personal borrowing, frequently in the region of 125%, which
+    can let the company borrow a little more on the same rent. The exact cover and stress rate vary by lender and by how
+    long the deal is fixed, so two lenders can size very different loans on the same property. Where the rent falls a
+    little short of the loan you want, some lenders allow surplus personal income to bridge the gap, known as
+    top-slicing.
+  </p>
+
+  <h2>Deposit and pricing on an SPV mortgage</h2>
+  <p>
+    Expect the SPV to put down at least a quarter of the property value, and more on some property types or with a newer
+    vehicle. SPV pricing usually carries a slightly higher rate and a heavier arrangement fee than the equivalent
+    personal deal, because the lender panel is smaller and the case takes more underwriting. That means the headline rate
+    matters less than finding a lender comfortable with your company and the property, and a stronger deposit widens that
+    panel and eases the rent cover test. When you weigh the cost, look at the rate and the fee together over the fixed
+    period rather than the rate alone, since a low rate with a large percentage fee can work out dearer on a smaller loan.
+  </p>
+
+  <PullQuote quote="An SPV mortgage is rarely about whether you qualify. It is about matching the vehicle, its codes and shareholding, the rent and the deposit to a lender that funds company landlords as routine." />
+
+  <h2>Trading company or SPV: which a lender will fund</h2>
+  <p>
+    If you already run a trading business through a company and want to borrow through that, you can find lenders for it,
+    but the pool is much smaller and the pricing more cautious, because the lender has to weigh a live trading business
+    sitting alongside the property. A clean SPV avoids all of that, which is why a separate vehicle for the property is
+    usually the cleaner path even when you already have a company to hand. We will tell you honestly whether your existing
+    company is worth using or whether a fresh SPV opens up a better-priced field of lenders for your case.
+  </p>
+
+  <h2>Moving a personally-owned let into an SPV</h2>
+  <p>
+    Some landlords already own property personally and want to hold it in an SPV instead. This is a sale from you to the
+    company rather than a simple transfer, so it can bring a fresh round of stamp duty and a capital gains calculation,
+    and the SPV will need its own mortgage to complete the purchase. The numbers can still stack up, particularly across a
+    larger portfolio, but they need working through with an accountant before you commit. On the lending side we treat it
+    like any other SPV purchase, sizing the loan on the rent and the company's deposit, and the tax and ownership reasons
+    behind the move belong with your accountant, which we cover more fully on the
+    <a href="/limited-company-buy-to-let-mortgage">limited company buy-to-let</a> guide.
+  </p>
+
+  <h2>How does Mortgage One help?</h2>
+  <p>
+    Mortgage One is a countrywide UK mortgage broker with access to plans from the whole of market, and we arrange SPV
+    buy-to-let cases as a regular part of the business. We check your company's codes and shareholding against what
+    lenders want, work out which lenders are comfortable with the vehicle and the property, test the rent against the loan
+    you want, brief you and your fellow directors on the personal guarantee, and put your case in front of the right desk
+    with the evidence an underwriter needs. We are authorised and regulated by the Financial Conduct Authority (FCA) for
+    the mortgage advice, and we work alongside your accountant rather than across them, so the borrowing fits the
+    structure they recommend. You must be on UK soil to receive advice, so we confirm your circumstances properly before
+    recommending anything.
+  </p>
+
+  <MidCta
+    text="Ready to know where you stand rather than guess? Let an adviser review your SPV buy-to-let case."
+    label="Check Your Options"
+    scenario="btl"
+    src={slug}
+  />
+
+  <FaqSection items={faqs} />
+
+  <CtaBlock
+    heading="See if an SPV mortgage fits"
+    line="Tell us about the property, the rent, the SPV and your deposit, and a Mortgage One adviser will review your answers."
+    scenario="btl"
+    src={slug}
+  />
+
+  <h2>Send us an enquiry</h2>
+  <EnquiryForm scenario="btl" />
+
+  <RelatedPanel cards={relatedCards} />
+
+  <p class="risk-warning">
+    Think carefully before securing your debts against your home. Your home may be repossessed if you do not keep up
+    repayments on your mortgage.
+  </p>
+</ArticleLayout>
+
+<style>
+  .risk-warning {
+    border-top: 1px solid var(--line);
+    padding-top: 1.5rem;
+    margin-top: 2.5rem;
+  }
+</style>
