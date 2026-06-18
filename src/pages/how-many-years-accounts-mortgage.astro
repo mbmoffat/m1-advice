@@ -1,0 +1,226 @@
+---
+import ArticleLayout from '../layouts/ArticleLayout.astro';
+import Reassurance from '../components/Reassurance.astro';
+import MidCta from '../components/MidCta.astro';
+import PullQuote from '../components/PullQuote.astro';
+import FaqSection from '../components/FaqSection.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+import EnquiryForm from '../components/locked/EnquiryForm.astro';
+import RelatedPanel from '../components/RelatedPanel.astro';
+
+const slug = '/how-many-years-accounts-mortgage';
+
+const reassuranceLines = [
+  'Two full years is the common ask, not a hard rule across the market.',
+  'A growing group of lenders will lend on one full year of figures.',
+  'A handful still want three years, so the number is a lender choice.',
+  'Sole traders, partners and company directors are all read this way.',
+  'Earlier employed work in the same field can shorten the wait.',
+];
+
+const faqs = [
+  {
+    q: 'How many years do you need to be self-employed for a mortgage in the UK?',
+    a: 'Most lenders want two full years of accounts or tax figures, and some still ask for three, but a growing number will lend on one full year where the business is established and the income looks sustainable. There is no single rule across the market, because the number of years is set by each lender rather than fixed in law. So the honest answer is that two years opens most of the market, one year opens a smaller but real part of it, and the practical task is to match your trading history to a lender comfortable with it rather than assuming you must wait.',
+  },
+  {
+    q: 'Can I get a mortgage with only one year of accounts?',
+    a: 'Yes, though the pool of lenders is smaller. A useful and growing group of lenders will consider a single full year of accounts, or one set of tax figures, where the year is clean and the income looks likely to continue. They weigh the trend, the type of work and how secure the income is, so one strong year with a clear pipeline reads far better than a single uneven one. A one-year record narrows which lenders will look at you rather than ruling a mortgage out, and our dedicated guide to a mortgage with one year of accounts covers it in full.',
+  },
+  {
+    q: 'What counts as a year of accounts to a lender?',
+    a: 'A complete, filed trading year, not the months since you registered. For a sole trader or partner that usually means a finished tax year evidenced by your tax calculation, often called an SA302, and the matching tax year overview from HM Revenue and Customs. For a company director it means a full set of finalised company accounts prepared by an accountant alongside your personal tax figures. A few months of trading, or a set of draft figures, does not count as a year, so the date your first full year completes is what really sets your timeline.',
+  },
+  {
+    q: 'Do I need three years of accounts for a mortgage?',
+    a: 'Rarely. A small number of lenders ask for three years, but most work to two and several will accept one, so three years is the exception rather than the standard. Where a lender does take three years it usually averages them or leans on the lower figures to be cautious. If you have three years available they can strengthen a case by showing a steady or rising trend, but not having three years does not shut you out, because plenty of lenders never ask for them.',
+  },
+  {
+    q: 'Does my time as an employee count towards the years?',
+    a: 'It can help, even though it is not the same as a year of accounts. Where you did the same work as an employee before going self-employed, some lenders will treat that earlier experience as evidence the income is established, which can support a one-year or two-year case that might otherwise look short. It does not replace a filed year of self-employed figures, but it turns a brief trading record into a longer story an underwriter can follow, so it is always worth setting out clearly when your self-employed history is still building.',
+  },
+  {
+    q: 'Should I wait for another year of accounts before applying?',
+    a: 'Often you do not need to. Waiting another tax year delays your purchase and assumes the next year will read better, which is not guaranteed. If your existing years are established, profitable and backed by a clear pipeline of work, a lender comfortable with that history may approve you now on ordinary terms. Waiting earns its keep only where your figures look thin or unusual and another year would plainly settle the doubt. The sound way to decide is to test the market against your real figures first, then wait only if the figures themselves say you should.',
+  },
+];
+
+const relatedCards = [
+  {
+    title: 'Self-employed mortgages',
+    href: '/self-employed-mortgage',
+    line: 'The pillar guide to how lenders read self-employed income.',
+  },
+  {
+    title: 'Mortgage with one year of accounts',
+    href: '/self-employed-1-year-accounts',
+    line: 'Who lends on a single year and what they need to see.',
+  },
+  {
+    title: 'Self-employed mortgage requirements',
+    href: '/self-employed-mortgage-requirements',
+    line: 'The trading history, accounts and documents lenders ask for.',
+  },
+  { title: 'Check your eligibility', href: '/check', line: 'Five quick questions, about 60 seconds.' },
+];
+---
+
+<ArticleLayout
+  title="How Many Years' Accounts for a Mortgage | Mortgage One"
+  description="Most lenders want two years of accounts and some ask for three, but one full year can be enough. How many years you need self-employed for a UK mortgage."
+  eyebrow="Complex income"
+  heading="How many years of accounts do you need?"
+  breadcrumbs={[
+    { name: 'Home', href: '/' },
+    { name: 'How many years of accounts you need', href: slug },
+  ]}
+  scenario="self-employed"
+>
+  <p>
+    Most lenders want two full years of accounts, some still ask for three, and a growing number will lend on one full
+    year where the income looks sustainable. There is no single figure that applies across the market, because the number
+    of years is set by each lender rather than a rule fixed in law. So the question is less how many years you
+    need in the abstract and more which lender will read the history you actually have. This page sets out the standard
+    two-year ask, who wants three, when one year is enough, what counts as a year in the first place, and whether your
+    earlier employment can shorten the wait. Because the years question sits inside the wider self-employed picture, our
+    pillar guide to <a href="/self-employed-mortgage">self-employed mortgages</a> covers the ground this page builds on.
+  </p>
+
+  <Reassurance title="What the years requirement really looks like" lines={reassuranceLines} />
+
+  <h2>The short answer on how many years you need</h2>
+  <p>
+    Two full years of figures opens most of the mainstream market, and it is the number most people have heard. A
+    minority of lenders ask for three, and a useful, growing group will consider a single full year where the business is
+    established and the income reads as stable. None of these is a legal minimum; each is a lender choosing how much
+    history it wants to see before it is comfortable. That is why the same trading record can produce a yes from one
+    lender and a request to wait from another. The job is not to hit a magic number of years, but to pair the years you
+    have with a lender whose policy fits them.
+  </p>
+
+  <h2>Why two years is the usual figure</h2>
+  <p>
+    Two years gives a lender a trend rather than a snapshot, which is the real reason it is the common ask. With two sets
+    of figures an underwriter can see whether your income is steady, rising or falling, and lend accordingly. Where the
+    two years have grown, many lenders average them rather than use the latest alone; where the second year has dipped,
+    they tend to lean on the lower figure to stay cautious. This is also why two strong, consistent years read so well: they
+    show the income was not a one-off. If your figures jump around between the two years, expect questions, because the
+    point of asking for two is to test that the income is repeatable, not simply to count to two.
+  </p>
+
+  <h2>When one year of accounts is enough</h2>
+  <p>
+    A single full year is far from a dead end. A growing group of lenders, including high-street names, will consider one
+    year of accounts or a single set of tax figures where the year is clean and the income looks likely to continue. They
+    look closely at the trend within the year, the type of work and how secure the income is, so a profitable first year
+    backed by a clear pipeline of work reads far better than a single uneven one. A one-year record narrows which lenders
+    will look at you rather than closing the door, and a larger deposit widens that choice again. We cover who lends and
+    what they need on our dedicated page about a
+    <a href="/self-employed-1-year-accounts">mortgage with one year of accounts</a>.
+  </p>
+
+  <MidCta
+    text="Not sure whether the years you have are enough yet? Tell us your structure and your figures and we will tell you where you stand."
+    scenario="self-employed"
+    src={slug}
+  />
+
+  <h2>What actually counts as a year</h2>
+  <p>
+    A year means a complete, filed trading year, not the time since you registered or incorporated, and the difference
+    matters more than people expect. If you are a sole trader or in a partnership, one year usually means a finished tax
+    year evidenced by your tax calculation, often called an SA302, and the matching tax year overview from HM Revenue and
+    Customs. If you run a limited company, a year means a full set of finalised company accounts prepared by an accountant,
+    alongside your personal tax figures. A few months of trading, or a set of draft figures, is not the same thing as a
+    completed year. So the date your first full year finishes and is filed, rather than the date you started, is what sets
+    your real timeline.
+  </p>
+
+  <h2>Who still asks for three years</h2>
+  <p>
+    A small number of lenders ask for three years, and a few self-employed cases sit more comfortably with them, but three
+    is the exception rather than the rule. Where a lender does take three years it usually averages them or relies on the
+    lower figures, so a steady or rising three-year trend strengthens the case while a sharp fall in the latest year can
+    work against you. If you have three years available, they can be an asset that shows a long, settled track record. If
+    you do not, you are not shut out, because most lenders never ask for a third year and several are content with one. The
+    presence of three years is a help, not a hurdle.
+  </p>
+
+  <PullQuote quote="The number of years is not a rule you have to meet. It is a setting each lender chooses, which is why the years you have matter less than the lender you take them to." />
+
+  <h2>How the years affect what you can borrow</h2>
+  <p>
+    Once a lender has accepted your trading history, affordability works as it does for any borrower, and the number of
+    years mainly shapes the income figure rather than the loan size on its own. Most lenders work to an income multiple of
+    around four and a half to five times your assessed income, then test that the repayments stay affordable at a stress
+    rate above the pay rate, with your other commitments taken into account. Where you have two or three years, the figure
+    a lender uses may be an average, which can help if your income is rising and hold you back if it has dipped. A
+    strong single year, accepted by the right lender, can support the same borrowing as a longer record. We go into the
+    sums on our page about <a href="/how-much-can-i-borrow-self-employed">how much you can borrow when self-employed</a>.
+  </p>
+
+  <h2>Does earlier employment count towards the years?</h2>
+  <p>
+    It can help, even though it does not replace a filed year of self-employed figures. Where you did the same work as an
+    employee before going self-employed, some lenders treat that earlier experience as evidence the income is established,
+    which can support a one-year or two-year case that would otherwise look short. A surveyor who spent ten years employed
+    before setting up alone, for example, is not really a beginner in the eyes of those lenders. So if your self-employed
+    history is still building, set out your earlier employment clearly, because it turns a brief trading record into a
+    longer story an underwriter can follow and reduces the weight resting on the years alone.
+  </p>
+
+  <h2>Should you wait for another year?</h2>
+  <p>
+    Often you do not need to, and waiting carries its own cost. Delaying another tax year pushes back your purchase and
+    assumes the next year will read better, which is not a given. If your existing years are established, profitable and
+    backed by a clear pipeline, a lender comfortable with that history may approve you now on ordinary terms. Waiting earns
+    its keep only where your figures look thin or unusual, for example a part-year start dressed up as a full one, and
+    another year would plainly settle the doubt. The sound way to decide is to test the market against your real figures
+    first, then wait only if the figures themselves say you should.
+  </p>
+
+  <h2>How does Mortgage One help?</h2>
+  <p>
+    Mortgage One is a countrywide UK mortgage broker with access to plans from the whole of market, and working out how
+    many years a given lender will want is a routine part of the job. We confirm whether your years are complete and ready
+    to use, tell you which lenders accept one, two or three years for your structure, and weigh whether earlier employed
+    experience strengthens the case. We then match the history you have to a lender comfortable with it and present your
+    figures so an underwriter can see the income is sustainable and say yes first time. We are authorised and regulated by
+    the Financial Conduct Authority (FCA) for the mortgage advice, and you must be on UK soil to receive advice, so we
+    confirm your circumstances properly before recommending anything.
+  </p>
+
+  <MidCta
+    text="Ready to know whether your years are enough, rather than guess? Let an adviser review your figures."
+    label="Check Your Options"
+    scenario="self-employed"
+    src={slug}
+  />
+
+  <FaqSection items={faqs} />
+
+  <CtaBlock
+    heading="Find out if your years of accounts are enough"
+    line="Tell us your structure, how many years you have filed and your deposit, and a Mortgage One adviser will review your answers and tell you where you stand."
+    scenario="self-employed"
+    src={slug}
+  />
+
+  <h2>Send us an enquiry</h2>
+  <EnquiryForm scenario="self-employed" />
+
+  <RelatedPanel cards={relatedCards} />
+
+  <p class="risk-warning">
+    Think carefully before securing your debts against your home. Your home may be repossessed if you do not keep up
+    repayments on your mortgage.
+  </p>
+</ArticleLayout>
+
+<style>
+  .risk-warning {
+    border-top: 1px solid var(--line);
+    padding-top: 1.5rem;
+    margin-top: 2.5rem;
+  }
+</style>
