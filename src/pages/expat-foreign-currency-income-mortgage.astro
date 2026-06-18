@@ -1,0 +1,213 @@
+---
+import ArticleLayout from '../layouts/ArticleLayout.astro';
+import Reassurance from '../components/Reassurance.astro';
+import MidCta from '../components/MidCta.astro';
+import PullQuote from '../components/PullQuote.astro';
+import FaqSection from '../components/FaqSection.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+import EnquiryForm from '../components/locked/EnquiryForm.astro';
+import RelatedPanel from '../components/RelatedPanel.astro';
+
+const slug = '/expat-foreign-currency-income-mortgage';
+
+const reassuranceLines = [
+  'British nationals living abroad, paid a salary in a currency other than sterling.',
+  'Paid in a mainstream currency such as US dollars, euros or UAE dirham.',
+  'Paid in a less common currency where the lender list is shorter but open.',
+  'Business owners and contractors drawing overseas earnings in local currency.',
+  'Buying or remortgaging a UK home to live in, return to, or let out.',
+];
+
+const faqs = [
+  {
+    q: 'Can an expat get a UK mortgage if paid in a foreign currency?',
+    a: 'Yes. British expats paid in a currency other than sterling arrange UK mortgages regularly, both to buy and to remortgage. Being paid abroad does not stop you owning property here, it narrows which lenders will look at you and changes how they read your income. A lender converts your pay to sterling, applies a reduction to allow for the exchange rate moving against the loan, then works from that lower figure. The income still counts. The task is matching your currency, your residency and your deposit to a lender that funds overseas borrowers as routine.',
+  },
+  {
+    q: 'Which currencies do UK lenders accept from expats?',
+    a: 'US dollars and euros give you the widest choice, and several mainstream currencies pegged to the dollar, such as the UAE dirham, are handled comfortably too. Less common currencies are still workable, they simply shorten the lender list rather than close the door, and a steady history in that currency matters more. If you are paid in something other than dollars or euros, it is worth a conversation early so we can point you at the lenders that will look at it.',
+  },
+  {
+    q: 'How much of my foreign currency income will a lender use?',
+    a: 'Not all of it. A lender converts your pay to sterling and reduces it, often in the region of a fifth to a quarter, to allow for the rate moving against the loan, then lends on that lower figure. The size of that reduction varies widely between lenders, which is why the lender you choose changes your borrowing more than the exchange rate on the day does. Finding the lender that applies the smallest reduction to your particular currency is the main lever on the amount.',
+  },
+  {
+    q: 'What evidence do I need to prove foreign currency income?',
+    a: 'Expect to show your employment contract or offer letter, recent payslips and bank statements showing the salary arriving and converting, and, if you run a business, company accounts and bank records. A lender wants to see that the pay is real, regular and likely to continue. Where your income has moved between currencies or employers, a short written note alongside the paperwork helps an underwriter follow the pattern rather than guess at it.',
+  },
+  {
+    q: 'Does being paid abroad mean a bigger deposit?',
+    a: 'Usually, yes. Expat lenders commonly look for a deposit in the region of a quarter of the property value, sometimes more, and foreign currency pay sits within that same expat picture rather than adding a separate penalty. A stronger deposit widens the lender choice open to you and can ease the affordability test. Our guide to the expat mortgage deposit covers how much to plan for and why it sits higher than for a borrower based in the UK.',
+  },
+  {
+    q: 'How do I start from overseas?',
+    a: 'Use the 60-second check and a Mortgage One adviser will review your answers and tell you where you stand. Much of the groundwork is handled remotely, so distance is rarely the obstacle. You must be on UK soil to receive advice, so we confirm your residency and circumstances properly before recommending anything.',
+  },
+];
+
+const relatedCards = [
+  {
+    title: 'Can an expat get a UK mortgage?',
+    href: '/can-an-expat-get-a-uk-mortgage',
+    line: 'The expat mortgage hub: residency, currency and deposits.',
+  },
+  {
+    title: 'How much can an expat borrow?',
+    href: '/how-much-can-an-expat-borrow',
+    line: 'How lenders size the loan and what lifts the figure.',
+  },
+  {
+    title: 'Expat mortgage deposit',
+    href: '/expat-mortgage-deposit',
+    line: 'How much deposit you need and why it is higher.',
+  },
+  { title: 'Check your eligibility', href: '/check', line: 'Five quick questions, about 60 seconds.' },
+];
+---
+
+<ArticleLayout
+  title="Expat Foreign Currency Income Mortgage | Mortgage One"
+  description="Yes, expats paid in a foreign currency can get a UK mortgage. How lenders convert and discount overseas income, and which currencies widen your lender choice."
+  eyebrow="Expat mortgages and foreign income"
+  heading="UK mortgages for expats paid in a foreign currency"
+  breadcrumbs={[
+    { name: 'Home', href: '/' },
+    { name: 'UK mortgages for expats paid in a foreign currency', href: slug },
+  ]}
+  scenario="expat"
+>
+  <p>
+    Yes, a British expat paid in a currency other than sterling can get a UK mortgage. Building a life abroad and drawing
+    your salary in dollars, euros, dirham or another local currency does not stop you buying, keeping or remortgaging
+    property back in the UK, it narrows which lenders will look at you and changes how they read your income. A lender
+    converts your pay to sterling, trims it to allow for the exchange rate moving, and works from that figure. Choose the
+    right lender and foreign currency pay is rarely the obstacle it first appears. If you want the full picture first,
+    start with our hub on whether <a href="/can-an-expat-get-a-uk-mortgage">an expat can get a UK mortgage</a>, then come
+    back here for the currency detail.
+  </p>
+
+  <Reassurance title="Expats paid in foreign currency we help" lines={reassuranceLines} />
+
+  <h2>Do UK lenders accept income paid in a foreign currency?</h2>
+  <p>
+    Yes. A large part of the expat market accepts non-sterling earnings as a matter of routine. A lender converts your
+    income to sterling using its own exchange rate, then applies a reduction to allow for the rate moving against the
+    loan, and lends on a percentage of that lower figure. The income is accepted, it is simply read more cautiously than
+    sterling pay. What changes from one expat to the next is the currency you are paid in and where you live, and those
+    two facts shape the lender list more than the headline rate does.
+  </p>
+
+  <h2>Which currencies widen, or narrow, your lender choice</h2>
+  <p>
+    Lenders sort currencies by how comfortable they are holding the risk. US dollars and euros sit at the comfortable
+    end and give you the widest choice. Several mainstream currencies pegged to the dollar, the UAE dirham among them,
+    are handled without difficulty too, because an underwriter reads a pegged currency as stable rather than volatile. A
+    less common currency does not close the door, it shortens the list and asks for clearer evidence of a steady history.
+    Knowing where your currency sits before you apply is what tells us which lenders are worth approaching and which
+    would only waste a week.
+  </p>
+
+  <h2>How the reduction changes what you can borrow</h2>
+  <p>
+    The size of the reduction is where lenders differ most. One lender may work from a larger share of your converted
+    income than the next, often in the region of a fifth to a quarter held back, and that gap moves your borrowing
+    figure further than a small change in the interest rate would. With foreign currency income, the lender you choose
+    does more work than the rate. In practice, a lender that lends on 70% of converted income works from a noticeably
+    higher figure than one using 65%, and across a joint application that gap can move the borrowing ceiling by tens of
+    thousands of pounds. Matching your currency to a lender whose reduction is smaller is the single biggest lever on the
+    amount.
+  </p>
+
+  <MidCta
+    text="Want to know the figure a lender would actually assess from your foreign currency pay? Tell us how and where you are paid."
+    scenario="expat"
+    src={slug}
+  />
+
+  <h2>Proving income that never passed through UK payroll</h2>
+  <p>
+    Income earned abroad takes a little more documenting than a settled UK salary, though it is a routine part of placing
+    an expat case rather than an obstacle. Instead of UK tax documents, an underwriter will want your employment contract
+    or offer letter, recent payslips and bank statements showing the salary landing and converting, and, for a business
+    owner, company accounts and bank records. Setting that evidence out cleanly is what lets a lender assess pay that
+    never passed through UK payroll. Knowing which lender reads your particular structure well, a base salary, a bonus,
+    an allowance or a self-employed draw, saves a false start later.
+  </p>
+
+  <h2>Buying a UK home, or letting one out from abroad</h2>
+  <p>
+    What you are buying changes how the loan is built, and your currency plays a different part in each. A home you will
+    live in or return to is sized on your income and an affordability test, so the reduction applied to your foreign pay
+    drives the figure, and our guide to <a href="/expat-residential-mortgage">residential mortgages for expats</a> covers
+    how that works from overseas. A property you let out is sized mainly on the rent it earns and a rent cover test, so
+    your salary, and the currency it is paid in, matters far less. Be clear which case is yours before you settle on a
+    figure, because the two are worked out in entirely different ways.
+  </p>
+
+  <h2>Deposit and how currency fits the wider picture</h2>
+  <p>
+    Expect to put down more than a UK resident would. Expat lenders commonly look for a deposit in the region of a
+    quarter of the property value, sometimes more, and foreign currency pay sits inside that same expat picture rather
+    than adding a separate penalty on top. A stronger deposit widens the lender choice open to you, sets a better
+    loan-to-value band and can ease the affordability test, which matters all the more once a slice of your income has
+    been trimmed for currency. Our guide to the <a href="/expat-mortgage-deposit">expat mortgage deposit</a> covers how
+    much to plan for and why it sits higher than for a borrower based in the UK.
+  </p>
+
+  <PullQuote quote="With foreign currency income, your UK mortgage rarely turns on whether you qualify. It turns on matching your currency, your residency and your deposit to a lender that funds overseas pay as routine." />
+
+  <h2>Residency, your ties and working across the distance</h2>
+  <p>
+    Lenders want to understand your situation as a whole, not just your payslip. Where you are tax resident and how much
+    recent UK address history you hold both shape which lenders will help and how much deposit they ask for, and they sit
+    alongside your currency in the decision. A clear set of ties back to the UK, a credit footprint, a previous address
+    or an existing property, helps your case read well. Most of the groundwork, the fact-find, gathering payslips and
+    bank statements, and submitting the case, is handled remotely across the time difference, so distance is rarely the
+    obstacle. You must be on UK soil to receive advice, so we confirm your residency and circumstances properly before
+    recommending anything.
+  </p>
+
+  <h2>How does Mortgage One help?</h2>
+  <p>
+    Mortgage One is a countrywide UK mortgage broker with access to plans from the whole of market, and we arrange expat
+    cases as a regular part of the business, not an exception to it. We work out which lenders are comfortable with your
+    currency and your country of residence, count bonus, allowance or self-employed earnings properly, settle whether
+    your case is residential or buy-to-let, and put it in front of a lender that applies the smallest reduction your
+    profile allows, with the evidence an underwriter needs. You must be on UK soil to receive advice, so we confirm your
+    circumstances properly before recommending anything.
+  </p>
+
+  <MidCta
+    text="Ready to know where you stand on a UK mortgage rather than guess from abroad? Let an adviser review your case."
+    label="Check Your Options"
+    scenario="expat"
+    src={slug}
+  />
+
+  <FaqSection items={faqs} />
+
+  <CtaBlock
+    heading="See what your foreign currency income supports"
+    line="Tell us how you are paid, where you live and the property you have in mind, and a Mortgage One adviser will review your answers."
+    scenario="expat"
+    src={slug}
+  />
+
+  <h2>Send us an enquiry</h2>
+  <EnquiryForm scenario="expat" />
+
+  <RelatedPanel cards={relatedCards} />
+
+  <p class="risk-warning">
+    Think carefully before securing your debts against your home. Your home may be repossessed if you do not keep up
+    repayments on your mortgage.
+  </p>
+</ArticleLayout>
+
+<style>
+  .risk-warning {
+    border-top: 1px solid var(--line);
+    padding-top: 1.5rem;
+    margin-top: 2.5rem;
+  }
+</style>
