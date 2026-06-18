@@ -1,0 +1,215 @@
+---
+import ArticleLayout from '../layouts/ArticleLayout.astro';
+import Reassurance from '../components/Reassurance.astro';
+import MidCta from '../components/MidCta.astro';
+import PullQuote from '../components/PullQuote.astro';
+import FaqSection from '../components/FaqSection.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+import EnquiryForm from '../components/locked/EnquiryForm.astro';
+import RelatedPanel from '../components/RelatedPanel.astro';
+
+const slug = '/first-time-landlord-limited-company';
+
+const reassuranceLines = [
+  'First-time landlords buying their very first rental through a company.',
+  'New investors with no previous letting history at all.',
+  'Owner-occupiers making the jump from home to first buy-to-let.',
+  'Couples setting up a company together for their first property.',
+  'First-timers weighing a company against buying in their own name.',
+];
+
+const faqs = [
+  {
+    q: 'Can a first-time landlord buy through a limited company?',
+    a: 'Yes. There is no rule that you must own a rental in your own name first, and plenty of lenders fund a first-time landlord whose property is held in a limited company. The pool is narrower than it is for an experienced landlord, because some lenders want to see a letting track record, but a brand new company with a first-time landlord behind it is a case we place as routine. The key is matching you to the lenders that welcome new landlords rather than the ones that quietly screen them out.',
+  },
+  {
+    q: 'Do I need to own my own home to be a first-time landlord with a company?',
+    a: 'It helps a great deal. Most buy-to-let lenders want you to already own your own residential home, and being both a first-time landlord and a first-time buyer narrows the field sharply. A smaller group of lenders will still consider you, often with a larger deposit and tighter terms. If you do not own a home yet, tell us early, because it is the single factor that most changes which lenders are open to you.',
+  },
+  {
+    q: 'Is it harder to get a mortgage as a first-time landlord?',
+    a: 'It is more selective rather than harder once you are matched correctly. Some lenders restrict their buy-to-let range to landlords with two or more years of letting history, so a first-timer simply will not fit those products. Others actively lend to new landlords on standard terms. The difference is the lender, not your case, which is why going to the right ones from the start matters more than anything else.',
+  },
+  {
+    q: 'Does the company being brand new cause a problem?',
+    a: 'No. A special purpose vehicle (SPV) formed days before you apply, with no trading history and no accounts filed, is completely normal for company buy-to-let and lenders expect it. What they assess is the people behind the company, not the age of the company itself. The variable that matters for a first-timer is your landlord experience and whether you own your own home, not how recently the company was incorporated.',
+  },
+  {
+    q: 'How much deposit does a first-time landlord need with a limited company?',
+    a: 'Plan for at least 25 per cent of the property value, and budget closer to 30 to 35 per cent if you are also a first-time buyer or the rent is tight against the loan. A larger deposit widens the lenders open to a first-time landlord and improves the rate. Figures are illustrative only and your actual borrowing is subject to full lender assessment and status.',
+  },
+  {
+    q: 'Should my first buy-to-let go in a company or my own name?',
+    a: 'That is a tax and structuring decision for an accountant, not a mortgage one, and it depends on your income, your plans and how many properties you intend to hold. Starting in a company from your very first property is common and you do not need to build experience in your own name first. We set the lending side of each route out for you, but the ownership choice should be settled with an accountant before you form anything.',
+  },
+];
+
+const relatedCards = [
+  {
+    title: 'Limited company buy-to-let mortgages',
+    href: '/limited-company-buy-to-let-mortgage',
+    line: 'The pillar guide to holding a let through a company.',
+  },
+  {
+    title: 'Limited company or personal name',
+    href: '/limited-company-vs-personal-name-buy-to-let',
+    line: 'Deciding the route before you buy your first let.',
+  },
+  {
+    title: 'Setting up an SPV for buy-to-let',
+    href: '/setting-up-an-spv-for-buy-to-let',
+    line: 'How to form the company so a lender will fund it.',
+  },
+  { title: 'Check your eligibility', href: '/check', line: 'Five quick questions, about 60 seconds.' },
+];
+---
+
+<ArticleLayout
+  title="First-Time Landlord Limited Company Guide | Mortgage One"
+  description="Buying your first rental through a limited company as a first-time landlord: which lenders accept you, the deposit to plan for and the setup to get right."
+  eyebrow="Limited company buy-to-let"
+  heading="First-time landlord buying through a limited company"
+  breadcrumbs={[
+    { name: 'Home', href: '/' },
+    { name: 'First-time landlord buying through a limited company', href: slug },
+  ]}
+  scenario="btl"
+>
+  <p>
+    Yes, you can buy your first rental property through a limited company even with no previous landlord experience, and a
+    brand new company is no obstacle to it. The thing to understand is that you are presenting two firsts at once: a
+    first-time landlord and a company with no trading history. Neither is a problem on its own, but together they narrow
+    the lenders who will look at you, so the whole job is going after the ones that welcome new landlords rather than the
+    ones that quietly screen them out. This page explains how lenders read a first-time landlord, whether you need to own
+    your own home first, the deposit to plan for, and how to set the company up so it fits. For the wider company picture,
+    see our pillar guide to <a href="/limited-company-buy-to-let-mortgage">limited company buy-to-let mortgages</a>.
+  </p>
+
+  <Reassurance title="First-time landlords we help" lines={reassuranceLines} />
+
+  <h2>Can a first-time landlord buy through a limited company?</h2>
+  <p>
+    There is no rule that you must hold a rental in your own name before you can buy one through a company. A first-time
+    landlord can incorporate a special purpose vehicle (SPV) and buy their first property through it from day one. What
+    changes for a first-timer is not whether it is allowed but how many lenders are open to it. Some lenders restrict
+    their buy-to-let range to landlords with a letting track record, often two or more years, so a new landlord will not
+    fit those products at all. A good number of others lend to first-time landlords on standard terms. The case is
+    perfectly placeable; it just has to go to the right lenders, and knowing which those are is the part that saves you a
+    wasted application.
+  </p>
+
+  <h2>The two firsts a lender weighs</h2>
+  <p>
+    When you buy your first let through a new company, a lender is really looking at two separate things and it helps to
+    keep them apart. The first is the company. A newly formed SPV with no accounts and no history is entirely normal for
+    company buy-to-let, lenders expect it, and they assess the directors and shareholders behind it rather than the age
+    of the company. The second is you as a landlord, and this is the variable that actually moves the dial. Your lack of
+    letting experience, not the freshness of the company, is what some lenders screen on. Reading those two apart matters,
+    because landlords often worry the new company will sink the application when the company is the easy part and their own
+    first-timer status is the thing to plan around.
+  </p>
+
+  <MidCta
+    text="Buying your first let through a company and not sure who will lend? Tell us your plan and we will tell you where you stand."
+    scenario="btl"
+    src={slug}
+  />
+
+  <h2>Do you need to own your own home first?</h2>
+  <p>
+    This is the single biggest factor for a first-time landlord, and it is worth being straight about. Most buy-to-let
+    lenders want you to already own your own residential home, so being a first-time landlord who is also a first-time
+    buyer narrows the field sharply. A smaller group of lenders will still consider you, usually with a larger deposit and
+    tighter pricing, and the case is far from impossible, but it is a much shorter list. If you already own the home you
+    live in, you sit in the mainstream first-time landlord pool and most company lenders are open to you. If you do not own
+    a home yet, say so at the outset, because it shapes which lenders are realistic before anything else does.
+  </p>
+
+  <h2>Deposit, rate and how the loan is sized</h2>
+  <p>
+    Plan for a deposit of at least 25 per cent of the property value, and budget closer to 30 to 35 per cent if you are
+    also a first-time buyer or the rent sits tight against the loan. A larger deposit does two useful things for a
+    first-timer: it widens the lenders willing to look at you and it improves the rate you are offered. On top of the
+    deposit, a lender sizes the actual loan on the rent the property will earn, stress tested against an assumed interest
+    rate, so the rent has to cover the mortgage with a margin to spare rather than just break even. First-time landlords
+    are sometimes held to a slightly firmer rent calculation, which is another reason a healthy deposit and a property
+    that rents well both matter. Our page on
+    <a href="/limited-company-buy-to-let-deposit">limited company buy-to-let deposits</a> sets the deposit side out in
+    full, and <a href="/how-much-can-a-limited-company-borrow-btl">how much a limited company can borrow</a> walks through
+    the rent calculation.
+  </p>
+
+  <PullQuote quote="The new company is the easy part. As a first-time landlord, the questions that decide your options are whether you own your own home and how big your deposit is." />
+
+  <h2>Personal guarantees and what is expected of you</h2>
+  <p>
+    Because the company is new and you are new to letting, a lender leans on you personally to stand behind the loan. In
+    almost every company buy-to-let, the directors give a personal guarantee, which means you are personally responsible
+    for the debt if the company cannot meet it. For a first-time landlord that is not a special hurdle, it is simply how
+    company lending works, but it does mean everyone behind the company should expect to sign and should be comfortable
+    with what they are agreeing to. Lenders will also check your own income, your credit record and that the deposit is
+    genuinely yours. None of this is unusual; the point is that as a first-timer your personal standing carries more of the
+    case than a long landlord history would, so it pays to have it in good order before you apply. To see the full lender
+    checklist, read our page on <a href="/limited-company-buy-to-let-criteria">limited company buy-to-let criteria</a>.
+  </p>
+
+  <h2>Company from day one, or your own name first?</h2>
+  <p>
+    A fair question for a first-timer is whether to start in a company at all, or buy the first property in your own name
+    and form a company later. You do not need to build experience in your own name before a company will work, so the
+    choice is not about proving yourself first. It is a tax and structuring decision that turns on your income, how many
+    properties you plan to hold and your longer-term plans, and it belongs with an accountant before you form anything. We
+    set out the lending side of each route, and our page on
+    <a href="/limited-company-vs-personal-name-buy-to-let">limited company or personal name</a> compares the two so you go
+    into that conversation informed. Once the structure is settled, our guide to
+    <a href="/setting-up-an-spv-for-buy-to-let">setting up an SPV for buy-to-let</a> covers forming the company so it fits
+    a lender from the start.
+  </p>
+
+  <h2>How does Mortgage One help?</h2>
+  <p>
+    Mortgage One is a countrywide UK mortgage broker with access to plans from the whole of market, and we place
+    first-time landlord company cases as routine business. Our job is to point you at the lenders that genuinely welcome a
+    new landlord and a new company, rather than the ones that will waste an application, and to be honest early about how
+    much owning your own home and the size of your deposit change your options. We size the loan on the rent, brief you and
+    any fellow directors on the personal guarantee, and work alongside your accountant so the borrowing fits the structure
+    they recommend. We do not give tax or structuring advice, that is your accountant's part. We are authorised and
+    regulated by the Financial Conduct Authority (FCA) for the mortgage advice. You must be on UK soil to receive advice,
+    so we confirm your circumstances properly before recommending anything.
+  </p>
+
+  <MidCta
+    text="Ready to buy your first let through a company? Let an adviser check which lenders are open to you before you apply."
+    label="Check Your Options"
+    scenario="btl"
+    src={slug}
+  />
+
+  <FaqSection items={faqs} />
+
+  <CtaBlock
+    heading="Buy your first let through a company with the right lender"
+    line="Tell us about the property, the rent, whether you own your own home and your deposit, and a Mortgage One adviser will review your answers."
+    scenario="btl"
+    src={slug}
+  />
+
+  <h2>Send us an enquiry</h2>
+  <EnquiryForm scenario="btl" />
+
+  <RelatedPanel cards={relatedCards} />
+
+  <p class="risk-warning">
+    Think carefully before securing your debts against your home. Your home may be repossessed if you do not keep up
+    repayments on your mortgage.
+  </p>
+</ArticleLayout>
+
+<style>
+  .risk-warning {
+    border-top: 1px solid var(--line);
+    padding-top: 1.5rem;
+    margin-top: 2.5rem;
+  }
+</style>
