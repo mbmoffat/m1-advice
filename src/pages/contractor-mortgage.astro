@@ -1,0 +1,223 @@
+---
+import ArticleLayout from '../layouts/ArticleLayout.astro';
+import Reassurance from '../components/Reassurance.astro';
+import MidCta from '../components/MidCta.astro';
+import PullQuote from '../components/PullQuote.astro';
+import FaqSection from '../components/FaqSection.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+import EnquiryForm from '../components/locked/EnquiryForm.astro';
+import RelatedPanel from '../components/RelatedPanel.astro';
+
+const slug = '/contractor-mortgage';
+
+const reassuranceLines = [
+  'Many lenders price your income on your day rate, not your accounts.',
+  'A single contract in hand can be enough to apply.',
+  'High-street lenders, not just specialists, lend to contractors.',
+  'Gaps between contracts are expected and can be allowed for.',
+  'You can borrow on the same rates as an employed buyer.',
+];
+
+const faqs = [
+  {
+    q: 'Can I get a mortgage as a contractor?',
+    a: 'Yes. Contracting is a well understood way of working, and a large group of lenders has rules written specifically for it. Many will base your income on your day rate rather than on filed accounts, which often gives a higher figure than your tax return would suggest. Whether you work through your own limited company, an umbrella company or on a fixed-term contract, there are lenders comfortable with each. The task is to find the one that reads your contract the way it is actually structured.',
+  },
+  {
+    q: 'How do lenders work out a contractor income?',
+    a: 'A contractor friendly lender typically takes your day rate, multiplies it by the days you work in a week, then by a set number of weeks across the year, often around 46 or 48 to allow for time between contracts and holidays. That annualised figure becomes the income they lend against, usually at four and a half to five times. Because this method ignores how little salary or dividend you draw from your company, it frequently produces a larger figure than your accounts alone, which is the main reason day-rate assessment matters.',
+  },
+  {
+    q: 'How long do I need to have been contracting?',
+    a: 'Less than you might expect. A number of lenders will consider you with a current contract and a short history in the same line of work, and some look for around twelve months of contracting behind you. A handful will accept a first contract where you moved from employment into the same field. A shorter track record narrows the choice of lender rather than ruling you out, so it is worth checking the market before assuming you have to wait.',
+  },
+  {
+    q: 'Do I need two years of accounts to get a contractor mortgage?',
+    a: 'Not with the right lender. The strength of day-rate assessment is that it lets a lender price your income from your contract rather than from two or three years of accounts. That said, some lenders, and some structures, are still assessed on accounts, so having your tax calculations and company figures ready keeps every door open. We work out in advance which route gives you the stronger outcome and apply to a lender that uses it.',
+  },
+  {
+    q: 'Does it matter if I work inside or outside IR35?',
+    a: 'It can shape which lenders fit, but neither status stops you borrowing. Contractors working through an umbrella company, common for inside-IR35 engagements, are assessed by many lenders on their gross contract rate or on payslips, while those outside IR35 through their own limited company are often assessed on day rate. Both are routinely approved. What matters is matching your exact arrangement to a lender that understands it, rather than applying to one that does not.',
+  },
+  {
+    q: 'Can a broker improve my chances of approval?',
+    a: 'That is where most of the difference is made. The same contract can produce very different incomes across lenders, because each reads day rate, umbrella pay and limited company contracting its own way. A broker knows which lenders use day-rate assessment, which accept a short history, and which suit your structure, then presents the case so an underwriter can say yes first time. Matching the case to the right lender before you apply is the single biggest lever on the outcome.',
+  },
+];
+
+const relatedCards = [
+  {
+    title: 'Self-employed mortgages',
+    href: '/self-employed-mortgage',
+    line: 'The pillar guide to how lenders read self-employed income.',
+  },
+  {
+    title: 'Mortgage when self-employed',
+    href: '/can-you-get-a-mortgage-when-self-employed',
+    line: 'The yes-first answer for anyone working for themselves.',
+  },
+  {
+    title: 'SPV mortgages',
+    href: '/spv-mortgage',
+    line: 'Borrowing through a special purpose vehicle company.',
+  },
+  { title: 'Check your eligibility', href: '/check', line: 'Five quick questions, about 60 seconds.' },
+];
+---
+
+<ArticleLayout
+  title="Mortgages for Contractors | Mortgage One"
+  description="Yes, contractors can get a mortgage. How lenders use your day rate, the history you need, IR35 and umbrella cases, and how to improve your chances."
+  eyebrow="Complex income"
+  heading="Mortgages for contractors"
+  breadcrumbs={[
+    { name: 'Home', href: '/' },
+    { name: 'Contractor mortgage', href: slug },
+  ]}
+  scenario="self-employed"
+>
+  <p>
+    Yes, you can get a mortgage as a contractor. There is no separate contractor product and no penalty rate for the way
+    you work; you qualify on the same terms as an employed buyer once a lender can see your income. The difference is how
+    that income is measured. Many lenders price a contractor on the day rate written into your contract rather than on
+    your filed accounts, which often gives a higher figure than your tax return would suggest. This page answers the
+    question directly: whether you can, how lenders work out what you earn, and the practical steps that turn a contractor
+    application into a yes.
+  </p>
+
+  <Reassurance title="What gives contractors confidence" lines={reassuranceLines} />
+
+  <h2>The short answer, and what really decides it</h2>
+  <p>
+    Contracting does not stop you getting a mortgage. What decides the outcome is whether you reach a lender that reads
+    your contract the way it is actually structured, and which method it uses to value your income. Those two things, not
+    the fact that you contract, are where the case is won or lost. Contractors working through their own limited company,
+    through an umbrella company, or on a fixed-term contract are all approved every day. The job is to line your evidence
+    up so the income is obvious and to put it in front of a lender with contractor rules. Because contracting is a form of
+    self-employment to most lenders, our pillar guide to
+    <a href="/self-employed-mortgage">self-employed mortgages</a> sets out the wider picture this page sits within.
+  </p>
+
+  <h2>How lenders work out your income</h2>
+  <p>
+    This is the part that makes contracting different, and usually better than contractors expect. A contractor friendly
+    lender takes your day rate, multiplies it by the number of days you work in a week, then by a set number of weeks
+    across the year, often around 46 or 48 to allow for holidays and short gaps between contracts. That annualised figure
+    is the income they lend against, typically at four and a half to five times. Because this approach ignores how little
+    salary or dividend you choose to draw from your company, it frequently produces a larger figure than your accounts
+    alone would. A day rate of £400 over a five-day week, for example, annualises to a substantial income even when the
+    profit left in your accounts looks modest.
+  </p>
+
+  <h2>How long you need to have been contracting</h2>
+  <p>
+    Less than most people assume. A number of lenders will consider you with a current contract and a short history in the
+    same line of work, and some look for around twelve months of contracting behind you. A handful will accept a first
+    contract where you have just moved from employment into the same field, giving weight to the experience you built as
+    an employee. A shorter track record narrows the choice of lender rather than closing the door, so it is worth testing
+    the market before you decide to wait another year. The strength and length of your current contract, and any record of
+    renewals, often matter more than the calendar.
+  </p>
+
+  <MidCta
+    text="Want to know what your day rate is worth to a lender? Tell us your rate and your contract and we will tell you where you stand."
+    scenario="self-employed"
+    src={slug}
+  />
+
+  <h2>Inside IR35, umbrella and limited company contractors</h2>
+  <p>
+    How you are engaged shapes which lenders fit, but no common arrangement rules you out. If you work outside IR35 through
+    your own limited company, many lenders assess you on day rate, and some will look at your company figures instead where
+    that reads better. If you work inside IR35 through an umbrella company, a large group of lenders assesses you on your
+    gross contract rate or on your umbrella payslips, treating the engagement much like contractor income. Construction
+    contractors paid under the Construction Industry Scheme (CIS) are also well catered for, with lenders that read CIS
+    payslips as proof of income. The point is the same in each case: match your exact arrangement to a lender built for it.
+  </p>
+
+  <h2>How much you can borrow</h2>
+  <p>
+    Once a lender has settled on your income, affordability works exactly as it does for an employed buyer. Most lenders
+    work to an income multiple of around four and a half to five times your assessed income, then test that the repayments
+    remain affordable at a stress rate above the pay rate, with your other commitments taken into account. The figure that
+    drives this is your annualised day rate where day-rate assessment applies, which is why the lender you choose can
+    change the amount you can borrow so markedly. Two lenders looking at the same contract can arrive at noticeably
+    different incomes, and the gap is often the difference between the home you want and the one you settle for.
+  </p>
+
+  <PullQuote quote="The question is almost never whether a contractor can get a mortgage. It is which lender will value your day rate the way your contract is really structured." />
+
+  <h2>What a lender needs to see</h2>
+  <p>
+    A contractor application runs on a clear paper trail, and having it ready is what keeps a case moving. Plan for your
+    current signed contract showing your day rate and its dates, your curriculum vitae or a short history of recent
+    contracts, and personal and business bank statements covering the last three months. Where day-rate assessment is not
+    used, you may also need your tax calculations, often called SA302s, with the tax year overviews from HM Revenue and
+    Customs, plus your company accounts if you contract through a limited company. Where your contract, your bank statements
+    and your figures tell the same story, an underwriter can move quickly, so it pays to check they agree before you apply.
+  </p>
+
+  <h2>Will you pay a higher rate?</h2>
+  <p>
+    No, not for being a contractor. At the same deposit, property type and credit record you qualify for the same rates as
+    an employed buyer, because the rate is driven by those things rather than by how you are paid. What contracting can do
+    is narrow the panel of lenders willing to read your income a particular way, and that panel can shape the rate on
+    offer, so a larger deposit helps by widening your choice. A deposit of around a tenth of the price opens the mainstream
+    market, and more than that opens it further. The work is in finding the lender that values your contract well, not in
+    accepting a worse deal.
+  </p>
+
+  <h2>How to improve your chances of approval</h2>
+  <p>
+    A few steps make a contractor application markedly easier. Keep your current contract signed and dated, since lenders
+    using day rate want to see the rate in writing. Apply while you have time left to run on a contract rather than in its
+    final weeks, because remaining term reassures an underwriter. Keep your business and personal banking tidy so the
+    income is easy to follow, and avoid taking on new credit in the months before you apply. If you contract through a
+    limited company, decide in advance whether day-rate or accounts-based assessment gives the stronger result. Most of
+    all, match your case to a lender with contractor rules before you apply, rather than after a knock-back.
+  </p>
+
+  <h2>How does Mortgage One help?</h2>
+  <p>
+    Mortgage One is a countrywide UK mortgage broker with access to plans from the whole of market, and we arrange
+    contractor mortgages as a regular part of the business. We know which lenders use day-rate assessment, which accept a
+    short contracting history, and which suit umbrella, limited company and CIS arrangements, and we pair your contract
+    with the one that reads it most generously. We present your case so an underwriter can say yes first time, and we are
+    authorised and regulated by the Financial Conduct Authority (FCA) for the mortgage advice. You must be on UK soil to
+    receive advice, so we confirm your circumstances properly before recommending anything.
+  </p>
+
+  <MidCta
+    text="Ready to know whether you can borrow, and how much, rather than guess? Let an adviser review your contract and day rate."
+    label="Check Your Options"
+    scenario="self-employed"
+    src={slug}
+  />
+
+  <FaqSection items={faqs} />
+
+  <CtaBlock
+    heading="Find out what your day rate is worth"
+    line="Tell us your day rate, how you contract and your deposit, and a Mortgage One adviser will review your answers and tell you where you stand."
+    scenario="self-employed"
+    src={slug}
+  />
+
+  <h2>Send us an enquiry</h2>
+  <EnquiryForm scenario="self-employed" />
+
+  <RelatedPanel cards={relatedCards} />
+
+  <p class="risk-warning">
+    Think carefully before securing your debts against your home. Your home may be repossessed if you do not keep up
+    repayments on your mortgage.
+  </p>
+</ArticleLayout>
+
+<style>
+  .risk-warning {
+    border-top: 1px solid var(--line);
+    padding-top: 1.5rem;
+    margin-top: 2.5rem;
+  }
+</style>
