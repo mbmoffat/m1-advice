@@ -1,0 +1,221 @@
+---
+import ArticleLayout from '../layouts/ArticleLayout.astro';
+import Reassurance from '../components/Reassurance.astro';
+import MidCta from '../components/MidCta.astro';
+import PullQuote from '../components/PullQuote.astro';
+import FaqSection from '../components/FaqSection.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+import EnquiryForm from '../components/locked/EnquiryForm.astro';
+import RelatedPanel from '../components/RelatedPanel.astro';
+
+const slug = '/newly-self-employed-mortgage';
+
+const reassuranceLines = [
+  'You rarely need to wait the full two years many people assume.',
+  'Time spent employed in the same line of work can count toward your record.',
+  'Sole traders, new partners and recently formed company directors all qualify.',
+  'The same deposit and rates as a borrower with a longer history.',
+  'A clear, early plan often beats waiting another tax year to apply.',
+];
+
+const faqs = [
+  {
+    q: 'Can I get a mortgage if I have only just become self-employed?',
+    a: 'Often yes, sooner than most people expect. The common belief is that you must wait two or three years after going self-employed before any lender will look at you, but that is not how the market works. The usual threshold is your first complete year of trading, evidenced by a filed set of accounts or tax figures, and a growing group of lenders will lend on that single year where the income looks stable. If you went self-employed doing the same work you did as an employee, some lenders will give weight to that earlier experience too. So becoming newly self-employed narrows which lenders will consider you for a while, rather than shutting the door.',
+  },
+  {
+    q: 'How long after going self-employed can I apply for a mortgage?',
+    a: 'In practice, most newly self-employed borrowers become mortgageable once they have one full year of trading behind them, finalised and filed. A smaller number of lenders will look earlier where there is a strong, continuous story, for example a contractor on a signed long-term contract in the same field they worked in as an employee. What lenders are testing is whether the income is real and likely to continue, not the calendar on its own. The practical answer is rarely a fixed number of years; it is the point at which your figures and your background tell a convincing, evidenced story.',
+  },
+  {
+    q: 'Does my time as an employee count if I do the same work now?',
+    a: 'With the right lender, yes, and it is one of the strongest cards a newly self-employed borrower holds. If you spent years employed as, say, an electrician, a designer or a consultant, and you now do the same work for yourself, several lenders will treat that continuity as evidence the income is established rather than brand new. It can be the difference between needing two years of accounts and being accepted on one. Keep proof of that earlier employment, such as previous payslips, a reference or an employment history, because the lenders that count it will want to see the thread between the old role and the new one.',
+  },
+  {
+    q: 'Will I pay a higher rate or need a bigger deposit when newly self-employed?',
+    a: 'Not for being newly self-employed in itself. At the same deposit, property type and credit history you qualify for the same rates as anyone else, because the rate is driven by those things rather than by how long you have traded. What a short record does is narrow the panel of lenders willing to consider you, and a larger deposit widens that panel again. A deposit of around a tenth of the price opens much of the mainstream market on a single year, and more than that opens it further. The work is in reaching a lender comfortable with a new self-employed record, not in accepting a worse deal.',
+  },
+  {
+    q: 'Should I wait until I have two years of accounts before applying?',
+    a: 'Usually you do not need to, and waiting carries a cost. Delaying another tax year pushes back your purchase and assumes the next year will read better, which is not guaranteed. If your first year is profitable, finalised and backed by a clear pipeline of work, a lender comfortable with one year may approve you now on ordinary terms. Waiting earns its keep only where a very new record looks thin or unusual and a second year would plainly settle the doubt. The sound way to decide is to test the market against your real figures first, then wait only if the figures themselves say you should.',
+  },
+  {
+    q: 'What can I do now to prepare for a mortgage as a newly self-employed borrower?',
+    a: 'Quite a lot, and early moves pay off. Register correctly and keep your business and personal banking clean and separate, so your income is easy to follow. Use an accountant to finalise and file your first year promptly rather than leaving figures in draft, and make sure your accounts agree with your tax calculations. Keep evidence that the work will continue, such as signed contracts or repeat clients, and hold on to proof of any employed experience in the same field. Avoid taking on new credit in the months before you apply. Most of all, get advice early so you build the record the right lenders want to see, rather than discovering the gaps at application.',
+  },
+];
+
+const relatedCards = [
+  {
+    title: 'Self-employed mortgages',
+    href: '/self-employed-mortgage',
+    line: 'The pillar guide to how lenders read self-employed income.',
+  },
+  {
+    title: 'Mortgage with one year of accounts',
+    href: '/self-employed-1-year-accounts',
+    line: 'Who lends on a single filed year and what they need.',
+  },
+  {
+    title: 'Can you get a mortgage when self-employed?',
+    href: '/can-you-get-a-mortgage-when-self-employed',
+    line: 'The direct answer on trading history and approval.',
+  },
+  { title: 'Check your eligibility', href: '/check', line: 'Five quick questions, about 60 seconds.' },
+];
+---
+
+<ArticleLayout
+  title="Newly Self-Employed Mortgage | Mortgage One"
+  description="Yes, you can get a mortgage soon after going self-employed. How lenders read a new trading record, when you can apply, and how earlier employment helps."
+  eyebrow="Complex income"
+  heading="Mortgages for the newly self-employed"
+  breadcrumbs={[
+    { name: 'Home', href: '/' },
+    { name: 'Newly self-employed mortgages', href: slug },
+  ]}
+  scenario="self-employed"
+>
+  <p>
+    Yes, you can get a mortgage soon after going self-employed, and usually far sooner than the two or three years most
+    people assume. There is no rule that a fresh trading record locks you out; the common threshold is simply your first
+    complete year, and a growing group of lenders will work with that single year where the income looks stable and likely
+    to continue. If you went self-employed doing the same work you did as an employee, that earlier experience can count
+    for you too. This page answers the question directly for anyone who has recently made the switch: when you can apply,
+    how lenders read a new record, what your background does for you, and what to put in place now. Because a new record
+    sits inside the wider self-employed picture, our pillar guide to
+    <a href="/self-employed-mortgage">self-employed mortgages</a> sets out the ground this page builds on.
+  </p>
+
+  <Reassurance title="Why a new record is not a barrier" lines={reassuranceLines} />
+
+  <h2>The short answer for the newly self-employed</h2>
+  <p>
+    Becoming self-employed recently does not stop you getting a mortgage; it narrows, for a while, which lenders will
+    consider you. What decides the outcome is whether you reach a lender comfortable with a short trading record, and
+    whether your figures and background show an income that is stable and set to continue. Those two things, not the
+    length of your record on its own, are where a newly self-employed case is won or lost. Sole traders who have just
+    registered, new partners and directors of recently formed companies all get approved, and the job is to line your
+    evidence up so the income is obvious, then put it in front of a lender whose rules fit, rather than applying widely
+    and collecting refusals from lenders who were always going to want longer.
+  </p>
+
+  <h2>What newly self-employed means to a lender</h2>
+  <p>
+    To a lender, newly self-employed usually means you have recently started trading and do not yet have the two or three
+    years of figures the mainstream traditionally asks for. How that record is built depends on how you trade. A sole
+    trader is taxed on the profit of a business run in their own name, evidenced by a tax calculation, often called an
+    SA302, and the matching tax year overview from HM Revenue and Customs. A partner takes an agreed share of a
+    partnership's profit. A company director runs a limited company and is usually paid through a small salary topped up
+    with dividends, with the first finalised company accounts forming the record. In every case, a lender is reading a
+    new but real income, so the cleaner and more finished that first picture is, the easier the case becomes.
+  </p>
+
+  <MidCta
+    text="Just gone self-employed and wondering when you can buy? Tell us your structure and your background and we will tell you where you stand."
+    scenario="self-employed"
+    src={slug}
+  />
+
+  <h2>When can you actually apply?</h2>
+  <p>
+    For most newly self-employed borrowers, the door opens once you have one full year of trading behind you, finalised
+    and filed. A smaller number of lenders will look earlier where the story is strong and continuous, for example a
+    contractor on a signed long-term contract in the same field they worked in as an employee. The figure that matters is
+    the point at which your evidence shows a sustainable income, not a fixed number of years on the calendar. So the
+    honest answer to when you can apply is rarely a date; it is the moment your accounts, your tax figures and your
+    background line up into a case an underwriter can read with confidence. Testing the market against your real figures
+    tells you whether that moment has arrived.
+  </p>
+
+  <h2>How your time as an employee helps</h2>
+  <p>
+    The strongest card many newly self-employed borrowers hold is continuity. If you spent years employed in a trade or
+    profession and now do the same work for yourself, several lenders will treat that earlier experience as evidence the
+    income is established rather than brand new. An electrician who went out on their own, a designer who left an agency to
+    freelance, a consultant who set up a limited company doing what they did in-house: each carries a track record that a
+    lender can lean on, even though the business itself is young. This can be the difference between needing two years of
+    accounts and being accepted on one. Keep proof of that earlier role, such as previous payslips, a reference or an
+    employment history, because the lenders that give it weight will want to see the thread from the old job to the new one.
+  </p>
+
+  <PullQuote quote="For the newly self-employed, the question is rarely whether you qualify. It is which lender will read a young business and a long career as one continuous income." />
+
+  <h2>How much you can borrow on a new record</h2>
+  <p>
+    Once a lender has accepted your income, affordability works exactly as it does for any borrower. Most lenders work to
+    an income multiple of around four and a half to five times your assessed income, then test that the repayments stay
+    affordable at a stress rate above the pay rate, with your other commitments taken into account. A new trading record
+    does not automatically shrink what you can borrow; the figure that drives the loan is the income the lender reads from
+    your year, not your turnover. So a strong, clearly evidenced first year can support the same borrowing as a longer
+    record would. What being newly self-employed mainly does is narrow which lenders will consider you, which is exactly
+    why the lender you choose has such a large effect on the result, and why our guide to
+    <a href="/self-employed-1-year-accounts">a mortgage with one year of accounts</a> is worth reading alongside this.
+  </p>
+
+  <h2>Deposit and rates when you have just started</h2>
+  <p>
+    You are not charged more for being newly self-employed. At the same deposit, property type and credit history you
+    qualify for the same rates as a borrower with a longer record, because the rate is driven by those things rather than
+    by how long you have traded. What a short record can do is narrow the panel of lenders willing to consider you, and a
+    larger deposit widens that panel again. A deposit of around a tenth of the price opens much of the mainstream market on
+    a single year, and more than that opens it further and can improve the rate on offer. The work is in reaching a lender
+    comfortable with a new self-employed record, not in accepting a worse deal for having started recently.
+  </p>
+
+  <h2>What to put in place now</h2>
+  <p>
+    A few early steps make a newly self-employed application markedly easier when the time comes. Register correctly for
+    the way you trade, and keep your business and personal banking clean and separate so the income is easy to follow. Use
+    an accountant to finalise and file your first year promptly rather than leaving figures in draft, and check that your
+    accounts agree with your tax calculations, since a gap between them slows every case. Gather evidence that your income
+    will continue, such as signed contracts or a list of ongoing clients, and keep proof of any employed experience in the
+    same field. Avoid taking on new credit in the months before you apply. Above all, get advice early, so you build the
+    record the right lenders want to see rather than finding the gaps at application.
+  </p>
+
+  <h2>How does Mortgage One help?</h2>
+  <p>
+    Mortgage One is a countrywide UK mortgage broker with access to plans from the whole of market, and arranging
+    mortgages for the newly self-employed is a regular part of the work. We tell you whether you are ready to apply yet or
+    what to put in place first, which lenders accept a short record for your structure, and how much weight a given lender
+    will give to your earlier employment in the same field. We then match your figures to a lender comfortable with a new
+    self-employed record and present your case so an underwriter can see the income is sustainable and say yes first time.
+    We are authorised and regulated by the Financial Conduct Authority (FCA) for the mortgage advice, and you must be on UK
+    soil to receive advice, so we confirm your circumstances properly before recommending anything.
+  </p>
+
+  <MidCta
+    text="Ready to know when you can buy, and how much you can borrow, rather than guess? Let an adviser review your figures."
+    label="Check Your Options"
+    scenario="self-employed"
+    src={slug}
+  />
+
+  <FaqSection items={faqs} />
+
+  <CtaBlock
+    heading="Find out if you can apply yet"
+    line="Tell us your structure, how long you have traded and your background, and a Mortgage One adviser will review your answers and tell you where you stand."
+    scenario="self-employed"
+    src={slug}
+  />
+
+  <h2>Send us an enquiry</h2>
+  <EnquiryForm scenario="self-employed" />
+
+  <RelatedPanel cards={relatedCards} />
+
+  <p class="risk-warning">
+    Think carefully before securing your debts against your home. Your home may be repossessed if you do not keep up
+    repayments on your mortgage.
+  </p>
+</ArticleLayout>
+
+<style>
+  .risk-warning {
+    border-top: 1px solid var(--line);
+    padding-top: 1.5rem;
+    margin-top: 2.5rem;
+  }
+</style>
