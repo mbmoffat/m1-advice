@@ -1,0 +1,210 @@
+---
+import ArticleLayout from '../layouts/ArticleLayout.astro';
+import Reassurance from '../components/Reassurance.astro';
+import MidCta from '../components/MidCta.astro';
+import PullQuote from '../components/PullQuote.astro';
+import FaqSection from '../components/FaqSection.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+import EnquiryForm from '../components/locked/EnquiryForm.astro';
+import RelatedPanel from '../components/RelatedPanel.astro';
+
+const slug = '/self-employed-remortgage';
+
+const reassuranceLines = [
+  'Sole traders coming off a fixed or tracker rate who want to switch cleanly.',
+  'Company directors who want a new rate without re-proving everything from scratch.',
+  'Self-employed owners raising capital against their home for the business or improvements.',
+  'Borrowers whose income has grown since they last applied and want it counted.',
+  'Anyone sitting on a lender standard variable rate since going self-employed.',
+];
+
+const faqs = [
+  {
+    q: 'Can I remortgage if I am self-employed?',
+    a: 'Yes. Being self-employed does not stop you remortgaging, it changes the evidence a lender wants when you switch. Instead of payslips, a new lender reads your filed accounts, your tax calculations and your bank statements to settle on a stable income, then sets the rate and the maximum loan from that. Where you are staying with your current lender on a product transfer, far less is re-checked. The work is matching your figures to a lender that reads self-employed income well, not whether a remortgage can be done at all.',
+  },
+  {
+    q: 'Should I do a product transfer or a full remortgage when self-employed?',
+    a: 'It depends on whether you want a new rate alone or something more. A product transfer keeps the loan with your current lender on the same balance, needs little fresh underwriting and rarely re-tests your self-employed income, so it is quick and light. A full remortgage moves the loan to a new lender, which opens the wider market, lets you raise capital and lets a lender count income your current one would not, at the cost of a full application and a fresh look at your accounts. We compare the transfer your lender will offer against the open market before you commit either way.',
+  },
+  {
+    q: 'How many years of accounts do I need to remortgage when self-employed?',
+    a: 'For a product transfer with your existing lender, often none, because the income is not usually re-assessed. For a full remortgage to a new lender, most want two full years of figures and some ask for three, though a growing number will lend on one full year where the trading history is strong. If your accounts are thin this year, a product transfer can be the route that keeps you off a standard variable rate until your filing history broadens the choice of lender.',
+  },
+  {
+    q: 'Can I raise capital when I remortgage as a self-employed borrower?',
+    a: 'Often, yes. Releasing equity is a common reason self-employed owners remortgage, whether for home improvements, a deposit on another property, or to put money into the business. A lender will want to understand why you are raising the money and will size the new loan against the property value and your assessed income, with the affordability test applied to the provable profit from your accounts rather than your turnover. The amount you can release follows that income figure, so it is worth knowing what is realistic before you set plans around the money.',
+  },
+  {
+    q: 'Will I pay a higher remortgage rate because I am self-employed?',
+    a: 'No, not because you are self-employed. At the same loan-to-value, property type and credit record, you qualify for the same rates as an employed borrower, because the rate is driven by those things rather than how you are paid. Being self-employed can narrow the panel of lenders willing to read your income a particular way, and that panel can shape the rate on a full remortgage, which is why matching your accounts to the right lender matters. Sitting on a standard variable rate after your deal ends usually costs far more than that gap.',
+  },
+  {
+    q: 'When should I start a self-employed remortgage?',
+    a: 'Start two to three months before your current rate ends, so a new deal can be lined up to take over cleanly and you avoid slipping onto a standard variable rate in the gap. Check whether your existing deal still carries an early repayment charge first, because leaving before it lapses can cost more than waiting a little. Use the 60-second check and a Mortgage One adviser will look at when your deal ends and tell you where you stand.',
+  },
+];
+
+const relatedCards = [
+  {
+    title: 'Self-employed mortgages',
+    href: '/self-employed-mortgage',
+    line: 'The complex income pillar: how lenders read your accounts.',
+  },
+  {
+    title: 'Can you get a mortgage when self-employed?',
+    href: '/can-you-get-a-mortgage-when-self-employed',
+    line: 'Trading history, evidence and how much you can borrow.',
+  },
+  {
+    title: 'Contractor mortgages',
+    href: '/contractor-mortgage',
+    line: 'Day-rate, umbrella and limited company contractors.',
+  },
+  { title: 'Check your eligibility', href: '/check', line: 'Five quick questions, about 60 seconds.' },
+];
+---
+
+<ArticleLayout
+  title="Self-Employed Remortgage | Mortgage One"
+  description="Yes, you can remortgage when self-employed. Product transfer versus full remortgage, how lenders read your accounts, raising capital and timing a clean switch."
+  eyebrow="Complex income"
+  heading="Remortgaging when you are self-employed"
+  breadcrumbs={[
+    { name: 'Home', href: '/' },
+    { name: 'Remortgaging when you are self-employed', href: slug },
+  ]}
+  scenario="self-employed"
+>
+  <p>
+    Yes, you can remortgage when you are self-employed. A rate coming to an end, a plan to release some equity, or income
+    that has grown since you last applied does not strand you on a standard variable rate. It changes the evidence a
+    lender wants: instead of payslips, a new lender reads your filed accounts, your tax calculations and your bank
+    statements, while a switch with your current lender often re-checks far less. This page covers the two routes open to
+    you, how lenders read self-employed income at remortgage, raising capital against your home, and how to time the
+    switch so it lands cleanly. For how lenders read self-employed income from the ground up, start with our pillar on the
+    <a href="/self-employed-mortgage">self-employed mortgage</a>, then come back here for the remortgage in detail.
+  </p>
+
+  <Reassurance title="Self-employed remortgages we help" lines={reassuranceLines} />
+
+  <h2>Why remortgage when you are self-employed?</h2>
+  <p>
+    Most self-employed remortgages come down to one of a few reasons, and each one shapes the case from the start. The
+    common one is a fixed or tracker rate ending, where doing nothing drops you onto the lender standard variable rate and
+    a higher monthly cost. Others want to release equity for home improvements, another deposit or money for the business,
+    or to capture the fact that their profit has risen since the last application and borrow against the stronger figure.
+    A few simply went self-employed after taking the mortgage out and have sat on a standard variable rate since, unsure
+    whether a switch is even open to them. Knowing which of these is yours is the first thing an adviser settles, because
+    each points at a different route and a different set of lenders.
+  </p>
+
+  <h2>Product transfer or a full remortgage</h2>
+  <p>
+    There are two routes, and which suits you turns on what you want from the switch. A product transfer keeps the loan
+    with your current lender on the same balance, with little fresh underwriting and, crucially for a self-employed
+    borrower, usually no fresh assessment of your income. That makes it quick and light, and it is often the cleanest way
+    to dodge a standard variable rate when your accounts are thin this year. A full remortgage moves the loan to a new
+    lender, which opens the wider market, lets you raise capital, and lets a lender count income that your current one
+    would not, at the cost of a full application and a fresh look at your accounts. Neither is automatically better. We
+    weigh the transfer your current lender will actually offer against the open market before you commit either way.
+  </p>
+
+  <h2>How a new lender reads your self-employed income at remortgage</h2>
+  <p>
+    On a full remortgage the new lender works out your income the same way it would on any self-employed case, and the
+    method follows your structure. For a sole trader or a partner, a lender usually takes the net profit, or your share of
+    it, shown on your tax calculations. For a company director, most take salary plus dividends, while a smaller group
+    will instead use salary plus your share of the profit retained inside the company. Where your income has grown over
+    the last two years, many lenders average the two figures and some will use the latest, which is why a remortgage after
+    a strong year can unlock a higher loan. This is also why two lenders can read the same accounts and reach very
+    different incomes, and why matching your figures to the right lender matters so much on a switch.
+  </p>
+
+  <MidCta
+    text="Not sure whether a product transfer or a full remortgage serves you better? Tell us your structure, your figures and when your deal ends."
+    scenario="self-employed"
+    src={slug}
+  />
+
+  <h2>Raising capital against your home when self-employed</h2>
+  <p>
+    Releasing equity is a common reason self-employed owners remortgage, and it works much as it would for an employed
+    borrower, with the self-employed income check layered on. A lender will want to understand why you are raising the
+    money, whether for improvements, a deposit on another property or to put capital into the business, then size the new
+    loan against the property value and your assessed income. That income is the provable, sustainable profit from your
+    accounts rather than your turnover, so a business with high turnover but modest net profit raises capital on the
+    profit, not the headline takings. Lenders also look more carefully at capital raised to fund the business itself, so
+    it is worth knowing what is realistic before you set plans around the money.
+  </p>
+
+  <h2>Deposit, equity and rates on a self-employed switch</h2>
+  <p>
+    You are not charged more for being self-employed. At the same equity, property type and credit record, you qualify for
+    the same rates as an employed borrower, because the rate is driven by those things and not by how you are paid. What
+    being self-employed can do on a full remortgage is narrow the panel of lenders willing to read your income a
+    particular way, and that panel can shape the rate you are offered. The larger lever is the equity in the property: the
+    more of it you hold, the lower the loan-to-value and the better the pricing, and raising capital pushes the other way
+    by lifting the loan back up. The point to hold onto is that the work is in finding the lender that reads your income
+    well, not in accepting a worse rate for being self-employed.
+  </p>
+
+  <PullQuote quote="A self-employed remortgage rarely turns on whether you qualify. It turns on choosing between a quiet product transfer and a full switch, then matching your accounts to a lender that reads them the way your business actually works." />
+
+  <h2>Timing, early repayment charges and the paperwork</h2>
+  <p>
+    Timing protects the figure. Start two to three months before your current rate ends and a new deal can be lined up to
+    take over cleanly, which avoids slipping onto a standard variable rate in the gap. Check whether your existing deal
+    still carries an early repayment charge, because leaving before it lapses can cost more than waiting a little, and a
+    product transfer timed to start as the charge ends is sometimes the tidier answer. For a full remortgage, have your
+    tax calculations, often called SA302s, your tax year overviews from HM Revenue and Customs, your finalised accounts
+    and recent personal and business bank statements ready and consistent with each other. Where those documents tell the
+    same story an underwriter can move quickly; where they do not line up, the case stalls while the gap is explained.
+  </p>
+
+  <h2>How does Mortgage One help?</h2>
+  <p>
+    Mortgage One is a countrywide UK mortgage broker with access to plans from the whole of market, and we arrange
+    self-employed remortgages as a regular part of the business. We weigh the product transfer your current lender will
+    offer against the open market, work out which income figure each lender will use for your structure, match your
+    filing history and your accounts to lenders comfortable with them, size any capital you want to release, and put your
+    case in front of the right desk with the evidence an underwriter needs to say yes first time. We are authorised and
+    regulated by the Financial Conduct Authority (FCA) for the mortgage advice, and we work alongside your accountant
+    rather than across them. You must be on UK soil to receive advice, so we confirm your circumstances properly before
+    recommending anything.
+  </p>
+
+  <MidCta
+    text="Ready to know what your remortgage could look like rather than guess? Let an adviser review your self-employed income and your current deal."
+    label="Check Your Options"
+    scenario="self-employed"
+    src={slug}
+  />
+
+  <FaqSection items={faqs} />
+
+  <CtaBlock
+    heading="See what you could remortgage to as a self-employed borrower"
+    line="Tell us your structure, your income, your current deal and your deposit, and a Mortgage One adviser will review your answers and tell you where you stand."
+    scenario="self-employed"
+    src={slug}
+  />
+
+  <h2>Send us an enquiry</h2>
+  <EnquiryForm scenario="self-employed" />
+
+  <RelatedPanel cards={relatedCards} />
+
+  <p class="risk-warning">
+    Think carefully before securing your debts against your home. Your home may be repossessed if you do not keep up
+    repayments on your mortgage.
+  </p>
+</ArticleLayout>
+
+<style>
+  .risk-warning {
+    border-top: 1px solid var(--line);
+    padding-top: 1.5rem;
+    margin-top: 2.5rem;
+  }
+</style>
