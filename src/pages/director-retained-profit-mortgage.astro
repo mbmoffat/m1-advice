@@ -1,0 +1,230 @@
+---
+import ArticleLayout from '../layouts/ArticleLayout.astro';
+import Reassurance from '../components/Reassurance.astro';
+import MidCta from '../components/MidCta.astro';
+import PullQuote from '../components/PullQuote.astro';
+import FaqSection from '../components/FaqSection.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+import EnquiryForm from '../components/locked/EnquiryForm.astro';
+import RelatedPanel from '../components/RelatedPanel.astro';
+
+const slug = '/director-retained-profit-mortgage';
+
+const reassuranceLines = [
+  'Some lenders assess you on net profit, not just the income you draw.',
+  'Retained profit left in the company can count toward what you borrow.',
+  'A short note from your accountant is often all the extra proof needed.',
+  'The same deposit and rates as a buyer paid by salary.',
+  'High-street lenders, not only specialists, use this method.',
+];
+
+const faqs = [
+  {
+    q: 'What is a net profit mortgage?',
+    a: 'It is a mortgage where the lender measures your income from your company net profit rather than only from the money you draw out. For a sole trader or a partner, net profit is the income the lender uses in the first place. For a limited company director, a useful group of lenders adds your salary to your share of the company net profit, instead of adding your salary to the dividends you take. This matters when you leave profit in the business, because the drawn-income method can read your earnings as far lower than the company actually made.',
+  },
+  {
+    q: 'What is the difference between net profit and retained profit?',
+    a: 'Net profit is what your company earns in a year after costs but before you decide what to do with it. Retained profit is the part of that net profit you choose to leave in the business rather than pay out as dividends. The two are closely linked: if you draw little, most of your net profit becomes retained profit. Lenders that use this method generally look at your salary plus your share of net profit, which captures both what you drew and what you kept, so the income on the application reflects the company true performance.',
+  },
+  {
+    q: 'Can retained profit be used for a mortgage?',
+    a: 'With the right lender, yes. If you take a modest salary and small dividends and leave the rest of the profit inside the company, lenders that assess on salary and dividends will read your income as low. A number of lenders instead assess a director on salary plus their share of company net profit, which captures the money you have retained. The lender needs your accountant to confirm the profit figure and that it is available to you, so having your finalised accounts and a short accountant note ready makes this route straightforward.',
+  },
+  {
+    q: 'Do all lenders use the net profit method?',
+    a: 'No. Most lenders still assess a director on salary plus dividends, so the net profit route is offered by a smaller, though growing, group that includes some high-street names. Because the choice of method is the single biggest factor in how much a director can borrow, reaching one of these lenders is often the whole job. For a sole trader or partner there is no choice to make, since net profit is the standard basis, but the averaging rules still vary from lender to lender.',
+  },
+  {
+    q: 'How many years of accounts do I need for a net profit assessment?',
+    a: 'Most lenders want two full years of accounts and some ask for three, then average the net profit, often leaning on the lower or latest year. A growing number will lend on one full year where the business is established and the profit looks sustainable. What every lender is testing underneath the rule is whether the income is stable and likely to continue, so a clean recent year with a clear pipeline can read better than a longer but uneven record.',
+  },
+  {
+    q: 'Can a broker help me borrow on net profit?',
+    a: 'That is where most of the difference is made. The same accounts can produce very different incomes across lenders, because each reads salary, dividends and net profit its own way. A broker knows which lenders assess on net profit, which accept a single year, and which suit your shareholding, then presents the case with the right accountant evidence so an underwriter can say yes first time. Matching your figures to the right method before you apply is the single biggest lever on the amount you can borrow.',
+  },
+];
+
+const relatedCards = [
+  {
+    title: 'Self-employed mortgages',
+    href: '/self-employed-mortgage',
+    line: 'The pillar guide to how lenders read self-employed income.',
+  },
+  {
+    title: 'Company director mortgages',
+    href: '/company-director-mortgage',
+    line: 'The wider picture for directors, salary, dividends and accounts.',
+  },
+  {
+    title: 'How much can I borrow self-employed?',
+    href: '/how-much-can-i-borrow-self-employed',
+    line: 'Income multiples and what drives the figure you qualify for.',
+  },
+  { title: 'Check your eligibility', href: '/check', line: 'Five quick questions, about 60 seconds.' },
+];
+---
+
+<ArticleLayout
+  title="Self-Employed Net Profit Mortgage | Mortgage One"
+  description="Yes, some lenders assess you on salary plus net profit, not dividends. How the method works, the accountant note you need, and how to borrow more."
+  eyebrow="Complex income"
+  heading="Director mortgages using retained profit and net profit"
+  breadcrumbs={[
+    { name: 'Home', href: '/' },
+    { name: 'Net profit mortgage', href: slug },
+  ]}
+  scenario="self-employed"
+>
+  <p>
+    Yes, you can get a mortgage assessed on your net profit rather than only on the income you draw. For a sole trader or
+    a partner, net profit is the figure a lender uses in the first place. For a limited company director, a useful group
+    of lenders will add your salary to your share of the company net profit instead of to your dividends, and some will
+    count the profit you have retained in the business. That single difference in method can change the amount you can
+    borrow dramatically, because it values what the company earned rather than only what you chose to take out. This page
+    explains how the net profit method works, when retained profit counts, the evidence a lender needs, and how to put
+    your figures in front of the lenders that read them this way.
+  </p>
+
+  <Reassurance title="What makes the net profit route work" lines={reassuranceLines} />
+
+  <h2>The short answer, and why the method matters</h2>
+  <p>
+    The drawn-income approach, salary plus dividends, is still the most common way lenders read a director, and for many
+    people it works perfectly well. The problem appears when you run your company efficiently for tax and leave profit in
+    the business. On the drawn-income method your assessable income looks small, even though the company is performing
+    strongly. Lenders that use salary plus net profit, and those that recognise retained profit, value that performance
+    instead, so the same accounts can support a much larger loan. Because a director is treated as self-employed by most
+    lenders, our pillar guide to <a href="/self-employed-mortgage">self-employed mortgages</a> sets out the wider picture
+    this page sits within, and the <a href="/company-director-mortgage">company director mortgage</a> guide covers the
+    salary and dividends route in full.
+  </p>
+
+  <h2>Net profit and retained profit, what each one means</h2>
+  <p>
+    The two terms are close cousins and it helps to keep them apart. Net profit is what your company earns in a year after
+    its costs but before you decide what to do with it. Retained profit is the slice of that net profit you choose to
+    leave inside the business rather than pay out as dividends. If you draw little and keep most of what the company
+    makes, the bulk of your net profit simply becomes retained profit. Lenders that use this method generally assess your
+    salary plus your share of net profit, which captures both the money you drew and the money you kept, so the income on
+    the application reflects how the company actually traded rather than the tax-efficient figure you took home.
+  </p>
+
+  <h2>Salary plus net profit, the method that changes the figure</h2>
+  <p>
+    This is the part worth getting right. The common method takes the salary you pay yourself and adds the dividends you
+    draw, then averages that over the last one to three years. The net profit method instead adds your salary to your
+    share of the profit the company made, before you stripped most of it out as retained earnings. For a director who
+    pays themselves carefully, the gap between the two is the whole story. A lender on salary and dividends might read
+    your income as £28,000, while a lender on salary plus net profit reads the same company at £85,000. Nothing about your
+    business has changed; only the lender reading of it has. That is why the lender you approach can move the amount you
+    borrow more than any other single factor.
+  </p>
+
+  <MidCta
+    text="Want to know which income method gives you the bigger figure? Tell us your salary, your dividends and your company net profit and we will tell you where you stand."
+    scenario="self-employed"
+    src={slug}
+  />
+
+  <h2>A worked example</h2>
+  <p>
+    Take a director who pays a £12,000 salary and £16,000 in dividends, and leaves £70,000 of net profit in the company
+    for the year. On the salary and dividends method the assessable income is £28,000, which at a multiple of around four
+    and a half to five times supports roughly £126,000 to £140,000 of borrowing. On the salary plus net profit method,
+    the assessable income becomes the £12,000 salary plus the £70,000 profit share, or £82,000, which supports in the
+    region of £369,000 to £410,000. The deposit, the rate and the affordability stress test are identical in both cases.
+    The only difference is the method, and for this director it is the difference between a flat and a family home. The
+    figures here are illustrative only and not a quote.
+  </p>
+
+  <PullQuote quote="The question is rarely whether you earn enough. It is whether you reach a lender that values your net profit rather than only the income you chose to draw." />
+
+  <h2>What your accountant needs to confirm</h2>
+  <p>
+    The net profit route runs on clear evidence, and most of it comes from your accountant. Plan for your finalised
+    company accounts, prepared by a qualified accountant, covering the years the lender asks for. Where the lender
+    assesses on net profit or retained profit, expect to provide a short note from your accountant confirming the net
+    profit figure, your share of it, and that it is genuinely available to you. For a director who also draws income, your
+    tax calculations, often called SA302s, and the matching tax year overviews from HM Revenue and Customs help confirm
+    the salary and dividends side. Personal and business bank statements for the last three months, proof of identity,
+    proof of address and evidence of your deposit complete the set. Where the accounts, the accountant note and the bank
+    statements all tell the same story, an underwriter can move quickly.
+  </p>
+
+  <h2>Which lenders use net profit</h2>
+  <p>
+    Most lenders still start from salary and dividends, so the net profit method sits with a smaller, though growing,
+    group that includes several high-street names alongside specialists. There is no single published list, because each
+    lender frames its rule slightly differently: some add salary to net profit, some look at your share of operating
+    profit, and some set conditions on shareholding or trading history. A few will consider retained profit from earlier
+    years where it has been left in the business and remains available. The practical effect is that the same set of
+    accounts can be read several ways across the market, so the task is to identify the lender whose definition fits your
+    company and your figures before you apply.
+  </p>
+
+  <h2>Sole traders and partnerships</h2>
+  <p>
+    If you trade as a sole trader or in a partnership rather than through a limited company, net profit is not an
+    alternative method; it is the basis lenders use as standard. They take the net profit shown on your tax calculations,
+    your share where it is a partnership, and average it over the last one to three years, often leaning on the lower or
+    latest figure where profit has dipped. There are no dividends to consider and no profit retained in a separate
+    company, so the figure is more straightforward, but the averaging rules and the number of years required still vary
+    from lender to lender. The same care in matching your profit history to the right lender applies.
+  </p>
+
+  <h2>Will you pay a higher rate?</h2>
+  <p>
+    No, not for being assessed on net profit. At the same deposit, property type and credit record you qualify for the
+    same rates as a buyer paid by salary, because the rate is driven by those things rather than by how your income is
+    measured. What the method can do is narrow the panel of lenders willing to read your figures a particular way, and
+    that panel can shape the rate on offer, so a larger deposit helps by widening your choice. A deposit of around a tenth
+    of the price opens the mainstream market, and more than that opens it further. The work is in finding the lender that
+    values your profit well, not in accepting a worse deal.
+  </p>
+
+  <h2>How does Mortgage One help?</h2>
+  <p>
+    Mortgage One is a countrywide UK mortgage broker with access to plans from the whole of market, and we arrange
+    mortgages assessed on net profit and retained profit as a regular part of the business. We work out whether the drawn
+    income or the net profit method gives you the stronger figure, confirm how each lender will read your salary,
+    dividends and profit, and tell you exactly what your accountant needs to confirm before you apply. We then match your
+    accounts to a lender comfortable with them and present the case so an underwriter can say yes first time. We are
+    authorised and regulated by the Financial Conduct Authority (FCA) for the mortgage advice, and you must be on UK soil
+    to receive advice, so we confirm your circumstances properly before recommending anything.
+  </p>
+
+  <MidCta
+    text="Ready to know whether net profit lifts your figure, and by how much, rather than guess? Let an adviser review your company accounts."
+    label="Check Your Options"
+    scenario="self-employed"
+    src={slug}
+  />
+
+  <FaqSection items={faqs} />
+
+  <CtaBlock
+    heading="Find out what your net profit is worth"
+    line="Tell us your salary, your dividends, your company net profit and your deposit, and a Mortgage One adviser will review your answers and tell you where you stand."
+    scenario="self-employed"
+    src={slug}
+  />
+
+  <h2>Send us an enquiry</h2>
+  <EnquiryForm scenario="self-employed" />
+
+  <RelatedPanel cards={relatedCards} />
+
+  <p class="risk-warning">
+    Think carefully before securing your debts against your home. Your home may be repossessed if you do not keep up
+    repayments on your mortgage.
+  </p>
+</ArticleLayout>
+
+<style>
+  .risk-warning {
+    border-top: 1px solid var(--line);
+    padding-top: 1.5rem;
+    margin-top: 2.5rem;
+  }
+</style>
