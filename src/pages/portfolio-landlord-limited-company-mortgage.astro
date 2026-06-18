@@ -1,0 +1,215 @@
+---
+import ArticleLayout from '../layouts/ArticleLayout.astro';
+import Reassurance from '../components/Reassurance.astro';
+import MidCta from '../components/MidCta.astro';
+import PullQuote from '../components/PullQuote.astro';
+import FaqSection from '../components/FaqSection.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+import EnquiryForm from '../components/locked/EnquiryForm.astro';
+import RelatedPanel from '../components/RelatedPanel.astro';
+
+const slug = '/portfolio-landlord-limited-company-mortgage';
+
+const reassuranceLines = [
+  'Landlords with four or more mortgaged buy-to-lets held in a company.',
+  'Investors who hold a growing portfolio through one limited company.',
+  'Portfolio landlords adding the next property to a company structure.',
+  'Directors refinancing several company-held lets at once.',
+  'Larger portfolios that need a lender comfortable with scale.',
+];
+
+const faqs = [
+  {
+    q: 'What counts as a portfolio landlord with a limited company?',
+    a: 'You are treated as a portfolio landlord once you hold four or more mortgaged buy-to-let properties, and that count is across all your buy-to-lets, not just the ones in a single company. The four-property test follows the borrower, so properties held in your own name, in a company and in any other company you control are added together. Holding them through a limited company does not move you out of portfolio territory; it changes how the case is presented, not whether the portfolio rules apply.',
+  },
+  {
+    q: 'How do lenders assess a portfolio landlord borrowing through a company?',
+    a: 'Most portfolio lenders look at the whole portfolio, not just the property you are buying or remortgaging. They review the total borrowing, the overall loan-to-value across every property and the rent cover on the portfolio as a whole, usually through a property schedule and sometimes a short business plan. A clean portfolio, where the rents comfortably clear the stress tests and the gearing is sensible, keeps your options open. A stretched one, where one or two weak properties drag the averages down, narrows them.',
+  },
+  {
+    q: 'Is there a limit on how many properties a limited company can hold?',
+    a: 'There is no single legal cap, but individual lenders set their own limits, both on the number of properties they will fund for you and on your total borrowing with them. Some are comfortable with large portfolios and a high property count; others cap exposure at a handful of loans or a fixed pound figure. As a portfolio grows, the job becomes spreading it sensibly and matching each purchase to a lender that still has appetite, rather than concentrating everything in one place.',
+  },
+  {
+    q: 'Can I move my existing portfolio into a limited company?',
+    a: 'You can, but each property is a sale from you to the company, so it can trigger stamp duty and capital gains tax, and every mortgage has to be refinanced into the company. That makes it a significant tax and structuring decision rather than a simple transfer, and it belongs with an accountant before anything moves. We handle the lending side, refinancing each property into the company on terms that suit a portfolio. Our page on moving a buy-to-let into a limited company sets the process out in full.',
+  },
+  {
+    q: 'How much deposit does a portfolio landlord need for a company purchase?',
+    a: 'Plan for at least 25 per cent of each property value, and the strength of the wider portfolio influences how far lenders will stretch beyond that. Where the overall gearing is already high, a lender may want a larger deposit on the next purchase to keep the aggregate loan-to-value within their comfort. A well-covered, lower-geared portfolio tends to keep deposits at the standard level. Figures are illustrative only and your actual borrowing is subject to full lender assessment and status.',
+  },
+  {
+    q: 'Does a weak property in the portfolio affect my next purchase?',
+    a: 'It can, because many portfolio lenders test the whole portfolio rather than the single property in front of them. A property with thin rent cover, a high loan-to-value or a void can pull down the portfolio averages a lender works to, which may cap what you can borrow on the next one even when that new property stacks up well on its own. Knowing where the portfolio is stretched before you apply lets us pick a lender whose tests it still passes.',
+  },
+];
+
+const relatedCards = [
+  {
+    title: 'Limited company buy-to-let mortgages',
+    href: '/limited-company-buy-to-let-mortgage',
+    line: 'The pillar guide to holding a let through a company.',
+  },
+  {
+    title: 'How much can a limited company borrow',
+    href: '/how-much-can-a-limited-company-borrow-btl',
+    line: 'The rent cover and stress tests that size each loan.',
+  },
+  {
+    title: 'Moving a buy-to-let into a company',
+    href: '/moving-buy-to-let-into-a-limited-company',
+    line: 'Refinancing an existing portfolio into a structure.',
+  },
+  { title: 'Check your eligibility', href: '/check', line: 'Five quick questions, about 60 seconds.' },
+];
+---
+
+<ArticleLayout
+  title="Portfolio Landlord Limited Company Mortgages | Mortgage One"
+  description="Portfolio landlords holding buy-to-lets through a limited company: how lenders assess the whole portfolio and size your next purchase."
+  eyebrow="Limited company buy-to-let"
+  heading="Limited company mortgages for portfolio landlords"
+  breadcrumbs={[
+    { name: 'Home', href: '/' },
+    { name: 'Limited company mortgages for portfolio landlords', href: slug },
+  ]}
+  scenario="btl"
+>
+  <p>
+    Yes, you can run a property portfolio through a limited company and keep borrowing as it grows, and plenty of lenders
+    are set up for exactly that. The thing to understand is that once you hold four or more mortgaged buy-to-lets you are a
+    portfolio landlord, and most lenders then assess the whole portfolio rather than just the property in front of them. So
+    the work is not only sizing the next loan; it is keeping the overall gearing and rent cover in shape so the next
+    purchase clears a portfolio lender's tests. This page explains what makes you a portfolio landlord, how lenders read a
+    company-held portfolio, the limits to plan around and how to keep adding properties cleanly. For the wider company
+    picture, see our pillar guide to
+    <a href="/limited-company-buy-to-let-mortgage">limited company buy-to-let mortgages</a>.
+  </p>
+
+  <Reassurance title="Portfolio landlords we help" lines={reassuranceLines} />
+
+  <h2>What makes you a portfolio landlord?</h2>
+  <p>
+    You become a portfolio landlord once you hold four or more mortgaged buy-to-let properties, and the count follows you
+    rather than any single company. Properties in your own name, in one limited company and in any other company you
+    control are all added together to reach the four. Holding the portfolio through a company does not take you out of
+    portfolio territory, and it does not change the four-property test. What it does change is how the case is presented to
+    a lender, because a company portfolio comes with its own accounts, directors and guarantees on top of the property
+    figures. The point to hold on to is that the portfolio rules attach to you as the borrower, so they apply across every
+    structure you lend through, not company by company.
+  </p>
+
+  <h2>How lenders assess a company-held portfolio</h2>
+  <p>
+    The defining feature of portfolio lending is that most lenders look at the whole portfolio, not just the property you
+    are buying or refinancing. They review your total borrowing, the overall loan-to-value across every property and the
+    rent cover on the portfolio as a whole, usually asking for a property schedule that lists each let, its value, its loan
+    and its rent. Larger cases may also need a short business plan and an assets and liabilities statement. A clean
+    portfolio, where the rents comfortably clear the stress tests and the gearing is sensible, keeps your borrowing options
+    open. A stretched one, where one or two weak properties drag the averages down, narrows them. Our page on
+    <a href="/how-much-can-a-limited-company-borrow-btl">how much a limited company can borrow</a> walks through the rent
+    cover and stress tests that sit underneath each loan.
+  </p>
+
+  <MidCta
+    text="Holding a portfolio through a company and planning the next purchase? Tell us the portfolio and we will tell you where you stand."
+    scenario="btl"
+    src={slug}
+  />
+
+  <h2>Limits, lender appetite and spreading the portfolio</h2>
+  <p>
+    There is no single legal cap on how many properties a company can hold, but every lender sets its own limits, both on
+    the number of loans it will give you and on your total borrowing with them. Some welcome large portfolios and a high
+    property count; others cap their exposure at a handful of loans or a fixed pound figure, regardless of how strong each
+    property is. As a portfolio grows past those ceilings, the task becomes spreading it sensibly across more than one
+    lender and matching each new purchase to one that still has appetite for you. Going back to the same lender every time
+    is the quickest way to hit a wall, so planning where each property sits keeps the portfolio fundable as it scales.
+  </p>
+
+  <PullQuote quote="A portfolio lender is judging the whole portfolio, not just the next property. Keep the gearing and the rent cover in shape and the next purchase stays fundable." />
+
+  <h2>How one weak property affects the rest</h2>
+  <p>
+    Because portfolio lenders test the portfolio as a whole, a single weak property can hold back what you do everywhere
+    else. A let with thin rent cover, a high loan-to-value or a void pulls down the portfolio averages a lender works to,
+    and that can cap the borrowing on your next purchase even when the new property stacks up well on its own. The fix is
+    to know where the portfolio is stretched before you apply, so the case goes to a lender whose tests it still passes, or
+    so a tight property is refinanced or the gearing eased first. This is where a deposit on the next purchase can do double
+    duty: a larger one keeps the aggregate loan-to-value within a lender's comfort. Our page on
+    <a href="/limited-company-buy-to-let-deposit">limited company buy-to-let deposits</a> sets the deposit side out, and
+    <a href="/limited-company-buy-to-let-criteria">limited company buy-to-let criteria</a> covers the full lender
+    checklist.
+  </p>
+
+  <h2>Growing the portfolio and moving properties in</h2>
+  <p>
+    Two routes tend to come up as a company portfolio grows. The first is simply buying the next property through the
+    existing company, which is the cleaner path because the structure is already in place and the lender is assessing a
+    portfolio that already has form. The second is moving properties you hold in your own name into the company, which is
+    more involved: each one is a sale from you to the company, so it can trigger stamp duty and capital gains tax, and every
+    mortgage has to be refinanced into the company. That makes it a tax and structuring decision for an accountant before
+    anything moves, not a mortgage one. We handle the lending side of both. Our page on
+    <a href="/moving-buy-to-let-into-a-limited-company">moving a buy-to-let into a limited company</a> sets the transfer
+    out, and <a href="/setting-up-an-spv-for-buy-to-let">setting up an SPV for buy-to-let</a> covers forming the company so
+    a lender will fund it.
+  </p>
+
+  <h2>Personal guarantees across a portfolio</h2>
+  <p>
+    In almost every company buy-to-let the directors give a personal guarantee, which means you stand behind the debt
+    personally if the company cannot meet it. Across a portfolio that adds up, because each loan usually carries its own
+    guarantee, so as the borrowing grows so does what you and any fellow directors are personally agreeing to. This is not
+    a hurdle so much as a thing to go in with your eyes open to, and it is worth everyone behind the company understanding
+    the total they are guaranteeing rather than looking at each loan in isolation. Lenders will also weigh your own income,
+    your credit record and the rent across the portfolio. As a portfolio landlord your standing as a director carries real
+    weight in the case, so keeping it in good order before you apply pays off on every loan, not just the next one.
+  </p>
+
+  <h2>How does Mortgage One help?</h2>
+  <p>
+    Mortgage One is a countrywide UK mortgage broker with access to plans from the whole of market, and we place portfolio
+    landlord company cases as routine business. Our job is to read your whole portfolio the way a lender will, point you at
+    the ones that have genuine appetite for the property count and the borrowing you are carrying, and be honest early about
+    where the gearing or a weak property might cap the next purchase. We pull together the property schedule, brief you and
+    any fellow directors on the personal guarantees, and work alongside your accountant so the borrowing fits the structure
+    they recommend. We do not give tax or structuring advice, that is your accountant's part. We are authorised and
+    regulated by the Financial Conduct Authority (FCA) for the mortgage advice. You must be on UK soil to receive advice, so
+    we confirm your circumstances properly before recommending anything.
+  </p>
+
+  <MidCta
+    text="Ready to add to a company portfolio? Let an adviser read the whole portfolio and find a lender with appetite before you apply."
+    label="Check Your Options"
+    scenario="btl"
+    src={slug}
+  />
+
+  <FaqSection items={faqs} />
+
+  <CtaBlock
+    heading="Keep your company portfolio growing with the right lender"
+    line="Tell us about the portfolio, the rents and the next purchase you have in mind, and a Mortgage One adviser will review your answers."
+    scenario="btl"
+    src={slug}
+  />
+
+  <h2>Send us an enquiry</h2>
+  <EnquiryForm scenario="btl" />
+
+  <RelatedPanel cards={relatedCards} />
+
+  <p class="risk-warning">
+    Think carefully before securing your debts against your home. Your home may be repossessed if you do not keep up
+    repayments on your mortgage.
+  </p>
+</ArticleLayout>
+
+<style>
+  .risk-warning {
+    border-top: 1px solid var(--line);
+    padding-top: 1.5rem;
+    margin-top: 2.5rem;
+  }
+</style>
