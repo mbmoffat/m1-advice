@@ -1,0 +1,231 @@
+---
+import ArticleLayout from '../layouts/ArticleLayout.astro';
+import Reassurance from '../components/Reassurance.astro';
+import MidCta from '../components/MidCta.astro';
+import PullQuote from '../components/PullQuote.astro';
+import FaqSection from '../components/FaqSection.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+import EnquiryForm from '../components/locked/EnquiryForm.astro';
+import RelatedPanel from '../components/RelatedPanel.astro';
+
+const slug = '/limited-company-hmo-mortgage';
+
+const reassuranceLines = [
+  'First-time HMO landlords buying a share house inside a new company.',
+  'Higher-rate taxpayers holding rooms through a special purpose vehicle.',
+  'Investors converting a single let into a licensed HMO under a company.',
+  'Portfolio landlords adding a company-held HMO to existing properties.',
+  'Directors buying a larger share house together through one company.',
+];
+
+const faqs = [
+  {
+    q: 'Can I get an HMO mortgage through a limited company?',
+    a: 'Yes. A focused group of lenders write house in multiple occupation cases held inside a limited company, lending to the company that owns and lets the rooms rather than to you personally. The case rests on the room rent, your deposit and the licensing the council requires, with the directors and shareholders standing behind the company through a personal guarantee. Both the HMO side and the company side narrow the lender list, so the work is placing the case with a desk that funds company share houses as routine.',
+  },
+  {
+    q: 'Do I need a special purpose vehicle for a company HMO?',
+    a: 'Most HMO lenders want a special purpose vehicle (SPV), a company set up only to hold and let property, with the right property activity recorded against it at Companies House. Lenders that accept an existing trading company are far fewer and price the case more cautiously, so if you already trade through a company it is usually cleaner to set up a separate vehicle for the share house.',
+  },
+  {
+    q: 'How much deposit does a limited company HMO need?',
+    a: 'Plan for more than a standard buy-to-let, often in the region of a quarter to a third of the property value. The firmer end is common on larger share houses and on properties valued on their investment income rather than as an ordinary house, and a newer company can push the figure up too. A stronger deposit widens the lender choice open to a company structure and eases the rent cover test.',
+  },
+  {
+    q: 'How do lenders work out how much my company can borrow on an HMO?',
+    a: 'The room rent does most of the work. A lender tests the monthly rent against the mortgage interest at a stress rate set above the pay rate, using an interest cover ratio (ICR). Company cases are often tested at a lower cover ratio than higher-rate personal borrowing, frequently in the region of 125%, and where the rent falls a little short some lenders allow surplus personal income to bridge the gap, known as top-slicing.',
+  },
+  {
+    q: 'Will I have to give a personal guarantee on a company HMO?',
+    a: 'Almost always. A company has a short or non-existent track record of its own, so the lender looks to the directors and shareholders behind it and takes a personal guarantee from them. Your own income and credit footprint still matter even though the mortgage sits in the company name, and the guarantee is a normal feature of company HMO lending rather than a sign the case is weak.',
+  },
+  {
+    q: 'Do I need landlord experience to fund an HMO through a company?',
+    a: 'Often, yes. Several HMO lenders want to see that you already let property, sometimes a standard buy-to-let held for a year or more, before they will fund a share house, and a few will consider first-time landlords on smaller HMOs. Holding the property in a company does not remove that test, so it is worth knowing where you stand before you commit to a property.',
+  },
+];
+
+const relatedCards = [
+  {
+    title: 'Limited company buy-to-let mortgages',
+    href: '/limited-company-buy-to-let-mortgage',
+    line: 'The pillar guide to company landlord lending.',
+  },
+  {
+    title: 'SPV mortgages',
+    href: '/spv-mortgage',
+    line: 'Funding a special purpose vehicle set up to hold property.',
+  },
+  {
+    title: 'Company or personal name',
+    href: '/limited-company-vs-personal-name-buy-to-let',
+    line: 'Weighing a company structure against your own name.',
+  },
+  { title: 'Check your eligibility', href: '/check', line: 'Five quick questions, about 60 seconds.' },
+];
+---
+
+<ArticleLayout
+  title="Limited Company HMO Mortgages | Mortgage One"
+  description="Yes, you can hold an HMO through a limited company. How lenders read the special purpose vehicle, room rent, deposit, licensing and personal guarantees."
+  eyebrow="Limited company HMO mortgages"
+  heading="HMO mortgages through a limited company"
+  breadcrumbs={[
+    { name: 'Home', href: '/' },
+    { name: 'HMO mortgages through a limited company', href: slug },
+  ]}
+  scenario="btl"
+>
+  <p>
+    Yes, you can hold a house in multiple occupation (HMO) through a limited company. The mortgage sits in the company
+    name rather than yours, and the lender judges it mainly on the room rent the property earns, your deposit and the
+    licensing the council requires, with the directors and shareholders standing behind the company through a personal
+    guarantee. A company HMO sits where two specialist areas meet, company buy-to-let and HMO lending, so the list of
+    willing lenders is shorter than for a single let and the right match matters more. This page is part of our
+    <a href="/limited-company-buy-to-let-mortgage">limited company buy-to-let</a> cluster and explains how lenders read a
+    share house held inside a company, what they want from the company itself, and where the structure helps.
+  </p>
+
+  <Reassurance title="Company HMO landlords we help" lines={reassuranceLines} />
+
+  <h2>Why HMO landlords buy through a limited company</h2>
+  <p>
+    The pull towards a company is almost always about tax rather than the mortgage. Individual landlords can no longer
+    deduct mortgage interest from their rental income in full before tax, and instead receive a basic-rate tax credit,
+    which leaves higher-rate taxpayers paying more on the same rent. An HMO often earns a stronger rent than an ordinary
+    let, so that gap can be wider on a share house, and inside a company the mortgage interest is treated as a business
+    cost set against rental profit, with the profit taxed under corporation tax rather than income tax. Whether that
+    works in your favour depends on your wider income and how long you plan to hold the property, so the structure is a
+    decision to settle with an accountant first and a mortgage decision second. Our job is the borrowing: making sure the
+    company you choose is one a lender will actually fund.
+  </p>
+
+  <h2>What lenders want from the company</h2>
+  <p>
+    Most HMO lenders want a special purpose vehicle (SPV), a company set up only to hold and let property rather than to
+    trade in anything else. The company should carry the right property activity recorded against it at Companies House,
+    and lenders prefer a clean, simple shareholding rather than a long list of directors. A brand new company with no
+    history is normal for these cases and does not count against you, because the lender looks through the company to the
+    people behind it. If you already run a trading company and want to borrow through that, the pool of willing lenders
+    is much smaller, so a separate vehicle for the share house is usually the cleaner path. We cover the vehicle itself in
+    more depth on our page about <a href="/spv-mortgage">SPV mortgages</a>.
+  </p>
+
+  <h2>Licensing and what counts as an HMO</h2>
+  <p>
+    A property is usually a house in multiple occupation when it is let to three or more people who form more than one
+    household and share a kitchen, bathroom or toilet. Let it to five or more people across more than one household and
+    it normally needs a mandatory licence from the local council. On top of that, many councils run additional or
+    selective licensing that brings smaller share houses into scope, and some areas carry an Article 4 direction, which
+    removes the automatic right to convert a family home into a small HMO without planning permission. Lenders care about
+    all of this, because a property that is not properly licensed or permitted is harder to let and harder to value, so
+    confirm the local rule before the company commits to a property.
+  </p>
+
+  <MidCta
+    text="Not sure whether your target share house needs a licence or sits under an Article 4 area? Tell us the postcode and the room count and we will help you read where it stands."
+    scenario="btl"
+    src={slug}
+  />
+
+  <h2>How lenders size the loan on HMO rent</h2>
+  <p>
+    The room rent does most of the heavy lifting. A share house often earns more than the same property let to one
+    family, and lenders can size the loan on that higher income. A lender tests the monthly rent against the mortgage
+    interest at a stress rate set above the pay rate, using an interest cover ratio (ICR) to decide the largest loan the
+    rent will support. Company cases are often tested at a lower cover ratio than higher-rate personal borrowing,
+    frequently in the region of 125%, which can let a company borrow a little more on the same rooms. Larger HMOs are
+    sometimes valued on their investment income rather than as an ordinary house, which can change both the loan and the
+    deposit, and where the rent falls a little short some lenders allow surplus personal income to bridge the gap, known
+    as top-slicing.
+  </p>
+
+  <h2>Deposit, valuation and landlord experience</h2>
+  <p>
+    Expect to put down more than a standard buy-to-let, often in the region of a quarter to a third of the property
+    value, with the firmer end common on larger share houses and on properties valued on their investment income. A
+    newer company can push the figure up too, and a stronger deposit widens the lender panel open to a company HMO and
+    eases the rent cover test. Experience matters as well: several lenders want to see that you already let property,
+    often a standard buy-to-let held for a year or more, before they will fund a share house, while a few will consider
+    first-time landlords on smaller HMOs. Holding the property in a company does not remove that test, so it is worth
+    knowing which lenders fit your deposit, your valuation basis and your track record before you commit.
+  </p>
+
+  <h2>Personal guarantees and the directors</h2>
+  <p>
+    A company has little or no track record of its own, so the lender looks to the directors and shareholders and takes a
+    personal guarantee from them. That means your own income, your credit footprint and your circumstances still matter,
+    even though the mortgage is in the company name, and most lenders expect every director with a meaningful
+    shareholding to stand behind the loan. The guarantee is a routine feature of company HMO lending rather than a sign
+    the case is weak. We make sure everyone who needs to give a guarantee understands what it involves before you apply,
+    so there are no surprises at the offer stage.
+  </p>
+
+  <PullQuote quote="A company HMO is rarely about whether you qualify. It is about matching the special purpose vehicle, the room rent, the licensing and the deposit to a lender that funds company share houses as routine." />
+
+  <h2>Setting up the structure in the right order</h2>
+  <p>
+    The order matters. Settle the tax and ownership question with an accountant, set up the special purpose vehicle with
+    the right property activity recorded against it, agree the shareholding, and only then line up the mortgage, so the
+    company you fund is one a lender will accept rather than one you have to unpick later. We are happy to look at the
+    borrowing side before the company is formed, so you can set it up once, correctly, instead of discovering after the
+    fact that a lender wants the shareholding or the recorded activity arranged differently. If you are still weighing a
+    company against your own name, our page on
+    <a href="/limited-company-vs-personal-name-buy-to-let">a company versus a personal name</a> sets out the trade-off.
+  </p>
+
+  <h2>Moving an existing HMO into a company</h2>
+  <p>
+    Some landlords already own a share house personally and want to hold it in a company instead. This is a sale from you
+    to the company rather than a simple transfer, so it can bring a fresh round of stamp duty and a capital gains
+    calculation, and the company will need its own mortgage to complete the purchase. The numbers can still stack up,
+    particularly on a higher-yielding HMO, but they need working through carefully with an accountant before you commit.
+    On the lending side we treat it like any other company purchase, sizing the loan on the room rent and the company's
+    deposit, and checking the licensing carries across cleanly.
+  </p>
+
+  <h2>How does Mortgage One help?</h2>
+  <p>
+    Mortgage One is a countrywide UK mortgage broker with access to plans from the whole of market, and we arrange
+    company HMO cases as a regular part of the business. We work out which lenders are comfortable with your company and
+    the share house, check the licensing and valuation basis, test the room rent against the loan you want, brief you and
+    your fellow directors on the personal guarantee, and put your case in front of the right desk with the evidence an
+    underwriter needs. We are authorised and regulated by the Financial Conduct Authority (FCA) for the mortgage advice,
+    and we work alongside your accountant rather than across them, so the borrowing fits the structure they recommend.
+    You must be on UK soil to receive advice, so we confirm your circumstances properly before recommending anything.
+  </p>
+
+  <MidCta
+    text="Ready to know where you stand rather than guess? Let an adviser review your limited company HMO case."
+    label="Check Your Options"
+    scenario="btl"
+    src={slug}
+  />
+
+  <FaqSection items={faqs} />
+
+  <CtaBlock
+    heading="See if a limited company HMO mortgage fits"
+    line="Tell us about the share house, the room rent, the licensing, the company and your deposit, and a Mortgage One adviser will review your answers."
+    scenario="btl"
+    src={slug}
+  />
+
+  <h2>Send us an enquiry</h2>
+  <EnquiryForm scenario="btl" />
+
+  <RelatedPanel cards={relatedCards} />
+
+  <p class="risk-warning">
+    Think carefully before securing your debts against your home. Your home may be repossessed if you do not keep up
+    repayments on your mortgage.
+  </p>
+</ArticleLayout>
+
+<style>
+  .risk-warning {
+    border-top: 1px solid var(--line);
+    padding-top: 1.5rem;
+    margin-top: 2.5rem;
+  }
+</style>
