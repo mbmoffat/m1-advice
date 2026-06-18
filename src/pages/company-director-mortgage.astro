@@ -1,0 +1,230 @@
+---
+import ArticleLayout from '../layouts/ArticleLayout.astro';
+import Reassurance from '../components/Reassurance.astro';
+import MidCta from '../components/MidCta.astro';
+import PullQuote from '../components/PullQuote.astro';
+import FaqSection from '../components/FaqSection.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+import EnquiryForm from '../components/locked/EnquiryForm.astro';
+import RelatedPanel from '../components/RelatedPanel.astro';
+
+const slug = '/company-director-mortgage';
+
+const reassuranceLines = [
+  'Salary and dividends are a standard way for lenders to read your income.',
+  'Some lenders count the profit retained in your company too.',
+  'One full year of accounts can be enough with the right lender.',
+  'The same deposit and rates as an employed buyer.',
+  'High-street lenders, not just specialists, lend to directors.',
+];
+
+const faqs = [
+  {
+    q: 'Can I get a mortgage as a limited company director?',
+    a: 'Yes. Running your own limited company does not stop you borrowing, and there is no separate director product or penalty rate. The difference is how your income is measured. Because most lenders treat a director who owns a fifth or more of their company as self-employed, you are assessed on your filed figures rather than on payslips. The usual basis is your salary plus the dividends you draw, and a useful group of lenders will instead use your salary plus the profit retained in the company. Reach a lender that reads your figures the way your company is set up and you qualify on the same terms as an employed buyer.',
+  },
+  {
+    q: 'How do lenders work out a company director income?',
+    a: 'Most lenders take the salary you pay yourself and add the dividends you draw, then average the figure over the last one to three years, often using the lower or latest year where income has fallen. A smaller but growing group of lenders works differently, adding your salary to the share of net profit your company retains rather than to your dividends. That second method matters when you leave profit in the business for tax efficiency, because it can produce a much higher assessable income than salary and dividends alone. Which method a lender uses is the single biggest factor in how much you can borrow.',
+  },
+  {
+    q: 'Can I use retained profit in my company for a mortgage?',
+    a: 'With the right lender, yes. If you draw a modest salary and small dividends and leave the rest of the profit inside the company, lenders that assess on salary plus dividends will read your income as low. A number of lenders instead assess a director on salary plus their share of the company net profit, which captures the money you have chosen to retain. This often reflects your true earning power far better. The lender needs an accountant to confirm the profit figure, so having your accounts and a supporting note from your accountant ready makes this route straightforward.',
+  },
+  {
+    q: 'How many years of accounts do I need as a director?',
+    a: 'Most lenders want two full years of company accounts and some ask for three, but the requirement is not fixed. A growing number will lend on one full year where the business is established and the income looks sustainable, so a shorter record narrows the choice of lender rather than ruling you out. What every lender is really testing is whether your income is stable and likely to continue. A clean year with a clear pipeline of work can read better than a longer but uneven one, which is why it is worth checking the market before assuming you have to wait.',
+  },
+  {
+    q: 'Do I pay a higher mortgage rate as a company director?',
+    a: 'No, not for being a director. At the same deposit, property type and credit record you qualify for the same rates as an employed buyer, because the rate is driven by those things rather than by how you are paid. What your status can do is narrow the panel of lenders willing to read your income a particular way, and that panel can shape the rate on offer, so a larger deposit helps by widening your choice. The work is in finding the lender that values your salary, dividends or retained profit well, not in accepting a worse deal.',
+  },
+  {
+    q: 'Can a broker help a limited company director get a mortgage?',
+    a: 'That is where most of the difference is made. The same set of accounts can produce very different incomes across lenders, because each reads salary, dividends and retained profit its own way. A broker knows which lenders use retained profit, which accept a single year of accounts, and which suit your shareholding and structure, then presents the case so an underwriter can say yes first time. Matching your figures to the right lender before you apply is the single biggest lever on both approval and the amount you can borrow.',
+  },
+];
+
+const relatedCards = [
+  {
+    title: 'Self-employed mortgages',
+    href: '/self-employed-mortgage',
+    line: 'The pillar guide to how lenders read self-employed income.',
+  },
+  {
+    title: 'Self-employed mortgage requirements',
+    href: '/self-employed-mortgage-requirements',
+    line: 'The trading history, accounts and documents lenders ask for.',
+  },
+  {
+    title: 'Contractor mortgages',
+    href: '/contractor-mortgage',
+    line: 'When your income is built on a day rate and contracts.',
+  },
+  { title: 'Check your eligibility', href: '/check', line: 'Five quick questions, about 60 seconds.' },
+];
+---
+
+<ArticleLayout
+  title="Mortgages for Limited Company Directors | Mortgage One"
+  description="Yes, limited company directors can get a mortgage. How lenders read salary and dividends or retained profit, the accounts you need, and how to borrow more."
+  eyebrow="Complex income"
+  heading="Mortgages for limited company directors"
+  breadcrumbs={[
+    { name: 'Home', href: '/' },
+    { name: 'Company director mortgage', href: slug },
+  ]}
+  scenario="self-employed"
+>
+  <p>
+    Yes, you can get a mortgage as a limited company director. There is no separate director product and no penalty rate
+    for running your own company; you qualify on the same terms as an employed buyer once a lender can see your income.
+    The difference is how that income is measured. Because most lenders treat a director who owns a fifth or more of their
+    company as self-employed, you are assessed on your filed figures rather than on payslips, usually on salary plus
+    dividends, and with some lenders on salary plus the profit your company retains. This page answers the question
+    directly: whether you can, how lenders work out what you earn, and the practical steps that turn a director
+    application into a yes.
+  </p>
+
+  <Reassurance title="What gives directors confidence" lines={reassuranceLines} />
+
+  <h2>The short answer, and what really decides it</h2>
+  <p>
+    Being a company director does not stop you getting a mortgage. What decides the outcome is whether you reach a lender
+    that reads your accounts the way your company is actually set up, and which method it uses to value your income. Those
+    two things, not the fact that you direct your own company, are where the case is won or lost. Directors who draw
+    salary and dividends, and those who leave profit in the business, are all approved every day. The job is to line your
+    evidence up so the income is obvious and to put it in front of a lender whose rules fit. Because a director is a form
+    of self-employment to most lenders, our pillar guide to
+    <a href="/self-employed-mortgage">self-employed mortgages</a> sets out the wider picture this page sits within.
+  </p>
+
+  <h2>Why lenders treat a director as self-employed</h2>
+  <p>
+    You may feel employed by your own company, and you might receive a payslip every month, but most lenders take a
+    different view. If you own a fifth or more of the company, the great majority treat you as self-employed for mortgage
+    purposes, because your income depends on how the business performs and on what you choose to draw from it rather than
+    on a fixed wage someone else sets. A few lenders use a higher shareholding threshold, and a small number look at
+    directors with smaller stakes case by case. The practical effect is the same: you are assessed on your company
+    figures, so the paperwork and the income method described below are what your application turns on.
+  </p>
+
+  <h2>How lenders work out your income</h2>
+  <p>
+    This is the part that makes a director application different, and the part most worth getting right. The common method
+    is to take the salary you pay yourself and add the dividends you draw, then average that across the last one to three
+    years, often leaning on the lower or latest year where income has dipped. The second method, used by a smaller but
+    growing group of lenders, adds your salary to your share of the profit the company retains rather than to your
+    dividends. That difference is decisive for many directors. If you draw a modest salary and small dividends for tax
+    efficiency and leave the rest of the profit in the business, salary-and-dividends lenders will read your income as
+    low, while a retained-profit lender captures what the company actually earned. The same accounts can therefore support
+    very different loan sizes depending on who you apply to.
+  </p>
+
+  <MidCta
+    text="Want to know which income method gives you the bigger figure? Tell us your salary, dividends and retained profit and we will tell you where you stand."
+    scenario="self-employed"
+    src={slug}
+  />
+
+  <h2>How many years of accounts you need</h2>
+  <p>
+    Less than most directors assume. Most lenders want two full years of company accounts and some ask for three, but this
+    is not a fixed wall. A growing number will lend on one full year where the business is established and the income
+    looks sustainable, and some give weight to earlier experience in the same line of work before you incorporated. What
+    every lender is testing underneath the rule is the same thing: is the income stable and likely to continue. A clean
+    year with a clear pipeline of work can satisfy that test better than a longer but uneven record, so a short trading
+    history narrows the choice of lender rather than closing the door. It is worth testing the market before you decide to
+    wait another tax year.
+  </p>
+
+  <h2>How much you can borrow</h2>
+  <p>
+    Once a lender has settled on your income, affordability works exactly as it does for an employed buyer. Most lenders
+    work to an income multiple of around four and a half to five times your assessed income, then test that the repayments
+    remain affordable at a stress rate above the pay rate, with your other commitments taken into account. The figure that
+    drives this is the income method the lender uses, which is why the lender you choose can change the amount you can
+    borrow so markedly. A director drawing £30,000 in salary and dividends but leaving £60,000 of profit in the company
+    could borrow on roughly half their earning power with one lender and on the fuller figure with another. The gap is
+    often the difference between the home you want and the one you settle for.
+  </p>
+
+  <PullQuote quote="The question is almost never whether a company director can get a mortgage. It is which lender will value your salary, dividends or retained profit the way your company is really run." />
+
+  <h2>What a lender needs to see</h2>
+  <p>
+    A director application runs on a clear paper trail, and having it ready is what keeps a case moving. Plan for your tax
+    calculations, often called SA302s, with the tax year overviews that confirm the tax was paid, both from HM Revenue and
+    Customs, your finalised company accounts prepared by an accountant, and personal and business bank statements covering
+    the last three months. Where a lender assesses you on retained profit, expect to provide a short note from your
+    accountant confirming the profit figure and that it is available to you. Proof of identity, proof of address and
+    evidence of your deposit complete the set. Where your accounts, your tax figures and your bank statements tell the same
+    story, an underwriter can move quickly, so it pays to check they agree before you apply.
+  </p>
+
+  <h2>Will you pay a higher rate?</h2>
+  <p>
+    No, not for being a director. At the same deposit, property type and credit record you qualify for the same rates as an
+    employed buyer, because the rate is driven by those things rather than by how you are paid. What your status can do is
+    narrow the panel of lenders willing to read your income a particular way, and that panel can shape the rate on offer,
+    so a larger deposit helps by widening your choice. A deposit of around a tenth of the price opens the mainstream
+    market, and more than that opens it further. The work is in finding the lender that values your company income well,
+    not in accepting a worse deal.
+  </p>
+
+  <h2>How to present your income at its best</h2>
+  <p>
+    A few steps make a director application markedly easier. Decide in advance whether salary and dividends or salary and
+    retained profit gives the stronger result, then apply to a lender that uses that method. Keep your company accounts and
+    tax calculations finalised and in agreement, since a gap between them slows every case. Time your application after a
+    stronger year where you can, because many lenders lean on the lower or latest figure. Keep your business and personal
+    banking tidy so the income is easy to follow, and avoid taking on new credit in the months before you apply. Most of
+    all, match your figures to a lender whose rules fit your shareholding and your structure before you apply, rather than
+    after a knock-back.
+  </p>
+
+  <h2>How does Mortgage One help?</h2>
+  <p>
+    Mortgage One is a countrywide UK mortgage broker with access to plans from the whole of market, and we arrange
+    mortgages for company directors as a regular part of the business. We work out which income method gives you the
+    stronger figure, confirm how each lender will read your salary, dividends and retained profit, and tell you what to
+    have ready before you apply so nothing holds the case up. We then match your accounts to a lender comfortable with them
+    and present your case so an underwriter can say yes first time. We are authorised and regulated by the Financial
+    Conduct Authority (FCA) for the mortgage advice, and you must be on UK soil to receive advice, so we confirm your
+    circumstances properly before recommending anything.
+  </p>
+
+  <MidCta
+    text="Ready to know whether you can borrow, and how much, rather than guess? Let an adviser review your company accounts and income."
+    label="Check Your Options"
+    scenario="self-employed"
+    src={slug}
+  />
+
+  <FaqSection items={faqs} />
+
+  <CtaBlock
+    heading="Find out what your company income is worth"
+    line="Tell us your salary, your dividends, your retained profit and your deposit, and a Mortgage One adviser will review your answers and tell you where you stand."
+    scenario="self-employed"
+    src={slug}
+  />
+
+  <h2>Send us an enquiry</h2>
+  <EnquiryForm scenario="self-employed" />
+
+  <RelatedPanel cards={relatedCards} />
+
+  <p class="risk-warning">
+    Think carefully before securing your debts against your home. Your home may be repossessed if you do not keep up
+    repayments on your mortgage.
+  </p>
+</ArticleLayout>
+
+<style>
+  .risk-warning {
+    border-top: 1px solid var(--line);
+    padding-top: 1.5rem;
+    margin-top: 2.5rem;
+  }
+</style>
