@@ -1,0 +1,211 @@
+---
+import ArticleLayout from '../layouts/ArticleLayout.astro';
+import Reassurance from '../components/Reassurance.astro';
+import MidCta from '../components/MidCta.astro';
+import PullQuote from '../components/PullQuote.astro';
+import FaqSection from '../components/FaqSection.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+import EnquiryForm from '../components/locked/EnquiryForm.astro';
+import RelatedPanel from '../components/RelatedPanel.astro';
+
+const slug = '/how-much-can-i-borrow-self-employed';
+
+const reassuranceLines = [
+  'Sole traders assessed on net profit, not turnover.',
+  'Company directors on salary plus dividends, or salary plus retained profit.',
+  'The same income multiple as an employed borrower at the same income.',
+  'Bonus, commission and a second income counted with the right lender.',
+  'A strong year that lifts the figure, not just an average of two.',
+];
+
+const faqs = [
+  {
+    q: 'How much can I borrow if I am self-employed?',
+    a: 'As a working guide, most lenders start from around four and a half to five times the income they assess, then test that the repayments stay affordable at a stress rate above the pay rate. The amount turns on which income figure a lender uses for your structure, not your turnover, so a sole trader is read on net profit and a company director on salary plus dividends or salary plus retained profit. Get the right figure assessed by the right lender and a self-employed borrower reaches broadly the same amount as an employed one on the same income.',
+  },
+  {
+    q: 'What income do lenders use for a self-employed mortgage?',
+    a: 'It depends on how you trade. A sole trader or partner is usually assessed on the net profit, or share of profit, shown on their tax calculations. A company director is most often assessed on salary plus the dividends drawn, while a smaller group of lenders use salary plus the profit retained inside the company. The figure that counts is the provable, sustainable income from your filed figures rather than your headline takings, which is why a business with high turnover but modest profit borrows on the profit.',
+  },
+  {
+    q: 'Do lenders average my last two years of self-employed income?',
+    a: 'Often, yes. Where your income has grown over the last two years, many lenders average the two figures rather than use the latest one, and where it has dipped they tend to use the lower year to be cautious. A smaller group will use the most recent year on its own where the trend is clearly upward and the work is secure, which can lift the figure noticeably. Because lenders treat the trend so differently, the income one lender reads from your accounts can be thousands of pounds higher than another reads from the same figures.',
+  },
+  {
+    q: 'Does turnover or profit decide what I can borrow?',
+    a: 'Profit, not turnover. Lenders size the loan on the provable income left after costs, so a sole trader is read on net profit and a director on what the company pays out or retains, never on the money passing through the business. This catches some self-employed borrowers out, because a healthy turnover can sit alongside a modest assessed income once costs and tax are accounted for. The practical step is to know the profit figure a lender will actually use before you fix on a property price.',
+  },
+  {
+    q: 'Can I borrow more by counting bonus, commission or a second income?',
+    a: 'Frequently, yes, with the right evidence. Many lenders count a share of regular commission or a second income alongside your main self-employed earnings, and a director who reinvests can be read more generously by a lender that counts retained profit. Each strand needs a clear paper trail in your accounts and tax figures. Getting every part of your income properly counted, rather than just the obvious figure, is often what moves a self-employed borrower from a cautious amount to a fair one.',
+  },
+  {
+    q: 'Will I borrow less than an employed person on the same income?',
+    a: 'Not for being self-employed in itself. The income multiple a lender applies is the same whether you are employed or self-employed, so any gap comes from how your income is assessed rather than the multiple. A conservative reading of your profit, or a lender that ignores retained profit, can trim the assessed figure, and the multiple is applied to that figure. Place the case with a lender that reads your structure fairly and the amount tends to reflect what you genuinely earn.',
+  },
+];
+
+const relatedCards = [
+  {
+    title: 'Self-employed mortgages',
+    href: '/self-employed-mortgage',
+    line: 'The pillar guide to how lenders read self-employed income.',
+  },
+  {
+    title: 'Self-employed mortgage requirements',
+    href: '/self-employed-mortgage-requirements',
+    line: 'The trading history, documents and deposit lenders ask for.',
+  },
+  {
+    title: 'Company director mortgages',
+    href: '/company-director-mortgage',
+    line: 'Salary and dividends, or salary and retained profit.',
+  },
+  { title: 'Check your eligibility', href: '/check', line: 'Five quick questions, about 60 seconds.' },
+];
+---
+
+<ArticleLayout
+  title="How Much Can You Borrow When Self-Employed? | Mortgage One"
+  description="Yes, self-employed borrowers can borrow on income like anyone else. How lenders set the income figure they use and turn it into a mortgage amount."
+  eyebrow="Complex income"
+  heading="How much can you borrow when self-employed?"
+  breadcrumbs={[
+    { name: 'Home', href: '/' },
+    { name: 'How much can you borrow when self-employed?', href: slug },
+  ]}
+  scenario="self-employed"
+>
+  <p>
+    Yes, you can borrow as a self-employed person on much the same terms as anyone else, and as a working guide most
+    lenders start from around four and a half to five times the income they assess, then test that the repayments stay
+    affordable. There is no separate self-employed multiple and no penalty for working for yourself. The amount turns on
+    one thing above all: which income figure a lender uses for your structure, because that figure, not your turnover, is
+    what the multiple is applied to. This page explains how lenders set your self-employed income for a mortgage and turn
+    it into a borrowing amount. For the wider picture first, our pillar guide to
+    <a href="/self-employed-mortgage">self-employed mortgages</a> sets out the ground this builds on.
+  </p>
+
+  <Reassurance title="How we help size a self-employed mortgage" lines={reassuranceLines} />
+
+  <h2>What sets the amount you can borrow</h2>
+  <p>
+    Two things decide the figure: the income a lender is willing to assess, and how that income fares against the
+    lender's affordability test. The multiple, usually in the region of four and a half to five times income, is applied
+    to the assessed figure rather than your headline takings. The affordability test then weighs your committed
+    outgoings, dependants and existing credit against that income, at a stress rate set above the pay rate. No lender
+    fixes an amount in advance, but for a self-employed borrower the assessed income is the lever that moves the figure
+    most, and it is also the part most often read conservatively. Settle that figure with the right lender and the amount
+    follows.
+  </p>
+
+  <h2>The income figure a lender actually uses</h2>
+  <p>
+    Which figure a lender counts depends entirely on how you trade, and it is the heart of a self-employed borrowing
+    calculation. A sole trader or partner is usually assessed on the net profit, or share of profit, shown on their tax
+    calculations, often called SA302s, from HM Revenue and Customs. A company director is most often assessed on salary
+    plus the dividends drawn, while a smaller group of lenders use salary plus the share of profit left inside the
+    company, which can suit a director who reinvests rather than draws everything out. The figure that counts is the
+    provable, sustainable income, never the money passing through the business, so a high-turnover business with modest
+    profit borrows on the profit. Knowing which figure applies to you, covered for directors in our guide to
+    <a href="/company-director-mortgage">company director mortgages</a>, is the first step to a realistic amount.
+  </p>
+
+  <MidCta
+    text="Want to know the income figure a lender would actually use for your structure? Tell us how you trade and how you take your money out."
+    scenario="self-employed"
+    src={slug}
+  />
+
+  <h2>Turning your income into a borrowing figure</h2>
+  <p>
+    Once a lender has settled on your income, the arithmetic is straightforward. Take a sole trader whose tax
+    calculations show a net profit of £50,000: at four and a half to five times income, that points to borrowing of
+    roughly £225,000 to £250,000 before the affordability test trims or confirms it. A company director paid a £12,000
+    salary topped up with £38,000 of dividends is read on the same £50,000, and so reaches a similar figure with a lender
+    that counts both. A director who instead leaves profit in the company may be read on a lower figure by a salary and
+    dividends lender, and on a higher one by a lender that counts retained profit. These figures are illustrative only,
+    not a quote, offer or advice, and actual borrowing is subject to full lender assessment and status.
+  </p>
+
+  <PullQuote quote="For a self-employed borrower, what you can borrow is set by the income a lender will assess, not the money that passes through the business. Get that read fairly and the figure follows." />
+
+  <h2>How averaging and the trend change the figure</h2>
+  <p>
+    Lenders do not all read two years of accounts the same way, and this moves the amount more than most borrowers
+    expect. Where your income has grown over the last two years, many lenders average the two figures, which holds the
+    assessed income below your latest year. Where it has dipped, they tend to use the lower year to stay cautious. A
+    smaller group will use the most recent year on its own when the trend is clearly upward and the work is secure, which
+    can lift the figure noticeably for a growing business. Because the same accounts can yield very different incomes
+    depending on whether a lender averages or takes the latest year, the lender you choose can change your borrowing by
+    a meaningful margin.
+  </p>
+
+  <h2>What lifts or limits the amount</h2>
+  <p>
+    Several things move the figure around the income at its core. A larger deposit lowers the loan against the property
+    and can ease the affordability test, leaving more headroom in the stress calculation. Committed outgoings, credit
+    commitments and dependants pull the affordable figure down, so clearing a car loan before applying can do more for
+    your borrowing than a stronger year would. A second income or regular commission, properly evidenced, can be added to
+    your self-employed earnings by many lenders. Drawing profit out rather than retaining it, or the reverse, changes
+    which lenders read you most generously. None of these is unique to the self-employed, but each one matters more when the income
+    figure itself is open to interpretation.
+  </p>
+
+  <h2>Self-employed borrowers do not borrow less</h2>
+  <p>
+    It is a common worry that working for yourself caps what you can borrow, and it is largely unfounded. The income
+    multiple a lender applies is the same whether you are employed or self-employed, so any gap comes from how your income
+    is assessed rather than from the multiple. A conservative reading of profit, an averaged figure where the latest year
+    is stronger, or a lender that ignores retained profit can each trim the assessed income, and the multiple is applied
+    to that lower figure. The fix is not to accept a smaller amount but to place the case with a lender that reads your
+    structure the way your business actually works, so the figure reflects what you genuinely earn. Our guide to
+    <a href="/self-employed-mortgage-requirements">self-employed mortgage requirements</a> covers the evidence that backs
+    the figure up.
+  </p>
+
+  <h2>How does Mortgage One help?</h2>
+  <p>
+    Mortgage One is a countrywide UK mortgage broker with access to plans from the whole of market, and working out what
+    a self-employed borrower can realistically borrow is a regular part of the job. We establish the income figure each
+    lender will use for your structure, decide whether averaging or the latest year serves you better, count any second
+    income or commission properly, and then match your figures to a lender whose method reads your business generously.
+    We present the case so an underwriter can see the income is sustainable and say yes first time. We are authorised and
+    regulated by the Financial Conduct Authority (FCA) for the mortgage advice, and you must be on UK soil to receive
+    advice, so we confirm your circumstances properly before recommending anything.
+  </p>
+
+  <MidCta
+    text="Ready to know what you can borrow rather than guess? Let an adviser work out the figure a lender would actually assess from your accounts."
+    label="Check Your Options"
+    scenario="self-employed"
+    src={slug}
+  />
+
+  <FaqSection items={faqs} />
+
+  <CtaBlock
+    heading="Find out what you could borrow"
+    line="Tell us your structure, your figures and your deposit, and a Mortgage One adviser will review your answers and tell you where you stand."
+    scenario="self-employed"
+    src={slug}
+  />
+
+  <h2>Send us an enquiry</h2>
+  <EnquiryForm scenario="self-employed" />
+
+  <RelatedPanel cards={relatedCards} />
+
+  <p class="risk-warning">
+    Think carefully before securing your debts against your home. Your home may be repossessed if you do not keep up
+    repayments on your mortgage.
+  </p>
+</ArticleLayout>
+
+<style>
+  .risk-warning {
+    border-top: 1px solid var(--line);
+    padding-top: 1.5rem;
+    margin-top: 2.5rem;
+  }
+</style>
