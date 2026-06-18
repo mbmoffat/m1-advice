@@ -1,0 +1,212 @@
+---
+import ArticleLayout from '../layouts/ArticleLayout.astro';
+import Reassurance from '../components/Reassurance.astro';
+import MidCta from '../components/MidCta.astro';
+import PullQuote from '../components/PullQuote.astro';
+import FaqSection from '../components/FaqSection.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+import EnquiryForm from '../components/locked/EnquiryForm.astro';
+import RelatedPanel from '../components/RelatedPanel.astro';
+
+const slug = '/limited-company-buy-to-let-deposit';
+
+const reassuranceLines = [
+  'Directors funding the deposit from personal savings outside the company.',
+  'Money put in as a director\'s loan so it can be drawn back later.',
+  'A deposit gifted by family into the company for the purchase.',
+  'Equity released from another property to fund the next one.',
+  'First-time landlords saving the first company deposit from scratch.',
+];
+
+const faqs = [
+  {
+    q: 'How much deposit do I need for a limited company buy-to-let?',
+    a: 'Plan for at least a quarter of the property value, so most company lending caps at around 75% of the price. A few lenders stretch to 80% on standard property, and some ask for 30% or more on newer companies, flats above commercial premises, or houses in multiple occupation. The rent also has to cover the mortgage at a stress rate, so on a lower-rent property you may need a larger deposit than the headline figure to make the loan work.',
+  },
+  {
+    q: 'Can the deposit come from a director\'s loan?',
+    a: 'Yes, and this is the most common route. You lend the deposit to the company personally, the company records it as a director\'s loan, and you can draw that money back out of the company later without it counting as income. Lenders are comfortable with this as long as the source of the money is clean and can be evidenced, such as personal savings or the sale of another property. Speak to your accountant about how the loan is recorded, because it has tax and bookkeeping consequences.',
+  },
+  {
+    q: 'Can I use a gifted deposit for a company buy-to-let?',
+    a: 'Often, yes. A gift from a close family member is usually acceptable, though it is treated a little differently from a residential gifted deposit because the money goes into the company rather than to you. The lender will want a letter from the person giving the money confirming it is a genuine gift with no stake in the property, and will check the source of the funds. Some lenders are stricter on gifts into a company than others, so it pays to know the rules before you commit.',
+  },
+  {
+    q: 'Does a bigger deposit get me a better rate?',
+    a: 'Usually, yes. Lenders price in bands by loan-to-value, so dropping from 75% to 70% or 65% often moves you into a lower rate and widens the choice of lenders. A larger deposit also means a smaller loan, which needs less rent to cover it at the stress rate, so it can rescue a case where the rent looks tight. On a marginal deal, finding a little more deposit frequently does more than chasing the lowest headline rate.',
+  },
+  {
+    q: 'Can I use equity from another property as the deposit?',
+    a: 'Yes. Many landlords raise the deposit by remortgaging or releasing equity from a property they already own, then lend that money into the company to buy the next one. The new lender treats it as a normal deposit as long as the source is clear, though it will factor the extra borrowing into your overall position, especially if you hold a portfolio. It is worth modelling the cost of the released equity against the return on the new property before you proceed.',
+  },
+  {
+    q: 'Do I pay stamp duty on top of the deposit?',
+    a: 'Yes, and it is easy to overlook. A company buying a buy-to-let pays the higher rate of stamp duty land tax that applies to additional property, on top of the purchase price, and that money is separate from your deposit. You will also need funds for legal fees, lender and broker costs, and a sensible cash buffer for the company. Budget for the whole picture, not just the deposit, so the purchase does not stall at the last step.',
+  },
+];
+
+const relatedCards = [
+  {
+    title: 'Limited company buy-to-let mortgages',
+    href: '/limited-company-buy-to-let-mortgage',
+    line: 'The pillar guide to holding a let through a company.',
+  },
+  {
+    title: 'Limited company buy-to-let criteria',
+    href: '/limited-company-buy-to-let-criteria',
+    line: 'How lenders read the rent, the company and the directors.',
+  },
+  {
+    title: 'SPV mortgages for buy-to-let',
+    href: '/spv-mortgage',
+    line: 'Setting up the company so a lender will fund it.',
+  },
+  { title: 'Check your eligibility', href: '/check', line: 'Five quick questions, about 60 seconds.' },
+];
+---
+
+<ArticleLayout
+  title="Deposit for a Limited Company Buy-to-Let | Mortgage One"
+  description="Yes, plan for at least a quarter of the value as a limited company buy-to-let deposit. How much you need, acceptable sources, director's loans and gifts."
+  eyebrow="Limited company buy-to-let"
+  heading="Deposit for a limited company buy-to-let"
+  breadcrumbs={[
+    { name: 'Home', href: '/' },
+    { name: 'Deposit for a limited company buy-to-let', href: slug },
+  ]}
+  scenario="btl"
+>
+  <p>
+    Yes, you will normally need at least a quarter of the property value as the deposit for a limited company
+    buy-to-let, so most company lending tops out around 75% of the price. The deposit goes into the company rather than
+    being paid by you personally, usually as money you lend in, and the lender checks both the amount and where it came
+    from. How much you actually need depends on the property, the company and, just as much, on whether the rent covers
+    the loan at the lender's stress rate. This page sets out the deposit figure to aim for, the sources a lender will
+    accept, and how a larger deposit can lower your rate and rescue a tight case. For the wider picture, see our pillar
+    guide to <a href="/limited-company-buy-to-let-mortgage">limited company buy-to-let mortgages</a>.
+  </p>
+
+  <Reassurance title="Where company deposits usually come from" lines={reassuranceLines} />
+
+  <h2>How much deposit do you need?</h2>
+  <p>
+    Start from at least 25% of the property value, which is where most limited company buy-to-let lending sits, leaving a
+    loan of up to 75% of the price. A handful of lenders will stretch to 80% on standard houses and flats, and at the
+    other end some ask for 30% or more where the case is less straightforward: a brand new company, a flat above a shop,
+    or a house in multiple occupation. The headline figure is only the starting point, though, because the rent has to
+    cover the mortgage as well. On a lower-rent property the cover test, not the loan-to-value band, can be what forces a
+    bigger deposit.
+  </p>
+
+  <h2>Why the deposit and the rent work together</h2>
+  <p>
+    A buy-to-let lender does two sums, and the deposit sits in both. The first is loan-to-value: the deposit decides how
+    much of the price you are borrowing. The second is the rent cover test, where the monthly rent has to exceed the
+    mortgage interest at a stress rate by a set margin, known as the interest cover ratio. A larger deposit means a
+    smaller loan, and a smaller loan needs less rent to pass that test. So when the rent looks tight against the loan you
+    want, adding to the deposit often does more to make the case work than hunting for a lower rate. We explain the cover
+    test in full on our page about <a href="/limited-company-buy-to-let-criteria">limited company buy-to-let
+    criteria</a>.
+  </p>
+
+  <MidCta
+    text="Want to know how much deposit your deal actually needs once the rent is in the sum? Tell us the property, the rent and what you can put in."
+    scenario="btl"
+    src={slug}
+  />
+
+  <h2>Acceptable sources of deposit</h2>
+  <p>
+    A lender wants the deposit to be the company's money and to know exactly where it came from. The cleanest sources are
+    personal savings, the sale of another property, or retained profit already inside the company. Money raised by
+    remortgaging another property is fine too, as long as the trail is clear. What a lender will question is anything it
+    cannot evidence: a recent large deposit into your account with no explanation, money from an unconnected third party,
+    or funds from outside the United Kingdom that cannot be traced. Keep the paperwork that shows the source, because the
+    lender and the conveyancer both have to satisfy anti-money-laundering rules before completion.
+  </p>
+
+  <h2>Using a director's loan for the deposit</h2>
+  <p>
+    The most common way to get the deposit into the company is a director's loan. You lend the money to the company
+    personally, the company records it as a loan owed back to you, and you can draw that sum out again later without it
+    being treated as income. This matters, because it lets you put money in to buy the property and recover it down the
+    line as the company builds up cash. Lenders are comfortable with the arrangement as long as the original source of
+    the money is clean. The bookkeeping and tax treatment belong with your accountant, so agree how the loan is recorded
+    before the funds move.
+  </p>
+
+  <PullQuote quote="The deposit is the company's money, but it is usually yours first. Lend it in as a director's loan, evidence where it came from, and you can draw it back out later." />
+
+  <h2>Gifted deposits into a company</h2>
+  <p>
+    A deposit gifted by close family is often acceptable, though it is handled a little differently from a residential
+    gift because the money lands in the company rather than with you. The lender will ask the person giving the money for
+    a letter confirming it is a genuine gift with no stake in the property, and will still check where their funds came
+    from. Some lenders are happy with gifts into a company and others are wary of them, so the gift can narrow your
+    choice of lender. If family money is funding the purchase, it is worth confirming a lender will accept it before you
+    rely on it.
+  </p>
+
+  <h2>How a bigger deposit lowers your rate</h2>
+  <p>
+    Lenders price buy-to-let in loan-to-value bands, so the rate usually steps down as the deposit grows. Moving from 75%
+    down to 70% or 65% can drop you into a cheaper band and open up lenders that will not look at the thinnest deposits.
+    The saving is twofold: a lower rate on a smaller loan. On a marginal case the extra deposit can also be the
+    difference between a deal that passes the rent cover test and one that does not. That is why we model a couple of
+    deposit levels rather than one, so you can see whether stretching a little further pays for itself.
+  </p>
+
+  <h2>Budget for more than the deposit</h2>
+  <p>
+    The deposit is the largest single cost, but it is not the only one, and a purchase can stall if the rest is
+    forgotten. A company buying a buy-to-let pays the higher rate of stamp duty land tax for additional property, which
+    is separate from the deposit and can be a substantial sum. On top of that come legal fees, the lender's and broker's
+    costs, a valuation, and a sensible cash buffer left in the company for void periods and repairs. Build the whole
+    figure before you commit, so you are not left short at completion with the deposit in place but nothing behind it.
+  </p>
+
+  <h2>How does Mortgage One help?</h2>
+  <p>
+    Mortgage One is a countrywide UK mortgage broker with access to plans from the whole of market, and we place limited
+    company buy-to-let cases as routine business. We tell you the deposit your specific deal needs once the rent is in
+    the sum, not just the headline loan-to-value, and we model a couple of deposit levels so you can see where a little
+    more lowers the rate or rescues the cover test. We check that your source of deposit will satisfy a lender before you
+    rely on it, whether that is a director's loan, a gift or released equity, and we work alongside your accountant on
+    how it is recorded. We are authorised and regulated by the Financial Conduct Authority (FCA) for the mortgage advice.
+    You must be on UK soil to receive advice, so we confirm your circumstances properly before recommending anything.
+  </p>
+
+  <MidCta
+    text="Ready to know the real deposit figure for your case rather than guess? Let an adviser run the numbers on your limited company buy-to-let."
+    label="Check Your Options"
+    scenario="btl"
+    src={slug}
+  />
+
+  <FaqSection items={faqs} />
+
+  <CtaBlock
+    heading="See how much deposit your case needs"
+    line="Tell us about the property, the rent, the company and what you can put in, and a Mortgage One adviser will review your answers."
+    scenario="btl"
+    src={slug}
+  />
+
+  <h2>Send us an enquiry</h2>
+  <EnquiryForm scenario="btl" />
+
+  <RelatedPanel cards={relatedCards} />
+
+  <p class="risk-warning">
+    Think carefully before securing your debts against your home. Your home may be repossessed if you do not keep up
+    repayments on your mortgage.
+  </p>
+</ArticleLayout>
+
+<style>
+  .risk-warning {
+    border-top: 1px solid var(--line);
+    padding-top: 1.5rem;
+    margin-top: 2.5rem;
+  }
+</style>
