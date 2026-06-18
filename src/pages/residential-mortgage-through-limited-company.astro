@@ -1,0 +1,219 @@
+---
+import ArticleLayout from '../layouts/ArticleLayout.astro';
+import Reassurance from '../components/Reassurance.astro';
+import MidCta from '../components/MidCta.astro';
+import PullQuote from '../components/PullQuote.astro';
+import FaqSection from '../components/FaqSection.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+import EnquiryForm from '../components/locked/EnquiryForm.astro';
+import RelatedPanel from '../components/RelatedPanel.astro';
+
+const slug = '/residential-mortgage-through-limited-company';
+
+const reassuranceLines = [
+  'The home you live in is bought in your own name, not the company name.',
+  'Being a company director helps your application rather than holding it back.',
+  'Lenders assess you on salary and dividends, or on your share of net profit.',
+  'A limited company earns its place on investment property, not your own home.',
+  'We tell you which route fits before you spend a penny on fees.',
+];
+
+const faqs = [
+  {
+    q: 'Can I buy my own home through my limited company?',
+    a: 'In almost all cases this is not the route to take. Standard residential mortgages for a home you live in are granted to you as a person, and mainstream residential lenders will not lend to a limited company for an owner-occupied property. On top of that, putting the home you occupy inside your company creates tax that usually wipes out any saving you hoped for, including a benefit-in-kind charge for living in a company asset. Company ownership of residential property has a genuine place, but it is investment property let to tenants, not the house you live in yourself.',
+  },
+  {
+    q: 'Can a limited company get a residential mortgage?',
+    a: 'A limited company can borrow against residential property it owns, but that lending is buy-to-let through a special purpose vehicle, where the property is let to tenants and the company is the landlord. There is no mainstream owner-occupier mortgage for a company, because residential mortgage regulation and lender appetite are built around lending to individuals who live in the home. If you want to buy a home to live in, you take a residential mortgage in your own name; if you want to buy property to let, a limited company structure is worth weighing up.',
+  },
+  {
+    q: 'Is it cheaper to buy a house to live in through a limited company?',
+    a: 'For the home you occupy, usually no. A company that owns residential property can face an annual charge on enveloped dwellings above a set value, a higher flat rate of stamp duty land tax on dwellings bought above that value, and a benefit-in-kind charge on you for living there. A company also does not get the private residence relief an individual gets, so any gain when the home is sold can be taxed. These costs tend to outweigh the saving people imagine. A tax adviser or accountant should price the full picture before you act, because the rules are detailed and they change.',
+  },
+  {
+    q: 'Can I get a residential mortgage if I am a company director?',
+    a: 'Yes. Being a director does not stop you buying a home in your own name; it simply changes how a lender measures your income. Most lenders assess a director on salary plus dividends, and a useful group will instead use salary plus your share of company net profit, which can lift the figure if you leave profit in the business. The mortgage is still personal and the rates are the same as for any other buyer. The work is matching your accounts to the lender that reads them most favourably.',
+  },
+  {
+    q: 'When does buying property through a limited company make sense?',
+    a: 'It tends to make sense for investment property rather than your own home. Landlords often hold buy-to-let property in a special purpose vehicle because mortgage interest is treated as a company cost and profit is taxed as company profit, which can be more efficient for higher-rate taxpayers building a portfolio. The trade-off is tighter lender choice, company running costs and personal guarantees. Whether it beats owning in your own name depends on your tax position, so it is a decision to take with your accountant alongside a broker who knows the lenders.',
+  },
+  {
+    q: 'Can a broker help me work out the right structure?',
+    a: 'Yes, and this is where most of the value sits. A broker can confirm quickly that your own home is a personal mortgage, then show you what you can borrow as a director and which lenders read your income best. Where you are buying to let, a broker can compare owning in your own name against a limited company and point you to the lenders that suit each. We arrange the mortgage; your accountant prices the tax. Together that stops you chasing a company structure that costs more than it saves.',
+  },
+];
+
+const relatedCards = [
+  {
+    title: 'Self-employed mortgages',
+    href: '/self-employed-mortgage',
+    line: 'The pillar guide to how lenders read self-employed and director income.',
+  },
+  {
+    title: 'Company director mortgages',
+    href: '/company-director-mortgage',
+    line: 'Buying your own home on salary, dividends and company accounts.',
+  },
+  {
+    title: 'Limited company buy-to-let',
+    href: '/limited-company-buy-to-let-mortgage',
+    line: 'The route where company ownership genuinely fits: property to let.',
+  },
+  { title: 'Check your eligibility', href: '/check', line: 'Five quick questions, about 60 seconds.' },
+];
+---
+
+<ArticleLayout
+  title="Buying A Home Through A Limited Company | Mortgage One"
+  description="Yes, a limited company can hold residential property, but your own home is a personal mortgage. Where company ownership fits, the tax and how directors qualify."
+  eyebrow="Complex income"
+  heading="Buying your home through a limited company"
+  breadcrumbs={[
+    { name: 'Home', href: '/' },
+    { name: 'Limited company home', href: slug },
+  ]}
+  scenario="self-employed"
+>
+  <p>
+    Yes, a limited company can own residential property and there is lending built for it, but the home you actually live
+    in is a different question. For the property you occupy, a standard residential mortgage is granted to you as a
+    person, not to your company, and mainstream residential lenders will not lend to a company for an owner-occupied home.
+    Holding your own home inside a company also brings tax that usually outweighs any saving you had in mind. Where a
+    limited company structure earns its place is investment property let to tenants, through a special purpose vehicle.
+    This page sets out where each route fits, why your own home is a personal mortgage, and how being a director helps
+    rather than hinders that application.
+  </p>
+
+  <Reassurance title="What to hold on to before you start" lines={reassuranceLines} />
+
+  <h2>The short answer: your home versus an investment</h2>
+  <p>
+    It helps to split the question in two. If you are buying a home to live in, you borrow in your own name and the
+    company sits in the background as the source of your income. If you are buying property to let to tenants, a limited
+    company can own it and borrow against it, and many landlords choose exactly that. The phrase "residential mortgage
+    through a limited company" tends to mix the two together, which is where the confusion starts. The home you occupy is
+    a personal residential mortgage; the rental property is a company buy-to-let. Keeping the two apart makes the rest of
+    the decision much clearer.
+  </p>
+
+  <h2>Why your own home is a personal mortgage</h2>
+  <p>
+    Mainstream residential lending is designed around an individual who lives in the property. The regulation, the
+    affordability rules and the lender appetite all assume a person on the title and on the mortgage. A lender asked to
+    place an owner-occupied home in a company name has no standard product to offer, because that sits outside the
+    residential market and looks more like commercial lending. There is also a tax reason the structure rarely works for
+    a home you live in: if your company owns the property and you live there, you are receiving a benefit from the company,
+    and that benefit is taxable on you each year. Between the lack of a mortgage product and the tax on the benefit, the
+    company route for your own home tends to create cost and complication rather than remove it.
+  </p>
+
+  <h2>The tax that makes company ownership of a home expensive</h2>
+  <p>
+    A company that holds residential property can face several charges an individual does not. An annual tax on enveloped
+    dwellings can apply where a company owns a residential property above a set value, unless a relief such as letting it
+    commercially applies. A higher flat rate of stamp duty land tax can apply when a company buys a dwelling above that
+    value. Living in a company-owned home creates the benefit-in-kind charge mentioned above. And a company does not
+    receive the private residence relief that shelters the gain on an individual's main home, so a future sale can be
+    taxed where your own ownership would not be. None of this is advice on your tax position, and the figures and reliefs
+    change, so price the full picture with a qualified accountant or tax adviser before you decide anything.
+  </p>
+
+  <PullQuote quote="For the home you live in, the company route usually adds tax and removes the mortgage. The structure earns its keep on property you let, not the one you sleep in." />
+
+  <MidCta
+    text="Not sure whether your purchase is a personal mortgage or a company one? Tell us what you are buying and we will point you to the right route in plain terms."
+    scenario="self-employed"
+    src={slug}
+  />
+
+  <h2>Buying your home as a director: the route that works</h2>
+  <p>
+    The good news is that running a limited company does not get in the way of buying your own home; it just changes how a
+    lender reads your income. Most lenders assess a director on salary plus the dividends drawn from the company, averaged
+    over the last one to three years. A useful group will instead use your salary plus your share of company net profit,
+    which can lift the assessable figure where you leave profit in the business for tax efficiency. Our pillar guide to
+    <a href="/self-employed-mortgage">self-employed mortgages</a> covers how lenders treat company income, and the
+    <a href="/company-director-mortgage">company director mortgage</a> guide walks through the salary and dividends route
+    in detail. The mortgage itself is an ordinary residential one in your own name, at the same rates as any other buyer.
+  </p>
+
+  <h2>When a limited company does belong on the deal</h2>
+  <p>
+    Where company ownership genuinely fits is investment property. Many landlords hold buy-to-let property in a special
+    purpose vehicle, a company set up to hold property, because mortgage interest is treated as a company cost and rental
+    profit is taxed as company profit, which can suit a higher-rate taxpayer building a portfolio. The trade-off is a
+    narrower set of lenders, company running costs and a personal guarantee from the directors. If that is what you are
+    weighing up, our guide to <a href="/limited-company-buy-to-let-mortgage">limited company buy-to-let mortgages</a> sets
+    out the lending, and the <a href="/spv-mortgage">special purpose vehicle mortgage</a> guide explains how the company
+    is structured. The decision still belongs with your accountant, because the tax case is the whole reason to do it.
+  </p>
+
+  <h2>What you will need for a director's residential mortgage</h2>
+  <p>
+    For the home you live in, plan for the evidence any director provides. That means your finalised company accounts,
+    prepared by a qualified accountant, usually covering two years, with some lenders accepting one. Where you draw a
+    salary and dividends, your tax calculations, often called SA302s, and the matching tax year overviews from HM Revenue
+    and Customs confirm what you have taken from the business. Where a lender assesses you on net profit, a short note
+    from your accountant confirming the figure and that it is available to you often does the job. Personal and business
+    bank statements for the last three months, proof of identity, proof of address and evidence of your deposit complete
+    the set. When the accounts, the tax records and the statements all tell the same story, an underwriter can move
+    quickly.
+  </p>
+
+  <h2>The bespoke exception, and why it is rare</h2>
+  <p>
+    There are bespoke arrangements, often through private banks, where a high-net-worth individual holds a residence
+    inside a company or trust for estate or privacy reasons, with lending structured around it. These are individually
+    underwritten, come with their own tax cost, and are nothing like a standard residential mortgage. They exist, so it is
+    fair to say company ownership of a home is possible, but for almost everyone buying a place to live the personal route
+    is cheaper, simpler and the one lenders are set up to offer. We will tell you honestly which side of that line your
+    purchase falls on rather than push a structure that does not pay its way.
+  </p>
+
+  <h2>How does Mortgage One help?</h2>
+  <p>
+    Mortgage One is a countrywide UK mortgage broker with access to plans from the whole of market. We start by confirming
+    whether your purchase is a personal residential mortgage or a company buy-to-let, so you are not chasing the wrong
+    product. For your own home we work out whether salary and dividends or salary plus net profit gives you the stronger
+    figure, and match your accounts to a lender that reads them well. For investment property we compare owning in your own
+    name against a limited company and point you to the right lenders. We are authorised and regulated by the Financial
+    Conduct Authority (FCA) for the mortgage advice, you must be on UK soil to receive it, and we work alongside your
+    accountant, who prices the tax, so the structure you choose is the one that actually saves you money.
+  </p>
+
+  <MidCta
+    text="Ready to know which route fits before you spend on fees or set up a company you may not need? Let an adviser review your plans."
+    label="Check Your Options"
+    scenario="self-employed"
+    src={slug}
+  />
+
+  <FaqSection items={faqs} />
+
+  <CtaBlock
+    heading="Get the structure right before you buy"
+    line="Tell us what you are buying, your role in the company and your deposit, and a Mortgage One adviser will tell you whether it is a personal mortgage or a company one, and what you can borrow."
+    scenario="self-employed"
+    src={slug}
+  />
+
+  <h2>Send us an enquiry</h2>
+  <EnquiryForm scenario="self-employed" />
+
+  <RelatedPanel cards={relatedCards} />
+
+  <p class="risk-warning">
+    Think carefully before securing your debts against your home. Your home may be repossessed if you do not keep up
+    repayments on your mortgage.
+  </p>
+</ArticleLayout>
+
+<style>
+  .risk-warning {
+    border-top: 1px solid var(--line);
+    padding-top: 1.5rem;
+    margin-top: 2.5rem;
+  }
+</style>
