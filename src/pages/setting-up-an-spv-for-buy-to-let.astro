@@ -1,0 +1,211 @@
+---
+import ArticleLayout from '../layouts/ArticleLayout.astro';
+import Reassurance from '../components/Reassurance.astro';
+import MidCta from '../components/MidCta.astro';
+import PullQuote from '../components/PullQuote.astro';
+import FaqSection from '../components/FaqSection.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+import EnquiryForm from '../components/locked/EnquiryForm.astro';
+import RelatedPanel from '../components/RelatedPanel.astro';
+
+const slug = '/setting-up-an-spv-for-buy-to-let';
+
+const reassuranceLines = [
+  'First-time company landlords forming their first vehicle before they buy.',
+  'Investors who want the company set up correctly the first time.',
+  'Couples deciding how to split the shares between them.',
+  'Landlords unsure whether to use one company or one per property.',
+  'Owners moving from personal lets into a company structure.',
+];
+
+const faqs = [
+  {
+    q: 'How do I set up an SPV for buy-to-let?',
+    a: 'You incorporate a limited company at Companies House, choose a name, give a registered office, appoint at least one director, set the shareholders and their split, and record property-only standard industrial classification (SIC) codes. The whole filing is usually done online in under a day. The harder part is making the choices at formation so the company suits a lender as well as your tax plan, which is why it pays to settle the structure with an accountant and check the lending angle before you register.',
+  },
+  {
+    q: 'How long does it take to set up an SPV?',
+    a: 'The incorporation itself is fast. Filed online at Companies House the company is usually live within 24 hours, sometimes within a few hours. Opening a business bank account in the company name often takes longer than the incorporation, so start that early. A brand new company with no trading history is completely normal for a buy-to-let mortgage, so a same-week incorporation does not hold up a purchase.',
+  },
+  {
+    q: 'How much does it cost to set up a buy-to-let SPV?',
+    a: 'The Companies House incorporation fee is small, in the region of £50 filed online. On top of that, most landlords pay an accountant to set the structure up correctly and to handle the annual accounts and company tax return, which is the larger ongoing cost. Budget for the yearly accountancy and the confirmation statement fee rather than just the one-off formation, because running a company carries a cost a personal let does not.',
+  },
+  {
+    q: 'What SIC codes should an SPV use?',
+    a: 'Lenders want the company recorded against property-only standard industrial classification (SIC) codes, most commonly 68100, 68209, 68320 or 68201, which describe buying, letting and managing property. Keep the codes to property alone. A company that also lists a trading activity reads as a mixed business and narrows the lenders willing to fund it.',
+  },
+  {
+    q: 'Should I set up one SPV or one company per property?',
+    a: 'Both are common and the right answer depends on your plans and your accountant. One company holding several properties is simpler and cheaper to run, while a separate company per property can ring-fence each one and keep future sales clean, at the cost of more accounts and more admin. It is a structuring and tax question for your accountant first, and we then fit the lending around whichever shape you choose.',
+  },
+  {
+    q: 'Do I need an accountant to set up an SPV?',
+    a: 'You are not legally required to use one to incorporate, but most company landlords do, because the tax and structuring decisions behind the company matter more than the filing itself. An accountant helps you weigh a company against personal ownership, set the shareholding sensibly and keep the company compliant once it is running. Our part is the mortgage, so we work alongside your accountant rather than giving tax advice.',
+  },
+];
+
+const relatedCards = [
+  {
+    title: 'Limited company buy-to-let mortgages',
+    href: '/limited-company-buy-to-let-mortgage',
+    line: 'The pillar guide to holding a let through a company.',
+  },
+  {
+    title: 'SPV mortgages for buy-to-let',
+    href: '/spv-mortgage',
+    line: 'How a lender reads and funds the SPV once it is set up.',
+  },
+  {
+    title: 'Limited company or personal name',
+    href: '/limited-company-vs-personal-name-buy-to-let',
+    line: 'Deciding the route before you form a company.',
+  },
+  { title: 'Check your eligibility', href: '/check', line: 'Five quick questions, about 60 seconds.' },
+];
+---
+
+<ArticleLayout
+  title="Setting Up an SPV for Buy-to-Let | Mortgage One"
+  description="How to set up an SPV for buy-to-let: incorporation, SIC codes, shareholding, the order of steps, what it costs and how to make the company lender-ready."
+  eyebrow="Limited company buy-to-let"
+  heading="Setting up an SPV for buy-to-let"
+  breadcrumbs={[
+    { name: 'Home', href: '/' },
+    { name: 'Setting up an SPV for buy-to-let', href: slug },
+  ]}
+  scenario="btl"
+>
+  <p>
+    Setting up a special purpose vehicle (SPV) for buy-to-let is quick: you incorporate a limited company at Companies
+    House, name it, give a registered office, appoint a director, set the shareholders and record property-only activity
+    codes, and the company is usually live within a day. The work that matters is not the filing but the choices you make
+    while you do it, because those choices decide whether a lender will fund the company once it owns property. This page
+    walks through the setup step by step, the decisions to get right at formation, the order to do things in, and what it
+    costs. For how a lender then reads and sizes the loan, see our page on
+    <a href="/spv-mortgage">SPV mortgages for buy-to-let</a>, and for the wider company picture our pillar guide to
+    <a href="/limited-company-buy-to-let-mortgage">limited company buy-to-let mortgages</a>.
+  </p>
+
+  <Reassurance title="Landlords we help set up an SPV" lines={reassuranceLines} />
+
+  <h2>What setting up an SPV actually involves</h2>
+  <p>
+    An SPV is simply a limited company set up to do one job: to buy, hold and let property and nothing else. Forming one is
+    the same online incorporation as any company. You pick a name that is not already taken, give a registered office
+    address, appoint at least one director, decide who the shareholders are and how many shares each holds, and record the
+    activity codes that say the company only deals in property. File it at Companies House and the company exists, usually
+    within 24 hours. None of that is hard. The reason to slow down is that a lender later judges the company on how it was
+    set up, so the few minutes you spend on the codes and the shareholding at formation save you re-papering the company
+    when you come to borrow.
+  </p>
+
+  <h2>The decisions to get right at formation</h2>
+  <p>
+    Four choices carry most of the weight. First, the activity codes: lenders want property-only standard industrial
+    classification (SIC) codes, most commonly 68100, 68209, 68320 or 68201, and a company that also lists a trading
+    activity reads as a mixed business that fewer lenders will fund. Second, the shareholding: keep it short and clean, a
+    couple of directors who are also the shareholders is far easier to fund than a long list, and lenders look closely at
+    anyone with a meaningful stake. Third, the directors, who will almost always be asked to give a personal guarantee, so
+    everyone behind the company should expect to stand behind the loan. Fourth, how the shares split between you, which is a
+    tax question for your accountant rather than a lending one, but it is far easier to set sensibly at formation than to
+    change later.
+  </p>
+
+  <MidCta
+    text="Forming an SPV and want it to fit a lender before you register it? Tell us the shape of the plan and we will tell you where you stand."
+    scenario="btl"
+    src={slug}
+  />
+
+  <h2>Get the order right: tax, then form, then mortgage</h2>
+  <p>
+    An easy mistake to avoid is doing things out of order. Settle the structure with an accountant first, so you know
+    a company is the right home for the property at all and how the shares should split, which we set side by side on our
+    page about <a href="/limited-company-vs-personal-name-buy-to-let">limited company or personal name</a>. Then form the
+    company with the right codes and shareholding. Only then line up the mortgage. Running the steps in that order means the
+    company you fund is one a lender accepts, rather than one you unpick after the fact. We are happy to look at the
+    borrowing before the company is formed, so the activity codes and the share split are right the first time and the
+    incorporation matches the lender you are heading for.
+  </p>
+
+  <h2>One SPV or one company per property?</h2>
+  <p>
+    A common question at setup is whether to hold everything in a single company or form a separate one for each property.
+    One company holding several lets is simpler and cheaper to run, with one set of accounts and one confirmation
+    statement. A company per property ring-fences each one, which can keep a future sale clean and contain risk, but it
+    multiplies the accounts, the bank accounts and the admin. There is no single right answer: it turns on how many
+    properties you plan to hold, whether you might sell individually, and the tax treatment, so it is a structuring
+    decision for your accountant. On the lending side we can fund either shape, and we will flag where a lender's portfolio
+    limits or pricing make one structure easier to borrow against than the other.
+  </p>
+
+  <PullQuote quote="Forming the company takes an afternoon. Forming it so a lender will fund it takes a few right decisions at the start, and those are the ones worth slowing down for." />
+
+  <h2>What it costs to set up and run</h2>
+  <p>
+    The incorporation itself is cheap, in the region of £50 filed online at Companies House, and the company is live almost
+    at once. The real cost of an SPV is in running it, not forming it. Most company landlords pay an accountant to set the
+    structure up correctly and then to file the annual accounts and company tax return each year, and there is a yearly
+    confirmation statement fee on top. A business bank account in the company name is worth opening early, because that
+    often takes longer than the incorporation does. None of this is a reason not to use a company, but it is a real cost a
+    personal let does not carry, so weigh the yearly running cost, not just the one-off setup, when you decide.
+  </p>
+
+  <h2>Setup mistakes that cost you a lender</h2>
+  <p>
+    A handful of avoidable slips at formation narrow the lenders willing to look at the company. Listing a trading activity
+    code alongside the property ones makes the company read as a mixed business. A crowded or unusual shareholder list,
+    with passive investors or shareholders who will not give a personal guarantee, makes the case harder to place. Choosing
+    a company name that hints at trading rather than property can prompt questions. And forming the company before you have
+    settled with an accountant whether a company suits you at all can leave you running a vehicle you did not need. Each of
+    these is easy to get right at the start and tedious to fix afterwards, which is the whole argument for checking the
+    lending angle before you file.
+  </p>
+
+  <h2>How does Mortgage One help?</h2>
+  <p>
+    Mortgage One is a countrywide UK mortgage broker with access to plans from the whole of market, and we arrange company
+    buy-to-let cases as routine business. Before you form the company we will tell you what lenders want from the activity
+    codes and the shareholding, so the SPV you register is one a lender will fund. Once it is set up, we work out which
+    lenders are comfortable with your company and the property, size the loan on the rent, and brief you and your fellow
+    directors on the personal guarantee. We will not give you tax or structuring advice, that is your accountant's job, but
+    we work alongside them so the borrowing fits the structure they recommend. We are authorised and regulated by the
+    Financial Conduct Authority (FCA) for the mortgage advice. You must be on UK soil to receive advice, so we confirm your
+    circumstances properly before recommending anything.
+  </p>
+
+  <MidCta
+    text="Ready to set the SPV up once and set it up right? Let an adviser review your plan before you register the company."
+    label="Check Your Options"
+    scenario="btl"
+    src={slug}
+  />
+
+  <FaqSection items={faqs} />
+
+  <CtaBlock
+    heading="Set up your SPV so a lender will fund it"
+    line="Tell us about the property, the rent, the company you plan to form and your deposit, and a Mortgage One adviser will review your answers."
+    scenario="btl"
+    src={slug}
+  />
+
+  <h2>Send us an enquiry</h2>
+  <EnquiryForm scenario="btl" />
+
+  <RelatedPanel cards={relatedCards} />
+
+  <p class="risk-warning">
+    Think carefully before securing your debts against your home. Your home may be repossessed if you do not keep up
+    repayments on your mortgage.
+  </p>
+</ArticleLayout>
+
+<style>
+  .risk-warning {
+    border-top: 1px solid var(--line);
+    padding-top: 1.5rem;
+    margin-top: 2.5rem;
+  }
+</style>
