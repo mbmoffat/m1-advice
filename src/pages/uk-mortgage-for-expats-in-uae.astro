@@ -1,0 +1,212 @@
+---
+import ArticleLayout from '../layouts/ArticleLayout.astro';
+import Reassurance from '../components/Reassurance.astro';
+import MidCta from '../components/MidCta.astro';
+import PullQuote from '../components/PullQuote.astro';
+import FaqSection from '../components/FaqSection.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+import EnquiryForm from '../components/locked/EnquiryForm.astro';
+import RelatedPanel from '../components/RelatedPanel.astro';
+
+const slug = '/uk-mortgage-for-expats-in-uae';
+
+const reassuranceLines = [
+  'British nationals living in Dubai, Abu Dhabi or elsewhere in the United Arab Emirates (UAE), buying or remortgaging in the UK.',
+  'Paid tax-free in UAE dirham (AED), whether employed, on a package or running a business.',
+  'Residents holding an employment or investor visa under the UAE sponsorship rules.',
+  'Keeping a UK home to return to, or letting it out while abroad.',
+  'On a fixed-term Gulf contract planning a move back to the UK in time.',
+];
+
+const faqs = [
+  {
+    q: 'Can a British expat in Dubai get a UK mortgage?',
+    a: 'Yes. British nationals living in Dubai, Abu Dhabi and across the UAE arrange UK mortgages regularly, both to buy and to remortgage. Being based in the Gulf does not stop you owning property here, it narrows which lenders will look at you and changes how they read your income. The UAE has a large, long-settled British community and the dirham is pegged to the US dollar, a currency expat lenders handle without difficulty, so the lender list tends to be wider than for a country they rarely fund. The work is matching your dirham pay, your UAE residency and your deposit to a lender that treats overseas borrowers as routine.',
+  },
+  {
+    q: 'How does dirham income affect what I can borrow?',
+    a: 'A lender converts your UAE dirham pay to sterling and applies a reduction, often in the region of a fifth to a quarter, to allow for the exchange rate moving against the loan, then works from that lower figure. The dirham is pegged to the US dollar, so an underwriter reads it as a stable, mainstream currency rather than a volatile one, which helps. The size of the reduction still varies between lenders, so the lender you choose changes your borrowing more than the rate on the day does, and finding the one that applies the smallest haircut is the main task.',
+  },
+  {
+    q: 'My UAE salary is tax-free, so how do I prove my income?',
+    a: 'A tax-free salary is normal in the UAE and lenders are used to it, so the absence of a tax return is not a problem in itself, it just changes the evidence you provide. Instead of UK tax documents, an underwriter will look at your employment contract or offer letter, recent payslips and bank statements showing the salary landing, and for a business owner, company accounts and bank records. Setting that evidence out cleanly is what lets a lender assess income that never passed through a tax system, and it is a routine part of placing a Gulf case.',
+  },
+  {
+    q: 'Can I get a UK mortgage from the UAE to let the property out?',
+    a: 'Yes. Many expats in the UAE buy or keep a UK property to let, and that is sized mainly on the rent the property earns and a rent cover test rather than on your salary. A property you will live in or return to is sized on your income instead. The two are worked out in entirely different ways, so be clear which case is yours before you settle on a figure, and expect a buy-to-let from overseas to ask for a larger deposit than a UK-resident landlord would.',
+  },
+  {
+    q: 'How big a deposit will I need as an expat in the UAE?',
+    a: 'Plan for more than a UK resident would put down. Expat lenders commonly look for a deposit in the region of a quarter of the property value, sometimes more, and a larger deposit widens the lender choice open to you and can ease the affordability test. Our guide to the expat mortgage deposit covers how much to plan for and why it sits higher.',
+  },
+  {
+    q: 'Do I have to fly back to the UK to arrange the mortgage?',
+    a: 'You can do most of the groundwork from the UAE. The Gulf runs four hours ahead of the UK, so there is a window in your afternoon that overlaps the UK morning when we can talk things through. You must be on UK soil to receive advice, so we confirm your residency and circumstances properly before recommending anything. Much of the paperwork is handled remotely, so a trip back is usually about timing rather than a barrier to getting started.',
+  },
+];
+
+const relatedCards = [
+  {
+    title: 'Can an expat get a UK mortgage?',
+    href: '/can-an-expat-get-a-uk-mortgage',
+    line: 'The expat mortgage hub: residency, currency and deposits.',
+  },
+  {
+    title: 'How much can an expat borrow?',
+    href: '/how-much-can-an-expat-borrow',
+    line: 'How lenders size the loan and what lifts the figure.',
+  },
+  {
+    title: 'Expat mortgage deposit',
+    href: '/expat-mortgage-deposit',
+    line: 'How much deposit you need and why it is higher.',
+  },
+  { title: 'Check your eligibility', href: '/check', line: 'Five quick questions, about 60 seconds.' },
+];
+---
+
+<ArticleLayout
+  title="UK Mortgages for British Expats in the UAE | Mortgage One"
+  description="Yes, British expats in Dubai and the UAE can get a UK mortgage. How lenders read tax-free dirham income, residency and deposit, and how a broker helps."
+  eyebrow="Expat mortgages in the UAE"
+  heading="UK mortgages for British expats in the UAE"
+  breadcrumbs={[
+    { name: 'Home', href: '/' },
+    { name: 'UK mortgages for British expats in the UAE', href: slug },
+  ]}
+  scenario="expat"
+>
+  <p>
+    Yes, a British expat living in the United Arab Emirates (UAE) can get a UK mortgage. Building a life in Dubai, Abu
+    Dhabi or anywhere across the Gulf does not stop you buying, keeping or remortgaging property back in the UK, it
+    narrows which lenders will look at you and changes how they read your income. The UAE has a large, long-settled
+    British community and the dirham is pegged to the US dollar, a currency expat lenders handle without difficulty, so
+    the lender list tends to be wider than for a country they rarely fund. If you want the full picture first, start with
+    our hub on whether <a href="/can-an-expat-get-a-uk-mortgage">an expat can get a UK mortgage</a>, then come back here
+    for the UAE detail.
+  </p>
+
+  <Reassurance title="Expats in the UAE we help" lines={reassuranceLines} />
+
+  <h2>Why the UAE is a familiar country for lenders</h2>
+  <p>
+    Lenders group countries by how comfortable they are lending to residents there, and the UAE is a place most expat
+    lenders see regularly. A large British community across Dubai and Abu Dhabi, clear documentation and a currency
+    pegged to the US dollar all count in your favour. That does not make a case automatic, your income, deposit and
+    residency still have to stack up, but it does mean more lenders are willing to start the conversation than for a
+    country they rarely fund. The result is a wider lender list and, often, more competitive terms than expats in less
+    familiar places are offered.
+  </p>
+
+  <h2>How dirham income is assessed</h2>
+  <p>
+    If you are paid in UAE dirham (AED), a lender converts your pay to sterling and applies a reduction, often in the
+    region of a fifth to a quarter, to allow for the exchange rate moving against the loan, then works from that lower
+    figure. The dirham is pegged to the US dollar, so an underwriter reads it as a stable, mainstream currency rather
+    than a volatile one, and almost every expat lender will accept it. The size of that reduction still varies from
+    lender to lender, which is why the lender you choose changes your borrowing more than the exchange rate on the day
+    does. Matching your currency to a lender that reads it generously is the single biggest lever on the amount.
+  </p>
+
+  <h2>Tax-free salary and proving your income</h2>
+  <p>
+    A tax-free salary is normal in the UAE, and lenders are used to it, so the absence of a tax return does not count
+    against you, it simply changes the evidence you provide. Instead of UK tax documents, an underwriter will want your
+    employment contract or offer letter, recent payslips and bank statements showing the salary arriving, and, if you
+    run a business, company accounts and bank records. Setting that out cleanly is what lets a lender assess income that
+    never passed through a tax system, and it is a routine part of placing a Gulf case rather than an obstacle. Knowing
+    which lender reads your particular pay structure well, a base salary plus housing allowance, a bonus or a self-employed
+    draw, saves a false start later.
+  </p>
+
+  <MidCta
+    text="Want to know the figure a lender would actually assess from your tax-free dirham pay? Tell us how and where you are paid."
+    scenario="expat"
+    src={slug}
+  />
+
+  <h2>Buying a UK home, or letting one out from the UAE</h2>
+  <p>
+    What you are buying changes how the loan is built. A home you will live in or return to is sized on your income and
+    an affordability test, and our guide to <a href="/expat-residential-mortgage">residential mortgages for expats</a>
+    covers how that works from overseas. A property you let out is sized mainly on the rent it earns and a rent cover
+    test, so your salary matters far less. Many expats in the UAE do one of three things: keep the home they left and
+    remortgage it, buy a place to return to one day, or buy to let while they are away. Be clear which case is yours
+    before you settle on a figure, because the two are worked out in entirely different ways.
+  </p>
+
+  <h2>Deposit and what to plan for</h2>
+  <p>
+    Expect to put down more than a UK resident would. Expat lenders commonly look for a deposit in the region of a
+    quarter of the property value, sometimes more, with the firmer end common on buy-to-let and on larger loans. A
+    stronger deposit widens the lender choice open to you, sets a better loan-to-value band and can ease the
+    affordability test, so it is worth knowing where you stand before you commit. Our guide to the
+    <a href="/expat-mortgage-deposit">expat mortgage deposit</a> covers how much to plan for and why it sits higher than
+    for a borrower based in the UK.
+  </p>
+
+  <h2>Residency, your visa and your UK ties</h2>
+  <p>
+    Lenders want to understand your situation as a whole, not just your payslip. UAE residency runs on employer or
+    investor sponsorship rather than a settled permanent status, so a lender will want your current visa documented
+    clearly and may take comfort from how long you have been in the Gulf and the length of your contract. A clear set of
+    ties back to the UK, a credit footprint, a previous address or an existing property, helps your case read well.
+    None of this is a barrier on its own, though an overseas pay structure takes a little more documenting than a settled
+    UK one. Knowing how a given lender will treat your residency before you apply saves a false start later.
+  </p>
+
+  <PullQuote quote="From the UAE, your UK mortgage rarely turns on whether you qualify. It turns on matching your dirham pay, your residency and your deposit to a lender that funds Gulf cases as routine." />
+
+  <h2>Working across the time difference</h2>
+  <p>
+    The UAE runs four hours ahead of the UK, so there is a clear window, your afternoon against the UK morning, when we
+    can talk through where you broadly stand. Most of the groundwork, the fact-find, gathering payslips and bank
+    statements, and submitting the case, is handled remotely, so distance is rarely the obstacle. You must be on UK soil
+    to receive advice, so we confirm your residency and circumstances properly before recommending anything. In practice
+    a trip back is about timing rather than a hurdle, and a great deal is settled before you ever board a plane.
+  </p>
+
+  <h2>How does Mortgage One help?</h2>
+  <p>
+    Mortgage One is a countrywide UK mortgage broker with access to plans from the whole of market, and we arrange expat
+    cases as a regular part of the business, not an exception to it. We work out which lenders are comfortable with a UAE
+    residence and a tax-free dirham salary, count bonus, housing allowance or self-employed earnings properly, settle
+    whether your case is residential or buy-to-let, and put it in front of a lender that treats overseas borrowers as
+    routine, with the evidence an underwriter needs. You must be on UK soil to receive advice, so we confirm your
+    circumstances properly before recommending anything.
+  </p>
+
+  <MidCta
+    text="Ready to know where you stand on a UK mortgage from the UAE rather than guess from abroad? Let an adviser review your case."
+    label="Check Your Options"
+    scenario="expat"
+    src={slug}
+  />
+
+  <FaqSection items={faqs} />
+
+  <CtaBlock
+    heading="See if a UK mortgage from the UAE fits"
+    line="Tell us how you are paid, where in the UAE you live and the property you have in mind, and a Mortgage One adviser will review your answers."
+    scenario="expat"
+    src={slug}
+  />
+
+  <h2>Send us an enquiry</h2>
+  <EnquiryForm scenario="expat" />
+
+  <RelatedPanel cards={relatedCards} />
+
+  <p class="risk-warning">
+    Think carefully before securing your debts against your home. Your home may be repossessed if you do not keep up
+    repayments on your mortgage.
+  </p>
+</ArticleLayout>
+
+<style>
+  .risk-warning {
+    border-top: 1px solid var(--line);
+    padding-top: 1.5rem;
+    margin-top: 2.5rem;
+  }
+</style>
