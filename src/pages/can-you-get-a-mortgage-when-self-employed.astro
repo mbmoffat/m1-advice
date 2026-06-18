@@ -1,0 +1,204 @@
+---
+import ArticleLayout from '../layouts/ArticleLayout.astro';
+import Reassurance from '../components/Reassurance.astro';
+import MidCta from '../components/MidCta.astro';
+import PullQuote from '../components/PullQuote.astro';
+import FaqSection from '../components/FaqSection.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+import EnquiryForm from '../components/locked/EnquiryForm.astro';
+import RelatedPanel from '../components/RelatedPanel.astro';
+
+const slug = '/can-you-get-a-mortgage-when-self-employed';
+
+const reassuranceLines = [
+  'You can borrow on the same rates as an employed buyer.',
+  'One strong year of figures is often enough to start.',
+  'High-street lenders, not just specialists, say yes to self-employed cases.',
+  'A 10 per cent deposit opens the mainstream market.',
+  'Fluctuating or growing income can still be made to fit.',
+];
+
+const faqs = [
+  {
+    q: 'Is it harder to get a mortgage when you are self-employed?',
+    a: 'Not harder, but it asks more of your paperwork. An employed buyer hands over payslips and the income is obvious. As a self-employed buyer you prove the same thing a different way, through your filed accounts and tax figures, and the work is in presenting those cleanly to a lender that reads them well. Once the figures are clear, the decision runs on the same affordability rules as any other case.',
+  },
+  {
+    q: 'How long do I need to be self-employed to get a mortgage?',
+    a: 'Most lenders look for two full years of trading, and some ask for three, but a single complete year is often enough to begin. A growing number of lenders will consider one year of accounts or one set of tax figures where the income looks steady and the work is secure. A shorter record narrows the choice of lender rather than ruling you out, so it is worth checking the market before deciding to wait.',
+  },
+  {
+    q: 'What deposit do I need when self-employed?',
+    a: 'The same as an employed buyer. A deposit of around a tenth of the price opens the mainstream market, and more than that widens your choice of lender and eases the affordability test. There is no self-employed surcharge on the deposit. A larger deposit simply gives you more lenders to choose from, which matters more when your income needs a particular lender to read it the way your business works.',
+  },
+  {
+    q: 'Can I get a mortgage in my first year of self-employment?',
+    a: 'Sometimes, though the pool of lenders is smaller. A handful will consider a first full year of accounts where the business is established and the income looks sustainable, and some give weight to time spent doing the same work as an employee before you went out on your own. They study the trend and how secure the income is, so a clean first year with a clear pipeline of work reads far better than an uneven one.',
+  },
+  {
+    q: 'Does an accountant help my chances?',
+    a: 'It can. Many lenders prefer accounts prepared or certified by a qualified accountant, and some will accept an accountant reference in place of certain documents. The bigger gain is consistency: when your accounts and your tax calculations tell the same story, an underwriter can move quickly. We work alongside your accountant rather than across them, so the application reflects how your business is actually run.',
+  },
+  {
+    q: 'Can a broker improve my chances of being approved?',
+    a: 'That is the heart of it. The same accounts can produce very different incomes across lenders, because each reads self-employed figures its own way. A broker works out which lender will read your structure most generously, matches your filing history to one comfortable with it, and presents the case so the underwriter can say yes first time. That matching is where most of the difference between a yes and a no is made.',
+  },
+];
+
+const relatedCards = [
+  {
+    title: 'Self-employed mortgages',
+    href: '/self-employed-mortgage',
+    line: 'The full guide to how lenders read self-employed income.',
+  },
+  {
+    title: 'Foreign currency income',
+    href: '/expat-foreign-currency-income-mortgage',
+    line: 'When your self-employed income is paid in another currency.',
+  },
+  {
+    title: 'SPV mortgages',
+    href: '/spv-mortgage',
+    line: 'Borrowing through a special purpose vehicle company.',
+  },
+  { title: 'Check your eligibility', href: '/check', line: 'Five quick questions, about 60 seconds.' },
+];
+---
+
+<ArticleLayout
+  title="Getting a Mortgage When Self-Employed | Mortgage One"
+  description="Yes, you can get a mortgage when self-employed. What lenders need, how long you must have traded, deposit, and how to improve your chances of approval."
+  eyebrow="Complex income"
+  heading="Can you get a mortgage when self-employed?"
+  breadcrumbs={[
+    { name: 'Home', href: '/' },
+    { name: 'Mortgage when self-employed', href: slug },
+  ]}
+  scenario="self-employed"
+>
+  <p>
+    Yes, you can get a mortgage when you are self-employed. There is no separate product and no penalty rate for working
+    for yourself; you qualify on the same terms as an employed buyer once a lender can see your income. The only real
+    difference is how you prove it. Instead of payslips, a lender works out what you earn from your filed accounts and
+    your tax figures, then applies the same affordability test it uses for everyone. This page answers the question
+    directly: whether you can, what actually decides it, and the practical steps that turn a self-employed application
+    into a yes.
+  </p>
+
+  <Reassurance title="What gives self-employed buyers confidence" lines={reassuranceLines} />
+
+  <h2>The short answer, and what really decides it</h2>
+  <p>
+    Being self-employed does not stop you getting a mortgage. What decides the outcome is whether a lender can read a
+    stable, provable income from your figures, and whether you have approached one that reads your kind of income well.
+    Those two things, not your employment status, are where a self-employed case is won or lost. A sole trader, a partner
+    and a company director are all routinely approved every day. The job is to line your evidence up so the income is
+    obvious and to put it in front of the right lender, which is exactly where planning pays off. Our wider guide to
+    <a href="/self-employed-mortgage">self-employed mortgages</a> sets out how each lender works the figures.
+  </p>
+
+  <h2>How long you need to have been trading</h2>
+  <p>
+    This is the question most self-employed buyers ask first. Most lenders want two full years of figures, and some ask
+    for three, but a single complete year is often enough to start the conversation. A growing number of lenders will
+    consider one year of accounts or one set of tax figures where the business is established and the income looks
+    sustainable. If you went self-employed after doing the same work as an employee, some lenders will take that earlier
+    experience into account too. A shorter record narrows the choice of lender rather than closing the door, so it is
+    worth testing the market before you assume you have to wait another tax year.
+  </p>
+
+  <h2>What a lender needs to see</h2>
+  <p>
+    A self-employed application runs on documents, and having them ready and agreeing with each other is what most often
+    keeps a case moving. Plan for your tax calculations, often called SA302s, with the tax year overviews that confirm the
+    tax was paid, both from HM Revenue and Customs. You will also want your finalised accounts prepared by an accountant,
+    and personal and business bank statements covering the last three months. Company directors should expect to show the
+    company accounts as well. Where your tax figures and your accounts tell the same story, an underwriter can move
+    quickly; where they do not line up, the case stalls while the gap is explained, so it pays to check they agree before
+    you apply.
+  </p>
+
+  <MidCta
+    text="Want to know whether your figures already stack up? Tell us your structure and your income and we will tell you where you stand."
+    scenario="self-employed"
+    src={slug}
+  />
+
+  <h2>How much you can borrow</h2>
+  <p>
+    Once a lender has settled on your income, affordability works exactly as it does for an employed buyer. Most lenders
+    work to an income multiple of around four and a half to five times your assessed income, then test that the
+    repayments are affordable at a stress rate above the pay rate, with your other commitments taken into account. The
+    figure they use is the provable, sustainable income from your accounts, not your turnover, so a business with high
+    takings but modest net profit borrows on the profit. Because each lender can read the same accounts differently, the
+    income one will lend against can be noticeably higher than another's, which is why the choice of lender shapes the
+    amount you can borrow.
+  </p>
+
+  <PullQuote quote="The question is almost never whether a self-employed buyer can get a mortgage. It is which lender will read your accounts the way your business actually works." />
+
+  <h2>Will you pay a higher rate?</h2>
+  <p>
+    No, not for being self-employed. At the same deposit, property type and credit record you qualify for the same rates
+    as an employed buyer, because the rate is driven by those things rather than by how you are paid. What being
+    self-employed can do is narrow the panel of lenders willing to read your income a particular way, and that panel can
+    shape the rate on offer, so a larger deposit helps by widening your choice. A deposit of around a tenth of the price
+    opens the mainstream market, and more than that opens it further. The work is in finding the lender that reads your
+    income well, not in accepting a worse deal.
+  </p>
+
+  <h2>How to improve your chances of approval</h2>
+  <p>
+    A few steps make a self-employed application markedly easier. Keep your accounts and your tax calculations consistent,
+    because a mismatch is the most common reason a case slows down. Time your application for after a strong year where you
+    can, since lenders tend to lend on the lower of two figures when income dips. Avoid taking on new credit in the months
+    before you apply, and keep your business and personal banking tidy so the picture is easy to follow. If you draw a small
+    salary and leave profit inside your company, look for a lender that counts retained profit, which can read your income
+    more generously. Most of all, match your case to the right lender before you apply rather than after a decline.
+  </p>
+
+  <h2>How does Mortgage One help?</h2>
+  <p>
+    Mortgage One is a countrywide UK mortgage broker with access to plans from the whole of market, and we arrange
+    self-employed mortgages as a regular part of the business. We work out which income figure each lender will use for
+    your structure, pair your filing history and accounts with lenders comfortable with them, and present your case so an
+    underwriter can say yes first time. We are authorised and regulated by the Financial Conduct Authority (FCA) for the
+    mortgage advice, and we work alongside your accountant rather than across them, so the application reflects how your
+    business is actually run. You must be on UK soil to receive advice, so we confirm your circumstances properly before
+    recommending anything.
+  </p>
+
+  <MidCta
+    text="Ready to know whether you can borrow, and how much, rather than guess? Let an adviser review your self-employed income."
+    label="Check Your Options"
+    scenario="self-employed"
+    src={slug}
+  />
+
+  <FaqSection items={faqs} />
+
+  <CtaBlock
+    heading="Find out if you can get a mortgage when self-employed"
+    line="Tell us your structure, your income and your deposit, and a Mortgage One adviser will review your answers and tell you where you stand."
+    scenario="self-employed"
+    src={slug}
+  />
+
+  <h2>Send us an enquiry</h2>
+  <EnquiryForm scenario="self-employed" />
+
+  <RelatedPanel cards={relatedCards} />
+
+  <p class="risk-warning">
+    Think carefully before securing your debts against your home. Your home may be repossessed if you do not keep up
+    repayments on your mortgage.
+  </p>
+</ArticleLayout>
+
+<style>
+  .risk-warning {
+    border-top: 1px solid var(--line);
+    padding-top: 1.5rem;
+    margin-top: 2.5rem;
+  }
+</style>
