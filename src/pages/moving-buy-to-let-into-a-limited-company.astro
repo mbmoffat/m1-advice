@@ -1,0 +1,221 @@
+---
+import ArticleLayout from '../layouts/ArticleLayout.astro';
+import Reassurance from '../components/Reassurance.astro';
+import MidCta from '../components/MidCta.astro';
+import PullQuote from '../components/PullQuote.astro';
+import FaqSection from '../components/FaqSection.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+import EnquiryForm from '../components/locked/EnquiryForm.astro';
+import RelatedPanel from '../components/RelatedPanel.astro';
+
+const slug = '/moving-buy-to-let-into-a-limited-company';
+
+const reassuranceLines = [
+  'Landlords with one personal let they want to hold in a company instead.',
+  'Portfolio landlords moving several properties across in stages.',
+  'Owners whose fixed rate is ending and who want to remortgage into a company.',
+  'Investors who have already set up a special purpose vehicle and need the lending.',
+  'Couples re-housing a jointly owned rental into a company they both run.',
+];
+
+const faqs = [
+  {
+    q: 'How do I transfer a buy-to-let into a limited company?',
+    a: 'On the mortgage side it is not a transfer at all. The company buys the property from you, so the company takes out its own buy-to-let mortgage, and that loan redeems the personal mortgage you hold today. There are tax and stamp duty consequences to a sale between you and your own company, and those belong with a tax specialist or accountant. Our part is the borrowing: making sure the company can raise a mortgage that completes the purchase cleanly.',
+  },
+  {
+    q: 'Is moving a property into a company a remortgage or a purchase?',
+    a: 'For the lender it is a purchase by the company, even though you already own the property. The company is a separate legal owner, so it applies for a fresh mortgage, has the property valued, and completes a sale from you. Some lenders run these as a standard purchase and others have a specific product for a sale to a connected company, so the right lender depends on the detail of your case.',
+  },
+  {
+    q: 'Will I pay an early repayment charge on my current mortgage?',
+    a: 'You might, if your existing buy-to-let deal is still inside its fixed or discounted period, because moving the property to a company redeems that loan early. It is worth checking the early repayment charge on your current mortgage before you start, since timing the move for when your deal ends can save a sizeable sum. We can look at your existing terms and help you weigh the cost of moving now against waiting.',
+  },
+  {
+    q: 'Does the company need a deposit if I already own the property?',
+    a: 'Yes. The company is buying the property, so it needs the same deposit any company purchase would, usually at least a quarter of the value. That deposit often comes from the equity already in the property, where the sale price to the company is set above the new mortgage, but how that is structured has tax consequences that a tax specialist should confirm. The lender simply needs to see where the deposit comes from and that it is acceptable.',
+  },
+  {
+    q: 'Can I move several properties into a company at once?',
+    a: 'You can, but each property is a separate purchase by the company with its own mortgage, valuation and rent cover test, so a portfolio moves across as a set of individual cases rather than one transaction. Some landlords move properties in stages to spread the work and the cost. We can plan the order with you so the company is funded property by property without tripping a lender portfolio limit.',
+  },
+  {
+    q: 'Will I need to give a personal guarantee on the company mortgage?',
+    a: 'Almost always. A newly formed company has little track record of its own, so the lender looks to the directors and shareholders behind it and takes a personal guarantee. Your own income and credit footprint still matter even though the mortgage sits in the company name, which is normal for company buy-to-let rather than a sign the case is weak.',
+  },
+];
+
+const relatedCards = [
+  {
+    title: 'Limited company buy-to-let mortgages',
+    href: '/limited-company-buy-to-let-mortgage',
+    line: 'The pillar guide to holding a let through a company.',
+  },
+  {
+    title: 'SPV mortgages for buy-to-let',
+    href: '/spv-mortgage',
+    line: 'Setting up the company so a lender will fund it.',
+  },
+  {
+    title: 'Limited company or personal name',
+    href: '/limited-company-vs-personal-name-buy-to-let',
+    line: 'Deciding which route fits before you move.',
+  },
+  { title: 'Check your eligibility', href: '/check', line: 'Five quick questions, about 60 seconds.' },
+];
+---
+
+<ArticleLayout
+  title="Moving a Buy-to-Let Into a Limited Company | Mortgage One"
+  description="Moving your buy-to-let into a limited company is a sale to the company, so it needs its own SPV mortgage. How the remortgage works and what lenders look for."
+  eyebrow="Limited company buy-to-let"
+  heading="Moving your buy-to-let into a limited company"
+  breadcrumbs={[
+    { name: 'Home', href: '/' },
+    { name: 'Moving a buy-to-let into a limited company', href: slug },
+  ]}
+  scenario="btl"
+>
+  <p>
+    Moving a buy-to-let you already own into a limited company is, on the mortgage side, not a transfer at all: the
+    company buys the property from you, so it takes out its own buy-to-let mortgage and that new loan redeems the personal
+    mortgage you hold today. That makes the borrowing the heart of the move, and it is the part we handle. This page
+    explains how the mortgage and remortgage into a special purpose vehicle (SPV) actually work, what lenders want to see,
+    and how to time it. The tax and stamp duty side matters just as much, but it belongs with a tax specialist, so we say
+    clearly where to draw that line. For the wider company picture, see our pillar guide to
+    <a href="/limited-company-buy-to-let-mortgage">limited company buy-to-let mortgages</a>.
+  </p>
+
+  <Reassurance title="Landlords we help make the move" lines={reassuranceLines} />
+
+  <h2>Why it is a sale, not a transfer</h2>
+  <p>
+    The word transfer is misleading. A limited company is a separate legal owner from you, so it cannot simply take over
+    your existing mortgage. Instead the company buys the property from you at a value, raises its own mortgage to fund the
+    purchase, and that mortgage pays off the personal loan secured against the property now. From a lender's point of
+    view this is a purchase by the company, even though the bricks and mortar do not change hands in any visible way. That
+    single fact shapes everything else: the company needs a deposit, the property needs a fresh valuation, and the rent
+    has to support a brand new loan. The sale between you and your own company also has tax and stamp duty consequences,
+    and those are a question for a tax specialist or accountant rather than for us.
+  </p>
+
+  <h2>The mortgage steps in order</h2>
+  <p>
+    Settle the structure and the tax position first with your accountant, then set up the special purpose vehicle with the
+    right property activity recorded against it at Companies House, which we cover on our page about
+    <a href="/spv-mortgage">SPV mortgages for buy-to-let</a>. Only then do you line up the company mortgage. The lender
+    values the property, sizes the loan on the rent, and the company completes the purchase from you, with the new loan
+    redeeming your personal mortgage on the same day. Running the steps in that order means the company you fund is one a
+    lender will accept, rather than one you have to unpick after the fact. We are happy to look at the borrowing before the
+    company is formed, so the shareholding and recorded activity are right the first time.
+  </p>
+
+  <MidCta
+    text="Thinking of moving a let into a company? Tell us the property, the rent and your current mortgage, and we will tell you what the company can borrow."
+    scenario="btl"
+    src={slug}
+  />
+
+  <h2>Where the deposit comes from</h2>
+  <p>
+    Because the company is buying the property, it needs a deposit like any other company purchase, usually at least a
+    quarter of the value. In most moves that deposit is the equity already sitting in the property: the sale price to the
+    company is set above the new mortgage, and the difference stands as your deposit rather than cash you have to find.
+    How that is structured carries tax and stamp duty consequences, so a tax specialist should confirm the figures before
+    you commit. What the lender needs is simpler: a clear picture of where the deposit comes from, a valuation that
+    supports the sale price, and rent that covers the loan. A larger slice of equity widens the lenders willing to look
+    and eases the rent cover test.
+  </p>
+
+  <h2>How the rent sizes the new loan</h2>
+  <p>
+    The rent does most of the work, exactly as it would on any company purchase. A lender tests the monthly rent against
+    the mortgage interest at a stress rate set above the pay rate, using an interest cover ratio (ICR) to decide the
+    largest loan the rent will support. Company cases are often tested at a lower cover ratio than higher-rate personal
+    borrowing, frequently in the region of 125%, which can let the company borrow a little more on the same rent than you
+    could in your own name. That can matter when you are moving a property across, because the new company loan needs to
+    be large enough to redeem your personal mortgage and leave the equity working as deposit. Where the rent falls a
+    little short, some lenders allow surplus personal income to bridge the gap, known as top-slicing.
+  </p>
+
+  <PullQuote quote="Moving a let into a company is really a fresh company purchase wearing a familiar coat. Get the mortgage right and the move is clean; get the order wrong and you pay for it twice." />
+
+  <h2>Watch the early repayment charge and the timing</h2>
+  <p>
+    A frequent avoidable cost is an early repayment charge on your current mortgage. Moving the property to a company
+    redeems your existing personal loan, and if that deal is still inside its fixed or discounted period the charge can
+    run into thousands. Checking the terms of your current mortgage before you start often points to the obvious moment to
+    move: when the existing deal ends and you would be remortgaging anyway. We can read your current terms, weigh the cost
+    of moving now against waiting for the deal to mature, and line the company mortgage up to complete at the right time
+    so you are not paying a penalty you could have sidestepped.
+  </p>
+
+  <h2>Personal guarantees and your own position</h2>
+  <p>
+    A newly formed company has little or no track record, so the lender looks to the directors and shareholders behind it
+    and takes a personal guarantee. Your own income, your credit footprint and your circumstances still matter, even
+    though the mortgage sits in the company name. The guarantee is a routine feature of company buy-to-let rather than a
+    sign the case is weak, and most lenders expect every director with a meaningful shareholding to stand behind the loan.
+    We make sure everyone who needs to give a guarantee understands what it involves before you apply, so there are no
+    surprises at the offer stage. If you are still deciding whether a company is the right home for the property at all,
+    our page on <a href="/limited-company-vs-personal-name-buy-to-let">limited company or personal name</a> sets the two
+    routes side by side.
+  </p>
+
+  <h2>Moving a portfolio across</h2>
+  <p>
+    If you own several properties personally and want them all in a company, each one moves as a separate purchase with its
+    own mortgage, valuation and rent cover test. There is no single transaction that sweeps a portfolio across, so it is
+    really a set of individual company purchases run together or in stages. Some landlords move a property or two at a
+    time to spread the work, the cost and the early repayment charges across the years their existing deals mature. We can
+    plan the order with you, keep an eye on lender portfolio limits as the company grows, and make sure each move stands
+    on its own rent and equity. The tax treatment of moving a whole portfolio can differ from moving one property, which
+    is another reason to have a tax specialist model it before the first completion.
+  </p>
+
+  <h2>How does Mortgage One help?</h2>
+  <p>
+    Mortgage One is a countrywide UK mortgage broker with access to plans from the whole of market, and we arrange company
+    buy-to-let purchases, including moving a personally owned let into a company, as routine business. We work out which
+    lenders run a sale to a connected company cleanly, size the new loan on the rent, check the early repayment charge on
+    your existing mortgage, and brief you and your fellow directors on the personal guarantee. We will not give you tax or
+    stamp duty advice, that is your accountant or tax specialist's job, but we work alongside them so the borrowing fits
+    the structure they recommend. We are authorised and regulated by the Financial Conduct Authority (FCA) for the
+    mortgage advice. You must be on UK soil to receive advice, so we confirm your circumstances properly before
+    recommending anything.
+  </p>
+
+  <MidCta
+    text="Ready to know what the company can borrow and when to move? Let an adviser review your buy-to-let and your current mortgage."
+    label="Check Your Options"
+    scenario="btl"
+    src={slug}
+  />
+
+  <FaqSection items={faqs} />
+
+  <CtaBlock
+    heading="See how the move into a company would work"
+    line="Tell us about the property, the rent, your current mortgage and the company, and a Mortgage One adviser will review your answers."
+    scenario="btl"
+    src={slug}
+  />
+
+  <h2>Send us an enquiry</h2>
+  <EnquiryForm scenario="btl" />
+
+  <RelatedPanel cards={relatedCards} />
+
+  <p class="risk-warning">
+    Think carefully before securing your debts against your home. Your home may be repossessed if you do not keep up
+    repayments on your mortgage.
+  </p>
+</ArticleLayout>
+
+<style>
+  .risk-warning {
+    border-top: 1px solid var(--line);
+    padding-top: 1.5rem;
+    margin-top: 2.5rem;
+  }
+</style>
