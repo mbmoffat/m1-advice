@@ -150,10 +150,14 @@ const steps = [
     width: 100%;
     color: var(--dark-ink);
   }
-  /* Centre the entire hero stack: eyebrow, heading, lead and button. */
+  /* Centre the hero stack; eyebrow and heading sit left within the container. */
   .hero__inner {
     max-width: 760px;
     text-align: center;
+  }
+  .hero__inner .eyebrow,
+  .hero__inner h1 {
+    text-align: left;
   }
   .hero__inner .lead {
     max-width: 560px;
