@@ -151,6 +151,12 @@ const steps = [
   .hero__inner {
     max-width: 760px;
   }
+  /* Centre the hero CTA only; eyebrow, heading and lead stay left-aligned. */
+  .hero__inner .btn {
+    display: block;
+    width: fit-content;
+    margin-inline: auto;
+  }
   .hero__content .eyebrow,
   .hero__content .lead {
     color: var(--dark-ink);
