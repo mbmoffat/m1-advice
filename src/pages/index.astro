@@ -83,16 +83,18 @@ const steps = [
 
   <section class="section">
     <div class="container">
-      <h2>How it works</h2>
-      <ol class="how">
-        {steps.map((step, i) => (
-          <li><span class="how__num">{i + 1}</span>{step}</li>
-        ))}
-      </ol>
-      <p class="how-note">
-        Mortgage One can search across multiple lenders in the market, including lenders that take a common-sense view
-        of foreign currency pay, retained profits, bonus income and day rates.
-      </p>
+      <div class="how-block">
+        <h2>How it works</h2>
+        <ol class="how">
+          {steps.map((step, i) => (
+            <li><span class="how__num">{i + 1}</span>{step}</li>
+          ))}
+        </ol>
+        <p class="how-note">
+          Mortgage One can search across multiple lenders in the market, including lenders that take a common-sense view
+          of foreign currency pay, retained profits, bonus income and day rates.
+        </p>
+      </div>
     </div>
   </section>
 
@@ -183,6 +185,11 @@ const steps = [
   .route-card__line {
     font-size: 0.95rem;
     color: var(--ink-soft);
+  }
+  /* Centre the How it works block on the page; text inside stays left-aligned. */
+  .how-block {
+    max-width: 700px;
+    margin-inline: auto;
   }
   .how {
     list-style: none;
