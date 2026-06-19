@@ -1,70 +1,124 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-// Built from the same live page set as sitemap.xml: every page under src/pages
-// except 404 and thank-you (the @astrojs/sitemap exclusions). Rebuilds itself
-// whenever a page is rolled out or removed.
+// Built from the live page set under src/pages, rebuilt automatically whenever a
+// page is rolled out or removed. Pages are grouped into their cluster from the
+// slug, with the hub or pillar page first in each group.
 const pageModules = import.meta.glob('./**/*.astro');
-const exclude = new Set(['/404', '/thank-you']);
+// 404 and thank-you are not indexable; the sitemap never links to itself.
+const exclude = new Set(['/404', '/thank-you', '/sitemap']);
 const routes = Object.keys(pageModules)
   .map((p) => {
     const r = p.replace(/^\.\//, '/').replace(/\.astro$/, '').replace(/\/index$/, '');
     return r === '' ? '/' : r;
   })
   .filter((r) => !exclude.has(r));
-// import.meta.glob excludes this file itself, so add its own route to match
-// the sitemap.xml page set exactly.
-if (!routes.includes('/sitemap')) routes.push('/sitemap');
 
+// Clusters in display order. Each carries its hub or pillar slug (listed first)
+// and a matcher that decides membership from the slug. Matchers run top to
+// bottom and the first hit wins, so order matters: the expat rule runs before
+// the limited company rule because expat buy-to-let pages carry both words and
+// belong with the expat cluster. To add a cluster, add an entry here. To
+// re-home a page whose slug matches the wrong rule, add it to `overrides`.
+// Anything no rule catches falls into "More pages" so it stays visible.
+const startHere = ['/', '/check'];
+const clusters = [
+  {
+    key: 'expat',
+    title: 'Expat mortgages',
+    hub: '/can-an-expat-get-a-uk-mortgage',
+    match: (r) => /expat|non-uk-resident|living-abroad/.test(r),
+  },
+  {
+    key: 'self-employed',
+    title: 'Self-employed and complex income',
+    hub: '/self-employed-mortgage',
+    match: (r) => /self-employed|company-director|contractor|retained-profit|years-accounts|newly-self-employed/.test(r),
+  },
+  {
+    key: 'limited-company',
+    title: 'Limited company buy-to-let',
+    hub: '/limited-company-buy-to-let-mortgage',
+    match: (r) => /limited-company|buy-to-let|spv|portfolio-landlord|holiday-let|hmo|first-time-landlord/.test(r),
+  },
+  {
+    key: 'seafarer',
+    title: 'Seafarer mortgages',
+    hub: '/mortgage-as-a-seafarer',
+    match: (r) => /seafarer|merchant-navy/.test(r),
+  },
+];
+
+// Pages whose slug would otherwise match the wrong rule, keyed to a cluster key.
+const overrides = {
+  '/residential-mortgage-through-limited-company': 'self-employed',
+};
+
+const clusterKeyOf = (r) => {
+  if (overrides[r]) return overrides[r];
+  const hit = clusters.find((c) => c.match(r));
+  return hit ? hit.key : 'more';
+};
+
+const ACRONYMS = { uk: 'UK', spv: 'SPV', hmo: 'HMO', uae: 'UAE', btl: 'BTL' };
 const label = (r) => {
   if (r === '/') return 'Home';
   if (r === '/check') return 'Check your eligibility';
-  if (r === '/sitemap') return 'Sitemap';
-  if (r === '/mortgage-as-a-seafarer') return 'Mortgages for seafarers';
-  const s = r.replace(/^\//, '').replace(/-/g, ' ');
-  return s.charAt(0).toUpperCase() + s.slice(1);
+  return r
+    .replace(/^\//, '')
+    .split('-')
+    .map((w, i) => {
+      if (ACRONYMS[w]) return ACRONYMS[w];
+      return i === 0 ? w.charAt(0).toUpperCase() + w.slice(1) : w;
+    })
+    .join(' ');
 };
 
-// Top-level pages sit under General; clusters group under their hub name, pillar first.
-const topLevel = new Set(['/', '/check', '/sitemap']);
-const hubOf = (r) => {
-  if (topLevel.has(r)) return 'General';
-  if (/seafarer|merchant-navy|offshore-worker/.test(r)) return 'Seafarer mortgages';
-  return 'Other pages';
-};
-const pillarOf = { General: '/', 'Seafarer mortgages': '/mortgage-as-a-seafarer' };
-const hubOrder = ['General', 'Seafarer mortgages', 'Other pages'];
+const spokes = routes.filter((r) => !startHere.includes(r));
 
-const hubs = hubOrder
-  .map((hub) => {
-    const pillar = pillarOf[hub];
-    const pages = routes
-      .filter((r) => hubOf(r) === hub)
+// Each cluster lists its hub or pillar first, then its spokes alphabetically.
+const clusterGroups = clusters
+  .map((c) => {
+    const pages = spokes
+      .filter((r) => clusterKeyOf(r) === c.key)
       .sort((a, b) => {
-        if (a === pillar) return -1;
-        if (b === pillar) return 1;
+        if (a === c.hub) return -1;
+        if (b === c.hub) return 1;
         return label(a).localeCompare(label(b));
       });
-    return { hub, pages };
+    return { title: c.title, hub: c.hub, pages };
   })
   .filter((g) => g.pages.length);
+
+// Anything no rule caught, so a new page is never silently dropped.
+const morePages = spokes
+  .filter((r) => clusterKeyOf(r) === 'more')
+  .sort((a, b) => label(a).localeCompare(label(b)));
+
+const groups = [
+  { title: 'Start here', hub: null, pages: startHere.filter((r) => routes.includes(r)) },
+  ...clusterGroups,
+];
+if (morePages.length) groups.push({ title: 'More pages', hub: null, pages: morePages });
 ---
 
 <BaseLayout
   title="Sitemap | Mortgage One"
-  description="Every page on the Mortgage One advice site, grouped by topic, including the seafarer mortgage guides and the 60-second eligibility check."
+  description="Every page on the Mortgage One advice site, grouped by cluster, with each hub page first, including the expat, self-employed, limited company buy-to-let and seafarer guides."
   breadcrumbs={[{ name: 'Home', href: '/' }, { name: 'Sitemap', href: '/sitemap' }]}
 >
   <section class="section">
     <div class="container sitemap">
       <h1>Sitemap</h1>
-      <p class="sitemap-intro">Every page on this site, grouped by topic. The list updates itself whenever a new page goes live.</p>
-      {hubs.map((group) => (
-        <div class="sitemap-hub">
-          <h2>{group.hub}</h2>
+      <p class="sitemap-intro">Every page on this site, grouped by cluster with the hub page first. The list updates itself whenever a new page goes live.</p>
+      {groups.map((group) => (
+        <div class="sitemap-group">
+          <h2>{group.title}</h2>
           <ul>
             {group.pages.map((route) => (
-              <li><a href={route}>{label(route)}</a></li>
+              <li class={route === group.hub ? 'is-hub' : undefined}>
+                <a href={route}>{label(route)}</a>
+              </li>
             ))}
           </ul>
         </div>
@@ -81,17 +135,20 @@ const hubs = hubOrder
     font-size: 1.2rem;
     margin: 0 0 2rem;
   }
-  .sitemap-hub {
+  .sitemap-group {
     margin-bottom: 2rem;
   }
-  .sitemap-hub h2 {
+  .sitemap-group h2 {
     margin-bottom: 0.75rem;
   }
-  .sitemap-hub ul {
+  .sitemap-group ul {
     margin: 0;
     padding-left: 1.2rem;
   }
-  .sitemap-hub li {
+  .sitemap-group li {
     margin-bottom: 0.5rem;
+  }
+  .sitemap-group li.is-hub {
+    font-weight: 700;
   }
 </style>
