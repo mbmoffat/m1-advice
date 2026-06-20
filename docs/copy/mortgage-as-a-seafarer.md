@@ -46,6 +46,10 @@ A declined application from one lender says almost nothing about what the rest o
 
 There is no single figure. It depends on residency, how you are paid and the property itself. Non-resident cases often need a larger deposit, while UK-resident seafarers can frequently access standard deposit levels, subject to criteria.
 
+## Mid CTA (lower body)
+
+Paid in dollars, on rotation, claiming SED? Each of those changes which lenders work for you. Run the 60-second check and see your realistic options. → Start the 60-Second Check → `/check?scenario=seafarer&src=/mortgage-as-a-seafarer`
+
 ## Do I need a specialist broker?
 
 Seafarer income is not unusual, but it is read very differently from one lender to the next, and a broker who places these cases regularly knows where to take yours. Mortgage One has access to plans from the whole of market and arranges seafarer cases as a core part of the business, not an exception to it.

@@ -15,12 +15,20 @@
 
 Yes, seafarers get UK mortgages, and the help you need is usually less about eligibility and more about getting your income read correctly. The hurdles are well known: foreign currency pay, the Seafarers Earnings Deduction, long spells at sea and residency. None of them is a barrier with a lender that understands seafarers, and that is what specialist help gets you.
 
-## Reassurance — Situations we help with
+## Reassurance — Whatever your situation at sea, it is workable
 
-- Paid in a foreign currency.
-- Claiming the Seafarers Earnings Deduction.
-- Rotational contracts with long spells at sea.
-- Limited recent UK address history.
+Whatever your situation at sea, it is workable.
+
+Seafarer income rarely fits a standard payslip template. That is presentation, not a problem. We regularly place clients who are:
+
+- Paid in a foreign currency (USD, EUR or other)
+- Working rotational or voyage-based contracts
+- Claiming Seafarers' Earnings Deduction (SED)
+- Spending long stretches outside the UK
+- Merchant navy, yacht, cruise or offshore crew
+- Mixing salary, allotments and overtime
+
+If your circumstances are not listed, they are almost certainly still workable. The 60-second check is the quickest way to find out.
 
 ## What makes a seafarer mortgage different?
 
