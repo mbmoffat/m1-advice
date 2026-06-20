@@ -58,7 +58,7 @@ Seafarer mortgage help is rarely about whether you qualify. It is about taking y
 
 ## How does Mortgage One help?
 
-Mortgage One has access to plans from the whole of market and arranges seafarer cases as a core part of the business, not an exception to it. We give professional advice on which lender fits how you are paid, gather the evidence an underwriter needs, and put your case in front of the right desk. You must be on UK soil to receive advice, so we confirm your circumstances properly before recommending anything.
+Mortgage One has access to plans from the whole of market and arranges seafarer cases as a core part of the business, not an exception to it. We give professional advice on which lender fits how you are paid, gather the evidence an underwriter needs, and put your case in front of the right desk.
 
 ## Second CTA
 
@@ -68,8 +68,8 @@ Ready for an answer rather than another decline? Let an adviser place your case.
 
 1. **Do I need a specialist broker for a seafarer mortgage?** It helps a great deal. Seafarer income is read very differently from one lender to the next, and a broker who places these cases regularly knows which lenders treat your pay fairly. The work is in matching your circumstances to the right lender, not in the eligibility itself.
 2. **Will the Seafarers Earnings Deduction stop me getting a mortgage?** No. The deduction lowers your UK tax, not your earnings. A lender that understands seafarers works from your gross contractual pay rather than the low tax figure on your return, so the relief is not the obstacle. Lender choice is.
-3. **Can I get help if I am working abroad right now?** We can start a conversation, but you must be on UK soil to receive advice. We confirm your residency and circumstances properly before recommending anything, so the advice fits where you genuinely stand.
-4. **How do I start?** Use the 60-second check and a Mortgage One adviser will review your answers and tell you where you stand. You can also call us on 01202 155992. You must be on UK soil to receive advice.
+3. **Can I get help if I am working abroad right now?** We can start a conversation. We confirm your residency and circumstances properly before recommending anything, so the advice fits where you genuinely stand.
+4. **How do I start?** Use the 60-second check and a Mortgage One adviser will review your answers and tell you where you stand. You can also call us on 01202 155992.
 
 ## CTA block
 

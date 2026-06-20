@@ -44,7 +44,7 @@ What a seafarer can borrow is set by the income a lender will assess, not by the
 
 ## What else affects the amount?
 
-Your deposit and the resulting loan to value, the property itself, your other commitments and your residency all play a part. UK-resident seafarers can often reach standard borrowing levels, subject to criteria, while non-resident cases tend to face a shorter list of lenders and a larger deposit. You must be on UK soil to receive advice, so we confirm your circumstances properly before pointing you anywhere.
+Your deposit and the resulting loan to value, the property itself, your other commitments and your residency all play a part. UK-resident seafarers can often reach standard borrowing levels, subject to criteria, while non-resident cases tend to face a shorter list of lenders and a larger deposit.
 
 ## How do I find my number?
 
@@ -59,7 +59,7 @@ Stop guessing at the number. Let an adviser work it out from your real income. â
 1. **Is there a fixed income multiple for seafarers?** No. There is no single multiple that applies to everyone. A lender works from your assessed income and an affordability test that weighs your outgoings and commitments, so the figure is built around your circumstances rather than a flat rule.
 2. **Does foreign currency pay reduce how much I can borrow?** It can. A lender converts non-sterling pay to sterling and applies a reduction to allow for the rate moving, then works from that figure. The size of the reduction varies between lenders, so the lender you choose affects the amount more than the rate does.
 3. **Does the Seafarers Earnings Deduction lower what I can borrow?** Not with the right lender. The deduction lowers your tax, not your earnings, and a lender that understands seafarers works from your gross contractual pay rather than the low tax figure on your return.
-4. **How do I start?** Use the 60-second check and a Mortgage One adviser will review your answers and tell you where you stand. You can also call us on 01202 155992. You must be on UK soil to receive advice.
+4. **How do I start?** Use the 60-second check and a Mortgage One adviser will review your answers and tell you where you stand. You can also call us on 01202 155992.
 
 ## CTA block
 

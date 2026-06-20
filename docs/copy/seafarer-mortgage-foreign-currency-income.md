@@ -47,7 +47,7 @@ With foreign currency income, the lender you choose changes what you can borrow 
 
 ## How does residency affect the lender list and deposit?
 
-Where you are tax resident, and how much recent UK address history you have, both shape which lenders will help and how much deposit they ask for. UK-resident seafarers can often access standard deposit levels, subject to criteria. Non-resident cases tend to need a larger deposit, and a shorter list of lenders will consider them. You must be on UK soil to receive advice, so we confirm your circumstances properly before recommending anything.
+Where you are tax resident, and how much recent UK address history you have, both shape which lenders will help and how much deposit they ask for. UK-resident seafarers can often access standard deposit levels, subject to criteria. Non-resident cases tend to need a larger deposit, and a shorter list of lenders will consider them.
 
 ## Second CTA
 
@@ -58,7 +58,7 @@ Not sure how a lender would convert your income? Let us check it for you. → Ch
 1. **Can I get a mortgage if I am paid in US dollars or euros?** Yes. US dollars and euros are widely accepted. A lender converts the income to sterling and applies a reduction to allow for exchange rate movement, then lends on a percentage of that figure. The income counts. It is simply assessed with a margin built in.
 2. **Will a lender use all of my foreign currency income?** Not all of it. A lender converts your pay to sterling and reduces it to allow for the rate moving against you. The size of that reduction varies between lenders, which is why the lender you choose affects your borrowing more than the rate does.
 3. **What if I am paid in a less common currency?** It is still workable. US dollars and euros give you the widest choice, and other currencies shorten the list rather than close the door. Evidence of a steady history in that currency helps, so it is worth speaking to us early.
-4. **How do I start?** Use the 60-second check and a Mortgage One adviser will review your answers and tell you where you stand. You can also call us on 01202 155992. You must be on UK soil to receive advice.
+4. **How do I start?** Use the 60-second check and a Mortgage One adviser will review your answers and tell you where you stand. You can also call us on 01202 155992.
 
 ## CTA block
 

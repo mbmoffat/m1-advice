@@ -51,7 +51,7 @@ Have your current contract, recent payslips and bank statements showing the pay 
 
 ## How does residency affect the lender list and deposit?
 
-Your tax residency and recent UK address history shape which lenders will help and how much deposit they ask for. UK-resident merchant navy seafarers can often reach standard deposit levels, subject to criteria, while non-resident cases tend to need a larger deposit. You must be on UK soil to receive advice, so we confirm your circumstances before recommending anything.
+Your tax residency and recent UK address history shape which lenders will help and how much deposit they ask for. UK-resident merchant navy seafarers can often reach standard deposit levels, subject to criteria, while non-resident cases tend to need a larger deposit.
 
 ## Second CTA
 
@@ -62,7 +62,7 @@ Merchant navy pay made up of several parts? Let us put it in front of the right 
 1. **Can a merchant navy seafarer get a UK mortgage?** Yes. Merchant navy pay is placed across multiple lenders in the market every week. The work is in matching how you are paid to a lender that assesses seafarers by hand rather than by an automated check.
 2. **Does foreign currency pay reduce what I can borrow?** It can. A lender converts non-sterling pay to sterling and applies a reduction for exchange rate movement. The size of that reduction varies between lenders, so the lender you choose affects your borrowing more than the rate does.
 3. **What evidence should I have ready?** Your current contract, recent payslips, bank statements showing the pay arriving, and your discharge book to evidence sea time. If you claim the Seafarers Earnings Deduction, records that support the claim help too.
-4. **How do I start?** Use the 60-second check and a Mortgage One adviser will review your answers and tell you where you stand. You can also call us on 01202 155992. You must be on UK soil to receive advice.
+4. **How do I start?** Use the 60-second check and a Mortgage One adviser will review your answers and tell you where you stand. You can also call us on 01202 155992.
 
 ## CTA block
 

@@ -47,7 +47,7 @@ No. You carry on claiming SED exactly as you do now. There is no need to change 
 
 ## What evidence will a lender want, and does residency matter?
 
-Expect to provide your current contract, recent payslips, bank statements showing the pay arriving, and records that support your SED claim, such as your tax return and a record of days worked outside the UK. Residency also shapes the lender list and the deposit, so UK-resident seafarers often reach standard deposit levels while non-resident cases tend to need more. You must be on UK soil to receive advice, so we confirm your position properly first.
+Expect to provide your current contract, recent payslips, bank statements showing the pay arriving, and records that support your SED claim, such as your tax return and a record of days worked outside the UK. Residency also shapes the lender list and the deposit, so UK-resident seafarers often reach standard deposit levels while non-resident cases tend to need more.
 
 ## Second CTA
 
@@ -58,7 +58,7 @@ Let us match your contracted income to a lender that reads it correctly. → Che
 1. **Does claiming the Seafarers Earnings Deduction stop me getting a mortgage?** No. The deduction lowers your UK tax, not your income. Lenders who understand seafarers assess your gross contracted earnings rather than your tax return, so the relief itself is not the obstacle. Lender choice is.
 2. **Will I have to give up the deduction to get a mortgage?** No. You keep claiming the Seafarers Earnings Deduction as normal. The right lender simply looks at what you earn under contract instead of the tax figure, so there is no need to change how you file.
 3. **Why do some banks misread my income?** An automated check often reads the low or nil tax figure on your return as a low income. The earnings are real and regular, but the tick-box process cannot see that. A lender that assesses seafarers by hand can.
-4. **How do I start?** Use the 60-second check and a Mortgage One adviser will review your answers and tell you where you stand. You can also call us on 01202 155992. You must be on UK soil to receive advice.
+4. **How do I start?** Use the 60-second check and a Mortgage One adviser will review your answers and tell you where you stand. You can also call us on 01202 155992.
 
 ## CTA block
 
