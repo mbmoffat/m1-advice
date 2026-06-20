@@ -1,0 +1,61 @@
+name: Notify sign-off needed
+
+# Emails Matt when a pull request into main carries the "needs-signoff" label,
+# so locked-file / judgement-call PRs are not auto-merged without a human review.
+on:
+  pull_request:
+    types: [opened, labeled]
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  notify:
+    # Fire only when the PR carries the "needs-signoff" label: either it was
+    # opened already carrying it, or that specific label was just added.
+    if: >-
+      (github.event.action == 'opened' || github.event.label.name == 'needs-signoff')
+      && contains(github.event.pull_request.labels.*.name, 'needs-signoff')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send sign-off email via Resend
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: |
+          set -euo pipefail
+
+          # One-line summary: first non-empty line of the PR body, else the title.
+          SUMMARY=$(printf '%s\n' "${PR_BODY:-}" | grep -m1 -v '^[[:space:]]*$' || true)
+          if [ -z "$SUMMARY" ]; then SUMMARY="$PR_TITLE"; fi
+
+          SUBJECT="Sign-off needed: PR #${PR_NUMBER} ${PR_TITLE}"
+
+          # Body: title, one-line summary, PR URL.
+          TEXT=$(printf '%s\n\n%s\n\n%s\n' "$PR_TITLE" "$SUMMARY" "$PR_URL")
+
+          # jq JSON-encodes every field so titles/summaries with quotes are safe.
+          PAYLOAD=$(jq -n \
+            --arg from "notifications@mortgageonefinance.co.uk" \
+            --arg to "mm@mortgageonefinance.co.uk" \
+            --arg subject "$SUBJECT" \
+            --arg text "$TEXT" \
+            '{from: $from, to: [$to], subject: $subject, text: $text}')
+
+          HTTP_CODE=$(curl -sS -o /tmp/resend_resp.json -w '%{http_code}' \
+            -X POST https://api.resend.com/emails \
+            -H "Authorization: Bearer ${RESEND_API_KEY}" \
+            -H "Content-Type: application/json" \
+            -d "$PAYLOAD")
+
+          echo "Resend HTTP ${HTTP_CODE}"
+          cat /tmp/resend_resp.json || true
+          echo
+          if [ "$HTTP_CODE" -ge 400 ]; then
+            echo "::error::Resend API call failed with HTTP ${HTTP_CODE}"
+            exit 1
+          fi
