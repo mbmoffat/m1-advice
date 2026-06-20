@@ -40,7 +40,7 @@ jobs:
 
           # jq JSON-encodes every field so titles/summaries with quotes are safe.
           PAYLOAD=$(jq -n \
-            --arg from "notifications@mortgageonefinance.co.uk" \
+            --arg from "onboarding@resend.dev" \
             --arg to "mm@mortgageonefinance.co.uk" \
             --arg subject "$SUBJECT" \
             --arg text "$TEXT" \
