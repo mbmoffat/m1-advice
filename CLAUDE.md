@@ -7,7 +7,6 @@ src/components/locked/**, src/config/site.ts, src/config/form.ts, vercel.json, a
 ## Forbidden topics (never create or modify content about)
 IVA, CCJ, DMP, defaults, debt management, benefits, bankruptcy, bad credit.
 Also forbidden: any "declined", "mortgage refused", or "second opinion after another broker" content. The single exception is the seafarer cluster, where this content is permitted.
-Seafarer pages must never include a "UK soil" or UK-residency-requirement line or qualifier. Do not add UK-residency gating to seafarer reassurance, CTA or body copy, even when matching sibling-page patterns.
 ## Contact details
 enquiry@mortgageonefinance.co.uk and 01202 155992 only. No other email or phone may appear anywhere.
 ## Links
@@ -23,7 +22,7 @@ Before opening the pull request for any new or rewritten page, review the render
 3. Readability: plain English, short sentences, senior-broker tone.
 4. Persuasion: are the three CTAs specific to this page and the section before them, and is the reason to enquire clear?
 5. Distinctiveness: does it avoid overlapping or repeating any existing page in docs/copy or the live cluster?
-6. Links and standards: do internal links resolve, is the related panel correct, and is every page standard met (byline, residential risk warning, UK-soil line, approved market wording, no superlatives, schema)?
+6. Links and standards: do internal links resolve, is the related panel correct, and is every page standard met (byline, residential risk warning, approved market wording, no superlatives, schema)?
 Revise and re-review until every item scores 4 or 5. Put the final scores at the top of the pull request description. If after two revision rounds any item is still 3 or below, open the pull request as a draft so it cannot auto-merge, and list what failed, for Matt to look at.
 ## Build order
 seafarer, expat, complex income, later-life (55 to 70), HNW amount pages, first-time buyer, buy-to-let, Halal Mortgages, then equity release and lifetime mortgages last.
