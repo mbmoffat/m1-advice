@@ -7,6 +7,7 @@ src/components/locked/**, src/config/site.ts, src/config/form.ts, vercel.json, a
 ## Forbidden topics (never create or modify content about)
 IVA, CCJ, DMP, defaults, debt management, benefits, bankruptcy, bad credit.
 Also forbidden: any "declined", "mortgage refused", or "second opinion after another broker" content. The single exception is the seafarer cluster, where this content is permitted.
+Seafarer pages must never include a "UK soil" or UK-residency-requirement line or qualifier. Do not add UK-residency gating to seafarer reassurance, CTA or body copy, even when matching sibling-page patterns.
 ## Contact details
 enquiry@mortgageonefinance.co.uk and 01202 155992 only. No other email or phone may appear anywhere.
 ## Links

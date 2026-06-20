@@ -1,18 +1,24 @@
 ---
 interface Props {
-  title: string;
+  title?: string;
+  lead?: string;
+  intro?: string;
   lines: string[];
+  closing?: string;
 }
-const { title, lines } = Astro.props;
+const { title, lead, intro, lines, closing } = Astro.props;
 ---
 
 <div class="reassurance card">
-  <h2>{title}</h2>
+  {title && <h2>{title}</h2>}
+  {lead && <p class="reassurance__lead">{lead}</p>}
+  {intro && <p class="reassurance__intro">{intro}</p>}
   <ul>
     {lines.map((line) => (
       <li>{line}</li>
     ))}
   </ul>
+  {closing && <p class="reassurance__closing">{closing}</p>}
 </div>
 
 <style>
@@ -23,10 +29,19 @@ const { title, lines } = Astro.props;
     margin-top: 0;
     font-size: 1.4rem;
   }
+  .reassurance__lead {
+    margin-top: 0;
+    font-weight: 700;
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+  }
   .reassurance ul {
     margin: 0;
     padding-left: 1.2rem;
     display: grid;
     gap: 0.5rem;
+  }
+  .reassurance__closing {
+    margin-bottom: 0;
   }
 </style>

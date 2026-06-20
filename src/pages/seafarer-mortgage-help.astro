@@ -1,5 +1,6 @@
 ---
 import ArticleLayout from '../layouts/ArticleLayout.astro';
+import Reassurance from '../components/Reassurance.astro';
 import MidCta from '../components/MidCta.astro';
 import PullQuote from '../components/PullQuote.astro';
 import FaqSection from '../components/FaqSection.astro';
@@ -8,6 +9,15 @@ import EnquiryForm from '../components/locked/EnquiryForm.astro';
 import RelatedPanel from '../components/RelatedPanel.astro';
 
 const slug = '/seafarer-mortgage-help';
+
+const reassuranceLines = [
+  'Paid in a foreign currency (USD, EUR or other)',
+  'Working rotational or voyage-based contracts',
+  "Claiming Seafarers' Earnings Deduction (SED)",
+  'Spending long stretches outside the UK',
+  'Merchant navy, yacht, cruise or offshore crew',
+  'Mixing salary, allotments and overtime',
+];
 
 const faqs = [
   {
@@ -54,6 +64,13 @@ const relatedCards = [
     spells at sea and residency. None of them is a barrier with a lender that understands seafarers, and that is what
     specialist help gets you.
   </p>
+
+  <Reassurance
+    lead="Whatever your situation at sea, it is workable."
+    intro="Seafarer income rarely fits a standard payslip template. That is presentation, not a problem. We regularly place clients who are:"
+    lines={reassuranceLines}
+    closing="If your circumstances are not listed, they are almost certainly still workable. The 60-second check is the quickest way to find out."
+  />
 
   <h2>Whole-of-market access for seafarers</h2>
   <p>

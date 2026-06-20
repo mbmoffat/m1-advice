@@ -3,7 +3,7 @@
 - **Route:** `/how-much-can-a-seafarer-borrow`
 - **Layout:** ArticleLayout (byline: Author - Matt Moffat MLIBF CeMAP CeRER | Managing Director | Mortgage One)
 - **SEO title:** How Much Can a Seafarer Borrow? | Mortgage One
-- **Meta description:** Yes, seafarers can borrow for a UK mortgage. How lenders assess your income, how a foreign currency reduction changes the figure, and how SED earnings count.
+- **Meta description:** How much you can borrow as a seafarer depends on how lenders read offshore income. See realistic figures for foreign currency and rotational contracts.
 - **Canonical:** https://advice.mortgageonefinance.co.uk/how-much-can-a-seafarer-borrow
 - **Funnel:** amount
 
