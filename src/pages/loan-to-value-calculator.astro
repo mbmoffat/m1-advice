@@ -1,0 +1,540 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+import site from '../config/site';
+
+const slug = '/loan-to-value-calculator';
+const canonical = site.host + slug;
+
+// Lending bands, ascending. A result sits in the lowest band whose ceiling it
+// does not exceed. Lenders price in steps at these points, so showing the band
+// and the deposit needed to reach the next one down is the useful output.
+const BANDS = [60, 75, 80, 85, 90, 95];
+
+// Illustrative typical maximum loan to value by borrower type. maxUpper is the
+// numeric ceiling used for the in or out of range flag. flagRange and maxText
+// are the wording shown to the user. scenario pre-seeds the eligibility check.
+const BORROWERS = [
+  {
+    value: 'uk-resident',
+    label: 'UK resident',
+    maxUpper: 95,
+    maxText: 'up to 95 percent',
+    flagRange: '95',
+    noun: 'UK resident borrowers',
+    scenario: '',
+  },
+  {
+    value: 'self-employed',
+    label: 'Self-employed',
+    maxUpper: 95,
+    maxText: '90 to 95 percent',
+    flagRange: '90 to 95',
+    noun: 'self-employed borrowers',
+    scenario: 'self-employed',
+  },
+  {
+    value: 'buy-to-let',
+    label: 'Buy-to-let',
+    maxUpper: 80,
+    maxText: '75 to 80 percent',
+    flagRange: '75 to 80',
+    noun: 'buy-to-let borrowers',
+    scenario: 'btl',
+  },
+  {
+    value: 'expat',
+    label: 'Expat',
+    maxUpper: 85,
+    maxText: '75 to 85 percent',
+    flagRange: '75 to 85',
+    noun: 'expat borrowers',
+    scenario: 'expat',
+  },
+  {
+    value: 'foreign-currency',
+    label: 'Foreign-currency income',
+    maxUpper: 85,
+    maxText: '75 to 85 percent',
+    flagRange: '75 to 85',
+    noun: 'foreign-currency borrowers',
+    scenario: 'foreign-currency',
+  },
+];
+
+const webApplication = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: 'Loan to value (LTV) calculator',
+  url: canonical,
+  applicationCategory: 'FinanceApplication',
+  operatingSystem: 'Any',
+  isAccessibleForFree: true,
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'GBP' },
+  description:
+    'A calculator that works out your loan to value from a property value and either a deposit or a loan amount, shows the lending band it falls in, the extra deposit needed to reach the band below, and an illustrative typical maximum for your borrower type.',
+  provider: {
+    '@type': 'Organization',
+    name: 'Mortgage One',
+    url: site.www,
+  },
+};
+---
+
+<BaseLayout
+  title="Loan to Value (LTV) Calculator | Mortgage One"
+  description="Work out your loan to value in seconds. Enter a property value and your deposit or loan, see the lending band, the deposit to reach the band below and a typical maximum LTV."
+  breadcrumbs={[
+    { name: 'Home', href: '/' },
+    { name: 'Loan to value calculator', href: slug },
+  ]}
+>
+  <section class="section">
+    <div class="container calc">
+      <p class="eyebrow">Mortgage tools</p>
+      <h1>Loan to value (LTV) calculator</h1>
+
+      <p class="lead">
+        Yes, you can work out your loan to value in a few seconds. Enter the property value and either your deposit or
+        your loan below, and this tool shows your LTV, the lending band it falls in, and how much more deposit would move
+        you into the band below.
+      </p>
+
+      <p>
+        Loan to value is simply the loan measured against the property value, written as a percentage. It matters because
+        lenders price and set their criteria in bands, so dropping under the next band down can widen the lenders open to
+        you and improve the rate. This calculator shows where you sit and what it would take to step down a band.
+      </p>
+
+      <div class="calc-form" id="ltv-calc">
+        <div class="field">
+          <label for="ltv-value">Property value</label>
+          <input
+            id="ltv-value"
+            name="propertyValue"
+            type="number"
+            inputmode="numeric"
+            min="0"
+            step="1000"
+            placeholder="e.g. 350000"
+          />
+        </div>
+
+        <fieldset class="field toggle">
+          <legend>What do you want to enter?</legend>
+          <label class="toggle-option">
+            <input type="radio" name="mode" value="deposit" checked />
+            <span>Deposit amount</span>
+          </label>
+          <label class="toggle-option">
+            <input type="radio" name="mode" value="loan" />
+            <span>Loan amount</span>
+          </label>
+        </fieldset>
+
+        <div class="field" id="ltv-deposit-field">
+          <label for="ltv-deposit">Deposit amount</label>
+          <input
+            id="ltv-deposit"
+            name="deposit"
+            type="number"
+            inputmode="numeric"
+            min="0"
+            step="1000"
+            placeholder="e.g. 70000"
+          />
+          <p class="field-note">We work out the loan as the property value minus your deposit.</p>
+        </div>
+
+        <div class="field" id="ltv-loan-field" hidden>
+          <label for="ltv-loan">Loan amount</label>
+          <input
+            id="ltv-loan"
+            name="loan"
+            type="number"
+            inputmode="numeric"
+            min="0"
+            step="1000"
+            placeholder="e.g. 280000"
+          />
+          <p class="field-note">We work out the deposit as the property value minus your loan.</p>
+        </div>
+
+        <div class="field">
+          <label for="ltv-borrower">Borrower type</label>
+          <select id="ltv-borrower" name="borrower">
+            {BORROWERS.map((b) => <option value={b.value}>{b.label}</option>)}
+          </select>
+        </div>
+
+        <button type="button" class="btn" id="ltv-calc-btn">Work out my loan to value</button>
+      </div>
+
+      <div class="result" id="ltv-result" hidden>
+        <h2>Your loan to value</h2>
+
+        <div class="result-range">
+          <p class="result-figure" id="ltv-figure">Enter your figures above</p>
+          <p class="result-band" id="ltv-band"></p>
+        </div>
+
+        <table class="result-table">
+          <tbody>
+            <tr>
+              <th scope="row">Loan amount</th>
+              <td id="ltv-out-loan"></td>
+            </tr>
+            <tr>
+              <th scope="row">Deposit</th>
+              <td id="ltv-out-deposit"></td>
+            </tr>
+            <tr>
+              <th scope="row">Lending band</th>
+              <td id="ltv-out-bandcell"></td>
+            </tr>
+            <tr>
+              <th scope="row">To reach the band below</th>
+              <td id="ltv-out-gap"></td>
+            </tr>
+            <tr>
+              <th scope="row">Typical maximum for your type</th>
+              <td id="ltv-out-max"></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p class="result-flag" id="ltv-flag"></p>
+
+        <p class="result-insight">
+          The single thing that moves your LTV is the gap between the loan and the property value. A little more deposit
+          can carry you under the next band down, and that is often what widens the lender choice and sharpens the rate,
+          rather than the headline number on its own.
+        </p>
+
+        <p class="result-disclaimer">
+          Figures are illustrative. Maximum LTV varies by lender, product and your full circumstances. Specialist
+          scenarios often have lower maximums.
+        </p>
+
+        <p class="result-disclaimer">
+          These figures are illustrative only. They are not a quote, offer or advice. Actual borrowing is subject to full
+          lender assessment and status.
+        </p>
+      </div>
+
+      <CtaBlock
+        heading="See which lenders fit your loan to value"
+        line="Tell us your property value, your deposit and how you are paid, and a Mortgage One adviser will turn this band into a shortlist of lenders built around your case."
+        scenario=""
+        src={slug}
+      />
+
+      <p class="risk-warning">
+        Think carefully before securing your debts against your home. Your home may be repossessed if you do not keep up
+        repayments on your mortgage.
+      </p>
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify(webApplication)} is:inline />
+
+  <script define:vars={{ bands: BANDS, borrowers: BORROWERS }}>
+    const form = document.getElementById('ltv-calc');
+    const result = document.getElementById('ltv-result');
+    if (form && result) {
+      const gbp = new Intl.NumberFormat('en-GB', {
+        style: 'currency',
+        currency: 'GBP',
+        maximumFractionDigits: 0,
+      });
+      const money = (n) => gbp.format(Math.round(n));
+      // Deposit gap is rounded up to the nearest hundred so it is never understated.
+      const moneyUp = (n) => gbp.format(Math.ceil(n / 100) * 100);
+
+      const set = (id, value) => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = value;
+      };
+
+      const depositField = document.getElementById('ltv-deposit-field');
+      const loanField = document.getElementById('ltv-loan-field');
+
+      const currentMode = () => {
+        const checked = form.querySelector('input[name="mode"]:checked');
+        return checked ? checked.value : 'deposit';
+      };
+
+      const syncMode = () => {
+        const mode = currentMode();
+        depositField.hidden = mode !== 'deposit';
+        loanField.hidden = mode !== 'loan';
+      };
+
+      const borrowerFor = (value) => borrowers.find((b) => b.value === value) || borrowers[0];
+
+      // Lowest band whose ceiling the LTV does not exceed. null means above the top band.
+      const bandFor = (ltv) => {
+        for (const b of bands) {
+          if (ltv <= b) return b;
+        }
+        return null;
+      };
+
+      // Keep the eligibility CTA pre-seeded with the selected borrower type.
+      const cta = document.querySelector('.calc .cta-block a.btn');
+      const updateCta = () => {
+        if (!cta) return;
+        const b = borrowerFor(document.getElementById('ltv-borrower').value);
+        const params = new URLSearchParams();
+        if (b.scenario) params.set('scenario', b.scenario);
+        params.set('src', '/loan-to-value-calculator');
+        cta.setAttribute('href', '/check?' + params.toString());
+      };
+
+      const calculate = () => {
+        const propertyValue = Math.max(0, Number(document.getElementById('ltv-value').value) || 0);
+        const mode = currentMode();
+        const borrower = borrowerFor(document.getElementById('ltv-borrower').value);
+
+        if (propertyValue <= 0) {
+          result.hidden = true;
+          return;
+        }
+
+        let deposit;
+        let loan;
+        if (mode === 'deposit') {
+          deposit = Math.max(0, Number(document.getElementById('ltv-deposit').value) || 0);
+          loan = propertyValue - deposit;
+        } else {
+          loan = Math.max(0, Number(document.getElementById('ltv-loan').value) || 0);
+          deposit = propertyValue - loan;
+        }
+
+        if (loan <= 0 && deposit <= 0) {
+          result.hidden = true;
+          return;
+        }
+
+        const ltv = (loan / propertyValue) * 100;
+
+        set('ltv-out-loan', money(Math.max(0, loan)));
+        set('ltv-out-deposit', money(Math.max(0, deposit)));
+        set('ltv-out-max', borrower.maxText);
+
+        const flagEl = document.getElementById('ltv-flag');
+
+        // Deposit larger than the property, or a loan above the property value.
+        if (loan <= 0) {
+          set('ltv-figure', '0 percent loan to value');
+          set('ltv-band', 'Your deposit covers the whole property value, so there is no loan to measure.');
+          set('ltv-out-bandcell', 'No borrowing needed');
+          set('ltv-out-gap', 'Not applicable');
+          flagEl.textContent = '';
+          flagEl.hidden = true;
+          result.hidden = false;
+          updateCta();
+          return;
+        }
+
+        const ltvText = ltv.toFixed(1) + ' percent';
+        set('ltv-figure', ltvText + ' loan to value');
+
+        if (ltv > 100) {
+          set('ltv-band', 'Your loan is larger than the property value, which no lender will fund. Check the figures above.');
+          set('ltv-out-bandcell', 'Above 100 percent');
+          set('ltv-out-gap', 'Reduce the loan below the property value first');
+        } else {
+          const band = bandFor(ltv);
+          let bandLabel;
+          let nextLower;
+          if (band === null) {
+            bandLabel = 'Above 95 percent, beyond standard lending';
+            nextLower = 95;
+          } else if (band === 60) {
+            bandLabel = 'Up to 60 percent, the strongest band';
+            nextLower = null;
+          } else {
+            bandLabel = 'Up to ' + band + ' percent';
+            const idx = bands.indexOf(band);
+            nextLower = idx > 0 ? bands[idx - 1] : null;
+          }
+
+          set('ltv-band', 'This sits in the ' + bandLabel.charAt(0).toLowerCase() + bandLabel.slice(1) + ' band.');
+          set('ltv-out-bandcell', bandLabel);
+
+          if (nextLower === null) {
+            set('ltv-out-gap', 'You are already in the strongest band');
+          } else {
+            const targetLoan = propertyValue * (nextLower / 100);
+            const extra = loan - targetLoan;
+            set(
+              'ltv-out-gap',
+              moneyUp(extra) + ' more deposit reaches the up to ' + nextLower + ' percent band',
+            );
+          }
+        }
+
+        // In or out of range flag against the borrower type maximum.
+        if (ltv > borrower.maxUpper) {
+          flagEl.textContent =
+            'Your ' +
+            ltvText +
+            ' LTV is above the typical ' +
+            borrower.flagRange +
+            ' percent maximum for ' +
+            borrower.noun +
+            '. You may need a larger deposit or a specialist lender.';
+          flagEl.hidden = false;
+          flagEl.classList.add('result-flag--out');
+          flagEl.classList.remove('result-flag--in');
+        } else {
+          flagEl.textContent =
+            'Your ' +
+            ltvText +
+            ' LTV sits within the typical ' +
+            borrower.maxText +
+            ' maximum for ' +
+            borrower.noun +
+            ', subject to a full assessment.';
+          flagEl.hidden = false;
+          flagEl.classList.add('result-flag--in');
+          flagEl.classList.remove('result-flag--out');
+        }
+
+        result.hidden = false;
+        updateCta();
+      };
+
+      form.querySelectorAll('input[name="mode"]').forEach((el) =>
+        el.addEventListener('change', () => {
+          syncMode();
+          if (!result.hidden) calculate();
+        }),
+      );
+      document.getElementById('ltv-borrower').addEventListener('change', updateCta);
+      document.getElementById('ltv-calc-btn').addEventListener('click', calculate);
+      form.addEventListener('input', () => {
+        if (!result.hidden) calculate();
+      });
+
+      syncMode();
+      updateCta();
+    }
+  </script>
+</BaseLayout>
+
+<style>
+  .calc {
+    max-width: 760px;
+  }
+  .calc-form {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    margin-block: 2rem;
+    max-width: 640px;
+  }
+  .field {
+    margin-bottom: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+  .field label {
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+  .field input,
+  .field select {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    padding: 0.7rem 0.8rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--bg);
+    width: 100%;
+  }
+  .toggle {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1rem 1.1rem;
+  }
+  .toggle legend {
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 0 0.35rem;
+  }
+  .toggle-option {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.55rem;
+    font-weight: 400;
+  }
+  .toggle-option input {
+    width: auto;
+  }
+  .field-note {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    margin: 0.1rem 0 0;
+  }
+  .result {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    margin-block: 2.5rem;
+    background: var(--bg);
+  }
+  .result-range {
+    margin-bottom: 1.25rem;
+  }
+  .result-figure {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    margin: 0 0 0.3rem;
+  }
+  .result-band {
+    font-weight: 700;
+    margin: 0;
+  }
+  .result-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-block: 1.5rem;
+    font-size: 0.95rem;
+  }
+  .result-table th,
+  .result-table td {
+    text-align: left;
+    padding: 0.6rem 0.5rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .result-table th[scope='row'] {
+    width: 45%;
+    color: var(--ink-soft);
+    font-weight: 700;
+  }
+  .result-flag {
+    font-weight: 700;
+    padding: 0.9rem 1rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--surface);
+  }
+  .result-insight {
+    font-weight: 700;
+  }
+  .result-disclaimer {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+  .risk-warning {
+    border-top: 1px solid var(--line);
+    padding-top: 1.5rem;
+    margin-top: 2.5rem;
+  }
+</style>
