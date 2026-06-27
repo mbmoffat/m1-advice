@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import MidCta from '../components/MidCta.astro';
+import CtaBlock from '../components/CtaBlock.astro';
 import site from '../config/site';
 
 const slug = '/loan-to-value-calculator';
@@ -132,9 +132,11 @@ const webApplication = {
         </p>
       </div>
 
-      <MidCta
-        text="See which lenders fit your loan to value. Tell us your property value and your deposit, and a Mortgage One adviser will turn this band into a shortlist of lenders built around your case."
-        label="Check your eligibility"
+      <CtaBlock
+        tone="accent"
+        heading="See which lenders fit your loan to value"
+        line="Tell us your property value and your deposit, and a Mortgage One adviser will turn this band into a shortlist of lenders built around your case."
+        scenario=""
         src={slug}
       />
 
