@@ -43,7 +43,7 @@ const webApplication = {
       <p class="eyebrow">Mortgage tools</p>
       <h1>Loan to value (LTV) calculator</h1>
 
-      <p class="lead">
+      <p>
         Yes, you can work out your loan to value in a few seconds. Enter the property value and your deposit below, and
         this tool shows your LTV, the lending band it falls in, and how much more deposit would move you into the band
         below.
@@ -87,12 +87,12 @@ const webApplication = {
       </div>
 
       <div class="result" id="ltv-result" hidden>
-        <h2>Your loan to value</h2>
-
-        <div class="result-range">
-          <p class="result-figure" id="ltv-figure">Enter your figures above</p>
-          <p class="result-band" id="ltv-band"></p>
+        <p class="result-eyebrow">Your result</p>
+        <div class="result-headline">
+          <span class="result-figure" id="ltv-figure">75%</span>
+          <span class="result-caption">loan to value</span>
         </div>
+        <p class="result-band" id="ltv-band"></p>
 
         <table class="result-table">
           <tbody>
@@ -160,6 +160,11 @@ const webApplication = {
       const money = (n) => gbp.format(Math.round(n));
       // Deposit gap is rounded up to the nearest hundred so it is never understated.
       const moneyUp = (n) => gbp.format(Math.ceil(n / 100) * 100);
+      // LTV to one decimal, with a whole number left clean: 75 not 75.0.
+      const pct = (n) => {
+        const r = Math.round(n * 10) / 10;
+        return (r % 1 === 0 ? String(r) : r.toFixed(1)) + '%';
+      };
 
       const set = (id, value) => {
         const el = document.getElementById(id);
@@ -191,7 +196,7 @@ const webApplication = {
 
         // Deposit covers the whole property value, so there is no loan to measure.
         if (loan <= 0) {
-          set('ltv-figure', '0 percent loan to value');
+          set('ltv-figure', '0%');
           set('ltv-band', 'Your deposit covers the whole property value, so there is no loan to measure.');
           set('ltv-out-bandcell', 'No borrowing needed');
           set('ltv-out-gap', 'Not applicable');
@@ -199,8 +204,7 @@ const webApplication = {
           return;
         }
 
-        const ltvText = ltv.toFixed(1) + ' percent';
-        set('ltv-figure', ltvText + ' loan to value');
+        set('ltv-figure', pct(ltv));
 
         const band = bandFor(ltv);
         let bandLabel;
@@ -278,23 +282,48 @@ const webApplication = {
   }
   .result {
     border: 1px solid var(--line);
+    border-top: 4px solid var(--accent);
     border-radius: var(--radius);
-    padding: 1.75rem;
+    padding: clamp(1.5rem, 4vw, 2.25rem);
     margin-block: 2.5rem;
-    background: var(--bg);
+    background: var(--surface);
   }
-  .result-range {
-    margin-bottom: 1.25rem;
+  .result-eyebrow {
+    font-family: var(--font-body);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    margin: 0 0 0.4rem;
+  }
+  .result-headline {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 1rem;
   }
   .result-figure {
     font-family: var(--font-heading);
     font-weight: 700;
-    font-size: clamp(1.6rem, 4vw, 2.2rem);
-    margin: 0 0 0.3rem;
+    font-size: clamp(3rem, 11vw, 4.75rem);
+    line-height: 1;
+    color: var(--accent-strong);
+  }
+  .result-caption {
+    font-family: var(--font-heading);
+    font-size: clamp(1.1rem, 3vw, 1.5rem);
+    color: var(--ink-soft);
   }
   .result-band {
+    display: inline-block;
     font-weight: 700;
     margin: 0;
+    padding: 0.55rem 0.9rem;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
   }
   .result-table {
     width: 100%;
