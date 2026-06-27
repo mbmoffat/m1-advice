@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import CtaBlock from '../components/CtaBlock.astro';
+import MidCta from '../components/MidCta.astro';
 import site from '../config/site';
 
 const slug = '/loan-to-value-calculator';
@@ -116,9 +116,9 @@ const webApplication = {
         </table>
 
         <p class="result-insight">
-          The single thing that moves your LTV is the gap between the loan and the property value. A little more deposit
-          can carry you under the next band down, and that is often what widens the lender choice and sharpens the rate,
-          rather than the headline number on its own.
+          LTV is your loan as a share of the property value. Lenders price in bands, so a slightly larger deposit that
+          tips you into a lower band can open up more lenders and a sharper rate. How much it helps depends on the lender
+          and the product.
         </p>
 
         <p class="result-disclaimer">
@@ -132,10 +132,9 @@ const webApplication = {
         </p>
       </div>
 
-      <CtaBlock
-        heading="See which lenders fit your loan to value"
-        line="Tell us your property value and your deposit, and a Mortgage One adviser will turn this band into a shortlist of lenders built around your case."
-        scenario=""
+      <MidCta
+        text="See which lenders fit your loan to value. Tell us your property value and your deposit, and a Mortgage One adviser will turn this band into a shortlist of lenders built around your case."
+        label="Check your eligibility"
         src={slug}
       />
 
@@ -206,30 +205,40 @@ const webApplication = {
 
         set('ltv-figure', pct(ltv));
 
+        // Band labels never contain the word "band": the sentence and table add
+        // their own context, so a label is just the bracket, e.g. "up to 60%".
         const band = bandFor(ltv);
-        let bandLabel;
+        let label;
         let nextLower;
+        let lowerLabel;
         if (band === null) {
-          bandLabel = 'Above 95 percent, beyond standard lending';
+          label = 'above 95%';
           nextLower = 95;
-        } else if (band === 60) {
-          bandLabel = 'Up to 60 percent, the strongest band';
-          nextLower = null;
+          lowerLabel = 'up to 95%';
         } else {
-          bandLabel = 'Up to ' + band + ' percent';
+          label = 'up to ' + band + '%';
           const idx = bands.indexOf(band);
           nextLower = idx > 0 ? bands[idx - 1] : null;
+          lowerLabel = nextLower === null ? null : 'up to ' + nextLower + '%';
         }
 
-        set('ltv-band', 'This sits in the ' + bandLabel.charAt(0).toLowerCase() + bandLabel.slice(1) + ' band.');
-        set('ltv-out-bandcell', bandLabel);
+        if (band === 60) {
+          set(
+            'ltv-band',
+            'Your ' + pct(ltv) + ' LTV falls in the up to 60% band. That is the strongest band for lender choice and rates.'
+          );
+        } else {
+          set('ltv-band', 'Your ' + pct(ltv) + ' LTV falls in the ' + label + ' band.');
+        }
+
+        set('ltv-out-bandcell', label.charAt(0).toUpperCase() + label.slice(1));
 
         if (nextLower === null) {
-          set('ltv-out-gap', 'You are already in the strongest band');
+          set('ltv-out-gap', 'You are already in the strongest band.');
         } else {
           const targetLoan = propertyValue * (nextLower / 100);
           const extra = loan - targetLoan;
-          set('ltv-out-gap', moneyUp(extra) + ' more deposit reaches the up to ' + nextLower + ' percent band');
+          set('ltv-out-gap', 'Add ' + moneyUp(extra) + ' deposit to reach ' + lowerLabel + '.');
         }
 
         result.hidden = false;
