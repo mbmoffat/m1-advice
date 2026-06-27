@@ -1,0 +1,365 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+import site from '../config/site';
+
+const slug = '/foreign-currency-mortgage-calculator';
+const canonical = site.host + slug;
+
+// Indicative exchange rates only, expressed as pounds sterling per one unit of
+// the currency. Lenders apply their own set assessment rate, not these figures.
+// One clearly labelled constant per currency, in the order shown to the user.
+const RATES = [
+  { code: 'USD', label: 'US dollar (USD)', rate: 0.79 },
+  { code: 'EUR', label: 'Euro (EUR)', rate: 0.86 },
+  { code: 'AUD', label: 'Australian dollar (AUD)', rate: 0.52 },
+  { code: 'CAD', label: 'Canadian dollar (CAD)', rate: 0.58 },
+  { code: 'AED', label: 'UAE dirham (AED)', rate: 0.215 },
+  { code: 'SGD', label: 'Singapore dollar (SGD)', rate: 0.59 },
+  { code: 'HKD', label: 'Hong Kong dollar (HKD)', rate: 0.101 },
+  { code: 'NOK', label: 'Norwegian krone (NOK)', rate: 0.073 },
+  { code: 'CHF', label: 'Swiss franc (CHF)', rate: 0.88 },
+  { code: 'GBP', label: 'Pound sterling (GBP)', rate: 1 },
+];
+
+const webApplication = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: 'Foreign currency mortgage borrowing calculator',
+  url: canonical,
+  applicationCategory: 'FinanceApplication',
+  operatingSystem: 'Any',
+  isAccessibleForFree: true,
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'GBP' },
+  description:
+    'An indicative calculator that shows how much you might borrow on UK mortgage when part of your income is paid in a foreign currency, across a generous, typical and cautious lender treatment.',
+  provider: {
+    '@type': 'Organization',
+    name: 'Mortgage One',
+    url: site.www,
+  },
+};
+---
+
+<BaseLayout
+  title="Foreign Currency Mortgage Borrowing Calculator | Mortgage One"
+  description="See an indicative UK mortgage borrowing range on foreign currency income. Generous, typical and cautious lender treatments at 4.5 to 5 times income, illustrative only."
+  breadcrumbs={[
+    { name: 'Home', href: '/' },
+    { name: 'Foreign currency mortgage borrowing calculator', href: slug },
+  ]}
+>
+  <section class="section">
+    <div class="container calc">
+      <p class="eyebrow">Foreign currency mortgage tools</p>
+      <h1>Foreign currency mortgage borrowing calculator</h1>
+
+      <p class="lead">
+        Yes, you can get a sense of what you might borrow on income paid in a foreign currency in a few seconds. Enter
+        your pay below and this tool shows an indicative borrowing range, from a cautious lender to a generous
+        specialist, so you can see how much the choice of lender moves the figure.
+      </p>
+
+      <p>
+        The reason there is a range, rather than a single number, is that lenders treat foreign currency pay very
+        differently. One converts your income to sterling and lends on all of it. The next holds back a quarter to allow
+        for the exchange rate moving. This calculator puts those treatments side by side so the spread is plain before
+        you ever speak to a lender.
+      </p>
+
+      <div class="calc-form" id="fx-calc">
+        <div class="field">
+          <label for="fx-income">Annual income in the foreign currency</label>
+          <input
+            id="fx-income"
+            name="income"
+            type="number"
+            inputmode="numeric"
+            min="0"
+            step="1000"
+            placeholder="e.g. 90000"
+          />
+        </div>
+
+        <div class="field">
+          <label for="fx-currency">Currency this income is paid in</label>
+          <select id="fx-currency" name="currency">
+            {RATES.map((r) => <option value={r.code}>{r.label}</option>)}
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="fx-gbp">Second income already in pounds sterling (optional)</label>
+          <input
+            id="fx-gbp"
+            name="gbpIncome"
+            type="number"
+            inputmode="numeric"
+            min="0"
+            step="1000"
+            value="0"
+          />
+          <p class="field-note">Leave this as zero if all of your income is paid in the foreign currency.</p>
+        </div>
+
+        <button type="button" class="btn" id="fx-calc-btn">Show my indicative range</button>
+      </div>
+
+      <p class="rates-note">
+        The exchange rates in this tool are indicative only and are used to convert your income to sterling. Lenders
+        apply their own set assessment rate, not the live market rate, so the figure on a lender's system will differ.
+        The indicative rates used here are: USD 0.79, EUR 0.86, AUD 0.52, CAD 0.58, AED 0.215, SGD 0.59, HKD 0.101, NOK
+        0.073, CHF 0.88 and GBP 1.00, each expressed as pounds per unit.
+      </p>
+
+      <div class="result" id="fx-result" hidden>
+        <h2>Your indicative borrowing range</h2>
+
+        <div class="result-range">
+          <p class="result-figure" id="fx-range">Enter your income above</p>
+          <p class="result-typical">Typical figure: <span id="fx-typical"></span></p>
+        </div>
+
+        <p>
+          The low end of the range is a cautious lender holding back 25% of the converted income, lending at 4.5 times.
+          The high end is a generous specialist taking the income at full value, lending at 5 times. The typical figure
+          sits in between, holding back 15% at 4.5 times.
+        </p>
+
+        <table class="result-table">
+          <thead>
+            <tr>
+              <th scope="col">Lender treatment</th>
+              <th scope="col">Income held back</th>
+              <th scope="col">Assessed income</th>
+              <th scope="col">Indicative borrowing</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Cautious</th>
+              <td>25%</td>
+              <td id="fx-assessed-cautious"></td>
+              <td id="fx-borrow-cautious"></td>
+            </tr>
+            <tr>
+              <th scope="row">Typical</th>
+              <td>15%</td>
+              <td id="fx-assessed-typical"></td>
+              <td id="fx-borrow-typical"></td>
+            </tr>
+            <tr>
+              <th scope="row">Generous specialist</th>
+              <td>0%</td>
+              <td id="fx-assessed-generous"></td>
+              <td id="fx-borrow-generous"></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p class="result-insight">
+          The whole spread is driven by one thing: which lender assesses your case. The pound portion of your income is
+          never discounted. It is only the foreign currency part that lenders treat differently, and getting that part in
+          front of the right lender is what lifts the figure.
+        </p>
+
+        <p class="result-disclaimer">
+          Figures are illustrative. Your actual borrowing depends on the lender's exchange rate, how much of your income
+          they accept, the multiple they apply and a full affordability assessment.
+        </p>
+
+        <p class="result-disclaimer">
+          These figures are illustrative only. They are not a quote, offer or advice. Actual borrowing is subject to full
+          lender assessment and status.
+        </p>
+      </div>
+
+      <CtaBlock
+        heading="See what a lender would really assess"
+        line="Tell us how you are paid and a Mortgage One adviser will turn this indicative range into a figure built around your case."
+        scenario="foreign-currency"
+        src={slug}
+      />
+
+      <p class="risk-warning">
+        Think carefully before securing your debts against your home. Your home may be repossessed if you do not keep up
+        repayments on your mortgage.
+      </p>
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify(webApplication)} is:inline />
+
+  <script define:vars={{ rates: RATES }}>
+    const form = document.getElementById('fx-calc');
+    const result = document.getElementById('fx-result');
+    if (form && result) {
+      const rateFor = (code) => {
+        const found = rates.find((r) => r.code === code);
+        return found ? found.rate : 1;
+      };
+
+      const gbp = new Intl.NumberFormat('en-GB', {
+        style: 'currency',
+        currency: 'GBP',
+        maximumFractionDigits: 0,
+      });
+      // Round borrowing figures to the nearest thousand so the output reads as
+      // the indicative estimate it is, not a false-precision quote.
+      const money = (n) => gbp.format(Math.round(n / 1000) * 1000);
+
+      const set = (id, value) => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = value;
+      };
+
+      const calculate = () => {
+        const incomeEl = document.getElementById('fx-income');
+        const currencyEl = document.getElementById('fx-currency');
+        const gbpEl = document.getElementById('fx-gbp');
+
+        const income = Math.max(0, Number(incomeEl.value) || 0);
+        const currency = currencyEl.value;
+        const secondGbp = Math.max(0, Number(gbpEl.value) || 0);
+
+        if (income <= 0 && secondGbp <= 0) {
+          result.hidden = true;
+          return;
+        }
+
+        const rate = rateFor(currency);
+        const converted = income * rate;
+        const isForeign = currency !== 'GBP';
+
+        // The pound portion is never discounted. Only the converted foreign
+        // currency portion takes a lender treatment.
+        const foreignPortion = isForeign ? converted : 0;
+        const gbpPortion = secondGbp + (isForeign ? 0 : converted);
+
+        const assessed = (discount) => gbpPortion + foreignPortion * (1 - discount);
+
+        const assessedCautious = assessed(0.25);
+        const assessedTypical = assessed(0.15);
+        const assessedGenerous = assessed(0);
+
+        // Range: low is 25% held back at 4.5 times, high is 0% at 5 times.
+        const low = assessedCautious * 4.5;
+        const high = assessedGenerous * 5;
+        const typical = assessedTypical * 4.5;
+
+        set('fx-range', money(low) + ' to ' + money(high));
+        set('fx-typical', money(typical));
+
+        set('fx-assessed-cautious', money(assessedCautious));
+        set('fx-assessed-typical', money(assessedTypical));
+        set('fx-assessed-generous', money(assessedGenerous));
+
+        set('fx-borrow-cautious', money(assessedCautious * 4.5));
+        set('fx-borrow-typical', money(assessedTypical * 4.5));
+        set('fx-borrow-generous', money(assessedGenerous * 5));
+
+        result.hidden = false;
+      };
+
+      document.getElementById('fx-calc-btn').addEventListener('click', calculate);
+      form.addEventListener('input', () => {
+        if (!result.hidden) calculate();
+      });
+    }
+  </script>
+</BaseLayout>
+
+<style>
+  .calc {
+    max-width: 760px;
+  }
+  .calc-form {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    margin-block: 2rem;
+    max-width: 640px;
+  }
+  .field {
+    margin-bottom: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+  .field label {
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+  .field input,
+  .field select {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    padding: 0.7rem 0.8rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--bg);
+    width: 100%;
+  }
+  .field-note {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    margin: 0.1rem 0 0;
+  }
+  .rates-note {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+  .result {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    margin-block: 2.5rem;
+    background: var(--bg);
+  }
+  .result-range {
+    margin-bottom: 1.25rem;
+  }
+  .result-figure {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    margin: 0 0 0.3rem;
+  }
+  .result-typical {
+    font-weight: 700;
+    margin: 0;
+  }
+  .result-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-block: 1.5rem;
+    font-size: 0.95rem;
+  }
+  .result-table th,
+  .result-table td {
+    text-align: left;
+    padding: 0.6rem 0.5rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .result-table thead th {
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--ink-soft);
+  }
+  .result-insight {
+    font-weight: 700;
+  }
+  .result-disclaimer {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+  .risk-warning {
+    border-top: 1px solid var(--line);
+    padding-top: 1.5rem;
+    margin-top: 2.5rem;
+  }
+</style>
