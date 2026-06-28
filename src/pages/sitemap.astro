@@ -52,6 +52,8 @@ const clusters = [
     title: 'Calculators',
     hub: '/calculators',
     match: (r) => /calculator/.test(r),
+    // Extra links that are not local pages, listed after the built calculators.
+    extras: [{ href: 'https://www.mortgageonefinance.co.uk/stamp-duty-calculator', label: 'Stamp duty calculator' }],
   },
 ];
 
@@ -95,9 +97,9 @@ const clusterGroups = clusters
         if (b === c.hub) return 1;
         return label(a).localeCompare(label(b));
       });
-    return { title: c.title, hub: c.hub, pages };
+    return { title: c.title, hub: c.hub, pages, extras: c.extras ?? [] };
   })
-  .filter((g) => g.pages.length);
+  .filter((g) => g.pages.length || g.extras.length);
 
 // Anything no rule caught, so a new page is never silently dropped.
 const morePages = spokes
@@ -127,6 +129,11 @@ if (morePages.length) groups.push({ title: 'More pages', hub: null, pages: moreP
             {group.pages.map((route) => (
               <li class={route === group.hub ? 'is-hub' : undefined}>
                 <a href={route}>{label(route)}</a>
+              </li>
+            ))}
+            {(group.extras ?? []).map((x) => (
+              <li>
+                <a href={x.href}>{x.label}</a>
               </li>
             ))}
           </ul>
