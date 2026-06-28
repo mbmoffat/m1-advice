@@ -1,0 +1,213 @@
+---
+// Self-employed borrowing calculator: the interactive tool only. Wrap it in an
+// element carrying the `calc` class, e.g. <div class="calc"><SelfEmployedCalculator /></div>.
+import '../../styles/calculator.css';
+---
+
+<div class="calc-form" id="se-calc">
+  <div class="field">
+    <label for="se-trade">How you trade</label>
+    <select id="se-trade" name="trade">
+      <option value="sole">Sole trader or partnership</option>
+      <option value="director">Limited company director</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <label for="se-years">Years of accounts</label>
+    <select id="se-years" name="years">
+      <option value="1">1 year</option>
+      <option value="2">2 years</option>
+      <option value="3">3 or more years</option>
+    </select>
+  </div>
+
+  <div class="field" id="field-profit-latest" data-group="sole">
+    <label for="se-profit-latest">Latest year net profit (£)</label>
+    <input id="se-profit-latest" type="number" inputmode="numeric" min="0" step="1000" placeholder="e.g. 45000" />
+  </div>
+
+  <div class="field" id="field-profit-prev" data-group="sole" data-multi="1">
+    <label for="se-profit-prev">Previous year net profit (£)</label>
+    <input id="se-profit-prev" type="number" inputmode="numeric" min="0" step="1000" placeholder="e.g. 40000" />
+  </div>
+
+  <div class="field" id="field-salary-latest" data-group="director" hidden>
+    <label for="se-salary-latest">Latest year salary (£)</label>
+    <input id="se-salary-latest" type="number" inputmode="numeric" min="0" step="1000" placeholder="e.g. 12000" />
+  </div>
+
+  <div class="field" id="field-div-latest" data-group="director" hidden>
+    <label for="se-div-latest">Latest year dividends (£)</label>
+    <input id="se-div-latest" type="number" inputmode="numeric" min="0" step="1000" placeholder="e.g. 38000" />
+  </div>
+
+  <div class="field" id="field-salary-prev" data-group="director" data-multi="1" hidden>
+    <label for="se-salary-prev">Previous year salary (£)</label>
+    <input id="se-salary-prev" type="number" inputmode="numeric" min="0" step="1000" placeholder="e.g. 12000" />
+  </div>
+
+  <div class="field" id="field-div-prev" data-group="director" data-multi="1" hidden>
+    <label for="se-div-prev">Previous year dividends (£)</label>
+    <input id="se-div-prev" type="number" inputmode="numeric" min="0" step="1000" placeholder="e.g. 33000" />
+  </div>
+
+  <div class="field" id="field-retained" data-group="director" hidden>
+    <label for="se-retained">Latest year: your share of company net (retained) profit (£)</label>
+    <input id="se-retained" type="number" inputmode="numeric" min="0" step="1000" placeholder="e.g. 30000" />
+    <p class="field-note">Optional. Many specialist lenders assess salary plus your share of retained profit.</p>
+  </div>
+
+  <button type="button" class="btn" id="se-calc-btn">Show my borrowing range</button>
+</div>
+
+<div class="result" id="se-result" hidden>
+  <h2>Your indicative borrowing range</h2>
+
+  <div class="result-range">
+    <p class="result-figure" id="se-range">Enter your figures above</p>
+  </div>
+
+  <p id="se-basis"></p>
+  <p id="se-alt" hidden></p>
+  <p id="se-years-note"></p>
+
+  <p class="result-disclaimer">
+    Figures are illustrative. Your actual borrowing depends on the lender's income basis, your full circumstances and an
+    affordability assessment.
+  </p>
+
+  <p class="result-disclaimer">
+    These figures are illustrative only. They are not a quote, offer or advice. Actual borrowing is subject to full
+    lender assessment and status.
+  </p>
+</div>
+
+<script>
+  const form = document.getElementById('se-calc');
+  const result = document.getElementById('se-result');
+  if (form && result) {
+    const nf = new Intl.NumberFormat('en-GB', { maximumFractionDigits: 0 });
+    // Every pound figure is shown to the nearest hundred so it reads as the
+    // indicative estimate it is, not a false-precision quote.
+    const fmt = (n) => nf.format(Math.round(n / 100) * 100);
+    const num = (id) => Math.max(0, Number(document.getElementById(id).value) || 0);
+    const set = (id, value) => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = value;
+    };
+
+    const tradeEl = document.getElementById('se-trade');
+    const yearsEl = document.getElementById('se-years');
+
+    // Show the fields that fit the trade type, and only show the previous-year
+    // fields once two or more years of accounts are selected.
+    const updateVisibility = () => {
+      const trade = tradeEl.value;
+      const years = Number(yearsEl.value);
+      form.querySelectorAll('.field[data-group]').forEach((el) => {
+        const groupMatch = el.dataset.group === trade;
+        const multiOk = el.dataset.multi ? years >= 2 : true;
+        el.hidden = !(groupMatch && multiOk);
+      });
+    };
+
+    const calculate = () => {
+      const trade = tradeEl.value;
+      const years = Number(yearsEl.value);
+
+      let latestTotal;
+      let prevTotal;
+      if (trade === 'sole') {
+        latestTotal = num('se-profit-latest');
+        prevTotal = num('se-profit-prev');
+      } else {
+        latestTotal = num('se-salary-latest') + num('se-div-latest');
+        prevTotal = num('se-salary-prev') + num('se-div-prev');
+      }
+
+      // Need the latest figures, and the previous total too once averaging applies.
+      if (latestTotal <= 0 || (years >= 2 && prevTotal <= 0)) {
+        result.hidden = true;
+        return;
+      }
+
+      const assessed = years === 1 ? latestTotal : (latestTotal + prevTotal) / 2;
+      const low = assessed * 4.5;
+      const high = assessed * 5;
+
+      set('se-range', '£' + fmt(low) + ' to £' + fmt(high));
+
+      const alt = document.getElementById('se-alt');
+      if (trade === 'sole') {
+        set(
+          'se-basis',
+          'Based on assessed income of £' +
+            fmt(assessed) +
+            ', you could borrow in the region of £' +
+            fmt(low) +
+            ' to £' +
+            fmt(high) +
+            '. Most lenders work to 4.5 times income, and some stretch to 5 times subject to affordability.'
+        );
+        alt.hidden = true;
+      } else {
+        set(
+          'se-basis',
+          'On salary plus dividends, lenders assess £' +
+            fmt(assessed) +
+            ', supporting roughly £' +
+            fmt(low) +
+            ' to £' +
+            fmt(high) +
+            ' at 4.5 to 5 times income.'
+        );
+
+        const retained = num('se-retained');
+        if (retained > 0) {
+          const altIncome = num('se-salary-latest') + retained;
+          const altLow = altIncome * 4.5;
+          const altHigh = altIncome * 5;
+          set(
+            'se-alt',
+            'On salary plus your share of retained company profit, which many specialist lenders accept, they assess £' +
+              fmt(altIncome) +
+              ', supporting roughly £' +
+              fmt(altLow) +
+              ' to £' +
+              fmt(altHigh) +
+              '. As a company director, the income basis the lender uses can change your borrowing significantly, and a high street bank will often use the lower figure.'
+          );
+          alt.hidden = false;
+        } else {
+          alt.hidden = true;
+        }
+      }
+
+      if (years >= 2) {
+        set(
+          'se-years-note',
+          'With more than one year of accounts, lenders usually average your last two years. If your income is rising, a specialist lender may use your latest year instead, which would increase the figure.'
+        );
+      } else {
+        set(
+          'se-years-note',
+          'On one year of accounts your choice of lender is narrower, but specialist lenders do lend, so treat this as an indicative starting point.'
+        );
+      }
+
+      result.hidden = false;
+    };
+
+    document.getElementById('se-calc-btn').addEventListener('click', calculate);
+    form.addEventListener('change', () => {
+      updateVisibility();
+      if (!result.hidden) calculate();
+    });
+    form.addEventListener('input', () => {
+      if (!result.hidden) calculate();
+    });
+
+    updateVisibility();
+  }
+</script>
