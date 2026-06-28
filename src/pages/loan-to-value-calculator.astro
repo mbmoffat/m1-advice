@@ -136,7 +136,10 @@ const webApplication = {
       <CtaBlock
         tone="accent"
         heading="See which lenders fit your loan to value"
-        line="Tell us your property value and your deposit, and a Mortgage One adviser will turn this band into a shortlist of lenders built around your case."
+        line={[
+          'Tell us your property value and your deposit.',
+          'A Mortgage One adviser will turn this band into a shortlist of lenders built around your case.',
+        ]}
         scenario=""
         src={slug}
       />
@@ -258,14 +261,20 @@ const webApplication = {
 <style>
   .calc {
     max-width: 760px;
+    margin-inline: auto;
+    text-align: center;
   }
   .calc-form {
     background: var(--surface);
     border: 1px solid var(--line);
     border-radius: var(--radius);
     padding: 1.75rem;
-    margin-block: 2rem;
+    margin: 2rem auto;
     max-width: 640px;
+  }
+  /* Inputs and their labels read better left aligned, even on a centred page. */
+  .field {
+    text-align: left;
   }
   .field {
     margin-bottom: 1.25rem;
@@ -311,6 +320,7 @@ const webApplication = {
   }
   .result-headline {
     display: flex;
+    justify-content: center;
     align-items: baseline;
     flex-wrap: wrap;
     gap: 0.6rem;
@@ -339,10 +349,13 @@ const webApplication = {
   }
   .result-table {
     width: 100%;
+    max-width: 460px;
     border-collapse: collapse;
-    margin-block: 1.5rem;
+    margin: 1.5rem auto;
     font-size: 0.95rem;
   }
+  /* The figures stay left aligned in their cells so the rows line up and read
+     cleanly; the table itself is centred as a block within the result panel. */
   .result-table th,
   .result-table td {
     text-align: left;
