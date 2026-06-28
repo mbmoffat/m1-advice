@@ -1,7 +1,9 @@
 ---
 interface Props {
   heading: string;
-  line: string | string[];
+  // Accepted for backwards compatibility but no longer rendered; CTA blocks
+  // show the heading and button only.
+  line?: string | string[];
   label?: string;
   scenario?: string;
   src?: string;
@@ -9,10 +11,7 @@ interface Props {
 }
 // The end CTA box carries the brand maroon by default. Pass tone="dark" for the
 // near-black treatment on a page that needs it.
-const { heading, line, label = 'Check Your Eligibility', scenario = '', src = '', tone = 'accent' } = Astro.props;
-
-// Accept a single string or several, so a CTA can carry more than one paragraph.
-const lines = Array.isArray(line) ? line : [line];
+const { heading, label = 'Check Your Eligibility', scenario = '', src = '', tone = 'accent' } = Astro.props;
 
 const query = new URLSearchParams();
 if (scenario) query.set('scenario', scenario);
@@ -23,7 +22,6 @@ const href = query.toString() ? `/check?${query.toString()}` : '/check';
 <div class:list={['cta-block', 'section--dark', tone === 'accent' && 'cta-block--accent']}>
   <div class="cta-block__inner">
     <h2>{heading}</h2>
-    {lines.map((l) => <p>{l}</p>)}
     <a class="btn" href={href}>{label}</a>
   </div>
 </div>
@@ -48,16 +46,7 @@ const href = query.toString() ? `/check?${query.toString()}` : '/check';
     margin-inline: auto;
   }
   .cta-block h2 {
-    margin-top: 0;
-  }
-  .cta-block p {
-    font-size: 1.1rem;
-    margin: 0 0 0.35rem;
-  }
-  /* Keep the usual breathing space before the button, but let stacked
-     paragraphs sit close together rather than a full line apart. */
-  .cta-block p:last-of-type {
-    margin-bottom: 1.5rem;
+    margin: 0 0 1.5rem;
   }
   .cta-block .btn {
     background: var(--dark-ink);
