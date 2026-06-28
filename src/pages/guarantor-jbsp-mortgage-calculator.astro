@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+import GuarantorJbspCalculator from '../components/calculators/GuarantorJbspCalculator.astro';
+import site from '../config/site';
+
+const slug = '/guarantor-jbsp-mortgage-calculator';
+const canonical = site.host + slug;
+
+const webApplication = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: 'Guarantor and JBSP mortgage booster calculator',
+  url: canonical,
+  applicationCategory: 'FinanceApplication',
+  operatingSystem: 'Any',
+  isAccessibleForFree: true,
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'GBP' },
+  description:
+    'An indicative calculator that shows how much more you might borrow when a family helper or guarantor is added on a Joint Borrower Sole Proprietor (JBSP) basis, at 4.5 to 5 times combined income.',
+  provider: {
+    '@type': 'Organization',
+    name: 'Mortgage One',
+    url: site.www,
+  },
+};
+---
+
+<BaseLayout
+  title="Guarantor and JBSP Mortgage Calculator | Mortgage One"
+  description="See how much more you could borrow when a family helper or guarantor is added on a JBSP basis, at 4.5 to 5 times combined income, illustrative only."
+  breadcrumbs={[
+    { name: 'Home', href: '/' },
+    { name: 'Guarantor and JBSP mortgage calculator', href: slug },
+  ]}
+>
+  <section class="section">
+    <div class="container calc">
+      <p class="eyebrow">Mortgage tools</p>
+      <h1>Guarantor and JBSP mortgage calculator</h1>
+
+      <p class="lead">
+        Yes, a family member can help you borrow more, and you can see roughly how much more in a few seconds. Enter your
+        income and your helper's income below, and this tool shows what you might borrow on your own next to what you
+        could borrow with them added on a Joint Borrower Sole Proprietor (JBSP) basis.
+      </p>
+
+      <p>
+        The reason a helper lifts the figure is simple: the lender assesses your combined income rather than yours alone,
+        usually at 4.5 to 5 times that income. On a JBSP mortgage your helper supports the borrowing without going on the
+        title, so you stay the sole owner. This calculator puts the two figures side by side so the difference is plain
+        before you ever speak to a lender.
+      </p>
+
+      <GuarantorJbspCalculator />
+
+      <CtaBlock
+        tone="accent"
+        heading="See how much a helper could add to your case"
+        line="Tell us your income and your helper's income, and a Mortgage One adviser will turn this range into a figure built around your case."
+        scenario="guarantor-jbsp"
+        src={slug}
+      />
+
+      <p class="risk-warning">
+        Think carefully before securing your debts against your home. Your home may be repossessed if you do not keep up
+        repayments on your mortgage.
+      </p>
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify(webApplication)} is:inline />
+</BaseLayout>
