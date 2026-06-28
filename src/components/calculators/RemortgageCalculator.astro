@@ -1,0 +1,218 @@
+---
+// Remortgage saving calculator: the interactive tool only. Wrap it in an element
+// carrying the `calc` class, e.g. <div class="calc"><RemortgageCalculator /></div>.
+import '../../styles/calculator.css';
+---
+
+<div class="calc-form" id="rm-calc">
+  <div class="field">
+    <label for="rm-balance">Outstanding mortgage balance (£)</label>
+    <input
+      id="rm-balance"
+      name="balance"
+      type="number"
+      inputmode="numeric"
+      min="0"
+      step="1000"
+      placeholder="e.g. 200000"
+    />
+  </div>
+
+  <div class="field">
+    <label for="rm-years">Remaining term in years</label>
+    <input id="rm-years" name="years" type="number" inputmode="numeric" min="1" step="1" placeholder="e.g. 20" />
+  </div>
+
+  <div class="field">
+    <label for="rm-current-rate">Your current interest rate (%)</label>
+    <input
+      id="rm-current-rate"
+      name="currentRate"
+      type="number"
+      inputmode="decimal"
+      min="0"
+      step="0.01"
+      placeholder="e.g. 7.5"
+    />
+    <p class="field-note">Often your lender's standard variable rate once a fixed deal has ended.</p>
+  </div>
+
+  <div class="field">
+    <label for="rm-new-rate">New interest rate you could move to (%)</label>
+    <input
+      id="rm-new-rate"
+      name="newRate"
+      type="number"
+      inputmode="decimal"
+      min="0"
+      step="0.01"
+      placeholder="e.g. 4.5"
+    />
+  </div>
+
+  <div class="field">
+    <label for="rm-fee">Fee on the new deal (£)</label>
+    <input id="rm-fee" name="fee" type="number" inputmode="numeric" min="0" step="100" placeholder="e.g. 999" />
+    <p class="field-note">Optional. Leave blank if there is no product fee, or to add it to the loan instead.</p>
+  </div>
+
+  <button type="button" class="btn" id="rm-calc-btn">Show my saving</button>
+</div>
+
+<div class="result" id="rm-result" hidden>
+  <h2>Your indicative remortgage saving</h2>
+
+  <div class="result-range">
+    <p class="result-figure" id="rm-headline">Enter your figures above</p>
+  </div>
+
+  <p id="rm-payments"></p>
+  <p id="rm-saving"></p>
+  <p id="rm-fee-line" hidden></p>
+  <p id="rm-erc" hidden></p>
+
+  <p class="result-disclaimer">
+    Figures are illustrative and assume each rate runs for the whole term shown. In practice deals are usually fixed for
+    a period then move to another rate. Your actual saving depends on the deal, any fees and early repayment charges, and
+    your circumstances.
+  </p>
+
+  <p class="result-disclaimer">
+    These figures are illustrative only. They are not a quote, offer or advice. Actual borrowing is subject to full
+    lender assessment and status.
+  </p>
+</div>
+
+<script>
+  const form = document.getElementById('rm-calc');
+  const result = document.getElementById('rm-result');
+  if (form && result) {
+    const nf = new Intl.NumberFormat('en-GB', { maximumFractionDigits: 0 });
+    // Monthly figures are shown to the nearest whole pound, annual and total
+    // figures to the nearest pound, so the output reads as the indicative
+    // estimate it is rather than a false-precision quote.
+    const pounds = (n) => nf.format(Math.round(n));
+    const num = (id) => Math.max(0, Number(document.getElementById(id).value) || 0);
+    const set = (id, value) => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = value;
+    };
+
+    // Standard capital repayment amortisation: the level monthly payment that
+    // clears `balance` over `n` months at the given monthly rate.
+    const payment = (balance, monthlyRate, n) => {
+      if (n <= 0) return 0;
+      if (monthlyRate === 0) return balance / n;
+      const factor = Math.pow(1 + monthlyRate, n);
+      return (balance * (monthlyRate * factor)) / (factor - 1);
+    };
+
+    // Rates are shown back to the user as they typed them, trimming a trailing
+    // zero decimal so "4.50" reads as "4.5".
+    const showRate = (value) => String(Number(value));
+
+    const calculate = () => {
+      const balance = num('rm-balance');
+      const years = num('rm-years');
+      const currentRatePct = num('rm-current-rate');
+      const newRatePct = num('rm-new-rate');
+      const fee = num('rm-fee');
+
+      if (balance <= 0 || years <= 0) {
+        result.hidden = true;
+        return;
+      }
+
+      const n = years * 12;
+      const currentMonthly = payment(balance, currentRatePct / 100 / 12, n);
+      const newMonthly = payment(balance, newRatePct / 100 / 12, n);
+      const monthlySaving = currentMonthly - newMonthly;
+      const annualSaving = monthlySaving * 12;
+
+      const feeLine = document.getElementById('rm-fee-line');
+
+      if (monthlySaving > 0) {
+        set('rm-headline', '£' + pounds(monthlySaving) + ' a month saved');
+
+        set(
+          'rm-payments',
+          'On a £' +
+            pounds(balance) +
+            ' balance over ' +
+            years +
+            ' years, moving from ' +
+            showRate(currentRatePct) +
+            '% to ' +
+            showRate(newRatePct) +
+            '% takes your monthly payment from about £' +
+            pounds(currentMonthly) +
+            ' to about £' +
+            pounds(newMonthly) +
+            '.'
+        );
+
+        set(
+          'rm-saving',
+          'That is around £' + pounds(monthlySaving) + ' a month, or roughly £' + pounds(annualSaving) + ' a year.'
+        );
+
+        if (fee > 0) {
+          const breakEvenMonths = Math.ceil(fee / monthlySaving);
+          set(
+            'rm-fee-line',
+            'The new deal has a £' +
+              pounds(fee) +
+              ' fee. At £' +
+              pounds(monthlySaving) +
+              ' a month saved it takes about ' +
+              breakEvenMonths +
+              ' months to cover that fee, and the deal saves you money from then on. A low rate with a large fee is not always the cheapest option overall, which is the comparison a broker runs for you.'
+          );
+          feeLine.hidden = false;
+        } else {
+          feeLine.hidden = true;
+        }
+
+        set(
+          'rm-erc',
+          'If you are still inside a fixed or discounted deal, leaving early can trigger an early repayment charge, often a percentage of your balance. Most of the saving here comes from moving off a standard variable rate once your current deal ends.'
+        );
+        document.getElementById('rm-erc').hidden = false;
+      } else {
+        set('rm-headline', 'No saving at this rate');
+
+        set(
+          'rm-payments',
+          'On a £' +
+            pounds(balance) +
+            ' balance over ' +
+            years +
+            ' years, moving from ' +
+            showRate(currentRatePct) +
+            '% to ' +
+            showRate(newRatePct) +
+            '% would change your monthly payment from about £' +
+            pounds(currentMonthly) +
+            ' to about £' +
+            pounds(newMonthly) +
+            ', so it does not reduce what you pay.'
+        );
+
+        set(
+          'rm-saving',
+          'Remortgaging usually saves most when you are moving to a lower rate, often coming off a standard variable rate after a fixed deal ends. If your current rate is already low, staying put until your deal ends can be the better move.'
+        );
+
+        feeLine.hidden = true;
+        document.getElementById('rm-erc').hidden = true;
+      }
+
+      result.hidden = false;
+    };
+
+    document.getElementById('rm-calc-btn').addEventListener('click', calculate);
+    form.addEventListener('input', () => {
+      if (!result.hidden) calculate();
+    });
+  }
+</script>

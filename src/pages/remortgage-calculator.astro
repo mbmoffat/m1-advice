@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+import RemortgageCalculator from '../components/calculators/RemortgageCalculator.astro';
+import site from '../config/site';
+
+const slug = '/remortgage-calculator';
+const canonical = site.host + slug;
+
+const webApplication = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: 'Remortgage calculator',
+  url: canonical,
+  applicationCategory: 'FinanceApplication',
+  operatingSystem: 'Any',
+  isAccessibleForFree: true,
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'GBP' },
+  description:
+    'An indicative calculator that shows how much you could save each month and each year by remortgaging from your current rate to a new rate, with a fee break-even on a capital repayment basis.',
+  provider: {
+    '@type': 'Organization',
+    name: 'Mortgage One',
+    url: site.www,
+  },
+};
+---
+
+<BaseLayout
+  title="Remortgage Calculator | Mortgage One"
+  description="See how much you could save by remortgaging. Enter your balance, term and current and new rates for an indicative monthly and yearly saving, illustrative only."
+  breadcrumbs={[
+    { name: 'Home', href: '/' },
+    { name: 'Remortgage calculator', href: slug },
+  ]}
+>
+  <section class="section">
+    <div class="container calc">
+      <p class="eyebrow">Mortgage tools</p>
+      <h1>Remortgage calculator</h1>
+
+      <p class="lead">
+        Yes, you can see what remortgaging might save you in a few seconds. Enter your balance, the years left and your
+        current and new rates below, and this tool shows the change in your monthly payment and the saving over a year.
+      </p>
+
+      <p>
+        Most remortgage savings come from one thing: moving off a standard variable rate once a fixed deal has ended, on
+        to a new rate. This calculator works on a capital repayment basis and assumes each rate runs for the whole term,
+        so treat it as an indicative starting point rather than a quote. A low rate with a large fee is not always the
+        cheapest option overall, which is the comparison a broker runs for you.
+      </p>
+
+      <RemortgageCalculator />
+
+      <CtaBlock
+        tone="accent"
+        heading="See what you could actually remortgage to"
+        line="Tell us about your current deal and a Mortgage One adviser will turn this saving into a figure built around your case."
+        scenario="remortgage"
+        src={slug}
+      />
+
+      <p class="risk-warning">
+        Think carefully before securing your debts against your home. Your home may be repossessed if you do not keep up
+        repayments on your mortgage.
+      </p>
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify(webApplication)} is:inline />
+</BaseLayout>
