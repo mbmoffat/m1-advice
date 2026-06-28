@@ -1,0 +1,118 @@
+---
+// Guarantor and JBSP borrowing booster calculator: the interactive tool only.
+// Wrap it in an element carrying the `calc` class, e.g.
+// <div class="calc"><GuarantorJbspCalculator /></div>.
+import '../../styles/calculator.css';
+---
+
+<div class="calc-form" id="gj-calc">
+  <div class="field">
+    <label for="gj-income">Your annual income (£)</label>
+    <input id="gj-income" name="income" type="number" inputmode="numeric" min="0" step="1000" placeholder="e.g. 35000" />
+  </div>
+
+  <div class="field">
+    <label for="gj-helper">Family helper or guarantor annual income (£)</label>
+    <input id="gj-helper" name="helper" type="number" inputmode="numeric" min="0" step="1000" placeholder="e.g. 45000" />
+    <p class="field-note">If more than one person is helping, add their incomes together.</p>
+  </div>
+
+  <button type="button" class="btn" id="gj-calc-btn">Show my borrowing range</button>
+</div>
+
+<div class="result" id="gj-result" hidden>
+  <h2>Your indicative borrowing range</h2>
+
+  <div class="result-range">
+    <p class="result-figure" id="gj-range">Enter your figures above</p>
+  </div>
+
+  <p id="gj-uplift-basis"></p>
+  <p id="gj-uplift"></p>
+  <p>
+    On a JBSP mortgage your helper supports the borrowing but is not on the property title. You stay the sole owner, and
+    because they do not own a share, they avoid the extra stamp duty that applies to a second property.
+  </p>
+  <p>
+    A guarantor mortgage is similar but uses your helper as a financial backstop rather than a named borrower. Most
+    lenders now offer JBSP, and the right one depends on your helper's age and income.
+  </p>
+  <p>
+    The term can be shorter where an older helper is involved, as some lenders work to their retirement age, which would
+    reduce the figure. Their own mortgage and outgoings also affect how much they can add.
+  </p>
+
+  <p class="result-disclaimer">
+    Figures are illustrative. Lenders differ on income multiples, how they treat a helper's age and outgoings, and
+    whether they offer JBSP or guarantor terms. Your actual borrowing depends on the lender's assessment and your full
+    circumstances.
+  </p>
+
+  <p class="result-disclaimer">
+    These figures are illustrative only. They are not a quote, offer or advice. Actual borrowing is subject to full
+    lender assessment and status.
+  </p>
+</div>
+
+<script>
+  const form = document.getElementById('gj-calc');
+  const result = document.getElementById('gj-result');
+  if (form && result) {
+    const nf = new Intl.NumberFormat('en-GB', { maximumFractionDigits: 0 });
+    // Every pound figure is shown to the nearest hundred so it reads as the
+    // indicative estimate it is, not a false-precision quote.
+    const fmt = (n) => nf.format(Math.round(n / 100) * 100);
+    const num = (id) => Math.max(0, Number(document.getElementById(id).value) || 0);
+    const set = (id, value) => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = value;
+    };
+
+    const calculate = () => {
+      const yourIncome = num('gj-income');
+      const helperIncome = num('gj-helper');
+
+      // Need your income before there is anything to lift.
+      if (yourIncome <= 0) {
+        result.hidden = true;
+        return;
+      }
+
+      const ownLow = yourIncome * 4.5;
+      const ownHigh = yourIncome * 5;
+      const combined = yourIncome + helperIncome;
+      const jointLow = combined * 4.5;
+      const jointHigh = combined * 5;
+      const uplift = jointLow - ownLow;
+
+      set('gj-range', '£' + fmt(jointLow) + ' to £' + fmt(jointHigh));
+
+      set(
+        'gj-uplift-basis',
+        'On your own, you could borrow roughly £' +
+          fmt(ownLow) +
+          ' to £' +
+          fmt(ownHigh) +
+          '. Adding a family helper or guarantor on a Joint Borrower Sole Proprietor (JBSP) basis lifts that to about £' +
+          fmt(jointLow) +
+          ' to £' +
+          fmt(jointHigh) +
+          ', because the lender assesses your combined income of £' +
+          fmt(combined) +
+          '.'
+      );
+
+      set(
+        'gj-uplift',
+        'That is around £' + fmt(uplift) + ' more borrowing, just from adding their income to the assessment.'
+      );
+
+      result.hidden = false;
+    };
+
+    document.getElementById('gj-calc-btn').addEventListener('click', calculate);
+    form.addEventListener('input', () => {
+      if (!result.hidden) calculate();
+    });
+  }
+</script>
