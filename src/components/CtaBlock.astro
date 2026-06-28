@@ -1,13 +1,16 @@
 ---
 interface Props {
   heading: string;
-  line: string;
+  line: string | string[];
   label?: string;
   scenario?: string;
   src?: string;
   tone?: 'dark' | 'accent';
 }
 const { heading, line, label = 'Check Your Eligibility', scenario = '', src = '', tone = 'dark' } = Astro.props;
+
+// Accept a single string or several, so a CTA can carry more than one paragraph.
+const lines = Array.isArray(line) ? line : [line];
 
 const query = new URLSearchParams();
 if (scenario) query.set('scenario', scenario);
@@ -18,7 +21,7 @@ const href = query.toString() ? `/check?${query.toString()}` : '/check';
 <div class:list={['cta-block', 'section--dark', tone === 'accent' && 'cta-block--accent']}>
   <div class="cta-block__inner">
     <h2>{heading}</h2>
-    <p>{line}</p>
+    {lines.map((l) => <p>{l}</p>)}
     <a class="btn" href={href}>{label}</a>
   </div>
 </div>
