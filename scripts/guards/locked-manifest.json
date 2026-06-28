@@ -6,7 +6,7 @@
   "scripts/guards/prebuild.mjs": "6c4a6733cfb9dff36f24a30d1a17c3a15fb96c06dca51429dd5b5530b08e502b",
   "src/components/locked/EnquiryForm.astro": "c7b66d358edffe777e25c4f75df43cd556afd89e695f2e905cb7929740ed33d1",
   "src/components/locked/Footer.astro": "ee7f0fdd5ed00a2c617e66931b80a8c955b42abe3ed5260d629174cb0f546169",
-  "src/components/locked/Header.astro": "00f20c2b18b5307214301205cbe369b5d1d4e0d4bfc92b22cf998a4606d10cd0",
+  "src/components/locked/Header.astro": "fd96ffdaaa78921babbe7597fc51dc343e132de548e4512dd6a097fb25ffd6fc",
   "src/components/locked/Quiz.astro": "2783984caeadfa576965cdc4d5142c555da3f4f70b990e8d785f68638bfcea34",
   "src/config/form.ts": "ce2b2ef2247b10d720b1d99a1fbcce4e73b4a9ecfebedae36afc8db420475747",
   "src/config/site.ts": "ffe8e3355544cc5d2e2eefcc51f676be68c64ac3b2c857687f6b567b98640efc"
