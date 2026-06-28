@@ -1,0 +1,147 @@
+---
+// Limited company buy-to-let calculator: the interactive tool only. Wrap it in
+// an element carrying the `calc` class, e.g. <div class="calc"><LtdCoBtlCalculator /></div>.
+import '../../styles/calculator.css';
+
+// Illustrative assessment basis. Lenders set their own figures; these are the
+// usual limited company starting points and are stated as illustrative in the UI.
+const ICR = 1.25; // 125% rental cover, the usual limited company basis
+const STRESS_LOW = 0.055; // 5.5%, a 5-year fixed is stressed lower
+const STRESS_HIGH = 0.07; // 7%, a shorter-term or variable product is stressed higher
+const LTV_CAP = 0.75; // 75%, a common limited company maximum LTV
+---
+
+<div class="calc-form" id="ltd-calc">
+  <div class="field">
+    <label for="ltd-rent-input">Monthly rent (£)</label>
+    <input id="ltd-rent-input" type="number" inputmode="numeric" min="0" step="50" placeholder="e.g. 1500" />
+  </div>
+
+  <div class="field">
+    <label for="ltd-value-input">Property value (£)</label>
+    <input id="ltd-value-input" type="number" inputmode="numeric" min="0" step="1000" placeholder="e.g. 250000" />
+    <p class="field-note">Optional. Add it to cross-check the rent-based figure against the 75% LTV cap.</p>
+  </div>
+
+  <button type="button" class="btn" id="ltd-calc-btn">Show my borrowing range</button>
+</div>
+
+<p class="rates-note">
+  This tool uses an illustrative basis: 125% rental cover, stress rates of 5.5% for a 5-year fixed and 7% for a
+  shorter-term or variable product, and a 75% maximum loan to value. Lenders set their own figures.
+</p>
+
+<div class="result" id="ltd-result" hidden>
+  <h2>Your indicative borrowing range</h2>
+
+  <div class="result-range">
+    <p class="result-figure" id="ltd-range">Enter your rent above</p>
+  </div>
+
+  <p id="ltd-rent"></p>
+  <p id="ltd-basis"></p>
+  <p id="ltd-ltv" hidden></p>
+
+  <p>
+    Top slicing, where surplus personal or portfolio income is used to cover a rental shortfall, can lift these figures
+    with lenders that allow it.
+  </p>
+
+  <p class="result-disclaimer">
+    Figures are illustrative. ICR, stress rates and maximum LTV vary by lender and product. Your actual borrowing
+    depends on the lender's assessment and your full circumstances.
+  </p>
+
+  <p class="result-disclaimer">
+    These figures are illustrative only. They are not a quote, offer or advice. Actual borrowing is subject to full
+    lender assessment and status.
+  </p>
+</div>
+
+<script define:vars={{ icr: ICR, stressLow: STRESS_LOW, stressHigh: STRESS_HIGH, ltvCap: LTV_CAP }}>
+  const form = document.getElementById('ltd-calc');
+  const result = document.getElementById('ltd-result');
+  if (form && result) {
+    const nf = new Intl.NumberFormat('en-GB', { maximumFractionDigits: 0 });
+    // Every pound figure is shown to the nearest hundred so it reads as the
+    // indicative estimate it is, not a false-precision quote.
+    const fmt = (n) => nf.format(Math.round(n / 100) * 100);
+    const num = (id) => Math.max(0, Number(document.getElementById(id).value) || 0);
+    const set = (id, value) => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = value;
+    };
+
+    const calculate = () => {
+      const monthlyRent = num('ltd-rent-input');
+      const propertyValue = num('ltd-value-input');
+
+      if (monthlyRent <= 0) {
+        result.hidden = true;
+        return;
+      }
+
+      const annualRent = monthlyRent * 12;
+      const maxLoanLow = annualRent / (icr * stressLow); // higher figure, 5-year fixed basis
+      const maxLoanHigh = annualRent / (icr * stressHigh); // lower figure, shorter-term basis
+
+      set('ltd-range', '£' + fmt(maxLoanHigh) + ' to £' + fmt(maxLoanLow));
+
+      set(
+        'ltd-rent',
+        'On rent of £' +
+          fmt(monthlyRent) +
+          ' a month, the rental income test supports borrowing of roughly £' +
+          fmt(maxLoanHigh) +
+          ' to £' +
+          fmt(maxLoanLow) +
+          ', depending on the product.'
+      );
+
+      set(
+        'ltd-basis',
+        'Limited company buy-to-let is usually assessed at 125% rental cover. The figure moves with the stress rate. A 5-year fixed is stressed lower, supporting the higher figure of about £' +
+          fmt(maxLoanLow) +
+          ', while a shorter-term or variable product is stressed higher, around £' +
+          fmt(maxLoanHigh) +
+          '. Based on illustrative stress rates of 5.5% and 7%.'
+      );
+
+      const ltv = document.getElementById('ltd-ltv');
+      if (propertyValue > 0) {
+        const maxLoanByLTV = propertyValue * ltvCap;
+        if (maxLoanByLTV < maxLoanLow) {
+          set(
+            'ltd-ltv',
+            'On a property value of £' +
+              fmt(propertyValue) +
+              ', most limited company lenders cap the loan at 75% LTV, which is £' +
+              fmt(maxLoanByLTV) +
+              '. Here the LTV cap, not the rent, sets your maximum, so plan around £' +
+              fmt(maxLoanByLTV) +
+              '.'
+          );
+        } else {
+          set(
+            'ltd-ltv',
+            'On a property value of £' +
+              fmt(propertyValue) +
+              ', a 75% LTV cap allows £' +
+              fmt(maxLoanByLTV) +
+              ', so the rent is the limiting factor here, not the LTV.'
+          );
+        }
+        ltv.hidden = false;
+      } else {
+        ltv.hidden = true;
+      }
+
+      result.hidden = false;
+    };
+
+    document.getElementById('ltd-calc-btn').addEventListener('click', calculate);
+    form.addEventListener('input', () => {
+      if (!result.hidden) calculate();
+    });
+  }
+</script>
