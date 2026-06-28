@@ -1,0 +1,142 @@
+---
+// Second-home borrowing calculator: the interactive tool only. Affordability
+// only, no stamp duty. Wrap it in an element carrying the `calc` class, e.g.
+// <div class="calc"><SecondHomeCalculator /></div>.
+import '../../styles/calculator.css';
+---
+
+<div class="calc-form" id="sh-calc">
+  <div class="field">
+    <label for="sh-income">Your annual income (£)</label>
+    <input id="sh-income" name="income" type="number" inputmode="numeric" min="0" step="1000" placeholder="e.g. 60000" />
+  </div>
+
+  <div class="field">
+    <label for="sh-balance">Outstanding mortgage on your main home (£)</label>
+    <input
+      id="sh-balance"
+      name="balance"
+      type="number"
+      inputmode="numeric"
+      min="0"
+      step="1000"
+      placeholder="e.g. 150000"
+    />
+    <p class="field-note">What you still owe on your current home.</p>
+  </div>
+
+  <button type="button" class="btn" id="sh-calc-btn">Show my borrowing range</button>
+</div>
+
+<div class="result" id="sh-result" hidden>
+  <h2>Your indicative second-home borrowing range</h2>
+
+  <div class="result-range">
+    <p class="result-figure" id="sh-headline">Enter your figures above</p>
+  </div>
+
+  <p id="sh-basis"></p>
+  <p id="sh-context"></p>
+
+  <p class="result-disclaimer" id="sh-disclaimer"></p>
+
+  <p class="result-disclaimer">
+    These figures are illustrative only. They are not a quote, offer or advice. Actual borrowing is subject to full
+    lender assessment and status.
+  </p>
+</div>
+
+<script>
+  const form = document.getElementById('sh-calc');
+  const result = document.getElementById('sh-result');
+  if (form && result) {
+    const nf = new Intl.NumberFormat('en-GB', { maximumFractionDigits: 0 });
+    // Every pound figure is shown to the nearest hundred so it reads as the
+    // indicative estimate it is, not a false-precision quote.
+    const fmt = (n) => nf.format(Math.round(n / 100) * 100);
+    const num = (id) => Math.max(0, Number(document.getElementById(id).value) || 0);
+    const set = (id, value) => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = value;
+    };
+
+    const calculate = () => {
+      const income = num('sh-income');
+      const existingBalance = num('sh-balance');
+
+      // Need an income before there is anything to assess.
+      if (income <= 0) {
+        result.hidden = true;
+        return;
+      }
+
+      const capLow = income * 4.5;
+      const capHigh = income * 5;
+      const secondLow = Math.max(0, capLow - existingBalance);
+      const secondHigh = Math.max(0, capHigh - existingBalance);
+
+      if (secondHigh > 0) {
+        set('sh-headline', '£' + fmt(secondLow) + ' to £' + fmt(secondHigh));
+
+        set(
+          'sh-basis',
+          'Lenders look at your total mortgage borrowing against your income. On £' +
+            fmt(income) +
+            ' a year they would consider total borrowing of roughly £' +
+            fmt(capLow) +
+            ' to £' +
+            fmt(capHigh) +
+            ' at 4.5 to 5 times income. Your existing main-home mortgage of £' +
+            fmt(existingBalance) +
+            ' comes off that, leaving about £' +
+            fmt(secondLow) +
+            ' to £' +
+            fmt(secondHigh) +
+            ' for a second home.'
+        );
+
+        set(
+          'sh-context',
+          'A second home is assessed on your income, like your main residence, not on rental income. That is the key difference from a buy-to-let, where the rent does the work. If you plan to let the property out, it is assessed on a buy-to-let basis instead.'
+        );
+
+        set(
+          'sh-disclaimer',
+          'Figures are illustrative. Lenders differ on income multiples and how they treat your existing mortgage and other commitments. This covers affordability only. A second home has other costs to plan for, which we can talk through. Your actual borrowing depends on the lender\'s assessment and your full circumstances.'
+        );
+      } else {
+        set('sh-headline', 'Limited on income alone');
+
+        set(
+          'sh-basis',
+          'On £' +
+            fmt(income) +
+            ' a year, lenders would consider total mortgage borrowing of roughly £' +
+            fmt(capLow) +
+            ' to £' +
+            fmt(capHigh) +
+            ' at 4.5 to 5 times income. Your existing main-home mortgage of £' +
+            fmt(existingBalance) +
+            ' uses up most or all of that, so borrowing for a second home on income alone is limited here.'
+        );
+
+        set(
+          'sh-context',
+          'A larger deposit, a higher income, or releasing equity from your main home can change that, which is worth a conversation. A second home is assessed on your income rather than rental income, so if you plan to let it out, it is assessed on a buy-to-let basis instead.'
+        );
+
+        set(
+          'sh-disclaimer',
+          'Figures are illustrative. Lenders differ on income multiples and how they treat your existing mortgage and other commitments. This covers affordability only. Your actual borrowing depends on the lender\'s assessment and your full circumstances.'
+        );
+      }
+
+      result.hidden = false;
+    };
+
+    document.getElementById('sh-calc-btn').addEventListener('click', calculate);
+    form.addEventListener('input', () => {
+      if (!result.hidden) calculate();
+    });
+  }
+</script>

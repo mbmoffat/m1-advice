@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+import SecondHomeCalculator from '../components/calculators/SecondHomeCalculator.astro';
+import site from '../config/site';
+
+const slug = '/second-home-mortgage-calculator';
+const canonical = site.host + slug;
+
+const webApplication = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: 'Second home mortgage borrowing calculator',
+  url: canonical,
+  applicationCategory: 'FinanceApplication',
+  operatingSystem: 'Any',
+  isAccessibleForFree: true,
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'GBP' },
+  description:
+    'An indicative calculator that shows how much you might borrow for a second home on your income at 4.5 to 5 times income, after your existing main-home mortgage. Affordability only.',
+  provider: {
+    '@type': 'Organization',
+    name: 'Mortgage One',
+    url: site.www,
+  },
+};
+---
+
+<BaseLayout
+  title="Second Home Mortgage Calculator | Mortgage One"
+  description="See an indicative borrowing range for a second home, on your income at 4.5 to 5 times income after your existing main-home mortgage. Affordability only, illustrative."
+  breadcrumbs={[
+    { name: 'Home', href: '/' },
+    { name: 'Second home mortgage calculator', href: slug },
+  ]}
+>
+  <section class="section">
+    <div class="container calc">
+      <p class="eyebrow">Mortgage tools</p>
+      <h1>Second home mortgage calculator</h1>
+
+      <p class="lead">
+        Yes, you can get a sense of what you might borrow for a second home in a few seconds. Enter your income and what
+        you still owe on your main home below, and this tool shows an indicative borrowing range for the second property.
+      </p>
+
+      <p>
+        A second home is assessed on your income, like your main residence, not on the rent it might earn. Lenders look
+        at your total mortgage borrowing against your income, usually at 4.5 to 5 times income, then take off your
+        existing main-home mortgage to see what is left for the second home. This calculator covers affordability only,
+        so treat it as a starting point rather than a quote. If you plan to let the property out, it is assessed on a
+        buy-to-let basis instead.
+      </p>
+
+      <SecondHomeCalculator />
+
+      <CtaBlock
+        tone="accent"
+        heading="See what you could borrow for a second home"
+        line="Tell us your income and your current mortgage, and a Mortgage One adviser will turn this range into a figure built around your case."
+        scenario="second-home"
+        src={slug}
+      />
+
+      <p class="risk-warning">
+        Think carefully before securing your debts against your home. Your home may be repossessed if you do not keep up
+        repayments on your mortgage.
+      </p>
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify(webApplication)} is:inline />
+</BaseLayout>
