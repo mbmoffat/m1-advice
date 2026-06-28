@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+import LtdCoBtlCalculator from '../components/calculators/LtdCoBtlCalculator.astro';
+import site from '../config/site';
+
+const slug = '/limited-company-buy-to-let-calculator';
+const canonical = site.host + slug;
+
+const webApplication = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: 'Limited company buy-to-let calculator',
+  url: canonical,
+  applicationCategory: 'FinanceApplication',
+  operatingSystem: 'Any',
+  isAccessibleForFree: true,
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'GBP' },
+  description:
+    'An indicative calculator that shows how much a limited company could borrow on a buy-to-let from the monthly rent, on a 125% rental cover basis across illustrative stress rates, with a 75% maximum LTV cross-check.',
+  provider: {
+    '@type': 'Organization',
+    name: 'Mortgage One',
+    url: site.www,
+  },
+};
+---
+
+<BaseLayout
+  title="Limited Company Buy-to-Let Calculator | Mortgage One"
+  description="See an indicative limited company buy-to-let borrowing range from your rent, on a 125% cover basis at illustrative stress rates, with a 75% LTV cross-check."
+  breadcrumbs={[
+    { name: 'Home', href: '/' },
+    { name: 'Limited company buy-to-let calculator', href: slug },
+  ]}
+>
+  <section class="section">
+    <div class="container calc">
+      <p class="eyebrow">Limited company buy-to-let tools</p>
+      <h1>Limited company buy-to-let calculator</h1>
+
+      <p class="lead">
+        Yes, you can get a sense of what a limited company could borrow on a buy-to-let in a few seconds. Enter the
+        monthly rent below, and this tool shows an indicative borrowing range from the rental income test that limited
+        company lenders use.
+      </p>
+
+      <p>
+        Company buy-to-let is sized on the rent first, at 125% cover, then capped by your deposit. The figure moves with
+        the stress rate a lender applies, so this shows a range across a 5-year fixed and a shorter-term product, with an
+        optional 75% loan to value cross-check.
+      </p>
+
+      <LtdCoBtlCalculator />
+
+      <CtaBlock
+        heading="See what a lender would really lend your company"
+        line="Tell us the rent and the property and a Mortgage One adviser will turn this range into a figure built around your case."
+        scenario="btl"
+        src={slug}
+      />
+
+      <p class="risk-warning">
+        Think carefully before securing your debts against your home. Your home may be repossessed if you do not keep up
+        repayments on your mortgage.
+      </p>
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify(webApplication)} is:inline />
+</BaseLayout>
