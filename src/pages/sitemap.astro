@@ -47,6 +47,12 @@ const clusters = [
     hub: '/mortgage-as-a-seafarer',
     match: (r) => /seafarer|merchant-navy/.test(r),
   },
+  {
+    key: 'calculators',
+    title: 'Calculators',
+    hub: '/calculators',
+    match: (r) => /calculator/.test(r),
+  },
 ];
 
 // Pages whose slug would otherwise match the wrong rule, keyed to a cluster key.
@@ -56,6 +62,9 @@ const overrides = {
 
 const clusterKeyOf = (r) => {
   if (overrides[r]) return overrides[r];
+  // Calculators group together regardless of topic, so a tool like the
+  // self-employed calculator sits with the others rather than in its cluster.
+  if (/calculator/.test(r)) return 'calculators';
   const hit = clusters.find((c) => c.match(r));
   return hit ? hit.key : 'more';
 };
