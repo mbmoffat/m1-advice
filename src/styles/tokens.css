@@ -6,9 +6,9 @@
   --line: #DCDCDC;
   /* Brand accent. Both tokens share one magenta so every accent surface,
      buttons, eyebrows, links, result figures, borders and the CTA box, reads
-     as the same colour. */
-  --accent: #ec268f;
-  --accent-strong: #ec268f;
+     as the same colour. White button text clears AA contrast on this shade. */
+  --accent: #C1156B;
+  --accent-strong: #C1156B;
   --dark: #1C1C1C;
   --dark-ink: #FAFAFA;
   --font-heading: 'Young Serif', serif;
