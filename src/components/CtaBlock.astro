@@ -47,6 +47,11 @@ const href = query.toString() ? `/check?${query.toString()}` : '/check';
   }
   .cta-block p {
     font-size: 1.1rem;
+    margin: 0 0 0.35rem;
+  }
+  /* Keep the usual breathing space before the button, but let stacked
+     paragraphs sit close together rather than a full line apart. */
+  .cta-block p:last-of-type {
     margin-bottom: 1.5rem;
   }
   .cta-block .btn {

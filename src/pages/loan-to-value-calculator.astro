@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CtaBlock from '../components/CtaBlock.astro';
 import site from '../config/site';
+import '../styles/calculator.css';
 
 const slug = '/loan-to-value-calculator';
 const canonical = site.host + slug;
@@ -94,7 +95,7 @@ const webApplication = {
         </div>
         <p class="result-band" id="ltv-band"></p>
 
-        <table class="result-table">
+        <table class="result-table is-compact">
           <tbody>
             <tr>
               <th scope="row">Loan amount</th>
@@ -258,126 +259,3 @@ const webApplication = {
   </script>
 </BaseLayout>
 
-<style>
-  .calc {
-    max-width: 760px;
-    margin-inline: auto;
-    text-align: center;
-  }
-  .calc-form {
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    padding: 1.75rem;
-    margin: 2rem auto;
-    max-width: 640px;
-  }
-  /* Inputs and their labels read better left aligned, even on a centred page. */
-  .field {
-    text-align: left;
-  }
-  .field {
-    margin-bottom: 1.25rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
-  }
-  .field label {
-    font-weight: 700;
-    font-size: 0.95rem;
-  }
-  .field input,
-  .field select {
-    font-family: var(--font-body);
-    font-size: 1rem;
-    padding: 0.7rem 0.8rem;
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    background: var(--bg);
-    width: 100%;
-  }
-  .field-note {
-    font-size: 0.85rem;
-    color: var(--ink-soft);
-    margin: 0.1rem 0 0;
-  }
-  .result {
-    border: 1px solid var(--line);
-    border-top: 4px solid var(--accent);
-    border-radius: var(--radius);
-    padding: clamp(1.5rem, 4vw, 2.25rem);
-    margin-block: 2.5rem;
-    background: var(--surface);
-  }
-  .result-eyebrow {
-    font-family: var(--font-body);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    font-size: 0.78rem;
-    color: var(--ink-soft);
-    margin: 0 0 0.4rem;
-  }
-  .result-headline {
-    display: flex;
-    justify-content: center;
-    align-items: baseline;
-    flex-wrap: wrap;
-    gap: 0.6rem;
-    margin-bottom: 1rem;
-  }
-  .result-figure {
-    font-family: var(--font-heading);
-    font-weight: 700;
-    font-size: clamp(3rem, 11vw, 4.75rem);
-    line-height: 1;
-    color: var(--accent-strong);
-  }
-  .result-caption {
-    font-family: var(--font-heading);
-    font-size: clamp(1.1rem, 3vw, 1.5rem);
-    color: var(--ink-soft);
-  }
-  .result-band {
-    display: inline-block;
-    font-weight: 700;
-    margin: 0;
-    padding: 0.55rem 0.9rem;
-    background: var(--bg);
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-  }
-  .result-table {
-    width: 100%;
-    max-width: 460px;
-    border-collapse: collapse;
-    margin: 1.5rem auto;
-    font-size: 0.95rem;
-  }
-  /* The figures stay left aligned in their cells so the rows line up and read
-     cleanly; the table itself is centred as a block within the result panel. */
-  .result-table th,
-  .result-table td {
-    text-align: left;
-    padding: 0.6rem 0.5rem;
-    border-bottom: 1px solid var(--line);
-  }
-  .result-table th[scope='row'] {
-    width: 45%;
-    color: var(--ink-soft);
-    font-weight: 700;
-  }
-  .result-insight {
-    font-weight: 700;
-  }
-  .result-disclaimer {
-    font-size: 0.85rem;
-    color: var(--ink-soft);
-    line-height: 1.5;
-  }
-  .risk-warning {
-    border-top: 1px solid var(--line);
-    padding-top: 1.5rem;
-    margin-top: 2.5rem;
-  }
-</style>
