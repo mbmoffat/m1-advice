@@ -30,9 +30,12 @@ const href = query.toString() ? `/check?${query.toString()}` : '/check';
 
 <style>
   .cta-block {
+    /* Contained and centred, about 10% under the 760px article column, so the
+       box stays inviting rather than a full-width slab on any page. */
+    max-width: 684px;
+    margin: 3rem auto;
     border-radius: var(--radius);
     padding: clamp(2rem, 5vw, 3rem);
-    margin-block: 3rem;
     text-align: center;
   }
   /* Accent tone keeps the full-bleed box and light text, but swaps the near-black
