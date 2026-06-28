@@ -1,0 +1,170 @@
+/* Shared layout for calculator tool pages (loan to value, foreign currency and
+   future calculators). Import it from the page front matter:
+
+     import '../styles/calculator.css';
+
+   Every calculator wraps its content in <div class="container calc">, so the
+   rules below are scoped to .calc and never leak to other pages. The whole
+   panel is centred; only form fields and table cells stay left aligned so
+   labels and figures remain legible. */
+
+.calc {
+  max-width: 760px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+/* Input card */
+.calc .calc-form {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  margin: 2rem auto;
+  max-width: 640px;
+}
+.calc .field {
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  text-align: left;
+}
+.calc .field label {
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+.calc .field input,
+.calc .field select {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--bg);
+  width: 100%;
+}
+.calc .field-note {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin: 0.1rem 0 0;
+  text-align: left;
+}
+
+/* A free-standing note under a form, e.g. the exchange-rate footnote. */
+.calc .rates-note {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+/* Result panel */
+.calc .result {
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--accent);
+  border-radius: var(--radius);
+  padding: clamp(1.5rem, 4vw, 2.25rem);
+  margin-block: 2.5rem;
+  background: var(--surface);
+}
+.calc .result-eyebrow {
+  font-family: var(--font-body);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  margin: 0 0 0.4rem;
+}
+
+/* A single headline figure, e.g. an LTV percentage. */
+.calc .result-headline {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+.calc .result-headline .result-figure {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(3rem, 11vw, 4.75rem);
+  line-height: 1;
+  color: var(--accent-strong);
+}
+.calc .result-caption {
+  font-family: var(--font-heading);
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+  color: var(--ink-soft);
+}
+
+/* A headline range plus a typical figure, e.g. a borrowing range. */
+.calc .result-range {
+  margin-bottom: 1.25rem;
+}
+.calc .result-range .result-figure {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  line-height: 1.1;
+  color: var(--accent-strong);
+  margin: 0 0 0.3rem;
+}
+.calc .result-typical {
+  font-weight: 700;
+  margin: 0;
+}
+
+/* A highlighted band or summary pill. */
+.calc .result-band {
+  display: inline-block;
+  font-weight: 700;
+  margin: 0;
+  padding: 0.55rem 0.9rem;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+/* Data table: centred as a block, cells left aligned so figures line up. Add
+   is-compact to a narrow two-column table to keep it tight under the figure. */
+.calc .result-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem auto;
+  font-size: 0.95rem;
+}
+.calc .result-table.is-compact {
+  max-width: 460px;
+}
+.calc .result-table th,
+.calc .result-table td {
+  text-align: left;
+  padding: 0.6rem 0.5rem;
+  border-bottom: 1px solid var(--line);
+}
+.calc .result-table th[scope='row'] {
+  color: var(--ink-soft);
+  font-weight: 700;
+}
+.calc .result-table thead th {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+}
+
+.calc .result-insight {
+  font-weight: 700;
+}
+.calc .result-disclaimer {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+.calc .risk-warning {
+  border-top: 1px solid var(--line);
+  padding-top: 1.5rem;
+  margin-top: 2.5rem;
+}

@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CtaBlock from '../components/CtaBlock.astro';
 import site from '../config/site';
+import '../styles/calculator.css';
 
 const slug = '/foreign-currency-mortgage-calculator';
 const canonical = site.host + slug;
@@ -269,97 +270,3 @@ const webApplication = {
   </script>
 </BaseLayout>
 
-<style>
-  .calc {
-    max-width: 760px;
-  }
-  .calc-form {
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    padding: 1.75rem;
-    margin-block: 2rem;
-    max-width: 640px;
-  }
-  .field {
-    margin-bottom: 1.25rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
-  }
-  .field label {
-    font-weight: 700;
-    font-size: 0.95rem;
-  }
-  .field input,
-  .field select {
-    font-family: var(--font-body);
-    font-size: 1rem;
-    padding: 0.7rem 0.8rem;
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    background: var(--bg);
-    width: 100%;
-  }
-  .field-note {
-    font-size: 0.85rem;
-    color: var(--ink-soft);
-    margin: 0.1rem 0 0;
-  }
-  .rates-note {
-    font-size: 0.85rem;
-    color: var(--ink-soft);
-    line-height: 1.5;
-  }
-  .result {
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    padding: 1.75rem;
-    margin-block: 2.5rem;
-    background: var(--bg);
-  }
-  .result-range {
-    margin-bottom: 1.25rem;
-  }
-  .result-figure {
-    font-family: var(--font-heading);
-    font-weight: 700;
-    font-size: clamp(1.6rem, 4vw, 2.2rem);
-    margin: 0 0 0.3rem;
-  }
-  .result-typical {
-    font-weight: 700;
-    margin: 0;
-  }
-  .result-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-block: 1.5rem;
-    font-size: 0.95rem;
-  }
-  .result-table th,
-  .result-table td {
-    text-align: left;
-    padding: 0.6rem 0.5rem;
-    border-bottom: 1px solid var(--line);
-  }
-  .result-table thead th {
-    font-size: 0.82rem;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    color: var(--ink-soft);
-  }
-  .result-insight {
-    font-weight: 700;
-  }
-  .result-disclaimer {
-    font-size: 0.85rem;
-    color: var(--ink-soft);
-    line-height: 1.5;
-  }
-  .risk-warning {
-    border-top: 1px solid var(--line);
-    padding-top: 1.5rem;
-    margin-top: 2.5rem;
-  }
-</style>
