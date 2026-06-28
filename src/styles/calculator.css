@@ -58,13 +58,16 @@
   line-height: 1.5;
 }
 
-/* Result panel */
+/* Result panel. The result and the CTA box share the form card's width and sit
+   centred, so the page reads as one contained column rather than full-width
+   slabs. */
 .calc .result {
   border: 1px solid var(--line);
   border-top: 4px solid var(--accent);
   border-radius: var(--radius);
   padding: clamp(1.5rem, 4vw, 2.25rem);
-  margin-block: 2.5rem;
+  max-width: 640px;
+  margin: 2.5rem auto;
   background: var(--surface);
 }
 .calc .result-eyebrow {
@@ -167,4 +170,12 @@
   border-top: 1px solid var(--line);
   padding-top: 1.5rem;
   margin-top: 2.5rem;
+}
+
+/* Keep the end CTA box the same contained width as the form and result, so it
+   is inviting rather than a full-width slab. Only on calculator pages; the
+   CtaBlock keeps its own width elsewhere. */
+.calc .cta-block {
+  max-width: 640px;
+  margin-inline: auto;
 }
