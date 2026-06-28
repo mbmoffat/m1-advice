@@ -127,6 +127,11 @@ const steps = [
 </BaseLayout>
 
 <style>
+  /* Close the gaps between home page sections a little; the global rhythm is
+     clamp(2.5rem, 6vw, 4.5rem) and reads too deep on this stacked layout. */
+  .section {
+    padding-block: clamp(2rem, 4.5vw, 3.25rem);
+  }
   .hero {
     position: relative;
     display: flex;
