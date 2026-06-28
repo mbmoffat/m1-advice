@@ -1,0 +1,194 @@
+---
+// Loan to value calculator: the interactive tool only (form, result, script).
+// Wrap it in an element carrying the `calc` class so the shared calculator
+// layout applies, e.g. <div class="calc"><LtvCalculator /></div>. Used both on
+// its own page and embedded inside relevant content pages.
+import '../../styles/calculator.css';
+
+// Lending bands, ascending. A result sits in the lowest band whose ceiling it
+// does not exceed. Lenders price in steps at these points, so showing the band
+// and the deposit needed to reach the next one down is the useful output.
+const BANDS = [60, 75, 80, 85, 90, 95];
+---
+
+<div class="calc-form" id="ltv-calc">
+  <div class="field">
+    <label for="ltv-value">Property value</label>
+    <input
+      id="ltv-value"
+      name="propertyValue"
+      type="number"
+      inputmode="numeric"
+      min="0"
+      step="1000"
+      placeholder="e.g. 350000"
+    />
+  </div>
+
+  <div class="field">
+    <label for="ltv-deposit">Deposit amount</label>
+    <input
+      id="ltv-deposit"
+      name="deposit"
+      type="number"
+      inputmode="numeric"
+      min="0"
+      step="1000"
+      placeholder="e.g. 70000"
+    />
+    <p class="field-note">We work out the loan as the property value minus your deposit.</p>
+  </div>
+
+  <button type="button" class="btn" id="ltv-calc-btn">Work out my LTV</button>
+</div>
+
+<div class="result" id="ltv-result" hidden>
+  <p class="result-eyebrow">Your result</p>
+  <div class="result-headline">
+    <span class="result-figure" id="ltv-figure">75%</span>
+    <span class="result-caption">loan to value</span>
+  </div>
+  <p class="result-band" id="ltv-band"></p>
+
+  <table class="result-table is-compact">
+    <tbody>
+      <tr>
+        <th scope="row">Loan amount</th>
+        <td id="ltv-out-loan"></td>
+      </tr>
+      <tr>
+        <th scope="row">Deposit</th>
+        <td id="ltv-out-deposit"></td>
+      </tr>
+      <tr>
+        <th scope="row">Lending band</th>
+        <td id="ltv-out-bandcell"></td>
+      </tr>
+      <tr>
+        <th scope="row">To reach the band below</th>
+        <td id="ltv-out-gap"></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="result-insight">LTV is your loan as a share of the property value.</p>
+
+  <p class="result-insight">
+    Lenders price in bands, so a slightly larger deposit that tips you into a lower band can open up more lenders and a
+    sharper rate.
+  </p>
+
+  <p class="result-disclaimer">
+    Figures are illustrative. Maximum LTV varies by lender, product and your full circumstances. Specialist scenarios
+    often have lower maximums.
+  </p>
+
+  <p class="result-disclaimer">
+    These figures are illustrative only. They are not a quote, offer or advice. Actual borrowing is subject to full
+    lender assessment and status.
+  </p>
+</div>
+
+<script define:vars={{ bands: BANDS }}>
+  const form = document.getElementById('ltv-calc');
+  const result = document.getElementById('ltv-result');
+  if (form && result) {
+    const gbp = new Intl.NumberFormat('en-GB', {
+      style: 'currency',
+      currency: 'GBP',
+      maximumFractionDigits: 0,
+    });
+    const money = (n) => gbp.format(Math.round(n));
+    // Deposit gap is rounded up to the nearest hundred so it is never understated.
+    const moneyUp = (n) => gbp.format(Math.ceil(n / 100) * 100);
+    // LTV to one decimal, with a whole number left clean: 75 not 75.0.
+    const pct = (n) => {
+      const r = Math.round(n * 10) / 10;
+      return (r % 1 === 0 ? String(r) : r.toFixed(1)) + '%';
+    };
+
+    const set = (id, value) => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = value;
+    };
+
+    // Lowest band whose ceiling the LTV does not exceed. null means above the top band.
+    const bandFor = (ltv) => {
+      for (const b of bands) {
+        if (ltv <= b) return b;
+      }
+      return null;
+    };
+
+    const calculate = () => {
+      const propertyValue = Math.max(0, Number(document.getElementById('ltv-value').value) || 0);
+      const deposit = Math.max(0, Number(document.getElementById('ltv-deposit').value) || 0);
+
+      if (propertyValue <= 0) {
+        result.hidden = true;
+        return;
+      }
+
+      const loan = propertyValue - deposit;
+      const ltv = (loan / propertyValue) * 100;
+
+      set('ltv-out-loan', money(Math.max(0, loan)));
+      set('ltv-out-deposit', money(Math.max(0, deposit)));
+
+      // Deposit covers the whole property value, so there is no loan to measure.
+      if (loan <= 0) {
+        set('ltv-figure', '0%');
+        set('ltv-band', 'Your deposit covers the whole property value, so there is no loan to measure.');
+        set('ltv-out-bandcell', 'No borrowing needed');
+        set('ltv-out-gap', 'Not applicable');
+        result.hidden = false;
+        return;
+      }
+
+      set('ltv-figure', pct(ltv));
+
+      // Band labels never contain the word "band": the sentence and table add
+      // their own context, so a label is just the bracket, e.g. "up to 60%".
+      const band = bandFor(ltv);
+      let label;
+      let nextLower;
+      let lowerLabel;
+      if (band === null) {
+        label = 'above 95%';
+        nextLower = 95;
+        lowerLabel = 'up to 95%';
+      } else {
+        label = 'up to ' + band + '%';
+        const idx = bands.indexOf(band);
+        nextLower = idx > 0 ? bands[idx - 1] : null;
+        lowerLabel = nextLower === null ? null : 'up to ' + nextLower + '%';
+      }
+
+      if (band === 60) {
+        set(
+          'ltv-band',
+          'Your ' + pct(ltv) + ' LTV falls in the up to 60% band. That is the strongest band for lender choice and rates.'
+        );
+      } else {
+        set('ltv-band', 'Your ' + pct(ltv) + ' LTV falls in the ' + label + ' band.');
+      }
+
+      set('ltv-out-bandcell', label.charAt(0).toUpperCase() + label.slice(1));
+
+      if (nextLower === null) {
+        set('ltv-out-gap', 'You are already in the strongest band.');
+      } else {
+        const targetLoan = propertyValue * (nextLower / 100);
+        const extra = loan - targetLoan;
+        set('ltv-out-gap', 'Add ' + moneyUp(extra) + ' deposit to reach ' + lowerLabel + '.');
+      }
+
+      result.hidden = false;
+    };
+
+    document.getElementById('ltv-calc-btn').addEventListener('click', calculate);
+    form.addEventListener('input', () => {
+      if (!result.hidden) calculate();
+    });
+  }
+</script>
