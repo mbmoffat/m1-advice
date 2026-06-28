@@ -172,9 +172,9 @@
   margin-top: 2.5rem;
 }
 
-/* The calculator CTA sits a touch wider than the 684px content CTA, matching
+/* The calculator CTA sits a touch wider than the 710px content CTA, matching
    the slightly broader calculator column. */
 .calc .cta-block {
-  max-width: 700px;
+  max-width: 726px;
   margin-inline: auto;
 }
