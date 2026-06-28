@@ -12,7 +12,7 @@
 
 ## Opening
 
-Yes, seafarers can and do get UK mortgages. Whether you can comes down to how your income is evidenced and finding a lender that fits how you are paid, not eligibility on its own. Non-sterling income is widely accepted. What matters is how a lender converts it, how much it reduces it, and whether your residency fits that lender's rules. Choose the right lender and foreign currency pay is rarely the obstacle it first appears.
+Yes, seafarers can and do get UK mortgages. Whether you can comes down to how your income is evidenced and finding a lender that fits how you are paid. Non-sterling income is widely accepted. What matters is how a lender converts it, how much it reduces it, and whether your residency fits that lender's rules. Choose the right lender and foreign currency pay is rarely the obstacle it first appears.
 
 ## Reassurance — Income we place regularly
 

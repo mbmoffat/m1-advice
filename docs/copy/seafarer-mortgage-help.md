@@ -13,7 +13,7 @@
 
 ## Opening
 
-Yes, seafarers can and do get UK mortgages. Whether you can comes down to how your income is evidenced and finding a lender that fits how you are paid, not eligibility on its own. The hurdles are well known: foreign currency pay, the Seafarers Earnings Deduction, long spells at sea and residency. None of them is a barrier with a lender that understands seafarers, and that is what specialist help gets you.
+Yes, seafarers can and do get UK mortgages. Whether you can comes down to how your income is evidenced and finding a lender that fits how you are paid. The hurdles are well known: foreign currency pay, the Seafarers Earnings Deduction, long spells at sea and residency. None of them is a barrier with a lender that understands seafarers, and that is what specialist help gets you.
 
 ## Reassurance — Whatever your situation at sea, it is workable
 
