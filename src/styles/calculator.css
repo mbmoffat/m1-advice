@@ -176,6 +176,6 @@
    is inviting rather than a full-width slab. Only on calculator pages; the
    CtaBlock keeps its own width elsewhere. */
 .calc .cta-block {
-  max-width: 640px;
+  max-width: 700px;
   margin-inline: auto;
 }

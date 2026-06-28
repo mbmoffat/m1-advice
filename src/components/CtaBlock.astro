@@ -7,7 +7,9 @@ interface Props {
   src?: string;
   tone?: 'dark' | 'accent';
 }
-const { heading, line, label = 'Check Your Eligibility', scenario = '', src = '', tone = 'dark' } = Astro.props;
+// The end CTA box carries the brand maroon by default. Pass tone="dark" for the
+// near-black treatment on a page that needs it.
+const { heading, line, label = 'Check Your Eligibility', scenario = '', src = '', tone = 'accent' } = Astro.props;
 
 // Accept a single string or several, so a CTA can carry more than one paragraph.
 const lines = Array.isArray(line) ? line : [line];
