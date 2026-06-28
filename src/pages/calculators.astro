@@ -1,0 +1,116 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+
+const slug = '/calculators';
+
+// One entry per live calculator, in the order shown. Add a new calculator here
+// when its page is on main so this hub lists it.
+const CALCULATORS = [
+  {
+    title: 'Loan to value (LTV) calculator',
+    href: '/loan-to-value-calculator',
+    line: 'Turn a property value and deposit into your loan to value and the lending band it falls in, plus the deposit needed to reach the band below.',
+  },
+  {
+    title: 'Foreign currency mortgage borrowing calculator',
+    href: '/foreign-currency-mortgage-calculator',
+    line: 'See an indicative UK borrowing range on income paid in a foreign currency, from a cautious lender to a generous specialist.',
+  },
+];
+---
+
+<BaseLayout
+  title="Mortgage Calculators | Mortgage One"
+  description="Free mortgage calculators from Mortgage One. Work out your loan to value and an indicative borrowing range on foreign currency income, illustrative only."
+  breadcrumbs={[
+    { name: 'Home', href: '/' },
+    { name: 'Calculators', href: slug },
+  ]}
+>
+  <section class="section">
+    <div class="container calc-index">
+      <p class="eyebrow">Mortgage tools</p>
+      <h1>Mortgage calculators</h1>
+
+      <p class="lead">
+        Yes, you can work out the key numbers before you speak to a lender. These free calculators give you an indicative
+        starting point, and a Mortgage One adviser can then turn the figure into a lender shortlist built around your
+        case.
+      </p>
+
+      <div class="grid grid--3 calc-cards">
+        {CALCULATORS.map((c) => (
+          <a class="card calc-card" href={c.href}>
+            <span class="calc-card__title">{c.title}</span>
+            <span class="calc-card__line">{c.line}</span>
+            <span class="calc-card__go">Open calculator</span>
+          </a>
+        ))}
+      </div>
+
+      <p class="calc-note">
+        Every figure is illustrative only. It is not a quote, offer or advice. Actual borrowing is subject to full lender
+        assessment and status.
+      </p>
+
+      <CtaBlock
+        heading="Not sure which figure matters for your case?"
+        line="Tell us your situation and a Mortgage One adviser will point you to the number that moves your application."
+        src={slug}
+      />
+
+      <p class="risk-warning">
+        Think carefully before securing your debts against your home. Your home may be repossessed if you do not keep up
+        repayments on your mortgage.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .calc-index {
+    max-width: 760px;
+  }
+  .calc-cards {
+    margin-block: 2rem;
+  }
+  .calc-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .calc-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+  .calc-card__title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.15rem;
+  }
+  .calc-card__line {
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  .calc-card__go {
+    margin-top: auto;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--accent-strong);
+  }
+  .calc-note {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+  .risk-warning {
+    border-top: 1px solid var(--line);
+    padding-top: 1.5rem;
+    margin-top: 2.5rem;
+  }
+</style>
