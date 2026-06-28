@@ -5,8 +5,9 @@ interface Props {
   label?: string;
   scenario?: string;
   src?: string;
+  tone?: 'dark' | 'accent';
 }
-const { heading, line, label = 'Check Your Eligibility', scenario = '', src = '' } = Astro.props;
+const { heading, line, label = 'Check Your Eligibility', scenario = '', src = '', tone = 'dark' } = Astro.props;
 
 const query = new URLSearchParams();
 if (scenario) query.set('scenario', scenario);
@@ -14,7 +15,7 @@ if (src) query.set('src', src);
 const href = query.toString() ? `/check?${query.toString()}` : '/check';
 ---
 
-<div class="cta-block section--dark">
+<div class:list={['cta-block', 'section--dark', tone === 'accent' && 'cta-block--accent']}>
   <div class="cta-block__inner">
     <h2>{heading}</h2>
     <p>{line}</p>
@@ -28,6 +29,11 @@ const href = query.toString() ? `/check?${query.toString()}` : '/check';
     padding: clamp(2rem, 5vw, 3rem);
     margin-block: 3rem;
     text-align: center;
+  }
+  /* Accent tone keeps the full-bleed box and light text, but swaps the near-black
+     background for the brand maroon so the whole panel carries the colour. */
+  .cta-block.cta-block--accent {
+    background: var(--accent-strong);
   }
   .cta-block__inner {
     max-width: 640px;
