@@ -1,4 +1,6 @@
 ---
+import Trustpilot from './Trustpilot.astro';
+
 interface Props {
   heading: string;
   // Accepted for backwards compatibility but no longer rendered; CTA blocks
@@ -11,8 +13,6 @@ interface Props {
 }
 // The end CTA box carries the brand maroon by default. Pass tone="dark" for the
 // near-black treatment on a page that needs it.
-import Trustpilot from './Trustpilot.astro';
-
 const { heading, label = 'Check Your Eligibility', scenario = '', src = '', tone = 'accent' } = Astro.props;
 
 const query = new URLSearchParams();
@@ -21,22 +21,27 @@ if (src) query.set('src', src);
 const href = query.toString() ? `/check?${query.toString()}` : '/check';
 ---
 
-<div class:list={['cta-block', 'section--dark', tone === 'accent' && 'cta-block--accent']}>
-  <div class="cta-block__inner">
-    <h2>{heading}</h2>
-    <a class="btn" href={href}>{label}</a>
-    <div class="cta-block__trust">
-      <Trustpilot />
+<div class="cta-block-wrap">
+  <div class:list={['cta-block', 'section--dark', tone === 'accent' && 'cta-block--accent']}>
+    <div class="cta-block__inner">
+      <h2>{heading}</h2>
+      <a class="btn" href={href}>{label}</a>
     </div>
+  </div>
+  <div class="cta-block__trust">
+    <Trustpilot />
   </div>
 </div>
 
 <style>
-  .cta-block {
-    /* Contained and centred, a little under the 760px article column, so the
-       box stays inviting rather than a full-width slab on any page. */
+  /* Contained and centred, a little under the 760px article column, so the
+     box stays inviting rather than a full-width slab on any page. The trust
+     line rides just beneath it within the same width. */
+  .cta-block-wrap {
     max-width: 710px;
     margin: 3rem auto;
+  }
+  .cta-block {
     border-radius: var(--radius);
     padding: clamp(2rem, 5vw, 3rem);
     text-align: center;
@@ -51,7 +56,7 @@ const href = query.toString() ? `/check?${query.toString()}` : '/check';
     margin-inline: auto;
   }
   .cta-block__trust {
-    margin-top: 1.75rem;
+    margin-top: 1.25rem;
   }
   .cta-block h2 {
     margin: 0 0 1.5rem;
