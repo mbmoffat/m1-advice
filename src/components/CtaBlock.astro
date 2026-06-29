@@ -11,6 +11,8 @@ interface Props {
 }
 // The end CTA box carries the brand maroon by default. Pass tone="dark" for the
 // near-black treatment on a page that needs it.
+import Trustpilot from './Trustpilot.astro';
+
 const { heading, label = 'Check Your Eligibility', scenario = '', src = '', tone = 'accent' } = Astro.props;
 
 const query = new URLSearchParams();
@@ -23,6 +25,9 @@ const href = query.toString() ? `/check?${query.toString()}` : '/check';
   <div class="cta-block__inner">
     <h2>{heading}</h2>
     <a class="btn" href={href}>{label}</a>
+    <div class="cta-block__trust">
+      <Trustpilot />
+    </div>
   </div>
 </div>
 
@@ -44,6 +49,9 @@ const href = query.toString() ? `/check?${query.toString()}` : '/check';
   .cta-block__inner {
     max-width: 640px;
     margin-inline: auto;
+  }
+  .cta-block__trust {
+    margin-top: 1.75rem;
   }
   .cta-block h2 {
     margin: 0 0 1.5rem;

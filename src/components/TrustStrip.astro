@@ -1,11 +1,11 @@
 ---
-import site from '../config/site';
+import Trustpilot from './Trustpilot.astro';
 ---
 
 <ul class="trust-strip">
   <li>An appointed representative of Quilter Financial Services Limited</li>
   <li>Free initial consultation</li>
-  <li><a href={site.trustpilot}>Rated on Trustpilot</a></li>
+  <li class="trust-strip__tp"><Trustpilot /></li>
 </ul>
 
 <style>
@@ -27,6 +27,9 @@ import site from '../config/site';
   }
   .trust-strip li:last-child {
     padding-right: 0;
+  }
+  .trust-strip__tp {
+    min-width: 180px;
   }
   .trust-strip li:not(:last-child)::after {
     content: '';
