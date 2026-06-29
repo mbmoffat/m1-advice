@@ -4,7 +4,7 @@ name: Notify sign-off needed
 # so locked-file / judgement-call PRs are not auto-merged without a human review.
 on:
   pull_request:
-    types: [opened, labeled]
+    types: [labeled]
     branches: [main]
 
 permissions:
@@ -12,11 +12,9 @@ permissions:
 
 jobs:
   notify:
-    # Fire only when the PR carries the "needs-signoff" label: either it was
-    # opened already carrying it, or that specific label was just added.
-    if: >-
-      (github.event.action == 'opened' || github.event.label.name == 'needs-signoff')
-      && contains(github.event.pull_request.labels.*.name, 'needs-signoff')
+    # Fire only when the needs-signoff label is added, so each PR sends exactly
+    # one email and any other label never sends mail.
+    if: github.event.label.name == 'needs-signoff'
     runs-on: ubuntu-latest
     steps:
       - name: Send sign-off email via Resend
