@@ -6,7 +6,7 @@
 
   // Populate hidden fields from query params, with referrer fallback for src.
   const params = new URLSearchParams(window.location.search);
-  const scenario = params.get('scenario') || '';
+  const scenario = params.get('scenario') || 'general';
   const src = params.get('src') || document.referrer || '';
   const scenarioField = form.querySelector('#quiz-scenario');
   const sourceField = form.querySelector('#quiz-source');

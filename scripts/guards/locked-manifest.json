@@ -7,7 +7,7 @@
   "src/components/locked/EnquiryForm.astro": "c7b66d358edffe777e25c4f75df43cd556afd89e695f2e905cb7929740ed33d1",
   "src/components/locked/Footer.astro": "780381308acac786c533f152600f8613482b3f76570e71a854cff2cabf6b4e15",
   "src/components/locked/Header.astro": "a96d9258b57e6c786ba112e4c61010e71f5bf0696f6b283debc3fe09e7fe6cda",
-  "src/components/locked/Quiz.astro": "2783984caeadfa576965cdc4d5142c555da3f4f70b990e8d785f68638bfcea34",
+  "src/components/locked/Quiz.astro": "8da44277c3bd9d42f738873e200c9c99440a4d25f1e733b12f7f5815a0dbaef9",
   "src/config/form.ts": "ce2b2ef2247b10d720b1d99a1fbcce4e73b4a9ecfebedae36afc8db420475747",
   "src/config/site.ts": "ffe8e3355544cc5d2e2eefcc51f676be68c64ac3b2c857687f6b567b98640efc"
 }
