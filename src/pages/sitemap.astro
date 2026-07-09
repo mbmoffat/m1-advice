@@ -6,7 +6,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 // slug, with the hub or pillar page first in each group.
 const pageModules = import.meta.glob('./**/*.astro');
 // 404 and thank-you are not indexable; the sitemap never links to itself.
-const exclude = new Set(['/404', '/thank-you', '/sitemap']);
+// The LTV calculator is deliberately noindex (parked as an in-journey conversion
+// tool only), so it is kept out of the sitemap too.
+const exclude = new Set(['/404', '/thank-you', '/sitemap', '/loan-to-value-calculator']);
 const routes = Object.keys(pageModules)
   .map((p) => {
     const r = p.replace(/^\.\//, '/').replace(/\.astro$/, '').replace(/\/index$/, '');
