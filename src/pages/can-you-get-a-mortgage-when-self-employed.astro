@@ -28,12 +28,20 @@ const faqs = [
     a: 'Most lenders look for two full years of trading, and some ask for three, but a single complete year is often enough to begin. A growing number of lenders will consider one year of accounts or one set of tax figures where the income looks steady and the work is secure. A shorter record narrows the choice of lender rather than ruling you out, so it is worth checking the market before deciding to wait.',
   },
   {
-    q: 'What deposit do I need when self-employed?',
-    a: 'The same as an employed buyer. A deposit of around a tenth of the price opens the mainstream market, and more than that widens your choice of lender and eases the affordability test. There is no self-employed surcharge on the deposit. A larger deposit simply gives you more lenders to choose from, which matters more when your income needs a particular lender to read it the way your business works.',
+    q: 'Can I get a mortgage on one year of accounts?',
+    a: 'Yes, with a smaller pool of lenders. Some will lend on a single complete year of accounts or one set of tax figures where the business is established and the income looks sustainable, and a clean first year with a clear pipeline of work reads far better than an uneven one. Where you did the same work as an employee before going out on your own, some lenders give that earlier experience weight too.',
   },
   {
-    q: 'Can I get a mortgage in my first year of self-employment?',
-    a: 'Sometimes, though the pool of lenders is smaller. A handful will consider a first full year of accounts where the business is established and the income looks sustainable, and some give weight to time spent doing the same work as an employee before you went out on your own. They study the trend and how secure the income is, so a clean first year with a clear pipeline of work reads far better than an uneven one.',
+    q: 'How do lenders treat a company director who leaves profit in the business?',
+    a: 'It depends which lender you approach. Many assess a director on salary plus dividends drawn in the year, so profit left inside the company is not counted. A smaller group will assess salary plus your share of the company net or retained profit, which can produce a much higher assessable income for the same business. If you draw a modest salary and retain profit for tax reasons, the second approach can change what you can borrow, so the choice of lender matters more here than almost anywhere.',
+  },
+  {
+    q: 'How is day-rate contractor income assessed?',
+    a: 'Many lenders will annualise a day rate rather than wait for accounts. A common approach is the day rate multiplied by the days worked each week and by the number of weeks worked in a year, which turns a contract into an annual figure the lender can lend against. This often lets a contractor borrow on their current rate from early in a contract, rather than on last year net profit, provided the contract history is reasonably continuous.',
+  },
+  {
+    q: 'What deposit do I need when self-employed?',
+    a: 'The same as an employed buyer. A deposit of around a tenth of the price opens the mainstream market, and more than that widens your choice of lender and eases the affordability test. There is no self-employed surcharge on the deposit. A larger deposit simply gives you more lenders to choose from, which matters more when your income needs a particular lender to read it the way your business works.',
   },
   {
     q: 'Does an accountant help my chances?',
@@ -52,14 +60,29 @@ const relatedCards = [
     line: 'The full guide to how lenders read self-employed income.',
   },
   {
-    title: 'Foreign currency income',
-    href: '/expat-foreign-currency-income-mortgage',
-    line: 'When your self-employed income is paid in another currency.',
+    title: 'Company director mortgages',
+    href: '/company-director-mortgage',
+    line: 'How salary, dividends and profit are assessed for directors.',
   },
   {
-    title: 'SPV mortgages',
-    href: '/spv-mortgage',
-    line: 'Borrowing through a special purpose vehicle company.',
+    title: 'Director retained profit',
+    href: '/director-retained-profit-mortgage',
+    line: 'Lenders that count profit left inside the company.',
+  },
+  {
+    title: 'Mortgage on one year of accounts',
+    href: '/self-employed-1-year-accounts',
+    line: 'Borrowing on a single complete year of figures.',
+  },
+  {
+    title: 'How much can I borrow, self-employed',
+    href: '/how-much-can-i-borrow-self-employed',
+    line: 'Turning assessed income into a realistic loan.',
+  },
+  {
+    title: 'Self-employed mortgage requirements',
+    href: '/self-employed-mortgage-requirements',
+    line: 'Everything to gather before you apply.',
   },
   { title: 'Check your eligibility', href: '/check', line: 'Five quick questions, about 60 seconds.' },
 ];
@@ -77,50 +100,95 @@ const relatedCards = [
   scenario="self-employed"
 >
   <p>
-    Yes, self-employed borrowers can and do get mortgages. Whether you can depends on your accounts, your circumstances and finding the right lender. There is no separate product and no penalty rate for working for yourself; you qualify on the same terms as an employed buyer once a lender can see your income. The only real difference is how you prove it. Instead of payslips, a lender works out what you earn from your filed accounts and your tax figures, then applies the same affordability test it uses for everyone. This page answers the question directly: whether you can, what actually decides it, and the practical steps that turn a self-employed application into a yes.
+    Yes. Self-employed borrowers get mortgages every day, on the same rates and the same affordability rules as employed
+    buyers. There is no separate product and no penalty rate for working for yourself. The only real difference is how you
+    prove your income: instead of payslips, a lender works it out from your filed accounts and tax figures, then decides
+    which of them to lend against.
   </p>
 
   <Reassurance title="What gives self-employed buyers confidence" lines={reassuranceLines} />
 
-  <h2>The short answer, and what really decides it</h2>
+  <h2>What really decides a self-employed mortgage?</h2>
   <p>
     Being self-employed does not stop you getting a mortgage. What decides the outcome is whether a lender can read a
     stable, provable income from your figures, and whether you have approached one that reads your kind of income well.
     Those two things, not your employment status, are where a self-employed case is won or lost. A sole trader, a partner
-    and a company director are all routinely approved every day. The job is to line your evidence up so the income is
-    obvious and to put it in front of the right lender, which is exactly where planning pays off. Our wider guide to
+    and a company director are all routinely approved. The job is to line your evidence up so the income is obvious and to
+    put it in front of the right lender, which is exactly where planning pays off. Our wider guide to
     <a href="/self-employed-mortgage">self-employed mortgages</a> sets out how each lender works the figures.
   </p>
 
-  <h2>How long you need to have been trading</h2>
+  <h2>How does a lender work out your income?</h2>
+  <p>
+    The method depends on how you trade, and getting the method right is often worth more than any rate. A sole trader is
+    assessed on the net profit shown on their tax calculations, not on turnover, so a business with high takings but modest
+    profit borrows on the profit. A partner is assessed on their share of the partnership profit. A company director is
+    where the approaches diverge most: many lenders assess salary plus the dividends you actually drew in the year, while a
+    smaller group assess salary plus your share of the company net or retained profit. If you pay yourself a modest salary
+    and leave profit inside the company for tax reasons, the first approach can understate what you really earn, and the
+    second can read it far more generously. That single difference in method is why the same accounts can support very
+    different loans, and why matching the structure to the right lender comes before anything else. Our guide to
+    <a href="/company-director-mortgage">company director mortgages</a> works through each route in detail.
+  </p>
+
+  <h2>How long do you need to have been trading?</h2>
   <p>
     This is the question most self-employed buyers ask first. Most lenders want two full years of figures, and some ask
     for three, but a single complete year is often enough to start the conversation. A growing number of lenders will
     consider one year of accounts or one set of tax figures where the business is established and the income looks
     sustainable. If you went self-employed after doing the same work as an employee, some lenders will take that earlier
-    experience into account too. A shorter record narrows the choice of lender rather than closing the door, so it is
-    worth testing the market before you assume you have to wait another tax year.
+    experience into account too. Where you have two or more years, lenders differ on whether they take the latest year, an
+    average of the last two, or the lower of the two if income has dipped, which again is a reason the choice of lender
+    shapes the figure. A shorter record narrows the choice rather than closing the door. Our page on a
+    <a href="/self-employed-1-year-accounts">mortgage on one year of accounts</a> covers the shorter-history route.
   </p>
 
-  <h2>What a lender needs to see</h2>
+  <h2>How do lenders treat directors and retained profit?</h2>
+  <p>
+    Company directors are the clearest example of why lender choice decides the loan. Take a director who draws a £12,000
+    salary and £30,000 in dividends in the year, and leaves further profit inside the company. A lender that assesses
+    salary plus dividends sees an income of £42,000. A lender that assesses salary plus the director's share of the
+    company net profit, where the business made, say, £90,000 of net profit before the dividend was taken, can see a
+    materially higher figure and lend accordingly. Same director, same accounts, a very different mortgage, decided only by
+    which desk reads the case. This is why directors who retain profit should never assume a first decline is the market's
+    answer. Our guide to a <a href="/director-retained-profit-mortgage">director retained profit mortgage</a> sets out the
+    lenders that work this way. These figures are illustrative only, not a quote, offer or advice, and any actual borrowing
+    is subject to full lender assessment and status.
+  </p>
+
+  <MidCta
+    text="Draw a small salary and leave profit in the company? Tell us your salary, dividends and net profit and we will tell you which lenders read it most generously."
+    scenario="self-employed"
+    src={slug}
+  />
+
+  <h2>How is day-rate contractor income assessed?</h2>
+  <p>
+    Contractors on a day rate are often assessed on the contract rather than on last year's accounts. A common approach is
+    to annualise the rate: the day rate multiplied by the days worked each week and by the weeks worked in the year. A
+    contractor on £450 a day, working five days a week for around 46 weeks, annualises to roughly £103,500, and a lender
+    lending at a multiple of that figure could support a loan well into the hundreds of thousands, on the current rate
+    rather than on historic profit. Lenders that work this way usually want a reasonably continuous contract history and a
+    contract with some time left to run, and the treatment can apply whether you contract through your own limited company
+    or an umbrella arrangement. It is one of the most useful routes for a contractor whose accounts understate their true
+    earning power. Again, these figures are illustrative only, not a quote, offer or advice, and any actual borrowing is
+    subject to full lender assessment and status.
+  </p>
+
+  <h2>What does a lender need to see?</h2>
   <p>
     A self-employed application runs on documents, and having them ready and agreeing with each other is what most often
     keeps a case moving. Plan for your tax calculations, often called SA302s, with the tax year overviews that confirm the
     tax was paid, both from HM Revenue and Customs. You will also want your finalised accounts prepared by an accountant,
     and personal and business bank statements covering the last three months. Company directors should expect to show the
-    company accounts as well. Where your tax figures and your accounts tell the same story, an underwriter can move
-    quickly; where they do not line up, the case stalls while the gap is explained, so it pays to check they agree before
-    you apply. Our guide to <a href="/self-employed-mortgage-requirements">self-employed mortgage requirements</a> sets
-    out everything to gather before you start.
+    company accounts as well, and contractors should have their current contract to hand. Where your tax figures and your
+    accounts tell the same story, an underwriter can move quickly; where they do not line up, the case stalls while the gap
+    is explained, so it pays to check they agree before you apply. Our guide to
+    <a href="/self-employed-mortgage-requirements">self-employed mortgage requirements</a> sets out everything to gather
+    before you start.
   </p>
 
-  <MidCta
-    text="Want to know whether your figures already stack up? Tell us your structure and your income and we will tell you where you stand."
-    scenario="self-employed"
-    src={slug}
-  />
-
-  <h2>How much you can borrow</h2>
+  <h2>How much can you borrow when self-employed?</h2>
   <p>
     Once a lender has settled on your income, affordability works exactly as it does for an employed buyer. Most lenders
     work to an income multiple of around four and a half to five times your assessed income, then test that the
@@ -146,7 +214,7 @@ const relatedCards = [
     income well, not in accepting a worse deal.
   </p>
 
-  <h2>How to improve your chances of approval</h2>
+  <h2>How can you improve your chances of approval?</h2>
   <p>
     A few steps make a self-employed application markedly easier. Keep your accounts and your tax calculations consistent,
     because a mismatch is the most common reason a case slows down. Time your application for after a strong year where you
