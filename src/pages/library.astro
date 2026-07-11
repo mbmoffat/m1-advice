@@ -1,0 +1,692 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+import site from '../config/site';
+import { buildLibrary } from '../lib/library.js';
+
+const { sections, entries, stats } = await buildLibrary();
+
+const canonical = site.host + '/library';
+const statsLine = `${stats.guides} guides · ${stats.calculators} calculators · updated ${stats.buildDate}`;
+
+// Section title lookup so each card's search text includes its section.
+const sectionTitleOf = Object.fromEntries(sections.map((s) => [s.id, s.title]));
+
+// CollectionPage + ItemList. BreadcrumbList is emitted by BaseLayout from the
+// breadcrumbs prop, matching the existing schema pattern.
+const collectionPage = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Mortgage Library',
+  headline: 'Every mortgage guide, tool and calculator in one place',
+  description:
+    'Browse every Mortgage One guide, calculator and specialist advice page in one place. Search by topic or A-Z and find the right starting point for your case.',
+  url: canonical,
+  isPartOf: { '@type': 'WebSite', name: 'Mortgage One', url: site.host },
+};
+
+const itemList = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Mortgage One guides, calculators and specialist advice pages',
+  numberOfItems: entries.length,
+  itemListElement: entries.map((e, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    url: e.url,
+    name: e.title,
+  })),
+};
+---
+
+<BaseLayout
+  title="Mortgage Library: Every Guide & Calculator | Mortgage One"
+  description="Browse every Mortgage One guide, calculator and specialist advice page in one place. Search by topic or A-Z and find the right starting point for your case."
+  breadcrumbs={[
+    { name: 'Home', href: '/' },
+    { name: 'Library', href: '/library' },
+  ]}
+>
+  <div class="lib">
+    <!-- Hero -->
+    <section class="section lib-hero">
+      <div class="container">
+        <p class="eyebrow">The Mortgage Library</p>
+        <h1>Every mortgage guide, tool and calculator in one place</h1>
+        <p class="lead lib-hero__intro">
+          One index for the whole of Mortgage One. Specialist advice from this hub and every guide on the main site,
+          grouped by the situation you are in. Search it, browse by topic, or scan the A-Z.
+        </p>
+        <p class="lib-stats">{statsLine}</p>
+
+        <div class="lib-search">
+          <label class="visually-hidden" for="lib-search-input">Search the library</label>
+          <span class="lib-search__icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          </span>
+          <input
+            id="lib-search-input"
+            type="search"
+            class="lib-search__input"
+            placeholder="Search by topic, lender type or situation"
+            autocomplete="off"
+            aria-describedby="lib-search-hint"
+          />
+          <kbd class="lib-search__kbd" aria-hidden="true">/</kbd>
+        </div>
+        <p id="lib-search-hint" class="visually-hidden">Press the slash key to jump to search.</p>
+      </div>
+    </section>
+
+    <!-- Sticky filter bar -->
+    <span class="lib-bar__sentinel" aria-hidden="true"></span>
+    <div class="lib-bar" data-lib-bar>
+      <div class="container lib-bar__inner">
+        <div class="lib-pills" role="group" aria-label="Filter by topic">
+          <button type="button" class="pill is-active" data-cat="all" aria-pressed="true">
+            All <span class="pill__count">{entries.length}</span>
+          </button>
+          {sections.map((s) => (
+            <button type="button" class="pill" data-cat={s.id} aria-pressed="false">
+              {s.title} <span class="pill__count">{s.entries.length}</span>
+            </button>
+          ))}
+        </div>
+        <div class="lib-toggle" role="group" aria-label="View">
+          <button type="button" class="lib-toggle__btn is-active" data-view="topic" aria-pressed="true">By topic</button>
+          <button type="button" class="lib-toggle__btn" data-view="az" aria-pressed="false">A-Z</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Results -->
+    <section class="section lib-results">
+      <div class="container">
+        <!-- Empty state -->
+        <div class="lib-empty" data-lib-empty hidden>
+          <p class="lib-empty__text">No matches. Tell us your situation instead and we will point you the right way.</p>
+          <a class="btn" href="/check">Check your eligibility</a>
+        </div>
+
+        <!-- By-topic view -->
+        <div class="lib-topic" data-lib-topic>
+          {sections.map((s, i) => (
+            <Fragment>
+              <section class="lib-section" data-cat-section={s.id} aria-labelledby={`sec-${s.id}`}>
+                <div class="lib-section__head">
+                  <h2 id={`sec-${s.id}`}>{s.title}</h2>
+                  <p class="lib-section__intro">{s.intro}</p>
+                </div>
+                <div class="grid grid--3 lib-grid">
+                  {s.entries.map((e) => (
+                    <a
+                      class="card lib-card"
+                      href={e.href}
+                      target={e.source === 'm1' ? '_blank' : undefined}
+                      rel={e.source === 'm1' ? 'noopener' : undefined}
+                      data-cat={e.section}
+                      data-type={e.type}
+                      data-source={e.source}
+                      data-letter={e.letter}
+                      data-title={e.title}
+                      data-text={`${e.title} ${e.description} ${sectionTitleOf[e.section]}`.toLowerCase()}
+                    >
+                      <span class="lib-card__meta">
+                        <span class="chip" data-type={e.type}>{e.type}</span>
+                        {e.source === 'm1' && (
+                          <span class="lib-card__site">
+                            Main site
+                            <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                          </span>
+                        )}
+                      </span>
+                      <span class="lib-card__title">{e.title}</span>
+                      {e.description && <span class="lib-card__desc">{e.description}</span>}
+                    </a>
+                  ))}
+                </div>
+              </section>
+              {s.id === 'self-employed' && (
+                <div class="lib-midband">
+                  <p class="lib-midband__text">
+                    Not sure which page you need? Answer a few quick questions and we will point you at the right one.
+                  </p>
+                  <a class="btn" href="/check">Check your eligibility</a>
+                </div>
+              )}
+            </Fragment>
+          ))}
+        </div>
+
+        <!-- A-Z view, built client-side from the cards above -->
+        <div class="lib-az" data-lib-az hidden></div>
+      </div>
+    </section>
+
+    <!-- Site-standard end CTA -->
+    <section class="section">
+      <div class="container">
+        <CtaBlock
+          heading="Not sure where to start? Tell us your situation"
+          src="/library"
+        />
+        <p class="risk-warning">
+          Think carefully before securing your debts against your home. Your home may be repossessed if you do not keep
+          up repayments on your mortgage.
+        </p>
+      </div>
+    </section>
+  </div>
+
+  <script type="application/ld+json" set:html={JSON.stringify([collectionPage, itemList])} is:inline />
+</BaseLayout>
+
+<style>
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* Hero ------------------------------------------------------------------ */
+  .lib-hero {
+    padding-bottom: clamp(1.5rem, 3vw, 2.25rem);
+  }
+  .lib-hero__intro {
+    max-width: 640px;
+  }
+  .lib-stats {
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    font-weight: 700;
+    margin: 0 0 1.75rem;
+  }
+  .lib-search {
+    position: relative;
+    max-width: 640px;
+    display: flex;
+    align-items: center;
+  }
+  .lib-search__icon {
+    position: absolute;
+    left: 1.1rem;
+    display: grid;
+    place-items: center;
+    color: var(--ink-soft);
+    pointer-events: none;
+  }
+  .lib-search__input {
+    width: 100%;
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    color: var(--ink);
+    background: var(--surface);
+    border: 1.5px solid var(--line);
+    border-radius: 999px;
+    padding: 0.95rem 3.25rem 0.95rem 3rem;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  .lib-search__input::placeholder {
+    color: var(--ink-soft);
+    opacity: 0.7;
+  }
+  .lib-search__input:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(193, 21, 107, 0.18);
+  }
+  .lib-search__kbd {
+    position: absolute;
+    right: 1rem;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    line-height: 1;
+    color: var(--ink-soft);
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 0.2rem 0.45rem;
+    pointer-events: none;
+  }
+
+  /* Sticky filter bar ----------------------------------------------------- */
+  .lib-bar__sentinel {
+    display: block;
+    height: 1px;
+  }
+  .lib-bar {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: color-mix(in srgb, var(--bg) 82%, transparent);
+    -webkit-backdrop-filter: saturate(1.4) blur(10px);
+    backdrop-filter: saturate(1.4) blur(10px);
+    border-block: 1px solid var(--line);
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+  .lib-bar.is-stuck {
+    box-shadow: 0 6px 20px -12px rgba(0, 0, 0, 0.35);
+    border-bottom-color: var(--line);
+  }
+  .lib-bar__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-block: 0.7rem;
+  }
+  .lib-pills {
+    display: flex;
+    flex: 1 1 auto;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    /* min-width:0 lets this flex item shrink instead of forcing the bar (and
+       so the whole page) wider than the viewport on narrow screens. */
+    min-width: 0;
+    padding-bottom: 2px;
+  }
+  .lib-pills::-webkit-scrollbar {
+    display: none;
+  }
+  .pill {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--ink);
+    background: var(--surface);
+    border: 1.5px solid var(--line);
+    border-radius: 999px;
+    padding: 0.45rem 0.9rem;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+  }
+  .pill:hover {
+    border-color: var(--accent);
+  }
+  .pill.is-active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--dark-ink);
+  }
+  .pill__count {
+    font-size: 0.78rem;
+    font-weight: 700;
+    opacity: 0.75;
+  }
+  .pill.is-active .pill__count {
+    opacity: 0.85;
+  }
+  .pill:focus-visible,
+  .lib-toggle__btn:focus-visible,
+  .lib-card:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+  .lib-toggle {
+    flex: 0 0 auto;
+    display: inline-flex;
+    background: var(--surface);
+    border: 1.5px solid var(--line);
+    border-radius: 999px;
+    padding: 2px;
+  }
+  .lib-toggle__btn {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--ink-soft);
+    background: transparent;
+    border: 0;
+    border-radius: 999px;
+    padding: 0.4rem 0.9rem;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .lib-toggle__btn.is-active {
+    background: var(--ink);
+    color: var(--dark-ink);
+  }
+
+  /* Results --------------------------------------------------------------- */
+  .lib-section {
+    margin-bottom: clamp(2.5rem, 5vw, 3.75rem);
+  }
+  .lib-section__head {
+    max-width: 640px;
+    margin-bottom: 1.5rem;
+  }
+  .lib-section__head h2 {
+    margin: 0 0 0.35rem;
+  }
+  .lib-section__intro {
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: 1.02rem;
+  }
+  .lib-grid {
+    align-items: stretch;
+  }
+
+  /* Card ------------------------------------------------------------------ */
+  .lib-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    text-decoration: none;
+    color: inherit;
+    padding: 1.35rem 1.4rem;
+    transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  .lib-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent);
+    box-shadow: 0 12px 26px -18px rgba(0, 0, 0, 0.4);
+  }
+  .lib-card__meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+  .chip {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    color: var(--ink-soft);
+  }
+  .chip[data-type='Calculator'],
+  .chip[data-type='Tool'] {
+    background: color-mix(in srgb, var(--accent) 12%, var(--surface));
+    border-color: color-mix(in srgb, var(--accent) 30%, var(--line));
+    color: var(--accent-strong);
+  }
+  .lib-card__site {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--ink-soft);
+  }
+  .lib-card__title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.12rem;
+    line-height: 1.25;
+  }
+  .lib-card__desc {
+    color: var(--ink-soft);
+    font-size: 0.92rem;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Mid band -------------------------------------------------------------- */
+  .lib-midband {
+    max-width: 710px;
+    margin: 0 auto clamp(2.5rem, 5vw, 3.75rem);
+    background: var(--dark);
+    color: var(--dark-ink);
+    border-radius: var(--radius);
+    padding: clamp(1.75rem, 4vw, 2.5rem);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+  }
+  .lib-midband__text {
+    margin: 0;
+    font-size: 1.15rem;
+    max-width: 34ch;
+  }
+
+  /* A-Z view -------------------------------------------------------------- */
+  .lib-az__rail {
+    position: sticky;
+    top: 3.5rem;
+    z-index: 10;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    padding: 0.75rem 0;
+    margin-bottom: 1.5rem;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+  }
+  .lib-az__rail a {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-decoration: none;
+    color: var(--ink);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    min-width: 1.9rem;
+    text-align: center;
+    padding: 0.3rem 0.4rem;
+  }
+  .lib-az__rail a:hover {
+    border-color: var(--accent);
+    color: var(--accent-strong);
+  }
+  .lib-az__group {
+    margin-bottom: 2.5rem;
+    scroll-margin-top: 5rem;
+  }
+  .lib-az__letter {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    border-bottom: 2px solid var(--accent);
+    display: inline-block;
+    padding-bottom: 0.2rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .risk-warning {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--line);
+    padding-top: 1.5rem;
+    margin: 2rem 0 0;
+  }
+
+  @media (max-width: 720px) {
+    .lib-bar__inner {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.6rem;
+    }
+    /* On mobile the pills become a single horizontally scrollable row. */
+    .lib-pills {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .lib-toggle {
+      align-self: flex-start;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .lib-card,
+    .lib-bar,
+    .pill,
+    .lib-search__input {
+      transition: none;
+    }
+    .lib-card:hover {
+      transform: none;
+    }
+  }
+</style>
+
+<script>
+  // Progressive enhancement only. With JS off, every card is rendered and
+  // visible in the by-topic view; search, filtering and the A-Z view are extras.
+  (() => {
+    const bar = document.querySelector('[data-lib-bar]');
+    const sentinel = document.querySelector('.lib-bar__sentinel');
+    const search = document.getElementById('lib-search-input');
+    const pills = Array.from(document.querySelectorAll('.pill'));
+    const toggles = Array.from(document.querySelectorAll('.lib-toggle__btn'));
+    const topic = document.querySelector('[data-lib-topic]');
+    const az = document.querySelector('[data-lib-az]');
+    const empty = document.querySelector('[data-lib-empty]');
+    const cards = Array.from(topic.querySelectorAll('.lib-card'));
+    const sectionEls = Array.from(topic.querySelectorAll('[data-cat-section]'));
+    const midband = topic.querySelector('.lib-midband');
+
+    let activeCat = 'all';
+    let query = '';
+    let view = 'topic';
+
+    const matches = (card) => {
+      const okCat = activeCat === 'all' || card.dataset.cat === activeCat;
+      const okText = query === '' || (card.dataset.text || '').includes(query);
+      return okCat && okText;
+    };
+
+    function renderTopic() {
+      let visible = 0;
+      cards.forEach((card) => {
+        const show = matches(card);
+        card.hidden = !show;
+        if (show) visible++;
+      });
+      // Hide a section (and its heading) when it has no visible cards.
+      sectionEls.forEach((sec) => {
+        const any = Array.from(sec.querySelectorAll('.lib-card')).some((c) => !c.hidden);
+        sec.hidden = !any;
+      });
+      if (midband) midband.hidden = activeCat !== 'all' || query !== '';
+      return visible;
+    }
+
+    function renderAz() {
+      const shown = cards.filter(matches);
+      az.textContent = '';
+      if (!shown.length) return;
+      const byLetter = new Map();
+      shown.forEach((c) => {
+        const l = c.dataset.letter || '#';
+        if (!byLetter.has(l)) byLetter.set(l, []);
+        byLetter.get(l).push(c);
+      });
+      const letters = Array.from(byLetter.keys()).sort();
+
+      const rail = document.createElement('nav');
+      rail.className = 'lib-az__rail';
+      rail.setAttribute('aria-label', 'Jump to letter');
+      letters.forEach((l) => {
+        const a = document.createElement('a');
+        a.href = '#lib-az-' + l;
+        a.textContent = l;
+        rail.appendChild(a);
+      });
+      az.appendChild(rail);
+
+      letters.forEach((l) => {
+        const group = document.createElement('section');
+        group.className = 'lib-az__group';
+        group.id = 'lib-az-' + l;
+        const h = document.createElement('h2');
+        h.className = 'lib-az__letter';
+        h.textContent = l;
+        group.appendChild(h);
+        const grid = document.createElement('div');
+        grid.className = 'grid grid--3 lib-grid';
+        byLetter
+          .get(l)
+          .sort((a, b) => (a.dataset.title || '').localeCompare(b.dataset.title || '', 'en-GB'))
+          .forEach((c) => {
+            const clone = c.cloneNode(true);
+            clone.hidden = false;
+            grid.appendChild(clone);
+          });
+        group.appendChild(grid);
+        az.appendChild(group);
+      });
+    }
+
+    function apply() {
+      const visible = view === 'topic' ? renderTopic() : (cards.filter(matches).length);
+      if (view === 'az') renderAz();
+      empty.hidden = visible !== 0;
+      // Keep the inactive view empty/hidden to avoid duplicate content.
+      topic.hidden = view !== 'topic';
+      az.hidden = view !== 'az';
+      if (view === 'topic') az.textContent = '';
+    }
+
+    pills.forEach((p) => {
+      p.addEventListener('click', () => {
+        activeCat = p.dataset.cat;
+        pills.forEach((x) => {
+          const on = x === p;
+          x.classList.toggle('is-active', on);
+          x.setAttribute('aria-pressed', String(on));
+        });
+        apply();
+      });
+    });
+
+    toggles.forEach((t) => {
+      t.addEventListener('click', () => {
+        view = t.dataset.view;
+        toggles.forEach((x) => {
+          const on = x === t;
+          x.classList.toggle('is-active', on);
+          x.setAttribute('aria-pressed', String(on));
+        });
+        apply();
+      });
+    });
+
+    if (search) {
+      search.addEventListener('input', () => {
+        query = search.value.trim().toLowerCase();
+        apply();
+      });
+    }
+
+    // "/" focuses search, unless the user is already typing in a field.
+    document.addEventListener('keydown', (e) => {
+      if (e.key !== '/' || e.metaKey || e.ctrlKey || e.altKey) return;
+      const tag = (document.activeElement && document.activeElement.tagName) || '';
+      if (tag === 'INPUT' || tag === 'TEXTAREA' || document.activeElement.isContentEditable) return;
+      e.preventDefault();
+      search.focus();
+    });
+
+    // Backdrop-blur emphasis once the bar sticks.
+    if (sentinel && 'IntersectionObserver' in window) {
+      new IntersectionObserver(
+        ([entry]) => bar.classList.toggle('is-stuck', !entry.isIntersecting),
+        { threshold: [1] }
+      ).observe(sentinel);
+    }
+  })();
+</script>
