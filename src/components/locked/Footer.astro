@@ -5,17 +5,18 @@ import Trustpilot from '../Trustpilot.astro';
 
 const www = site.www;
 const cols = [
+  { label: 'BoE Base Rate', href: `${www}/interest-rate-projection` },
   { label: 'About', href: `${www}/about-mortgage-one` },
   { label: 'News', href: `${www}/news` },
   { label: 'Guides', href: `${www}/mortgage-guides` },
   { label: 'Testimonials', href: `${www}/client-testimonials` },
   { label: 'Complaints Procedure', href: `${www}/complaints-procedure-and-risk-warnings` },
+  { label: 'Complete Mortgage Library', href: '/library' },
   { label: 'Islamic Finance', href: `${www}/shariah-compliant-mortgage-advice-by-referral` },
-  { label: 'Contact', href: `${www}/contact` },
   { label: 'Services', href: `${www}/mortgage-services` },
   { label: 'Calculators', href: `${www}/calculators` },
   { label: 'Risk Warning', href: `${www}/complaints-procedure-and-risk-warnings` },
-  { label: 'BoE Base Rate', href: `${www}/interest-rate-projection` },
+  { label: 'Contact', href: `${www}/contact`, bold: true },
 ];
 ---
 
@@ -42,13 +43,8 @@ const cols = [
       <nav class="footer-links" aria-label="Footer">
         <ul>
           {cols.map((item) => (
-            <li><a href={item.href}>{item.label}</a></li>
+            <li><a href={item.href}>{item.bold ? <strong>{item.label}</strong> : item.label}</a></li>
           ))}
-          <li>
-            <a href="https://www.mortgageonefinance.co.uk/s/Guide-to-Our-Mortgage-and-Protection-Services.pdf">
-              Download our Guide to Mortgage and Protection Services
-            </a>
-          </li>
         </ul>
       </nav>
     </div>
