@@ -14,8 +14,11 @@ interface Props {
   breadcrumbs?: Crumb[];
   scenario?: string;
   noindex?: boolean;
+  // Optional. When set (YYYY-MM-DD), the Article schema carries datePublished.
+  // Omitted on existing pages, so their schema is unchanged.
+  datePublished?: string;
 }
-const { title, description, eyebrow, heading, breadcrumbs = [], scenario = '', noindex = false } = Astro.props;
+const { title, description, eyebrow, heading, breadcrumbs = [], scenario = '', noindex = false, datePublished } = Astro.props;
 
 const dateModified = new Date().toISOString().split('T')[0];
 const canonical = site.host + Astro.url.pathname.replace(/\/$/, '');
@@ -35,6 +38,7 @@ const article = {
     name: 'Mortgage One',
     url: site.www,
   },
+  ...(datePublished ? { datePublished } : {}),
   dateModified,
   mainEntityOfPage: canonical,
 };

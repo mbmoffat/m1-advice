@@ -2,7 +2,7 @@
   "CLAUDE.md": "c6e7e597cf2032872846030807ce4468d6b375b3691377a3c420c6eb97923db9",
   "astro.config.mjs": "7d204e55c1d1b71f4a399e7053eba81703a179427e441459794a85ffb552e0e6",
   "scripts/guards/lock.mjs": "aa7573a1307107e7ee471807cd0d12d693b307986b239707e40ba6d31f2c5d53",
-  "scripts/guards/postbuild.mjs": "a5bd428be90987f0da31d9548a876f91c298822ca88439e930438fe0b1e938a5",
+  "scripts/guards/postbuild.mjs": "9720c48eb888b13e69d441798dc0da63d369d41b9981fbcd8099369679787f75",
   "scripts/guards/prebuild.mjs": "6c4a6733cfb9dff36f24a30d1a17c3a15fb96c06dca51429dd5b5530b08e502b",
   "src/components/locked/EnquiryForm.astro": "c7b66d358edffe777e25c4f75df43cd556afd89e695f2e905cb7929740ed33d1",
   "src/components/locked/Footer.astro": "421aec36cea65bcc640975f10d8f14dd5ed473880128e1ba051dbb3dbc523c5d",

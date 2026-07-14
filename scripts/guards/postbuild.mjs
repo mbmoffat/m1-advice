@@ -30,6 +30,32 @@ const TEL = 'tel:+441202155992';
 const MAILTO = 'mailto:enquiry@mortgageonefinance.co.uk';
 const APPROVED_EMAIL = 'enquiry@mortgageonefinance.co.uk';
 const APPROVED_PHONES = new Set(['01202155992', '441202155992']);
+
+// G5 external-source allowlist. Scoped to the two named public-data domains
+// cited on /bank-of-england-base-rate-history. Any https anchor whose host is
+// one of these (or a subdomain) is permitted inside <main>; every other
+// external anchor stays blocked. Add domains here only with owner sign-off.
+const EXTERNAL_ALLOWLIST = new Set([
+  'bankofengland.co.uk', // Bank Rate history and MPC decision summaries
+  'mortgagefinancegazette.com', // Moneyfacts average quoted mortgage rates
+]);
+
+function hostOf(href) {
+  try {
+    return new URL(href).hostname.replace(/^www\./, '').toLowerCase();
+  } catch {
+    return null;
+  }
+}
+
+function allowedExternal(href) {
+  const host = hostOf(href);
+  if (!host) return false;
+  for (const domain of EXTERNAL_ALLOWLIST) {
+    if (host === domain || host.endsWith('.' + domain)) return true;
+  }
+  return false;
+}
 const FORBIDDEN = /\b(iva|ccj|dmp|debt management|bankrupt|bankruptcy|bad credit|defaults?|benefits?)\b/;
 
 if (!FORM_ENDPOINT) fail('src/config/form.ts', 'could not read FORM_ENDPOINT');
@@ -167,7 +193,8 @@ for (const file of files) {
       href === TEL ||
       href === MAILTO ||
       href.startsWith(LINKEDIN) ||
-      (TRUSTPILOT && href === TRUSTPILOT);
+      (TRUSTPILOT && href === TRUSTPILOT) ||
+      allowedExternal(href);
     if (!ok) fail(rel, `G5 disallowed anchor in <main>: "${href}"`);
   }
 
