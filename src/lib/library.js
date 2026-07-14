@@ -26,6 +26,7 @@ import {
   typeOf,
   stripBrand,
   FORBIDDEN_WORDS,
+  M2_CARD_OVERRIDES,
 } from '../../data/library-config.mjs';
 
 // Cluster hubs and pillars, surfaced first inside their section.
@@ -92,7 +93,8 @@ function getM2Entries() {
     if (M2_EXCLUDE.has(slug)) continue;
     if (isNoindex(raw)) continue; // hard rule: noindex pages never appear
 
-    const title = scrub(stripBrand(attr(raw, 'title'))) || slug.replace(/^\//, '');
+    const override = M2_CARD_OVERRIDES[slug] || {};
+    const title = scrub(stripBrand(override.title ?? attr(raw, 'title'))) || slug.replace(/^\//, '');
     if (FORBIDDEN_WORDS.test(slug) || FORBIDDEN_WORDS.test(title)) continue;
     const section = categorise(slug);
     entries.push({
@@ -101,7 +103,7 @@ function getM2Entries() {
       href: slug,
       url: site.host + slug,
       title,
-      description: safeDescriptor(attr(raw, 'description')),
+      description: safeDescriptor(override.description ?? attr(raw, 'description')),
       section,
       type: typeOf({ slug, section }),
     });
