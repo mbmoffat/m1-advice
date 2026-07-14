@@ -49,6 +49,11 @@ export const SECTIONS = [
     intro: 'Rates, timing and switching for existing homeowners.',
   },
   {
+    id: 'guides',
+    title: 'Guides and statistics',
+    intro: 'Sourced reference pages and data assets that sit across the clusters rather than inside one.',
+  },
+  {
     id: 'calculators',
     title: 'Calculators',
     intro: 'Quick illustrative tools for repayments, borrowing and more.',
@@ -167,6 +172,24 @@ const CATEGORY_RULES = [
 // landlord borrowing in buy-to-let.
 const OVERRIDES = {
   '/residential-mortgage-through-limited-company': 'self-employed',
+  // Base rate history is an M2 data asset, not cluster content and not a main-site
+  // page. Route it to the non-archetype "Guides and statistics" shelf rather than
+  // letting it fall through to "More from the main site".
+  '/bank-of-england-base-rate-history': 'guides',
+};
+
+// ---------------------------------------------------------------------------
+// M2 CARD COPY OVERRIDES
+// ---------------------------------------------------------------------------
+// Per-slug title and description overrides for this repo's own pages, used when
+// the page's SEO title or meta description does not read cleanly as a library
+// card. Keyed by slug; only the fields present are overridden. Descriptions
+// still pass through the G2 scrub in src/lib/library.js.
+export const M2_CARD_OVERRIDES = {
+  '/bank-of-england-base-rate-history': {
+    title: 'Bank of England Base Rate History',
+    description: 'Sourced base rate history 2020 to 2026 and current average UK fixed rates. Fully cited.',
+  },
 };
 
 export function categorise(slug) {
