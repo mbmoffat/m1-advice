@@ -30,8 +30,8 @@ high-intent default, not drift.
 | Seafarer | /merchant-navy-mortgage | merchant navy mortgage | live |
 | Seafarer | /how-much-can-a-seafarer-borrow | how much can a seafarer borrow | live |
 | Seafarer | /seafarer-mortgage-help | seafarer mortgage help | live |
-| Seafarer | /seafarer-mortgage-deposit | seafarer mortgage deposit | PR open (#12) |
-| Seafarer | /offshore-worker-mortgage | offshore worker mortgage | PR open (#6) |
+| Seafarer | /seafarer-mortgage-deposit | seafarer mortgage deposit | planned |
+| Seafarer | /offshore-worker-mortgage | offshore worker mortgage | planned |
 | Seafarer | /can-a-seafarer-get-a-mortgage | can a seafarer get a mortgage | planned |
 
 ## Expat
@@ -40,10 +40,10 @@ Never target the head term "expat mortgages". Hub is can-an-expat-get-a-uk-mortg
 
 | Cluster | Slug | Target keyword | Status |
 | --- | --- | --- | --- |
-| Expat | /expat-mortgage-deposit | expat mortgage deposit | PR open |
-| Expat | /uk-mortgage-for-expats-in-australia | expat mortgage australia | PR open |
-| Expat | /uk-mortgage-for-expats-in-spain | expat mortgage spain | PR open |
-| Expat | /uk-mortgage-for-expats-in-portugal | expat mortgage portugal | PR open |
+| Expat | /expat-mortgage-deposit | expat mortgage deposit | live |
+| Expat | /uk-mortgage-for-expats-in-australia | expat mortgage australia | live |
+| Expat | /uk-mortgage-for-expats-in-spain | expat mortgage spain | live |
+| Expat | /uk-mortgage-for-expats-in-portugal | expat mortgage portugal | live |
 
 ## Complex income
 

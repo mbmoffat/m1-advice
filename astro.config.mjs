@@ -80,10 +80,14 @@ export default defineConfig({
   integrations: [
     sitemap({
       // /thank-you, /check and /sitemap are non-content routes kept out of the
-      // sitemap. Every other route, including /calculators and all calculator
-      // pages, stays in.
+      // sitemap. /loan-to-value-calculator is parked (noindex) and must not be
+      // listed either. Every other route, including /calculators and all other
+      // calculator pages, stays in.
       filter: (page) =>
-        !/\/thank-you\/?$/.test(page) && !/\/check\/?$/.test(page) && !/\/sitemap\/?$/.test(page),
+        !/\/thank-you\/?$/.test(page) &&
+        !/\/check\/?$/.test(page) &&
+        !/\/sitemap\/?$/.test(page) &&
+        !/\/loan-to-value-calculator\/?$/.test(page),
       serialize(item) {
         item.url = item.url.replace(/\/$/, '');
         item.lastmod = lastmodFor(item.url);
