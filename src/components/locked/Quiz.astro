@@ -22,14 +22,6 @@ const step3 = [
   radio('paid', 'mixed'),
 ];
 const step3Labels = ['Employed', 'Self-employed', 'Contractor or day rate', 'Paid in a foreign currency', 'Mixed or other'];
-
-const step4 = [
-  radio('timing', 'asap'),
-  radio('timing', '1-3-months'),
-  radio('timing', '3-6-months'),
-  radio('timing', 'researching'),
-];
-const step4Labels = ['As soon as possible', '1-3 months', '3-6 months', 'Just researching'];
 ---
 
 <form class="quiz" id="quiz" action={FORM_ENDPOINT} method="POST" data-quiz>
@@ -41,8 +33,8 @@ const step4Labels = ['As soon as possible', '1-3 months', '3-6 months', 'Just re
   <input type="hidden" name="_next" value="https://advice.mortgageonefinance.co.uk/thank-you" />
   <input type="text" name="_honey" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
-  <p class="quiz-headline">See where you stand in 60 seconds</p>
-  <p class="quiz-progress" data-progress hidden>Step 1 of 6</p>
+  <p class="quiz-headline">Answer 5 questions in 60 seconds</p>
+  <p class="quiz-progress" data-progress hidden>Step 1 of 5</p>
 
   <fieldset class="quiz-step" data-step="1">
     <legend>What do you want to do?</legend>
@@ -89,23 +81,7 @@ const step4Labels = ['As soon as possible', '1-3 months', '3-6 months', 'Just re
     </div>
   </fieldset>
 
-  <fieldset class="quiz-step" data-step="4">
-    <legend>When do you need this?</legend>
-    <div class="options">
-      {step4.map((r, i) => (
-        <label class="option" for={r.id}>
-          <input type="radio" id={r.id} name={r.name} value={r.value} required />
-          <span>{step4Labels[i]}</span>
-        </label>
-      ))}
-    </div>
-    <div class="quiz-nav">
-      <button type="button" class="link-back" data-back>Back</button>
-      <button type="button" class="btn" data-next>Continue</button>
-    </div>
-  </fieldset>
-
-  <fieldset class="quiz-step" data-step="5" data-interstitial>
+  <fieldset class="quiz-step" data-step="4" data-interstitial>
     <legend>You're almost there</legend>
     <p class="quiz-interstitial">Most people <span data-goal-phrase>in your situation</span> have options worth exploring. Add your details and a Mortgage One adviser will confirm what is realistic for you.</p>
     <div class="quiz-nav">
@@ -114,9 +90,9 @@ const step4Labels = ['As soon as possible', '1-3 months', '3-6 months', 'Just re
     </div>
   </fieldset>
 
-  <fieldset class="quiz-step" data-step="6">
+  <fieldset class="quiz-step" data-step="5">
     <legend>Where shall we send your answer?</legend>
-    <p class="quiz-step-note">An adviser will reply the same working day.</p>
+    <p class="quiz-step-note">We reply by email the same working day, usually within 60 minutes.</p>
     <div class="field">
       <label for="q-name">Name</label>
       <input id="q-name" type="text" name="name" required autocomplete="name" />
@@ -136,7 +112,7 @@ const step4Labels = ['As soon as possible', '1-3 months', '3-6 months', 'Just re
     </label>
     <div class="quiz-nav">
       <button type="button" class="link-back" data-back>Back</button>
-      <button type="submit" class="btn">Get My Answer</button>
+      <button type="submit" class="btn">Send My Enquiry</button>
     </div>
     <p class="quiz-disclaimer">These figures are illustrative only. They are not a quote, offer or advice. Actual borrowing is subject to full lender assessment and status.</p>
   </fieldset>
