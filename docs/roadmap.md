@@ -19,6 +19,7 @@ high-intent default, not drift.
 - planned: agreed and on the queue, not yet built
 - PR open: pull request open, auto-merges on green guards and Vercel
 - live: deployed and reachable on the subdomain
+- held: paused by Matt, do not build until he changes the status back to planned
 
 ## Seafarer
 
@@ -30,9 +31,9 @@ high-intent default, not drift.
 | Seafarer | /merchant-navy-mortgage | merchant navy mortgage | live |
 | Seafarer | /how-much-can-a-seafarer-borrow | how much can a seafarer borrow | live |
 | Seafarer | /seafarer-mortgage-help | seafarer mortgage help | live |
-| Seafarer | /seafarer-mortgage-deposit | seafarer mortgage deposit | planned |
-| Seafarer | /offshore-worker-mortgage | offshore worker mortgage | planned |
-| Seafarer | /can-a-seafarer-get-a-mortgage | can a seafarer get a mortgage | planned |
+| Seafarer | /seafarer-mortgage-deposit | seafarer mortgage deposit | held |
+| Seafarer | /offshore-worker-mortgage | offshore worker mortgage | held |
+| Seafarer | /can-a-seafarer-get-a-mortgage | can a seafarer get a mortgage | held |
 
 ## Expat
 
