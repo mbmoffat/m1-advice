@@ -8,7 +8,9 @@ const pageModules = import.meta.glob('./**/*.astro');
 // 404 and thank-you are not indexable; the sitemap never links to itself.
 // The LTV calculator is deliberately noindex (parked as an in-journey conversion
 // tool only), so it is kept out of the sitemap too.
-const exclude = new Set(['/404', '/thank-you', '/sitemap', '/loan-to-value-calculator']);
+// These three duplicate pages the main site now owns (www.mortgageonefinance.co.uk),
+// so they are noindex and kept out of the sitemap to stop the two sites competing.
+const exclude = new Set(['/404', '/thank-you', '/sitemap', '/loan-to-value-calculator', '/spv-mortgage', '/company-director-mortgage', '/residential-mortgage-through-limited-company']);
 const routes = Object.keys(pageModules)
   .map((p) => {
     const r = p.replace(/^\.\//, '/').replace(/\.astro$/, '').replace(/\/index$/, '');
