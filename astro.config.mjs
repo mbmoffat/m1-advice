@@ -87,7 +87,12 @@ export default defineConfig({
         !/\/thank-you\/?$/.test(page) &&
         !/\/check\/?$/.test(page) &&
         !/\/sitemap\/?$/.test(page) &&
-        !/\/loan-to-value-calculator\/?$/.test(page),
+        !/\/loan-to-value-calculator\/?$/.test(page) &&
+        // Noindexed because www.mortgageonefinance.co.uk owns these topics.
+        // Kept out of the sitemap so the sitemap lists indexable pages only.
+        !/\/spv-mortgage\/?$/.test(page) &&
+        !/\/company-director-mortgage\/?$/.test(page) &&
+        !/\/residential-mortgage-through-limited-company\/?$/.test(page),
       serialize(item) {
         item.url = item.url.replace(/\/$/, '');
         item.lastmod = lastmodFor(item.url);
