@@ -43,3 +43,4 @@ Organization, WebSite, BreadcrumbList, Article, FAQPage, Service, WebApplication
 ## House style
 British English. No em dashes, en dashes only where a dash is needed. £1,250 format. Spell out abbreviations on first use per page, including Financial Conduct Authority (FCA). Sentence case H1/H2. SEO titles title case, 60 char ceiling. Meta descriptions sentence case, 160 ceiling.
 Mortgage One is a countrywide UK mortgage broker. Never describe it as a Poole, Dorset, local or regional firm.
+Banned claim: never state or imply that a client must be on UK soil, in the UK or physically present in the UK to receive advice. Advice is given wherever the client lives.

@@ -54,14 +54,12 @@ Paid in dollars, on rotation, claiming SED? Each of those changes which lenders 
 
 Seafarer income is not unusual, but it is read very differently from one lender to the next, and a broker who places these cases regularly knows where to take yours. Mortgage One has access to plans from the whole of market and arranges seafarer cases as a core part of the business, not an exception to it.
 
-You must be on UK soil to receive advice.
-
 ## FAQ
 
 1. **Can I get a mortgage if I'm paid in dollars or euros?** Yes. Many lenders accept foreign currency income, though most apply a discount to allow for exchange rate movement. The size of that discount varies by lender, so choosing the right lender can change what you are able to borrow.
 2. **Does the Seafarers Earnings Deduction stop me getting a mortgage?** No. The Seafarers Earnings Deduction reduces your UK tax to nil when you qualify, and lenders who understand seafarers assess your gross contracted income rather than your tax return. The obstacle is only ever lender choice, not the deduction itself.
 3. **Can I get a mortgage with months at sea and gaps in my UK address history?** Yes. Rotational work and limited recent UK address history are normal for seafarers, and the right lenders are used to seeing them. We match your circumstances to a lender whose criteria fit how you live and work.
-4. **How do I start?** Use the 60-second check and a Mortgage One adviser will review your answers and tell you where you stand. You can also call us on 01202 155992. You must be on UK soil to receive advice.
+4. **How do I start?** Use the 60-second check and a Mortgage One adviser will review your answers and tell you where you stand. You can also call us on 01202 155992.
 
 ## CTA block
 
