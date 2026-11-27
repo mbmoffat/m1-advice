@@ -20,7 +20,7 @@ const formSrc = readFileSync(join(ROOT, 'src/config/form.ts'), 'utf8');
 const FORM_ENDPOINT = formSrc.match(/FORM_ENDPOINT\s*=\s*'([^']+)'/)?.[1];
 
 const siteSrc = readFileSync(join(ROOT, 'src/config/site.ts'), 'utf8');
-const QUILTER = siteSrc.match(/privacyNotice:\s*'([^']+)'/)?.[1];
+const PRIVACY_NOTICE = siteSrc.match(/privacyNotice:\s*'([^']+)'/)?.[1];
 const TRUSTPILOT = siteSrc.match(/trustpilot:\s*'([^']+)'/)?.[1];
 
 const HOST = 'https://advice.mortgageonefinance.co.uk';
@@ -59,7 +59,7 @@ function allowedExternal(href) {
 const FORBIDDEN = /\b(iva|ccj|dmp|debt management|bankrupt|bankruptcy|bad credit|defaults?|benefits?)\b/;
 
 if (!FORM_ENDPOINT) fail('src/config/form.ts', 'could not read FORM_ENDPOINT');
-if (!QUILTER) fail('src/config/site.ts', 'could not read privacyNotice');
+if (!PRIVACY_NOTICE) fail('src/config/site.ts', 'could not read privacyNotice');
 
 // --- helpers ---
 function walkHtml(dir) {
@@ -189,7 +189,7 @@ for (const file of files) {
       href.startsWith('/') ||
       href.startsWith(HOST) ||
       href.startsWith(WWW) ||
-      href === QUILTER ||
+      href === PRIVACY_NOTICE ||
       href === TEL ||
       href === MAILTO ||
       href.startsWith(LINKEDIN) ||

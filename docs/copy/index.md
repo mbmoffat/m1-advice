@@ -14,7 +14,7 @@
 
 **Primary CTA:** Check Your Eligibility → `/check`
 
-**Trust strip:** An appointed representative of Quilter Financial Services Limited · Free initial consultation · Rated on Trustpilot
+**Trust strip:** Authorised and regulated by the Financial Conduct Authority · Free initial consultation · Rated on Trustpilot
 
 ## Route cards
 

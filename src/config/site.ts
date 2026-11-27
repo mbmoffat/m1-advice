@@ -7,8 +7,7 @@ export const site = {
   email: 'enquiry@mortgageonefinance.co.uk',
   www: 'https://www.mortgageonefinance.co.uk',
   trustpilot: 'https://uk.trustpilot.com/review/mortgageonefinance.co.uk',
-  privacyNotice:
-    'https://www.quilter.com/important-information/privacy-notices/appointed-representative-privacy-notice/',
+  privacyNotice: 'https://www.mortgageonefinance.co.uk/privacy-policy',
   gscVerification: '',
 } as const;
 
